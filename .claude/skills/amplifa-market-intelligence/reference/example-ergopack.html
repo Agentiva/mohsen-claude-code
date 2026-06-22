@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>amplifa · ErgoPack Market Intelligence Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  :root {
+    --bg: #f6f5f1;
+    --bg-2: #ffffff;
+    --bg-3: #efece5;
+    --ink: #0a0a0f;
+    --ink-2: #1a1a22;
+    --muted: #6b6b75;
+    --muted-2: #9a9aa3;
+    --line: #e6e4dd;
+    --line-2: #d6d4cb;
+    --accent-yel: #ffb800;
+    --accent-red: #ff3b30;
+    --accent-blu: #2a6ffd;
+    --accent-pur: #7b3aed;
+    --accent-grn: #1f8a5b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #0a0a0f; font-family: 'Inter', -apple-system, sans-serif; }
+
+  deck-stage section {
+    background: var(--bg);
+    color: var(--ink);
+    width: 1920px;
+    height: 1080px;
+    padding: 88px 112px;
+    position: relative;
+    overflow: hidden;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  .chrome {
+    position: absolute;
+    inset: 56px 112px auto 112px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .chrome .mark { display: flex; align-items: center; gap: 12px; }
+  .chrome .mark img { height: 22px; display: block; }
+  .chrome .meta { display: flex; gap: 28px; align-items: center; }
+  .chrome .meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-grn); display: inline-block; margin-right: 8px; vertical-align: middle; }
+  .chrome-pages { font-variant-numeric: tabular-nums; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .eyebrow::before {
+    content: ""; width: 28px; height: 1px; background: var(--ink); display: inline-block;
+  }
+  .eyebrow.warn::before { background: var(--accent-red); }
+
+  h1.display { font-size: 132px; line-height: 0.96; letter-spacing: -0.04em; font-weight: 700; margin: 0; text-wrap: balance; }
+  h2.title { font-size: 96px; line-height: 0.98; letter-spacing: -0.035em; font-weight: 700; margin: 0; text-wrap: balance; }
+  h2.title-md { font-size: 72px; line-height: 1.0; letter-spacing: -0.03em; font-weight: 700; margin: 0; text-wrap: balance; }
+  h3.sub { font-size: 32px; line-height: 1.25; letter-spacing: -0.01em; font-weight: 400; color: var(--muted); margin: 0; text-wrap: pretty; }
+  .mono { font-family: 'JetBrains Mono', monospace; font-feature-settings: "ss01"; }
+
+  .body-text { font-size: 22px; line-height: 1.5; color: var(--ink-2); text-wrap: pretty; }
+  .body-text.muted { color: var(--muted); }
+
+  .pad-top { padding-top: 180px; }
+  .pad-top-lg { padding-top: 220px; }
+
+  /* ============ COVER ============ */
+  .s-title { display: grid; grid-template-rows: auto 1fr auto; }
+  .s-title .hero { align-self: center; }
+  .s-title .kicker { font-family: 'JetBrains Mono', monospace; font-size: 18px; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 28px; }
+  .s-title h1.display { font-size: 132px; }
+  .s-title .underline { margin-top: 56px; display: flex; gap: 6px; height: 14px; max-width: 900px; }
+  .s-title .underline span { flex: 1; height: 100%; }
+  .s-title .underline span:nth-child(1) { background: var(--accent-yel); }
+  .s-title .underline span:nth-child(2) { background: var(--accent-red); }
+  .s-title .underline span:nth-child(3) { background: var(--accent-blu); }
+  .s-title .underline span:nth-child(4) { background: var(--accent-pur); }
+  .s-title .underline span:nth-child(5) { background: var(--ink); }
+  .s-title .footnote { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; font-size: 18px; color: var(--muted); }
+  .s-title .footnote strong { color: var(--ink); font-weight: 600; display: block; font-size: 22px; letter-spacing: -0.01em; margin-bottom: 4px; }
+
+  /* ============ DIVIDER ============ */
+  .s-divider { background: var(--ink); color: #fff; display: grid; grid-template-rows: auto 1fr auto; }
+  .s-divider .chrome { color: rgba(255,255,255,0.5); }
+  .s-divider .core { align-self: center; }
+  .s-divider .num { font-family: 'JetBrains Mono', monospace; font-size: 22px; color: rgba(255,255,255,0.5); margin-bottom: 32px; letter-spacing: 0.04em; }
+  .s-divider h2 { font-size: 168px; line-height: 0.92; letter-spacing: -0.04em; font-weight: 700; margin: 0; }
+  .s-divider .sub { font-size: 30px; color: rgba(255,255,255,0.65); margin-top: 48px; max-width: 1100px; line-height: 1.4; }
+  .s-divider .stripe { display: flex; gap: 6px; height: 10px; max-width: 480px; margin-top: 56px; }
+  .s-divider .stripe span { flex: 1; }
+  .s-divider .stripe span:nth-child(1) { background: var(--accent-yel); }
+  .s-divider .stripe span:nth-child(2) { background: var(--accent-red); }
+  .s-divider .stripe span:nth-child(3) { background: var(--accent-blu); }
+  .s-divider .stripe span:nth-child(4) { background: var(--accent-pur); }
+  .s-divider .foot { display: flex; justify-content: space-between; font-size: 16px; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ============ EXECUTIVE SUMMARY ============ */
+  .insights { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 56px; }
+  .insight {
+    background: var(--bg-2); border: 1px solid var(--line);
+    border-radius: 20px; padding: 32px 28px;
+    display: flex; flex-direction: column; min-height: 360px;
+  }
+  .insight .idx { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+  .insight h4 { font-size: 26px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.15; margin: 18px 0 14px; }
+  .insight p { font-size: 16px; line-height: 1.45; color: var(--muted); margin: 0; }
+  .insight .tag { margin-top: auto; padding-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); letter-spacing: 0.06em; }
+  .insight .bar { display: block; width: 36px; height: 4px; margin-bottom: 18px; }
+  .insight:nth-child(1) .bar { background: var(--accent-grn); }
+  .insight:nth-child(2) .bar { background: var(--accent-blu); }
+  .insight:nth-child(3) .bar { background: var(--accent-yel); }
+  .insight:nth-child(4) .bar { background: var(--accent-pur); }
+  .insight:nth-child(5) .bar { background: var(--accent-red); }
+
+  /* ============ COMPANY SNAPSHOT ============ */
+  .snap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+  .snap {
+    background: var(--bg-2); border: 1px solid var(--line);
+    border-radius: 18px; padding: 32px 28px;
+    display: flex; flex-direction: column; min-height: 200px;
+  }
+  .snap .lbl { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .snap .val { font-size: 56px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.0; margin-top: auto; }
+  .snap .val .unit { font-size: 22px; font-weight: 500; color: var(--muted); margin-left: 6px; letter-spacing: -0.01em; }
+  .snap .note { font-size: 14px; color: var(--muted); margin-top: 10px; line-height: 1.35; }
+  .snap.dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .snap.dark .lbl { color: rgba(255,255,255,0.55); }
+  .snap.dark .note { color: rgba(255,255,255,0.6); }
+  .snap.dark .val .unit { color: rgba(255,255,255,0.5); }
+
+  /* ============ BRAND / TIER ARCHITECTURE ============ */
+  .brand-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
+  .brand-card {
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: 22px;
+    padding: 38px 36px 40px; min-height: 480px;
+    display: flex; flex-direction: column;
+  }
+  .brand-card .lvl { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+  .brand-card h3 { font-size: 44px; font-weight: 700; letter-spacing: -0.03em; margin: 12px 0 6px; line-height: 1.0; }
+  .brand-card .tag { font-size: 15px; font-family: 'JetBrains Mono', monospace; color: var(--ink); letter-spacing: 0.04em; margin-bottom: 24px; }
+  .brand-card .desc { font-size: 18px; color: var(--muted); line-height: 1.5; }
+  .brand-card ul { margin: 24px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .brand-card ul li { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--ink-2); display: flex; justify-content: space-between; gap: 16px; }
+  .brand-card ul li span { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 13px; text-align: right; }
+  .brand-card .accent-bar { width: 64px; height: 6px; margin-bottom: 24px; }
+  .brand-card.v-a .accent-bar { background: var(--accent-grn); }
+  .brand-card.v-b .accent-bar { background: var(--accent-blu); }
+  .brand-card.v-c .accent-bar { background: var(--accent-pur); }
+  .brand-card.v-d .accent-bar { background: var(--accent-yel); }
+  .brand-card.v-a { border-color: var(--ink); border-width: 2px; }
+
+  /* ============ MARKET / CRISIS LAYOUT ============ */
+  .crisis { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; padding-top: 180px; }
+  .crisis h2 { margin-top: 28px; }
+  .crisis .lede { font-size: 24px; color: var(--muted); line-height: 1.5; margin-top: 36px; max-width: 640px; }
+  .bars-chart { display: flex; flex-direction: column; gap: 18px; margin-top: 12px; }
+  .bar-line { display: grid; grid-template-columns: 110px 1fr 120px; align-items: center; gap: 20px; }
+  .bar-line .yr { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 600; color: var(--ink); }
+  .bar-line .track { height: 56px; background: var(--bg-3); border-radius: 8px; position: relative; overflow: hidden; }
+  .bar-line .fill { height: 100%; background: var(--ink); border-radius: 8px; display: flex; align-items: center; justify-content: flex-end; padding-right: 18px; color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; }
+  .bar-line.crisis-y .fill { background: var(--accent-red); }
+  .bar-line.future .fill { background: var(--accent-grn); }
+  .bar-line .delta { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 600; color: var(--accent-red); }
+  .bar-line.future .delta { color: var(--accent-grn); }
+  .bar-line .delta.pos { color: var(--accent-grn); }
+
+  /* ============ DRIVERS & INHIBITORS ============ */
+  .di-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .di-col { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 40px 36px; }
+  .di-col.dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .di-col .head { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  .di-col .head .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent-grn); }
+  .di-col.dark .head .dot { background: var(--accent-red); }
+  .di-col .head h4 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+  .di-col ul { margin: 0; padding: 0; list-style: none; }
+  .di-col ul li { padding: 18px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 36px 1fr auto; gap: 18px; align-items: center; }
+  .di-col.dark ul li { border-color: rgba(255,255,255,0.12); }
+  .di-col ul li .ico { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); }
+  .di-col.dark ul li .ico { color: rgba(255,255,255,0.5); }
+  .di-col ul li .txt { font-size: 19px; line-height: 1.35; }
+  .di-col.dark ul li .txt { color: rgba(255,255,255,0.9); }
+  .di-col ul li .val { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 600; text-align: right; }
+  .di-col.dark ul li .val { color: #fff; }
+  .di-col ul li .val.up, .di-col ul li .val.down { color: var(--accent-red); }
+  .di-col ul li .val.pos { color: var(--accent-grn); }
+
+  /* ============ USP / PLATFORMS ============ */
+  .usp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
+  .usp { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 32px 30px; min-height: 240px; display: flex; flex-direction: column; }
+  .usp .nm { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+  .usp .desc { font-size: 16px; color: var(--muted); line-height: 1.45; margin-top: 12px; }
+  .usp .ico-block { width: 56px; height: 56px; border-radius: 14px; background: var(--bg-3); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 18px; }
+  .usp:nth-child(1) .ico-block { background: var(--accent-grn); color: #fff; }
+  .usp:nth-child(2) .ico-block { background: var(--accent-blu); color: #fff; }
+  .usp:nth-child(3) .ico-block { background: var(--ink); color: #fff; }
+  .usp:nth-child(4) .ico-block { background: var(--accent-pur); color: #fff; }
+  .usp:nth-child(5) .ico-block { background: var(--accent-yel); }
+  .usp:nth-child(6) .ico-block { background: var(--accent-red); color: #fff; }
+
+  /* ============ TAM/SAM/SOM ============ */
+  .funnel { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .fn { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 40px 36px; min-height: 460px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .fn .lbl { font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.1em; color: var(--muted); }
+  .fn h4 { font-size: 32px; font-weight: 700; letter-spacing: -0.025em; margin: 16px 0 12px; line-height: 1.1; }
+  .fn .desc { font-size: 17px; color: var(--muted); line-height: 1.45; }
+  .fn .bignum { font-size: 80px; font-weight: 700; letter-spacing: -0.04em; line-height: 0.95; margin-top: auto; }
+  .fn .bignum .unit { font-size: 26px; font-weight: 500; color: var(--muted); margin-left: 6px; letter-spacing: -0.01em; }
+  .fn .alt { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--ink-2); line-height: 1.5; }
+  .fn .alt strong { font-weight: 700; color: var(--ink); }
+  .fn.som { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .fn.som .lbl { color: rgba(255,255,255,0.55); }
+  .fn.som .desc { color: rgba(255,255,255,0.65); }
+  .fn.som .bignum .unit { color: rgba(255,255,255,0.5); }
+  .fn.som .alt { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); }
+  .fn.som .alt strong { color: var(--accent-yel); }
+
+  /* ============ PERSONAS ============ */
+  .persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+  .pcard { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 28px 28px; min-height: 300px; display: flex; flex-direction: column; }
+  .pcard .role { font-size: 24px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; }
+  .pcard .role small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 6px; }
+  .pcard .kpis { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; margin-top: 16px; line-height: 1.5; }
+  .pcard .trig { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+  .pcard .trig strong { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 12px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .pcard .channels { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+  .pcard .channels .ch { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--ink-2); letter-spacing: 0.04em; }
+  .pcard .channels .ch.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  /* ============ SIGNALS / TRIGGER ============ */
+  .signals-list { margin-top: 40px; display: flex; flex-direction: column; gap: 0; }
+  .sig { display: grid; grid-template-columns: 80px 1fr 320px 160px; align-items: center; padding: 17px 0; border-top: 1px solid var(--line-2); gap: 32px; }
+  .sig:last-child { border-bottom: 1px solid var(--line-2); }
+  .sig .num { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--ink); }
+  .sig .nm { font-size: 27px; font-weight: 700; letter-spacing: -0.02em; }
+  .sig .nm small { display: block; font-size: 15px; color: var(--muted); font-weight: 400; margin-top: 6px; line-height: 1.35; }
+  .sig .src { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--muted); }
+  .sig .when { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--ink); font-weight: 600; padding: 8px 14px; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 999px; text-align: center; }
+
+  /* ============ HOOK / MESSAGING ============ */
+  .hooks-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 40px; }
+  .hook { background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 26px 30px; display: flex; flex-direction: column; min-height: 206px; }
+  .hook .idx { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
+  .hook q { display: block; font-size: 22px; line-height: 1.3; letter-spacing: -0.01em; color: var(--ink); font-weight: 500; margin-top: 14px; quotes: "„" "\201C" "\201A" "\2018"; }
+  .hook q::before { content: open-quote; }
+  .hook q::after { content: close-quote; }
+  .hook .ctx { font-size: 12px; color: var(--muted); margin-top: auto; padding-top: 14px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ============ CHANNEL MATRIX (effective view) ============ */
+  .cmx { margin-top: 44px; }
+  .cmx-row { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.7fr; align-items: center; gap: 28px; padding: 24px 0; border-top: 1px solid var(--line-2); }
+  .cmx-row.head { border-top: none; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 0 0 14px; }
+  .cmx-row:last-child { border-bottom: 1px solid var(--line-2); }
+  .cmx-row .pn { font-size: 23px; font-weight: 700; letter-spacing: -0.015em; }
+  .cmx-row .pn small { display: block; font-size: 14px; color: var(--muted); font-weight: 400; margin-top: 4px; }
+  .lv { display: flex; flex-direction: column; gap: 8px; }
+  .lv .badge { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
+  .lv .meter { height: 8px; border-radius: 999px; background: var(--bg-3); overflow: hidden; }
+  .lv .meter i { display: block; height: 100%; border-radius: 999px; }
+  .lv.primar .badge { color: var(--accent-grn); }
+  .lv.primar .meter i { width: 100%; background: var(--accent-grn); }
+  .lv.sek .badge { color: var(--ink); }
+  .lv.sek .meter i { width: 58%; background: var(--ink); }
+  .lv.consent .badge { color: var(--muted); }
+  .lv.consent .meter i { width: 34%; background: var(--muted-2); }
+  .lv.none .badge { color: var(--muted-2); }
+  .lv.none .meter { background: transparent; }
+  .cmx-row .seq { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1.45; }
+  .cmx-row .seq b { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent-grn); font-weight: 700; margin-right: 6px; }
+  .cmx-legend { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 26px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.03em; }
+  .cmx-legend span { display: inline-flex; align-items: center; gap: 9px; }
+  .cmx-legend i { width: 26px; height: 8px; border-radius: 999px; display: inline-block; }
+
+  /* ============ TARGET / VENDOR TABLE ============ */
+  .trg-table { margin-top: 40px; }
+  .trg-row { display: grid; grid-template-columns: 1.4fr 1.6fr 220px; align-items: center; padding: 20px 0; border-top: 1px solid var(--line-2); gap: 28px; }
+  .trg-row.head { border-top: none; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-bottom: 14px; }
+  .trg-row:last-child { border-bottom: 1px solid var(--line-2); }
+  .trg-row .tname { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .trg-row .tname small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 3px; font-family: 'JetBrains Mono', monospace; }
+  .trg-row .tsrc { font-size: 16px; color: var(--muted); line-height: 1.4; }
+  .trg-row .tw { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; padding: 10px 18px; background: var(--bg-2); border-radius: 999px; border: 1px solid var(--line-2); text-align: center; }
+  .trg-row .tw.urgent { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .trg-row .tw.opp { color: var(--muted); }
+
+  /* ============ REFERENCE WALL ============ */
+  .ref-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+  .ref-col { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 34px 32px 36px; display: flex; flex-direction: column; }
+  .ref-col .accent-bar { width: 56px; height: 6px; margin-bottom: 22px; }
+  .ref-col:nth-child(1) .accent-bar { background: var(--accent-grn); }
+  .ref-col:nth-child(2) .accent-bar { background: var(--accent-blu); }
+  .ref-col:nth-child(3) .accent-bar { background: var(--accent-pur); }
+  .ref-col .rh { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+  .ref-col h3 { font-size: 32px; font-weight: 700; letter-spacing: -0.025em; margin: 10px 0 22px; line-height: 1.05; }
+  .ref-col ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .ref-col ul li { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 17px; color: var(--ink); font-weight: 600; letter-spacing: -0.01em; }
+  .ref-col ul li small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 3px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em; }
+
+  /* ============ RISKS ============ */
+  .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .risk { background: var(--bg-2); border: 1px solid var(--line); border-left: 4px solid var(--accent-red); border-radius: 14px; padding: 28px 28px; min-height: 230px; display: flex; flex-direction: column; }
+  .risk .nm { font-size: 22px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; }
+  .risk .desc { font-size: 16px; color: var(--muted); line-height: 1.45; margin-top: 12px; }
+  .risk .mit { margin-top: auto; padding-top: 16px; font-size: 14px; font-family: 'JetBrains Mono', monospace; color: var(--accent-grn); letter-spacing: 0.02em; line-height: 1.4; }
+  .risk .mit strong { display: block; font-size: 11px; color: var(--ink); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+
+  /* ============ PHASED APPROACH ============ */
+  .phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; position: relative; }
+  .phases::before { content: ""; position: absolute; top: 38px; left: 38px; right: 38px; height: 2px; background: var(--line-2); z-index: 0; }
+  .phase { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 36px 32px; position: relative; z-index: 1; min-height: 480px; display: flex; flex-direction: column; }
+  .phase .nd { width: 76px; height: 76px; border-radius: 50%; background: var(--bg-2); border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 22px; margin: -10px 0 24px; }
+  .phase:nth-child(1) .nd { background: var(--ink); color: #fff; }
+  .phase .wk { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .phase h4 { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 10px 0 24px; line-height: 1.1; }
+  .phase ul { margin: 0; padding: 0; list-style: none; }
+  .phase ul li { padding: 14px 0; border-top: 1px solid var(--line); font-size: 16px; color: var(--ink-2); line-height: 1.4; display: grid; grid-template-columns: 16px 1fr; gap: 12px; align-items: start; }
+  .phase ul li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); margin-top: 8px; }
+  .phase .bench { margin-top: auto; padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent-grn); letter-spacing: 0.04em; }
+
+  /* ============ RECOMMENDATIONS ============ */
+  .recs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 48px; }
+  .rec { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 28px 30px; display: flex; gap: 24px; align-items: flex-start; min-height: 140px; }
+  .rec .num { font-family: 'JetBrains Mono', monospace; font-size: 38px; font-weight: 700; color: var(--accent-grn); line-height: 1.0; letter-spacing: -0.02em; min-width: 60px; }
+  .rec h5 { font-size: 22px; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 8px; line-height: 1.2; }
+  .rec p { font-size: 15px; color: var(--muted); line-height: 1.45; margin: 0; }
+
+  /* ============ CAVEATS ============ */
+  .caveats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+  .cv { display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid var(--line-2); }
+  .cv .i { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--accent-red); font-weight: 700; min-width: 30px; }
+  .cv .t { font-size: 16px; color: var(--ink-2); line-height: 1.5; }
+
+  /* ============ PRODUCT CORRECTION (special) ============ */
+  .correction { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; padding-top: 168px; align-items: start; }
+  .correction .lede { font-size: 26px; color: var(--muted); line-height: 1.5; margin-top: 36px; max-width: 680px; }
+  .myth-real { display: flex; flex-direction: column; gap: 20px; }
+  .mr-card { border-radius: 18px; padding: 32px 34px; }
+  .mr-card.myth { background: var(--bg-2); border: 1px solid var(--line); }
+  .mr-card.real { background: var(--ink); color: #fff; }
+  .mr-card .mr-lbl { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+  .mr-card.myth .mr-lbl { color: var(--accent-red); }
+  .mr-card.real .mr-lbl { color: var(--accent-grn); }
+  .mr-card .mr-lbl::before { content: ""; width: 12px; height: 12px; border-radius: 50%; }
+  .mr-card.myth .mr-lbl::before { background: var(--accent-red); }
+  .mr-card.real .mr-lbl::before { background: var(--accent-grn); }
+  .mr-card .mr-head { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin: 18px 0 14px; }
+  .mr-card .mr-body { font-size: 18px; line-height: 1.5; }
+  .mr-card.myth .mr-body { color: var(--muted); }
+  .mr-card.real .mr-body { color: rgba(255,255,255,0.78); }
+  .mr-card .mr-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .mr-card .mr-tags span { font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: 999px; letter-spacing: 0.04em; }
+  .mr-card.myth .mr-tags span { border: 1px solid var(--line-2); color: var(--muted); text-decoration: line-through; }
+  .mr-card.real .mr-tags span { background: rgba(255,255,255,0.1); color: #fff; }
+
+  /* ============ CLOSING ============ */
+  .s-close { background: var(--ink); color: #fff; display: grid; grid-template-rows: auto 1fr auto; }
+  .s-close .chrome { color: rgba(255,255,255,0.5); }
+  .s-close .core { align-self: center; }
+  .s-close .eyebrow { color: rgba(255,255,255,0.55); }
+  .s-close .eyebrow::before { background: rgba(255,255,255,0.6); }
+  .s-close h2 { font-size: 132px; color: #fff; margin-top: 32px; line-height: 0.95; letter-spacing: -0.04em; font-weight: 700; }
+  .s-close .accent { color: var(--accent-grn); }
+  .s-close .sub-cta { font-size: 26px; color: rgba(255,255,255,0.65); max-width: 1080px; margin-top: 40px; line-height: 1.45; }
+  .s-close .actions { display: flex; gap: 24px; margin-top: 56px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 14px; padding: 22px 36px; border-radius: 999px; font-size: 22px; font-weight: 500; letter-spacing: -0.005em; background: #fff; color: var(--ink); text-decoration: none; border: 1px solid #fff; }
+  .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.25); }
+  .btn .arr { width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: #fff; display: inline-flex; align-items: center; justify-content: center; }
+  .btn.ghost .arr { background: rgba(255,255,255,0.12); color: #fff; }
+  .s-close .foot { display: flex; justify-content: space-between; align-items: end; color: rgba(255,255,255,0.5); font-size: 18px; }
+  .s-close .foot strong { color: #fff; display: block; font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .s-close .swatches { display: flex; gap: 8px; margin-top: 48px; }
+  .s-close .swatches span { width: 56px; height: 8px; }
+
+  .pop-red { color: var(--accent-red); }
+  .pop-blu { color: var(--accent-blu); }
+  .pop-yel { color: var(--accent-yel); }
+  .pop-grn { color: var(--accent-grn); }
+</style>
+</head>
+<body>
+<deck-stage>
+
+  <!-- 01 — COVER -->
+  <section data-screen-label="01 Cover" class="s-title">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span><span class="dot"></span>Vertraulich · für ErgoPack</span><span class="chrome-pages">01 / 22</span></div>
+    </div>
+    <div class="hero">
+      <div class="kicker">MARKT-INTELLIGENZ &amp; OUTBOUND-GTM-ANALYSE · DE / DACH · JUNI 2026</div>
+      <h1 class="display">Umreifen<br>ohne<br><span class="pop-red">Bücken.</span></h1>
+      <div class="underline"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="footnote" style="margin-top:96px">
+      <div><strong>Auftraggeber</strong>ErgoPack Deutschland GmbH · Lauingen (Donau)<br>Weltmarktführer ergonomische Paletten-Umreifung · GF Witali Neumann</div>
+      <div><strong>Gegenstand &amp; Zweck</strong>Ergonomische mobile Paletten-Umreifungssysteme<br>KI-gestützte Outbound-Neukundenakquise via amplifa</div>
+      <div><strong>Stand</strong>20. Juni 2026<br>v1.0 · DE · amplifa</div>
+    </div>
+  </section>
+
+  <!-- 02 — DIVIDER · TEIL 01 -->
+  <section data-screen-label="02 Divider Exec" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 01</span><span class="chrome-pages">02 / 22</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 01</div>
+      <h2>Executive<br>Summary.</h2>
+      <p class="sub">Die fünf strategischen Insights, mit denen amplifa für ErgoPack systematisch produzierende und versendende DACH-Betriebe mit manueller Palettenumreifung identifiziert, über Ergonomie, Fachkräftemangel und Zeitersparnis qualifiziert und rechtssicher zur kostenlosen Vor-Ort-Demo führt.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Markt- &amp; Akquise-Intelligenz</span><span>amplifa · für ErgoPack · vertraulich</span></div>
+  </section>
+
+  <!-- 03 — TOP 5 INSIGHTS -->
+  <section data-screen-label="03 Top 5 Insights">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Strategische Insights</span><span class="chrome-pages">03 / 22</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Top 5</span>
+      <h2 class="title-md" style="margin-top:24px">Die&nbsp;fünf&nbsp;Insights<br>für die Akquise-Story.</h2>
+      <div class="insights">
+        <div class="insight">
+          <span class="bar"></span><span class="idx">01</span>
+          <h4>Weltmarktführer in der Nische</h4>
+          <p>ErgoPack besetzt mit der mobilen, ergonomischen Semi-Automatik eine verteidigbare Nische zwischen manuellen Handgeräten und teurer Inline-Vollautomatik — &gt;18.000 Systeme in 60+ Ländern, patentierte Kettenlanze, AGR-Gütesiegel.</p>
+          <div class="tag">→ Positionierung</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">02</span>
+          <h4>Lifco, nicht Mosca</h4>
+          <p>Wichtige Klarstellung fürs Kickoff: ErgoPack gehört seit 2019 mehrheitlich zum schwedischen Lifco-Konzern (Systems Solutions). Mosca ist KEIN Eigentümer, sondern ein Hauptwettbewerber — operative Entscheidungen bleiben lokal in Lauingen.</p>
+          <div class="tag">→ Faktencheck</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">03</span>
+          <h4>Ergonomie ist der Hebel</h4>
+          <p>Muskel-Skelett-Erkrankungen sind die größte Einzeldiagnosegruppe — 20,8 % aller AU-Tage (BAuA 2023). LasthandhabV und ArbSchG verpflichten zu technischen Maßnahmen. Genau hier setzt ErgoPack messbar an.</p>
+          <div class="tag">→ Strategischer Hook</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">04</span>
+          <h4>Fachkräftemangel-Rückenwind</h4>
+          <p>Bis 2028 fehlen bundesweit 768.000 Fachkräfte (IW-Report 34/2025). ErgoPack macht Umreifung 67 % schneller (~40 Sek. statt ~2 Min.) und kompensiert so fehlende Hände im Versand — ein harter ROI-Hook.</p>
+          <div class="tag">→ Markt-Timing</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">05</span>
+          <h4>Compliance ist Pflicht</h4>
+          <p>BVerwG-Urteil 29.01.2025 (6 C 3.23) verschärft § 7 UWG / DSGVO erheblich. Compliant: Telefon-/LinkedIn-first mit dokumentierter Einwilligung VOR jedem E-Mail-/KI-Voice-Einsatz.</p>
+          <div class="tag">→ Compliance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 — DIVIDER · TEIL 02 -->
+  <section data-screen-label="04 Divider Unternehmen" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 02</span><span class="chrome-pages">04 / 22</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 02</div>
+      <h2>Das&nbsp;Unternehmen<br>&amp; das&nbsp;Produkt.</h2>
+      <p class="sub">Die verifizierten Kennzahlen, die drei Produktlinien rund um die patentierte Kettenlanze, die zentrale Eigentümer-Klarstellung (Lifco statt Mosca) und die Positionierung als ergonomische Semi-Automatik zwischen Handgerät und Vollautomatik.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Account-Profil &amp; Portfolio</span><span>Lauingen (Donau) · HRB 13877 Augsburg</span></div>
+  </section>
+
+  <!-- 05 — UNTERNEHMEN SNAPSHOT -->
+  <section data-screen-label="05 Unternehmen Snapshot">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>ErgoPack · Kennzahlen</span><span class="chrome-pages">05 / 22</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Account at a glance</span>
+      <h2 class="title-md" style="margin-top:24px">Der Weltmarktführer<br>in Zahlen.</h2>
+      <div class="snap-grid">
+        <div class="snap"><div class="lbl">Gegründet</div><div class="val">1999<span class="unit"></span></div><div class="note">Andreas Kimmerle · erste Serienmaschinen ~2001/2002 · patentierte Kettenlanze</div></div>
+        <div class="snap"><div class="lbl">Systeme weltweit</div><div class="val">18k+<span class="unit">Stk.</span></div><div class="note">&gt;18.000 Systeme in 60+ Ländern · 60.000+ Anwender</div></div>
+        <div class="snap"><div class="lbl">Vermiedene Bückvorgänge</div><div class="val">3 Mrd.<span class="unit"></span></div><div class="note">Eigenangabe · der zentrale Ergonomie-Proof-Point</div></div>
+        <div class="snap dark"><div class="lbl">Hauptsitz</div><div class="val" style="font-size:40px">Lauingen<br>(Donau)</div><div class="note">Hanns-Martin-Schleyer-Str. 21 · 89415 · Bayern</div></div>
+        <div class="snap"><div class="lbl">Eigentümer</div><div class="val" style="font-size:38px">Lifco AB</div><div class="note">Mehrheit seit 2019 · Systems Solutions · Nasdaq Stockholm</div></div>
+        <div class="snap"><div class="lbl">Handelsregister</div><div class="val" style="font-size:30px">HRB 13877</div><div class="note">Amtsgericht Augsburg · USt-IdNr. DE163176280 · GF W. Neumann</div></div>
+        <div class="snap"><div class="lbl">Umsatz</div><div class="val" style="font-size:34px">~22 Mio.€</div><div class="note">präzise zuletzt 2018 (~85 MA) · aktuell Klasse 10–50 Mio. €</div></div>
+        <div class="snap"><div class="lbl">Mitarbeiter</div><div class="val" style="font-size:40px">100+<span class="unit"></span></div><div class="note">Standort Lauingen, teils inkl. USA · &gt;100 MA</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 — PRODUKTLINIEN (3 SÄULEN) -->
+  <section data-screen-label="06 Produktlinien">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Produktportfolio (bestätigt)</span><span class="chrome-pages">06 / 22</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Drei Linien — eine patentierte Kettenlanze</span>
+      <h2 class="title-md" style="margin-top:24px">E-conomy, X-pert,<br>Air-Versionen.</h2>
+      <div class="brand-cols">
+        <div class="brand-card v-a">
+          <div class="accent-bar"></div>
+          <div class="lvl">LINIE 01 / EINSTIEG</div>
+          <h3>E-conomy</h3>
+          <div class="tag">700 · 713E · 726E · 745E</div>
+          <p class="desc">Das ergonomische Basis-System auf Lenkrollen: Umreifen im Stehen ohne Bücken und Umlaufen. Der Volumen-Türöffner für die meisten Zielbetriebe.</p>
+          <ul>
+            <li>Mechanik <span>Kettenlanze</span></li>
+            <li>Preis <span>~3.200–5.000 €</span></li>
+            <li>Hook <span>Ergonomie · Einstieg</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-b">
+          <div class="accent-bar"></div>
+          <div class="lvl">LINIE 02 / INDUSTRIE</div>
+          <h3>X-pert</h3>
+          <div class="tag">700X · 713X · 726X · 745X</div>
+          <p class="desc">Industrie-Touchscreen, Joystick-Steuerung, Triplex-Tool-Lift, Linienlaser und Lithium-Akku — für hohe Volumina und anspruchsvolle Schwergut-Vertikalen.</p>
+          <ul>
+            <li>Steuerung <span>Touch · Joystick</span></li>
+            <li>Energie <span>Lithium-Akku</span></li>
+            <li>Hook <span>Durchsatz · Komfort</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-c">
+          <div class="accent-bar"></div>
+          <div class="lvl">LINIE 03 / PREMIUM &amp; MODULE</div>
+          <h3>Air &amp; Spezial</h3>
+          <div class="tag">725 Air · 740 Air · Überhöhen-Modul</div>
+          <p class="desc">Schwebende Doppel-Kettenlanze mit Ultraschall-Palettenbreitenerkennung (bis 580 mm), Überhöhen-Modul (Paletten bis ~3 m), Verschlussgeräte &amp; Bänder (PP/PET/Composite).</p>
+          <ul>
+            <li>Erkennung <span>Ultraschall</span></li>
+            <li>Höhe <span>bis ~3 m</span></li>
+            <li>Preis <span>bis ~9.000 €</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 — EIGENTÜMER-KLARSTELLUNG (CORRECTION HIGHLIGHT) -->
+  <section data-screen-label="07 Lifco Klarstellung">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Faktencheck · Eigentümer &amp; Konzern</span><span class="chrome-pages">07 / 22</span></div></div>
+    <div class="correction">
+      <div>
+        <span class="eyebrow warn">Wichtig fürs Kickoff</span>
+        <h2 class="title-md" style="margin-top:24px">Lifco-Konzern —<br>nicht Mosca.</h2>
+        <p class="lede">Im Markt kursiert teils eine falsche Konzernzuordnung. Verifizierter Eigentümer ist die schwedische, börsennotierte Lifco AB (Mehrheit seit 2019, Geschäftsbereich Systems Solutions). Mosca ist im Gegenteil ein Hauptwettbewerber. Auch die kolportierte „Horizon Capital/Sarantis"-Übernahme betrifft einen gleichnamigen ukrainischen Haushaltswaren-Hersteller — nicht ErgoPack Deutschland.</p>
+        <div style="margin-top:36px;padding:24px 28px;background:var(--bg-2);border:1px solid var(--line);border-radius:14px;font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--ink-2);line-height:1.6">Lifco verfolgt ein dezentrales „Buy-and-hold"-Modell (Ende 2025: 275 Gesellschaften, 37 Länder). Operative Eigenständigkeit von ErgoPack bleibt hoch — Entscheidungen weitgehend lokal in Lauingen.</div>
+      </div>
+      <div class="myth-real">
+        <div class="mr-card myth">
+          <div class="mr-lbl">Mythos · zu korrigieren</div>
+          <div class="mr-head">„ErgoPack gehört zu Mosca"</div>
+          <div class="mr-body">Falsch. Mosca (Waldbrunn, &gt;1.100 MA) ist Technologieführer für Inline-/Vollautomatik und damit ein direkter Wettbewerber — kein Mutterkonzern.</div>
+          <div class="mr-tags"><span>Mosca = Mutter</span><span>Sarantis-Deal</span></div>
+        </div>
+        <div class="mr-card real">
+          <div class="mr-lbl">Verifiziert</div>
+          <div class="mr-head">Lifco AB (Schweden)</div>
+          <div class="mr-body">Mehrheitseigentümer seit 2019, kontrolliert von Carl Bennet AB. ErgoPack im Geschäftsbereich Systems Solutions. US-Distributor ErgoStrap (Waukesha WI) 2021 ebenfalls von Lifco übernommen.</div>
+          <div class="mr-tags"><span>Lifco · seit 2019</span><span>Systems Solutions</span><span>dezentral</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 — WETTBEWERB & POSITIONIERUNG -->
+  <section data-screen-label="08 Wettbewerb Positionierung">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Wettbewerbslandschaft</span><span class="chrome-pages">08 / 22</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Drei Wettbewerbsgruppen — eine Nische dazwischen</span>
+      <h2 class="title-md" style="margin-top:24px">Ergonomie schlägt<br>Hand &amp; Vollautomat.</h2>
+      <div class="brand-cols">
+        <div class="brand-card v-b">
+          <div class="accent-bar"></div>
+          <div class="lvl">GRUPPE 01 / INLINE-VOLLAUTOMATIK</div>
+          <h3>Vollautomaten</h3>
+          <div class="tag">hohe Stückzahlen · fixe Linien</div>
+          <p class="desc">Technologieführer für stationäre Hochvolumen-Linien — teuer und unflexibel bei heterogenen Palettengrößen und mittlerem Volumen.</p>
+          <ul>
+            <li>Player <span>Mosca · Signode</span></li>
+            <li>Mosca <span>~182 Mio. € · 1.100 MA</span></li>
+            <li>Signal <span>Stellenabbau 04/2026</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-a">
+          <div class="accent-bar"></div>
+          <div class="lvl">ERGOPACK / DIE NISCHE DAZWISCHEN</div>
+          <h3>Semi-Automatik</h3>
+          <div class="tag">mobil · ergonomisch · flexibel</div>
+          <p class="desc">Mobiles, halbautomatisches System auf Lenkrollen mit Kettenlanze — verteidigbare Nische für mittleres Volumen, heterogene Paletten und Ergonomie-Druck.</p>
+          <ul>
+            <li>Sweet Spot <span>~20–30 Pal./Tag+</span></li>
+            <li>Vorteil <span>kein Bücken</span></li>
+            <li>Siegel <span>AGR · BG-Bau</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-c">
+          <div class="accent-bar"></div>
+          <div class="lvl">GRUPPE 02 / HANDGERÄTE &amp; SUBSTITUTE</div>
+          <h3>Handarbeit</h3>
+          <div class="tag">Akku-Handgeräte · Stretchwickeln</div>
+          <p class="desc">Günstige Akku-Umreifungsgeräte + Abrollwagen oder Stretchwickeln — billig, aber ergonomisch belastend (Bücken/Umlaufen) bzw. anderer Use-Case.</p>
+          <ul>
+            <li>Handgeräte <span>Signode BXT · Fromm</span></li>
+            <li>Weitere <span>Cyklop · Titan · Messersì</span></li>
+            <li>Bänder <span>Teufelberger</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 — DIVIDER · TEIL 03 -->
+  <section data-screen-label="09 Divider Markt" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 03</span><span class="chrome-pages">09 / 22</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 03</div>
+      <h2>Markt&nbsp;&amp;<br>Zielgruppe.</h2>
+      <p class="sub">Der wachsende Umreifungsmaschinen-Markt, die strukturellen Treiber (Fachkräftemangel, Demografie, Arbeitsschutz, e-Commerce), TAM/SAM/SOM als transparente Bandbreiten, die drei Pilot-Vertikalen, das Buying Committee und die Trigger-Events.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Markt-Dimensionierung &amp; ICPs</span><span>Pilot: Baustoffe · Metall · Lebensmittel</span></div>
+  </section>
+
+  <!-- 10 — MARKTANALYSE (BARS) -->
+  <section data-screen-label="10 Marktanalyse">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Marktanalyse · Umreifungsmaschinen</span><span class="chrome-pages">10 / 22</span></div></div>
+    <div class="crisis">
+      <div>
+        <span class="eyebrow">Strukturell wachsender Markt</span>
+        <h2 class="title-md">Ein wachsender<br>Markt mit<br>Rückenwind.</h2>
+        <p class="lede">Der globale Umreifungsmaschinen-Markt wächst stetig (Consegic: ~5,43 Mrd. USD 2024 → ~8,25 Mrd. 2032, CAGR 5,8 %). Europa ist die schnellste Wachstumsregion. Halbautomatik ist durchgängig das größte Produktsegment — genau ErgoPacks Feld.</p>
+        <div style="margin-top:32px;padding:22px 28px;background:var(--accent-red);color:#fff;border-radius:14px;font-size:17px;line-height:1.5">Demografie-Treiber (BAuA): Muskel-Skelett-Erkrankungen sind die größte Einzeldiagnosegruppe — 20,8 % aller AU-Tage (2023). Produktionsausfall durch AU gesamt: 134 Mrd. € (2024).</div>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px">Umreifungsmaschinen global · Mrd. USD (Consegic BI)</div>
+        <div class="bars-chart">
+          <div class="bar-line"><span class="yr">2024</span><div class="track"><div class="fill" style="width:66%">5,43</div></div><span class="delta pos">Basis</span></div>
+          <div class="bar-line"><span class="yr">2028</span><div class="track"><div class="fill" style="width:82%">~6,8</div></div><span class="delta pos">+CAGR</span></div>
+          <div class="bar-line future"><span class="yr">2032</span><div class="track"><div class="fill" style="width:100%">8,25</div></div><span class="delta pos">5,8 %</span></div>
+        </div>
+        <div style="margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div style="background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:26px 28px"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);letter-spacing:0.08em">EUROPA-MARKT · CONSEGIC 2024</div><div style="font-size:44px;font-weight:700;letter-spacing:-0.03em;margin-top:10px">~150 <span style="font-size:18px;font-weight:500;color:var(--muted)">Mio. USD</span></div><div style="font-size:14px;color:var(--muted);margin-top:6px">CAGR ~6,5 % (2025–2032) · schnellste Wachstumsregion</div></div>
+          <div style="background:var(--ink);color:#fff;border-radius:16px;padding:26px 28px"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:rgba(255,255,255,0.55);letter-spacing:0.08em">STRAPPING-MATERIAL EUROPA</div><div style="font-size:44px;font-weight:700;letter-spacing:-0.03em;margin-top:10px;color:var(--accent-grn)">7,6 <span style="font-size:18px;font-weight:500;color:rgba(255,255,255,0.5)">% CAGR</span></div><div style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:6px">~6,3 Mrd. USD (2025) → ~9,8 Mrd. (2031) · Bandumsatz</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 — TREIBER / RÜCKENWIND -->
+  <section data-screen-label="11 Treiber Rückenwind">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Strukturelle Treiber &amp; Rückenwind</span><span class="chrome-pages">11 / 22</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Jeder Treiber ist ein Gesprächsanlass</span>
+      <h2 class="title-md" style="margin-top:24px">Vier Kräfte schaffen<br>die Nachfrage.</h2>
+      <div class="trg-table">
+        <div class="trg-row head"><div>Treiber / Markt</div><div>Kennzahl &amp; Status</div><div style="text-align:center">Relevanz</div></div>
+        <div class="trg-row"><div class="tname">Arbeitsschutz · MSE-Prävention<small>Schlüssel-Hook · Ergonomie</small></div><div class="tsrc">MSE = größte Einzeldiagnosegruppe · 20,8 % aller AU-Tage (BAuA 2023) · LasthandhabV &amp; ArbSchG §5 verpflichten zu technischen Maßnahmen</div><div class="tw urgent">Kern</div></div>
+        <div class="trg-row"><div class="tname">Fachkräftemangel · Demografie<small>IW-Report 34/2025</small></div><div class="tsrc">Bis 2028 bundesweit 768.000 fehlende Fachkräfte (vs. 487.000 Ø 2024) · alternde Belegschaft · ErgoPack = 67 % schneller</div><div class="tw urgent">Rückenwind</div></div>
+        <div class="trg-row"><div class="tname">Zeitersparnis · Durchsatz<small>messbarer ROI</small></div><div class="tsrc">Doppelumreifung in ~40 Sek. statt ~2 Min. (≈67 % schneller) · eliminiert ~50.000 Bückvorgänge/Jahr je Packplatz</div><div class="tw">Quick-Win</div></div>
+        <div class="trg-row"><div class="tname">e-Commerce &amp; Versandvolumen<small>Verpackungsmaschinen-Boom</small></div><div class="tsrc">Dt. Verpackungsmaschinen-Produktion ~9 Mrd. € (2025, +8 %), ~80 % Export · steigendes Palettenaufkommen im Warenausgang</div><div class="tw">Wachstum</div></div>
+        <div class="trg-row"><div class="tname">Nachhaltigkeit · Stahl → PET<small>Materialtrend</small></div><div class="tsrc">PET recyclingfähig, rostfrei, kantenschonend · Nachhaltigkeits- + Arbeitssicherheits-Story stützt den Wechsel von Stahlband</div><div class="tw">Signal</div></div>
+        <div class="trg-row"><div class="tname">Ladungssicherung · Haftung<small>Compliance-Kontext</small></div><div class="tsrc">Kontrollen &amp; Haftungsrisiko bei unsachgemäßer Sicherung · konsistente, normgerechte Umreifung als Argument</div><div class="tw opp">Kontext</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 — TAM/SAM/SOM -->
+  <section data-screen-label="12 TAM SAM SOM">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Marktdimensionierung (illustrativ)</span><span class="chrome-pages">12 / 22</span></div></div>
+    <div style="padding-top:140px">
+      <span class="eyebrow">TAM · SAM · SOM · transparente Bandbreiten</span>
+      <h2 class="title-md" style="margin-top:20px">Vom Markt zur<br>Pipeline für ErgoPack.</h2>
+      <div class="funnel" style="margin-top:40px">
+        <div class="fn" style="min-height:380px">
+          <div class="lbl">TAM · MARKTPOTENZIAL</div>
+          <h4>DACH-Betriebe mit Palettenausgang</h4>
+          <p class="desc">Alle DACH-Standorte mit palettiertem Warenausgang im verarbeitenden Gewerbe &amp; in der Logistik — Maschinen- + Material-TAM.</p>
+          <div class="bignum" style="font-size:60px">2–3-stell.<span class="unit">Mio. € p.a.</span></div>
+          <div class="alt">mehrere Zehntausend Standorte ·<br><strong>europaweit sechsstellig</strong></div>
+        </div>
+        <div class="fn" style="min-height:380px">
+          <div class="lbl">SAM · ERREICHBARER MARKT</div>
+          <h4>Manuelle Umreifung in Zielvertikalen</h4>
+          <p class="desc">DACH-Betriebe mit manueller/halbmanueller Umreifung in den Schwergut-Vertikalen mit ausreichendem Volumen.</p>
+          <div class="bignum" style="font-size:56px">~8–15k<span class="unit">Standorte</span></div>
+          <div class="alt">adressierbare Standorte ·<br><strong>~50–500 MA · Sweet Spot</strong></div>
+        </div>
+        <div class="fn som" style="min-height:380px">
+          <div class="lbl">SOM · OUTBOUND 12–24 MONATE</div>
+          <h4>Demos &amp; Maschinen</h4>
+          <p class="desc">Bei 3.000–5.000 kontaktierten Accounts, ~25–35 % Gesprächsquote und realistischer Meeting-Konversion.</p>
+          <div class="bignum" style="font-size:50px">100te<br>Demos</div>
+          <div class="alt">qualifizierte Vor-Ort-Demos →<br><strong>*niedrige–mittlere Hunderte Maschinen</strong></div>
+        </div>
+      </div>
+      <div style="margin-top:22px;padding:24px 36px;background:var(--ink);color:#fff;border-radius:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-yel);letter-spacing:0.1em;text-transform:uppercase;margin-right:18px">Hinweis</span>
+        <span style="font-size:20px;line-height:1.4;color:rgba(255,255,255,0.9)">Alle TAM/SAM/SOM-Werte sind illustrative Größenordnungen, keine geprüften Punktprognosen — mit ErgoPacks CRM-/Pipeline-Daten und tatsächlicher Ø-Dealgröße (~5.000–9.000 € + Folge-Bandumsatz) zu kalibrieren.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 — ZIELVERTIKALE (3) -->
+  <section data-screen-label="13 Zielvertikale">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Drei priorisierte Pilot-Vertikalen</span><span class="chrome-pages">13 / 22</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Nach Schwergut- &amp; MSE-Relevanz sortiert</span>
+      <h2 class="title-md" style="margin-top:24px">Drei Pilot-Vertikalen,<br>klarer Fit.</h2>
+      <div class="brand-cols">
+        <div class="brand-card v-a">
+          <div class="accent-bar"></div>
+          <div class="lvl">VERTICAL 01 / HÖCHSTE RELEVANZ</div>
+          <h3>Baustoffe</h3>
+          <div class="tag">Ziegel · Keramik · Dachsysteme</div>
+          <p class="desc" style="font-size:17px">Schwere, scharfkantige Lasten, hohe Ladungssicherungspflicht. Bestehende Referenz (Braas). Trigger: Ladungssicherungskontrollen, Volumenanstieg.</p>
+          <ul>
+            <li>Pain <span>Schwergut · Kanten</span></li>
+            <li>Referenz <span>Braas</span></li>
+            <li>Fit <span>Pilot · sehr hoch</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-b">
+          <div class="accent-bar"></div>
+          <div class="lvl">VERTICAL 02 / HÖCHSTER MSE-DRUCK</div>
+          <h3>Metall &amp; Stahl</h3>
+          <div class="tag">Blech · Profile · Halbzeug</div>
+          <p class="desc" style="font-size:17px">Höchster Krankenstand (Metallerzeugung 7,9 %; MSE 30,6 % der Fehltage im Metallhandwerk). Stahlband-Ablösung durch PET. Trigger: MSE-Fehlzeiten, BG-Audit.</p>
+          <ul>
+            <li>Pain <span>MSE · Stahlband</span></li>
+            <li>Hook <span>Ergonomie · PET</span></li>
+            <li>Fit <span>Pilot · sehr hoch</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-c">
+          <div class="accent-bar"></div>
+          <div class="lvl">VERTICAL 03 / HÖCHSTE VOLUMINA</div>
+          <h3>Lebensmittel</h3>
+          <div class="tag">Getränke · Hygiene · FMCG</div>
+          <p class="desc" style="font-size:17px">Hohe Palettenzahlen, Hygiene, größtes End-of-Line-Segment (~38 %). Referenzen (Lactosan). Trigger: Kapazitätsausbau, Hygiene-/Materialwechsel.</p>
+          <ul>
+            <li>Pain <span>Volumen · Tempo</span></li>
+            <li>Referenz <span>Lactosan · Hilge</span></li>
+            <li>Fit <span>Pilot · hoch</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--muted);letter-spacing:0.02em">Defensive Erweiterung nach Pilot: Chemie/Bau-Chemie · Papier/Druck/Wellpappe · Holz/Sägewerke · Logistik/e-Commerce-Fulfillment · Pharma · Automotive-Teile.</div>
+    </div>
+  </section>
+
+  <!-- 14 — BUYING COMMITTEE -->
+  <section data-screen-label="14 Buying Committee">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Buying Committee · Schwergut-Betrieb</span><span class="chrome-pages">14 / 22</span></div></div>
+    <div style="padding-top:128px">
+      <span class="eyebrow">Wer über die Umreifungslösung entscheidet</span>
+      <h2 class="title-md" style="margin-top:20px">Sechs Rollen,<br>ein Ergonomie-Case.</h2>
+      <div class="persona-grid">
+        <div class="pcard">
+          <div class="role">Fachkraft Arbeitssicherheit / Betriebsarzt<small>fachlicher Einstieg · Initiator</small></div>
+          <div class="kpis">FOKUS · Gefährdungsbeurteilung · MSE-Prävention</div>
+          <div class="channels"><span class="ch primary">LinkedIn</span><span class="ch">Telefon*</span></div>
+          <div class="trig"><strong>Hebel</strong>AGR-Siegel · Ergonomie · LasthandhabV-Konformität</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Versand- / Logistik- / Lagerleitung<small>operativer Nutzer · Champion</small></div>
+          <div class="kpis">FOKUS · Geschwindigkeit · weniger Personal · Sicherheit</div>
+          <div class="channels"><span class="ch primary">Telefon*</span><span class="ch">LinkedIn</span></div>
+          <div class="trig"><strong>Hebel</strong>67 % schneller · Ladungssicherheit · Fachkräftekompensation</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Produktionsleitung<small>Prozess-Owner</small></div>
+          <div class="kpis">FOKUS · Durchsatz · Prozessstabilität · Linientakt</div>
+          <div class="channels"><span class="ch primary">Telefon*</span><span class="ch">LinkedIn</span></div>
+          <div class="trig"><strong>Hebel</strong>Stabiler Versand-Durchsatz ohne Vollautomatik-Invest</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Einkauf / Procurement<small>kaufmännischer Gate</small></div>
+          <div class="kpis">FOKUS · ROI · Bandkosten · TCO · Förderung</div>
+          <div class="channels"><span class="ch primary">E-Mail*</span><span class="ch">Telefon*</span></div>
+          <div class="trig"><strong>Hebel</strong>TCO-Rechnung · Förderfähigkeit techn. Arbeitshilfen</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Betriebsrat<small>Mitbestimmung · Arbeitsplatzgestaltung</small></div>
+          <div class="kpis">FOKUS · Gesundheitsschutz · Mitarbeiterentlastung</div>
+          <div class="channels"><span class="ch primary">Persönlich</span><span class="ch">vor Ort</span></div>
+          <div class="trig"><strong>Hebel</strong>Entlastung der Belegschaft · Mitbestimmung Ergonomie</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Werkleitung / Geschäftsführung (KMU)<small>Final-Entscheider</small></div>
+          <div class="kpis">FOKUS · Fachkräftebindung · Fehlzeiten · Image</div>
+          <div class="channels"><span class="ch primary">Direkt</span><span class="ch">Demo</span></div>
+          <div class="trig"><strong>Hebel</strong>Fehlzeitenkosten senken · Arbeitgeber-Attraktivität</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 — TRIGGER EVENTS -->
+  <section data-screen-label="15 Trigger Events">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Top Trigger-Events</span><span class="chrome-pages">15 / 22</span></div></div>
+    <div style="padding-top:140px">
+      <span class="eyebrow">Wann ein Betrieb auf ErgoPack umstellt</span>
+      <h2 class="title-md" style="margin-top:16px">Sechs Trigger mit<br>höchster Kaufabsicht.</h2>
+      <div class="signals-list">
+        <div class="sig"><div class="num">01</div><div class="nm">MSE-/Rücken-Fehlzeitenspitze<small>der wichtigste Schmerz-Trigger im Schwergut-Versand</small></div><div class="src">BGM-Daten · BG-Audit</div><div class="when" style="background:var(--ink);color:#fff;border-color:var(--ink)">Top-Trigger</div></div>
+        <div class="sig"><div class="num">02</div><div class="nm">Neue Halle / Versandlinie<small>Greenfield-Fenster für ergonomische Ausstattung</small></div><div class="src">Bau-PR · Stellenanzeigen</div><div class="when">sehr hoch</div></div>
+        <div class="sig"><div class="num">03</div><div class="nm">Fachkräftemangel / Überstunden im Versand<small>Hände fehlen — Tempo wird zum Engpass</small></div><div class="src">Jobbörsen · Schichtdruck</div><div class="when">hoch</div></div>
+        <div class="sig"><div class="num">04</div><div class="nm">BG-/Ladungssicherungs-Audit<small>Handlungsdruck durch Kontrolle &amp; Haftung</small></div><div class="src">Prüfberichte · Auflagen</div><div class="when">fristgetrieben</div></div>
+        <div class="sig"><div class="num">05</div><div class="nm">Materialwechsel Stahl → PET<small>Nachhaltigkeits- &amp; Sicherheits-Umstellung</small></div><div class="src">Einkauf · ESG-Initiative</div><div class="when">mittel-hoch</div></div>
+        <div class="sig"><div class="num">06</div><div class="nm">Mosca-Stellenabbau (04/2026)<small>Verunsicherung im Wettbewerbsumfeld als Wechselsignal</small></div><div class="src">RNZ · Fränkische Nachr.</div><div class="when">Marktsignal</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 — DIVIDER · TEIL 04 -->
+  <section data-screen-label="16 Divider Outbound" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 04</span><span class="chrome-pages">16 / 22</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 04</div>
+      <h2>Go-to-<br>Market.</h2>
+      <p class="sub">Hook-Lines je Persona, der UWG/DSGVO-konforme Kanal-Mix nach dem BVerwG-Urteil, der 3-Stufen-Plan mit der kostenlosen Vor-Ort-Demo als Conversion-Ziel, Empfehlungen und Vorbehalte — der Bauplan für die amplifa-Akquise im Auftrag von ErgoPack.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Akquise-Playbook</span><span>Telefon-/LinkedIn-first · Consent vor E-Mail/KI-Voice</span></div>
+  </section>
+
+  <!-- 17 — HOOK LINES -->
+  <section data-screen-label="17 Hook Lines">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Hook-Lines · je Persona</span><span class="chrome-pages">17 / 22</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Messaging-Framework</span>
+      <h2 class="title-md" style="margin-top:24px">Sechs Hook-Lines<br>für die erste Welle.</h2>
+      <div class="hooks-grid">
+        <div class="hook"><span class="idx">01 · Fachkraft Arbeitssicherheit</span><q>Muskel-Skelett-Erkrankungen sind die häufigste Krankschreibungs-Ursache. Unser AGR-geprüftes System nimmt Ihren Leuten das Bücken ab — dokumentiert für Ihre Gefährdungsbeurteilung.</q><div class="ctx">Ergonomie · AGR</div></div>
+        <div class="hook"><span class="idx">02 · Versand- / Lagerleitung</span><q>Doppelumreifung in 40 Sekunden statt zwei Minuten — 67 % schneller, ohne Bücken und Umlaufen. So halten Sie den Versand trotz fehlender Hände auf Takt.</q><div class="ctx">Tempo · Fachkräfte</div></div>
+        <div class="hook"><span class="idx">03 · Produktionsleitung</span><q>Stabiler Versand-Durchsatz bei heterogenen Paletten — ohne die Kosten und Starrheit einer Inline-Vollautomatik.</q><div class="ctx">Durchsatz · Flexibilität</div></div>
+        <div class="hook"><span class="idx">04 · Einkauf / Procurement</span><q>Rechnen wir es durch: Maschine, Bandkosten und Fördermöglichkeiten gegen die Fehlzeiten- und Personalkosten manueller Umreifung — der TCO spricht für sich.</q><div class="ctx">ROI · TCO</div></div>
+        <div class="hook"><span class="idx">05 · Werkleitung / GF (KMU)</span><q>Bis 2028 fehlen 768.000 Fachkräfte. Wer Arbeitsplätze ergonomisch und schnell macht, bindet Leute — und senkt teure Ausfalltage.</q><div class="ctx">Bindung · Fehlzeiten</div></div>
+        <div class="hook"><span class="idx">06 · Metall / Baustoffe (Materialwechsel)</span><q>Weg vom Stahlband: PET ist rostfrei, recyclingfähig und kantenschonend — und mit ErgoPack rückenschonend verarbeitet. Ladungssicherheit inklusive.</q><div class="ctx">PET · Sicherheit</div></div>
+      </div>
+      <div style="margin-top:26px;padding:22px 30px;background:var(--ink);color:#fff;border-radius:14px;display:flex;gap:24px;align-items:center"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-yel);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap">Genereller CTA</span><span style="font-size:19px;line-height:1.4;color:rgba(255,255,255,0.9)">„20 Minuten kostenlose Vor-Ort-Demo an Ihrem Packplatz — wir zeigen an Ihrer Palette, wie viel schneller und rückenschonender umreift wird. Unverbindlich, mit ErgoPack."</span></div>
+    </div>
+  </section>
+
+  <!-- 18 — CHANNEL STRATEGY -->
+  <section data-screen-label="18 Channel Strategy">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Channel-Empfehlung · UWG/DSGVO-konform</span><span class="chrome-pages">18 / 22</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Welcher Kanal für welche Persona</span>
+      <h2 class="title-md" style="margin-top:24px">Telefon-/LinkedIn-first,<br>Consent vor E-Mail.</h2>
+      <div class="cmx">
+        <div class="cmx-row head"><div>Persona</div><div>Telefon*</div><div>LinkedIn</div><div>Empfohlene Sequenz</div></div>
+        <div class="cmx-row">
+          <div class="pn">Versand- / Lager- / Produktionsleitung<small>operativ · gut erreichbar</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv sek"><span class="badge">Sekundär</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>LinkedIn → <b>2</b>Telefon → <b>3</b>Consent → E-Mail</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">Fachkraft Arbeitssicherheit / Betriebsarzt<small>fachlicher Einstieg</small></div>
+          <div class="lv sek"><span class="badge">Sekundär</span><span class="meter"><i></i></span></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>LinkedIn → <b>2</b>Telefon → <b>3</b>Consent → E-Mail</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">Einkauf / Procurement<small>kaufmännischer Gate</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv sek"><span class="badge">Sekundär</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>Telefon → <b>2</b>Consent → E-Mail/Brief</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">Werkleitung / GF (KMU)<small>Final-Entscheider</small></div>
+          <div class="lv sek"><span class="badge">Sekundär</span><span class="meter"><i></i></span></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>Brief/LinkedIn → <b>2</b>Telefon → Demo</div>
+        </div>
+      </div>
+      <div class="cmx-legend"><span><i style="background:var(--accent-grn)"></i>Primär · primärer Akquisekanal</span><span><i style="background:var(--ink)"></i>Sekundär · flankierend zum Beziehungsaufbau</span></div>
+      <div style="margin-top:28px;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--muted);line-height:1.6">§ 7 Abs. 2 UWG verbietet Cold Calls ohne (mutmaßliche) Einwilligung; das BVerwG-Urteil 29.01.2025 (Az. 6 C 3.23) verschärft: „berechtigtes Interesse" (Art. 6 f DSGVO) trägt nicht gegen die UWG-Wertung. Branchen-/Sachbezug je Account dokumentieren — Umreifung ist für die Zielvertikalen kerngeschäftsnah, was die mutmaßliche Einwilligung stützt. Cold E-Mail &amp; AI-Voice nur NACH dokumentierter Einwilligung; adressierter B2B-Werbebrief als zulässiger Eisbrecher.</div>
+    </div>
+  </section>
+
+  <!-- 19 — PHASED APPROACH -->
+  <section data-screen-label="19 Phased Approach">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>3-Stufen-Vorgehen · amplifa-Modell</span><span class="chrome-pages">19 / 22</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">In drei Stufen zur skalierten Kampagne</span>
+      <h2 class="title-md" style="margin-top:24px">Pilot zuerst, dann<br>Demo-Engine, dann Scale.</h2>
+      <div class="phases">
+        <div class="phase">
+          <div class="nd">01</div>
+          <div class="wk">Monat 1–3</div>
+          <h4>Pilot · 3 Vertikalen</h4>
+          <ul>
+            <li><span>Zielliste Baustoffe/Keramik, Metall/Stahl, Lebensmittel in DE (~50–500 MA)</span></li>
+            <li><span>Hook: Ergonomie/AGR + 67 % Tempo + Fachkräftekompensation</span></li>
+            <li><span>Telefon-/LinkedIn-first · Branchen-/Trigger-Bezug je Account dokumentieren</span></li>
+            <li><span>Rechtsreview gegen BVerwG 6 C 3.23 · Einwilligungs-Doku vor E-Mail/KI-Voice</span></li>
+          </ul>
+          <div class="bench">→ Threshold: ≥25 % Demo-Annahmequote vor Skalierung</div>
+        </div>
+        <div class="phase">
+          <div class="nd">02</div>
+          <div class="wk">Monat 2–6</div>
+          <h4>Demo-Engine</h4>
+          <ul>
+            <li><span>Konsequent auf die kostenlose Vor-Ort-Demo als Conversion-Ziel ausrichten</span></li>
+            <li><span>Meeting-Definition vertraglich auf „qualifizierter Demo-Termin" (pay-per-meeting)</span></li>
+            <li><span>Trigger-gesteuerte Listen: neue Halle, Versand-Stellen, BGM-Initiativen</span></li>
+            <li><span>Mosca-Stellenabbau (04/2026) als Wechselsignal im Wettbewerbsumfeld nutzen</span></li>
+          </ul>
+          <div class="bench">→ Threshold: Abschlussquote pro Demo im Plan</div>
+        </div>
+        <div class="phase">
+          <div class="nd">03</div>
+          <div class="wk">laufend</div>
+          <h4>Scale &amp; Expansion</h4>
+          <ul>
+            <li><span>Gewinner-Hooks skalieren auf Chemie, Papier/Druck, Holz, Logistik</span></li>
+            <li><span>Geografische Expansion DE → Österreich/Schweiz → breiteres Europa</span></li>
+            <li><span>Folge-Bandumsatz &amp; Erweiterungs-/Wiederkaufzyklen mitsteuern</span></li>
+            <li><span>Termin-Qualität &gt; -Volumen · Sweet-Spot (Palettenvolumen) schärfen</span></li>
+          </ul>
+          <div class="bench">→ skalierte Demo-Pipeline über alle Schwergut-Vertikalen</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 20 — RECOMMENDATIONS -->
+  <section data-screen-label="20 Recommendations">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Empfehlungen</span><span class="chrome-pages">20 / 22</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Was amplifa konkret tun sollte</span>
+      <h2 class="title-md" style="margin-top:24px">Fünf Empfehlungen.</h2>
+      <div class="recs">
+        <div class="rec"><div class="num">01</div><div><h5>Mit drei Pilot-Vertikalen starten</h5><p>Baustoffe/Keramik, Metall/Stahl und Lebensmittel/Getränke in Deutschland zuerst — höchste Schwergut-/MSE-Relevanz und vorhandene Referenzen (Braas, Elbe Flugzeugwerke, Lactosan). Erfolgsschwelle ≥25 % Demo-Annahmequote vor Skalierung.</p></div></div>
+        <div class="rec"><div class="num">02</div><div><h5>Compliance-by-Design</h5><p>Telefon-/LinkedIn-first; dokumentierte Einwilligung VOR E-Mail/KI-Voice. Branchen-/Trigger-Bezug je Account festhalten (mindert UWG-Risiko nach BVerwG 6 C 3.23). Bei Unsicherheit adressierter B2B-Werbebrief als Eisbrecher.</p></div></div>
+        <div class="rec"><div class="num">03</div><div><h5>Trigger-gesteuerte Listen</h5><p>Accounts mit Signalen priorisieren: neue Halle, Versand-/SiFa-Stellenausschreibungen, BGM-Initiativen, Ladungssicherungs-Themen. Mosca-Stellenabbau (04/2026) als Wechsel-/Verunsicherungssignal aktiv nutzen.</p></div></div>
+        <div class="rec"><div class="num">04</div><div><h5>Demo als zentraler Conversion-KPI</h5><p>amplifa-Meetings konsequent auf die kostenlose Vor-Ort-Vorführung ausrichten — ErgoPacks stärkster Abschlusshebel. Meeting-Definition vertraglich auf „qualifizierter Demo-Termin" festlegen (pay-per-meeting).</p></div></div>
+        <div class="rec"><div class="num">05</div><div><h5>Datenqualität + Bonität</h5><p>Creditreform-Screening vor Angebotsphase; saubere Rollen-/Kontaktdaten; klares Widerspruchs-/Sperrlistenmanagement (Robinsonliste, Opt-out) für rechtssichere, dublettenfreie Outreach-Listen.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 21 — CAVEATS -->
+  <section data-screen-label="21 Caveats">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Methodik &amp; Vorbehalte</span><span class="chrome-pages">21 / 22</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow warn">Vorbehalte zur Datenlage</span>
+      <h2 class="title-md" style="margin-top:24px">Belastbare Größen&shy;ordnungen,<br>keine exakten Zahlen.</h2>
+      <div class="caveats">
+        <div class="cv"><div class="i">01</div><div class="t">Firmendaten: Aktuelle Umsatz-/Mitarbeiter-/Anteilsdaten sind teils gated oder veraltet — jüngste präzise Umsatzzahl EUR 22 Mio. (2018), heute Umsatzklasse 10–50 Mio. €. Neuere testierte Einzelabschlüsse nicht öffentlich.</div></div>
+        <div class="cv"><div class="i">02</div><div class="t">Marktgrößen divergieren erheblich je Research-Haus/Methodik: global 3,4–6,5 Mrd. USD, CAGR ~3,4–5,8 %. CAGR-/Volumenangaben sind Orientierung, keine Punktprognosen — als Spannen zu lesen.</div></div>
+        <div class="cv"><div class="i">03</div><div class="t">Eigentümer: Genauer Lifco-Anteil nicht offengelegt; Minderheitsgesellschafter öffentlich nicht namentlich bestätigt (Gründer Kimmerle plausibel, aber unverifiziert).</div></div>
+        <div class="cv"><div class="i">04</div><div class="t">TAM/SAM/SOM sind vollständig illustrative Größenordnungen mit offengelegten Annahmen; vor Verwendung mit ErgoPacks CRM-/Pipeline-Daten und tatsächlicher Ø-Dealgröße zu kalibrieren.</div></div>
+        <div class="cv"><div class="i">05</div><div class="t">Rechtslage (UWG/DSGVO) entwickelt sich dynamisch; vor Kampagnenstart anwaltliche Freigabe der konkreten Outreach-Sequenz (insb. AI-Voice) einholen. § 7a-UWG-Einwilligungsnachweise dokumentieren &amp; aufbewahren.</div></div>
+        <div class="cv"><div class="i">06</div><div class="t">Produktangaben (Effizienz ~67 %, „3 Mrd. Bückvorgänge", &gt;18.000 Systeme) sind überwiegend Herstellerangaben; für externe Akquise-Claims als solche kennzeichnen bzw. mit ErgoPack belegen.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 22 — CLOSING -->
+  <section data-screen-label="22 Closing" class="s-close">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Empfehlung &amp; nächste Schritte</span><span class="chrome-pages">22 / 22</span></div></div>
+    <div class="core">
+      <span class="eyebrow">Empfehlung</span>
+      <h2>Pilot in <span class="accent">drei Vertikalen</span>.<br>Demo als Conversion-Ziel.</h2>
+      <p class="sub-cta" style="margin-top:32px">amplifa startet die Neukunden-Akquise für ErgoPack mit Baustoffen, Metall/Stahl und Lebensmittel/Getränke in Deutschland — Hook: Ergonomie, 67 % Tempo und Fachkräftekompensation. Jedes Gespräch zielt auf die kostenlose Vor-Ort-Demo. Telefon-/LinkedIn-first mit dokumentierter Einwilligung als nicht-verhandelbares Compliance-Gate.</p>
+      <div class="actions" style="margin-top:40px">
+        <a class="btn" href="#">Stufe 1 · Vertikal-Pilot starten <span class="arr">↗</span></a>
+        <a class="btn ghost" href="#">Demo-Definition &amp; pay-per-meeting fixieren <span class="arr">→</span></a>
+      </div>
+      <div class="swatches" style="margin-top:36px">
+        <span style="background:var(--accent-grn)"></span>
+        <span style="background:var(--accent-blu)"></span>
+        <span style="background:var(--accent-yel)"></span>
+        <span style="background:var(--accent-pur)"></span>
+      </div>
+    </div>
+    <div class="foot">
+      <div><strong>amplifa</strong>Outbound-Akquise · ErgoPack Deutschland</div>
+      <div style="text-align:right"><strong>Report v1.0 · 20. Juni 2026</strong>für ErgoPack · vertraulich</div>
+    </div>
+  </section>
+
+</deck-stage>
+</body>
+</html>
