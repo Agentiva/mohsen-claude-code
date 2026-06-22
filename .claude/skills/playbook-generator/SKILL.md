@@ -1,6 +1,6 @@
 ---
 name: playbook-generator
-description: Erstellt komplette amplifa-Kampagnen-Playbooks pro Kunde/Produktgruppe – exakt in der Block-Struktur der amplifa-App. IMMER nutzen, wenn der User ein Playbook, Personas, Use Cases, Reference Customers, Proof Points oder Product Descriptions für einen Kunden/eine Branche braucht. Zieht IMMER zuerst den Onboarding/Kickoff-Call aus Fathom, recherchiert dann Firma + Produktgruppen und liefert jeden Block einzeln, copy-paste-fertig.
+description: Erstellt komplette amplifa-Kampagnen-Playbooks pro Kunde/Produktgruppe – exakt in der Block-Struktur der amplifa-App. IMMER nutzen, wenn der User ein Playbook, Personas, Use Cases, Reference Customers, Proof Points oder Product Descriptions für einen Kunden/eine Branche braucht. Zieht IMMER zuerst den Onboarding/Kickoff-Call aus Fathom, liest zusätzlich die Kampagne-Überblick-Seite der Firma in Notion (Customer Accounts), recherchiert dann Firma + Produktgruppen und liefert jeden Block einzeln, copy-paste-fertig.
 argument-hint: <Kunde/Firma> [optional: Produktgruppe(n), Sprache]
 ---
 
@@ -35,20 +35,42 @@ Personas, Value Proposition, Referenzen und Proof Points. Konkreter Ablauf mit d
    Zielregion/PLZ, Zielbranchen, Personas/Rollen, Kernbotschaft. Out-of-Scope auch dann ausschließen, wenn es
    auf der Website steht.
 
-### 2. Firma & Produktgruppen recherchieren
+### 2. Notion „Kampagne Überblick" lesen — IMMER, zusätzlich zu Fathom
+Über den **Notion-MCP** existiert pro Kunde eine **Kampagne-Überblick-Seite** in der Datenbank
+**„Customer Accounts" / „Dokumente"**. Diese Seite enthält bereits aufbereitete Materialien (Onboarding-Summary,
+Zielgruppen-Profil, Kampagnenstruktur, ggf. hochgeladene Dokumente/Links), die **zwingend mit in das Playbook
+einfließen** müssen. Konkreter Ablauf mit den Notion-Tools:
+
+1. **Firma finden:** `notion-search` mit `query = <Kundenname>` und `query_type = "internal"`. Bevorzugt direkt in
+   der Customer-Accounts-Datenquelle suchen: `data_source_url = "collection://1378174b-42df-817a-bf1a-000b449ee548"`
+   (Datenbank „Dokumente", Parent-Page `1378174b-42df-80d6-95d9-da6cf95af86c`). Die passende Kunden-Seite an Titel
+   = Firmenname erkennen (z. B. „Byload GmbH").
+   - Tool nicht sichtbar? Erst `ToolSearch "select:mcp__Notion__notion-search,mcp__Notion__notion-fetch"` laden.
+   - Keine Seite gefunden? **Sagen, nicht erfinden** – Playbook dann nur aus Fathom + Web bauen und im Output
+     vermerken, dass keine Notion-Kampagne-Überblick-Seite existierte.
+2. **Seite ziehen:** `notion-fetch` mit der Seiten-`id`/URL. Die Seite hat typischerweise die Toggles
+   **„Onboarding"** (Fathom-Zusammenfassung, Ziele, Stakeholder), **„Zielgruppe"** (Branchen, Personas, Geo,
+   Kommunikationsstil, Bedarf) und **„Kampagnenstruktur"** (Kampagnen-Schnitt, Zielpersonen, Pain Points/Trigger,
+   Messaging, Betreffzeilen). Verlinkte Dokumente/Drive-Dateien mitlesen, wenn vorhanden.
+3. **Materialien einarbeiten:** Personas, Pain Points, Branchen-/Geo-Targeting, Messaging-Winkel und Kampagnen-Schnitt
+   aus der Notion-Seite **mit dem Fathom-Call abgleichen und in die passenden Blöcke übernehmen** (v. a. Target
+   Personas, Use Cases, Value Proposition und Playbook-Schnitt). Bei Widerspruch gilt der **Fathom-Onboarding-Call**
+   als Primärquelle; die Notion-Materialien ergänzen und schärfen.
+
+### 3. Firma & Produktgruppen recherchieren
 - Auf Basis des Calls die Firma **per Web** recherchieren: Website, Leistungen, Produkte/**Produktgruppen**,
   Branchen, Referenzen, Kundenstimmen, Zahlen/Jahre, Zielmärkte, Sprache des Zielmarkts.
 - Ziel: belegbare Fakten für Product Description, Use Cases, Reference Customers und Proof Points sammeln.
 - Nichts erfinden. Unbelegtes später mit `(zu verifizieren)` markieren.
 
-### 3. Playbook-Schnitt festlegen
-- Aus Call + Recherche ableiten, **welche Playbooks** sinnvoll sind. Faustregel: **ein Playbook pro Produktgruppe /
+### 4. Playbook-Schnitt festlegen
+- Aus Call + Notion + Recherche ableiten, **welche Playbooks** sinnvoll sind. Faustregel: **ein Playbook pro Produktgruppe /
   Angebot / klar abgegrenztem Zielsegment** (so wie GBN „Mechatronische Entwicklung und Konstruktion" als ein
   Playbook von mehreren führt).
 - Dem User **kurz die vorgeschlagene Playbook-Liste mit Titeln zeigen** (1 Zeile je Playbook, Titel = Produktgruppe,
   nicht Firmenname) und bestätigen lassen, bevor alle Blöcke ausformuliert werden. Bei klarem Auftrag direkt bauen.
 
-### 4. Pro Playbook alle 6 Blöcke bauen
+### 5. Pro Playbook alle 6 Blöcke bauen
 Exakt nach `playbook-template.md`, in dieser Reihenfolge:
 1. **Product Description** (3 Absätze + `INDUSTRY:` + `USPs:` durchnummeriert)
 2. **Value Proposition** (1 Absatz, Outcome)
@@ -57,7 +79,7 @@ Exakt nach `playbook-template.md`, in dieser Reihenfolge:
 5. **Reference Customers (N)** (je: Firma + `Name, Rolle` + 1 Absatz Kundenstimme)
 6. **Proof Points (N)** (je: fetter Titel/Behauptung + 1 Absatz Beleg)
 
-### 5. Copy-paste-fertig ausgeben
+### 6. Copy-paste-fertig ausgeben
 - **Jeder Block als eigener, klar abgegrenzter Abschnitt** mit Überschrift `=== <Block-Name> ===`, darunter der reine
   Inhalt zum Kopieren (kein Meta-Kommentar im Inhalt).
 - Bei mehreren Playbooks: pro Playbook ein Abschnitt mit `Playbook-Titel` + `Language` (z. B. `de`), darunter die 6 Blöcke.
@@ -74,5 +96,6 @@ Exakt nach `playbook-template.md`, in dieser Reihenfolge:
   4–6 Personas, 4–6 Use Cases, 3–5 Reference Customers, 4–6 Proof Points.
 
 ## Connectors / Rechte
-Fathom (MCP, Onboarding/Kickoff lesen) – **Pflicht-Erstquelle**. Web-Recherche für Firma/Produktgruppen. Reine
+Fathom (MCP, Onboarding/Kickoff lesen) – **Pflicht-Erstquelle**. Notion (MCP, Kampagne-Überblick-Seite in
+„Customer Accounts"/„Dokumente" lesen) – **Pflicht-Zweitquelle**. Web-Recherche für Firma/Produktgruppen. Reine
 Lese-Tools dürfen vorab freigegeben sein.
