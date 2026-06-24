@@ -18,6 +18,9 @@ Wähle EINE Betreffzeile (immer Deutsch). Kurz (max. 6 Wörter), neugierig, ohne
 - {{first_name}}, ein Gedanke zu {{company}}
 - {{first_name}}, 30 Minuten diese Woche?
 
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
+
 ═══════════════════════════════════════════════════════════
 **GRUNDHALTUNG — TON & PERSPEKTIVE (ABSOLUT VERBINDLICH):**
 ═══════════════════════════════════════════════════════════
@@ -183,6 +186,9 @@ Wähle EINE Betreffzeile (immer Deutsch). Kurz (max. 6 Wörter), neugierig, ohne
 - {{first_name}}, ein Gedanke zu {{company}}
 - {{first_name}}, 30 Minuten diese Woche?
 
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
+
 ═══════════════════════════════════════════════════════════
 **GRUNDHALTUNG — TON & PERSPEKTIVE (ABSOLUT VERBINDLICH):**
 ═══════════════════════════════════════════════════════════
@@ -335,6 +341,9 @@ Wähle EINE Betreffzeile (immer Deutsch). Kurz (max. 6 Wörter), neugierig, ohne
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, ein Gedanke zu {{company}}
 - {{first_name}}, 30 Minuten diese Woche?
+
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
 ═══════════════════════════════════════════════════════════
 **GRUNDHALTUNG — TON & PERSPEKTIVE (ABSOLUT VERBINDLICH):**
@@ -491,6 +500,9 @@ Wähle EINE Betreffzeile (immer Deutsch). Kurz (max. 6 Wörter), neugierig, ohne
 - {{first_name}}, ein Gedanke zu {{company}}
 - {{first_name}}, 30 Minuten diese Woche?
 
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
+
 ═══════════════════════════════════════════════════════════
 **GRUNDHALTUNG — TON & PERSPEKTIVE (ABSOLUT VERBINDLICH):**
 ═══════════════════════════════════════════════════════════
@@ -635,6 +647,9 @@ Wähle EINE Betreffzeile (immer Deutsch). Kurz (max. 6 Wörter), neugierig, ohne
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, ein Gedanke zu {{company}}
 - {{first_name}}, 30 Minuten diese Woche?
+
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
 ═══════════════════════════════════════════════════════════
 **GRUNDHALTUNG — TON & PERSPEKTIVE (ABSOLUT VERBINDLICH):**
@@ -795,6 +810,9 @@ Wähle EINE Betreffzeile (immer Deutsch). Kurz (max. 6 Wörter), neugierig, ohne
 - {{first_name}}, ein Gedanke zu {{company}}
 - {{first_name}}, 30 Minuten diese Woche?
 
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
+
 ═══════════════════════════════════════════════════════════
 **GRUNDHALTUNG — TON & PERSPEKTIVE (ABSOLUT VERBINDLICH):**
 ═══════════════════════════════════════════════════════════
@@ -941,6 +959,9 @@ Wähle EINE Betreffzeile (immer Deutsch). Kurz (max. 6 Wörter), neugierig, ohne
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, ein Gedanke zu {{company}}
 - {{first_name}}, 30 Minuten diese Woche?
+
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
 ═══════════════════════════════════════════════════════════
 **GRUNDHALTUNG — TON & PERSPEKTIVE (ABSOLUT VERBINDLICH):**
@@ -1093,6 +1114,9 @@ Wähle EINE Betreffzeile (immer Deutsch). Kurz (max. 6 Wörter), neugierig, ohne
 - {{first_name}}, ein Gedanke zu {{company}}
 - {{first_name}}, 30 Minuten diese Woche?
 
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
+
 ═══════════════════════════════════════════════════════════
 **GRUNDHALTUNG — TON & PERSPEKTIVE (ABSOLUT VERBINDLICH):**
 ═══════════════════════════════════════════════════════════
@@ -1244,6 +1268,9 @@ Wähle EINE Betreffzeile (immer Deutsch). Kurz (max. 6 Wörter), neugierig, ohne
 - {{first_name}}, ein Gedanke zu {{company}}
 - {{first_name}}, 30 Minuten diese Woche?
 
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
+
 ═══════════════════════════════════════════════════════════
 **GRUNDHALTUNG — TON & PERSPEKTIVE (ABSOLUT VERBINDLICH):**
 ═══════════════════════════════════════════════════════════
@@ -1394,6 +1421,9 @@ Wähle EINE Betreffzeile (immer Deutsch). Kurz (max. 6 Wörter), neugierig, ohne
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, ein Gedanke zu {{company}}
 - {{first_name}}, 30 Minuten diese Woche?
+
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
 ═══════════════════════════════════════════════════════════
 **GRUNDHALTUNG — TON & PERSPEKTIVE (ABSOLUT VERBINDLICH):**
