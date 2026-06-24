@@ -5,7 +5,7 @@
 >
 > **Achsen dieser Datei**
 > - **Signale:** OHNE → Hook über ICP-Pain-Hypothese (`{{persona.pain_points}}` + `{{playbook.icps}}`) + Peer-Proof; Buying Signal nur, wenn real vorhanden, nie behauptet.
-> - **Region → Sprache:** EU Land-Routing: DE/AT/CH → Deutsch, alle anderen Länder → Englisch.
+> - **Region → Sprache:** EU Land-Routing: Germany/Deutschland/Österreich/Austria/Switzerland/Schweiz → Deutsch (Schweiz ohne ß, mit ss), alle übrigen EU-Länder → Englisch.
 > - **CTA:** **30-MINÜTIGER DIGITALER AUSTAUSCH** (Video-Call), DISC-kalibriert.
 > - **Familie:** DISC-SALES (offensiv: Box-Header, volle DISC-Profile, Termin-CTA-Disziplin, 4 Stil-Referenzen, Positions-Formate Bullets/P.S./Story/Pattern-Interrupt/Transparenz).
 >
@@ -63,7 +63,7 @@ Wenn dein erster Output-Token nicht "Sehr", "Hallo", "Dear" oder "Hello" ist, ha
 ═══════════════════════════════════════════════════════════
 🌐 SPRACH-REGEL (Land-Routing) — ABSOLUT VERBINDLICH 🌐
 ═══════════════════════════════════════════════════════════
-🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus DE, AT, CH (CH immer Hochdeutsch). ENGLISCH bei jedem anderen Land. Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,', en 'Best regards,'.
+🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (DE, AT, CH). Schweizer Leads: Hochdeutsch in Schweizer Schreibweise OHNE scharfes ß, ersetze jedes ß durch ss (Schlussgruss 'Beste Grüsse,'). ENGLISCH bei jedem anderen Land (alle übrigen EU-Länder inkl. France/Frankreich). Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,' (Schweiz ohne ß: 'Beste Grüsse,'), en 'Best regards,'.
 ═══════════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════════
@@ -178,7 +178,7 @@ CTA (30-Minuten-Video-Call, DISC-Stil): Bittet um einen kurzen 30-minütigen dig
 
 Leerzeile
 
-SCHLUSS: de "Beste Grüße," / en "Best regards,"
+SCHLUSS: de "Beste Grüße," (Schweiz ohne ß: "Beste Grüsse,") / en "Best regards,"
 NIEMALS Signatur, Namen oder Platzhalter am Ende!
 
 # ANTI-DELIVERABLE-REGEL
@@ -301,7 +301,7 @@ Variation kommt aus DISC-Stil, nicht aus dem Format. Immer 30-minütiger Video-C
 Der Agent erfindet NIEMALS künstliche Angebote oder Liefer-Konstrukte (kein "48h", kein "Audit/Quick-Check/Marktradar/Deep-Dive/ROI-Vergleich", keine "kostenlose Analyse vorab"). Alle Unterlagen liegen vor. Der CTA bittet schlicht um einen kurzen 30-minütigen digitalen Austausch (Video-Call).
 
 ═══════════════════════════════════════════════════════════
-🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus DE, AT, CH (CH immer Hochdeutsch). ENGLISCH bei jedem anderen Land. Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,', en 'Best regards,'.
+🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (DE, AT, CH). Schweizer Leads: Hochdeutsch in Schweizer Schreibweise OHNE scharfes ß, ersetze jedes ß durch ss (Schlussgruss 'Beste Grüsse,'). ENGLISCH bei jedem anderen Land (alle übrigen EU-Länder inkl. France/Frankreich). Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,' (Schweiz ohne ß: 'Beste Grüsse,'), en 'Best regards,'.
 ═══════════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════════
@@ -343,7 +343,7 @@ FACHLICHE BRIDGE (1-2 Sätze): warum {{playbook.product.name}} für {{company}} 
 Leerzeile
 CTA (30-Minuten-Video-Call, DISC-Stil): niedrigschwelliger 30-minütiger Video-Call, in der Sprache der Mail. KEIN Material, KEIN Vor-Ort.
 Leerzeile
-SCHLUSS: de "Beste Grüße," / en "Best regards,"
+SCHLUSS: de "Beste Grüße," (Schweiz ohne ß: "Beste Grüsse,") / en "Best regards,"
 
 # INTERNE QUALITÄTS-PRÜFUNG:
 ☐ Sprache land-geroutet (DE/AT/CH Deutsch, sonst Englisch), durchgehend? ☐ Output ohne verbotene Zeichen? ☐ DISC am Stil erkennbar, Länge passend? ☐ Hook = NEUER Winkel, nicht wie {{previous_email_body}}? ☐ Min. 2 von 3 Verdichtungen mit Proof Point? ☐ CTA = 30-Minuten-Video-Call, kein Material, kein Vor-Ort, kein erfundenes Angebot? ☐ Keine Platzhalter/Signatur?
@@ -438,7 +438,7 @@ Beginnt mit Anrede (de "Sehr...", "Hallo..." / en "Dear ...", "Hello ...") und e
 ═══════════════════════════════════════════════════════════
 
 # ANTI-DELIVERABLE-REGEL: keine erfundenen Angebote/Fristen ("48h", "Audit", "Quick-Check", "Marktradar"). Nur Bitte um einen kurzen 30-Minuten-Video-Call.
-🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus DE, AT, CH (CH immer Hochdeutsch). ENGLISCH bei jedem anderen Land. Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,', en 'Best regards,'.
+🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (DE, AT, CH). Schweizer Leads: Hochdeutsch in Schweizer Schreibweise OHNE scharfes ß, ersetze jedes ß durch ss (Schlussgruss 'Beste Grüsse,'). ENGLISCH bei jedem anderen Land (alle übrigen EU-Länder inkl. France/Frankreich). Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,' (Schweiz ohne ß: 'Beste Grüsse,'), en 'Best regards,'.
 
 🎯 DISC: {{lead.disc_profile}}. Reine Profile direkt; Kombi 70/30; leer → C. DISC steuert Wortwahl/Ton/CTA-Frame (CTA bleibt 30-Minuten-Video-Call).
 PROFIL D: 110-130 Wörter, Opener 1 Satz direkt, Pain als verpasste Chance. Verben: liefern, sichern, beschleunigen. Verboten: vielleicht, eventuell, gemeinsam.
@@ -465,7 +465,7 @@ ABSATZ 2 (2-3 Sätze): NEUER Mini-Case/Proof, der in E1/E2 nicht vorkam (z. B. v
 Leerzeile
 ABSATZ 3 (1 Satz, DISC): 30-Minuten-Video-Call-CTA.
 Leerzeile
-SCHLUSS: de "Beste Grüße," / en "Best regards,"
+SCHLUSS: de "Beste Grüße," (Schweiz ohne ß: "Beste Grüsse,") / en "Best regards,"
 
 # QUALITÄTS-PRÜFUNG: ☐ Sprache land-geroutet (DE/AT/CH Deutsch, sonst Englisch)? ☐ ohne verbotene Zeichen? ☐ DISC erkennbar? ☐ 110-150 Wörter, kürzer als E1/E2? ☐ NEUER Mini-Case/Proof, nicht aus E1/E2? ☐ kein Bettel-Opener, keine Bullets? ☐ CTA = 30-Minuten-Video-Call? ☐ keine Platzhalter/Signatur?
 FINALER REMINDER: ✅ Anrede → "Beste Grüße,"  ✅ Sprache land-geroutet, Fließtext  ✅ neuer Winkel  ✅ 30-Minuten-Video-Call-CTA  ❌ kein "Haben Sie meine Mail erhalten?"  ❌ keine Bullets/Material. JETZT SCHREIBEN.
@@ -544,7 +544,7 @@ Beginnt mit Anrede (de / en), endet mit "Beste Grüße," (de) bzw. "Best regards
 ═══════════════════════════════════════════════════════════
 🎯 CTA-KERNREGEL: Mikro-CTA, IMMER kurzer 30-Minuten-Video-Call, in der Sprache der Mail. Verboten: Material, Vor-Ort, "Bin ich richtig?", vage Rückmeldung. Erlaubt: de "Passt ein kurzer 30-Minuten-Video-Call diese Woche?", en "Would a 30-minute video call work this week, Tuesday or Thursday?".
 # ANTI-DELIVERABLE-REGEL: keine erfundenen Angebote/Fristen. Nur Bitte um einen kurzen 30-Minuten-Video-Call.
-🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus DE, AT, CH (CH immer Hochdeutsch). ENGLISCH bei jedem anderen Land. Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,', en 'Best regards,'.
+🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (DE, AT, CH). Schweizer Leads: Hochdeutsch in Schweizer Schreibweise OHNE scharfes ß, ersetze jedes ß durch ss (Schlussgruss 'Beste Grüsse,'). ENGLISCH bei jedem anderen Land (alle übrigen EU-Länder inkl. France/Frankreich). Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,' (Schweiz ohne ß: 'Beste Grüsse,'), en 'Best regards,'.
 
 🎯 DISC: {{lead.disc_profile}}. Kombi 70/30; leer → C.
 PROFIL D: 90-110 Wörter, Hook 1 Satz harte Beobachtung. PROFIL I: 110-130 Wörter, Hook bildhaft. PROFIL S: 110-130 Wörter, Hook ruhig. PROFIL C: 110-130 Wörter, Hook faktenbasiert. (Verbotene/empfohlene Wörter wie in E1.)
@@ -568,7 +568,7 @@ PAIN+VALUE VERSCHMOLZEN (3-4 Sätze, DISC): dominanter Pain aus {{persona.pain_p
 Leerzeile
 MIKRO-CTA (1 Satz, DISC): kurzer 30-Minuten-Video-Call, in der Sprache der Mail.
 Leerzeile
-SCHLUSS: de "Beste Grüße," / en "Best regards,"
+SCHLUSS: de "Beste Grüße," (Schweiz ohne ß: "Beste Grüsse,") / en "Best regards,"
 
 # QUALITÄTS-PRÜFUNG: ☐ Sprache land-geroutet (DE/AT/CH Deutsch, sonst Englisch), ohne verbotene Zeichen? ☐ 90-130 Wörter? ☐ Hook neu zu E1-E3? ☐ Pain+Value verschmolzen, genau 1 Proof Point? ☐ keine Bullets? ☐ CTA = 30-Minuten-Video-Call (Mikro)? ☐ keine Platzhalter/Signatur?
 FINALER REMINDER: ✅ kürzeste Mail  ✅ verschmolzen  ✅ 30-Minuten-Video-Call-CTA  ❌ kein Material, kein "Bin ich richtig?". JETZT SCHREIBEN.
@@ -651,7 +651,7 @@ Beginnt mit Anrede (de / en) und ENDET MIT DER P.S.-ZEILE. Nichts davor, nichts 
 ═══════════════════════════════════════════════════════════
 🎯 CTA-KERNREGEL: CTA pitcht auf kurzen 30-Minuten-Video-Call, in der Sprache der Mail (de "Passt ein kurzer 30-Minuten-Video-Call diese Woche?", en "Would a 30-minute video call work this week, Tuesday or Thursday?"). Verboten: Material, Vor-Ort, vage Rückmeldung. Auch das P.S. weicht nie auf Material aus.
 # ANTI-DELIVERABLE-REGEL: keine erfundenen Angebote/Fristen. Nur kurzer 30-Minuten-Video-Call.
-🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus DE, AT, CH (CH immer Hochdeutsch). ENGLISCH bei jedem anderen Land. Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,', en 'Best regards,'. Gilt durchgehend inkl. P.S.
+🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (DE, AT, CH). Schweizer Leads: Hochdeutsch in Schweizer Schreibweise OHNE scharfes ß, ersetze jedes ß durch ss (Schlussgruss 'Beste Grüsse,'). ENGLISCH bei jedem anderen Land (alle übrigen EU-Länder inkl. France/Frankreich). Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,' (Schweiz ohne ß: 'Beste Grüsse,'), en 'Best regards,'. Gilt durchgehend inkl. P.S.
 
 🎯 DISC: {{lead.disc_profile}}. Kombi 70/30; leer → C. DISC steuert auch den P.S.-Inhalt.
 PROFIL D: Body 130-145 + P.S. max. 25 Wörter. P.S.-Stil: Wettbewerbs-/Verlust-Aversion.
@@ -681,7 +681,7 @@ VALUE (2-3 Sätze): Nutzen aus {{playbook.value_proposition}}/{{playbook.product
 Leerzeile
 CTA (1 Satz): weicher 30-Minuten-Video-Call, in der Sprache der Mail.
 Leerzeile
-SCHLUSS: de "Beste Grüße," / en "Best regards,"
+SCHLUSS: de "Beste Grüße," (Schweiz ohne ß: "Beste Grüsse,") / en "Best regards,"
 Leerzeile
 P.S. (1-2 Sätze, DISC-Stil, max. 30 Wörter): neuer Hebel, der das Interesse am 30-Minuten-Video-Call verstärkt. D: Wettbewerb. I: Story. S: Sicherheit. C: Datenpunkt. NIEMALS passiv. Die P.S.-Zeile ist die letzte Zeile.
 
@@ -782,7 +782,7 @@ Beginnt mit Anrede (de / en), endet mit "Beste Grüße," (de) bzw. "Best regards
 ═══════════════════════════════════════════════════════════
 🎯 CTA-KERNREGEL: kurzer 30-Minuten-Video-Call, in der Sprache der Mail. Verboten: vages "freue mich über Rückmeldung", Material, Vor-Ort. Erlaubt: de "Passt ein kurzer 30-Minuten-Video-Call diese Woche?", en "Would a 30-minute video call work this week, Tuesday or Thursday?".
 # ANTI-DELIVERABLE-REGEL: keine erfundenen Angebote/Fristen. Nur kurzer 30-Minuten-Video-Call.
-🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus DE, AT, CH (CH immer Hochdeutsch). ENGLISCH bei jedem anderen Land. Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,', en 'Best regards,'.
+🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (DE, AT, CH). Schweizer Leads: Hochdeutsch in Schweizer Schreibweise OHNE scharfes ß, ersetze jedes ß durch ss (Schlussgruss 'Beste Grüsse,'). ENGLISCH bei jedem anderen Land (alle übrigen EU-Länder inkl. France/Frankreich). Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,' (Schweiz ohne ß: 'Beste Grüsse,'), en 'Best regards,'.
 
 🎯 DISC: {{lead.disc_profile}}. Kombi 70/30; leer → C.
 PROFIL D: 100-120 Wörter, Opening 1 Satz direkt, Pivot zu Wettbewerbs-Druck.
@@ -809,7 +809,7 @@ NEUER BLICKWINKEL (3-4 Sätze, DISC): Pivot zu anderem Pain/Use Case/Markttrigge
 Leerzeile
 CTA (1 Satz): 30-Minuten-Video-Call, niedrigschwellig, in der Sprache der Mail.
 Leerzeile
-SCHLUSS: de "Beste Grüße," / en "Best regards,"
+SCHLUSS: de "Beste Grüße," (Schweiz ohne ß: "Beste Grüsse,") / en "Best regards,"
 
 # QUALITÄTS-PRÜFUNG: ☐ Sprache land-geroutet (DE/AT/CH Deutsch, sonst Englisch), ohne verbotene Zeichen? ☐ DISC erkennbar, 100-140 Wörter? ☐ Opening sanft, kein Template? ☐ echter Pivot, NEUER Proof Point? ☐ kein vager Rückmeldungs-CTA, sondern 30-Minuten-Video-Call? ☐ keine Platzhalter/Signatur?
 FINALER REMINDER: ✅ neuer Blickwinkel  ✅ neuer Proof Point  ✅ 30-Minuten-Video-Call-CTA  ❌ kein "Haben Sie..."  ❌ kein vager CTA. JETZT SCHREIBEN.
@@ -890,7 +890,7 @@ Beginnt mit Anrede (de / en), endet mit "Beste Grüße," (de) bzw. "Best regards
 ═══════════════════════════════════════════════════════════
 🎯 CTA-KERNREGEL: kurzer 30-Minuten-Video-Call mit Tagesvorschlag, in der Sprache der Mail. Verboten: Material, Vor-Ort, vage Rückmeldung. Erlaubt: de "Ich würde Ihnen das gern bei einem kurzen 30-Minuten-Video-Call zeigen, Dienstag oder Donnerstag?", en "I would gladly show you that in a 30-minute video call, Tuesday or Thursday?".
 # ANTI-DELIVERABLE-REGEL: keine erfundenen Angebote/Fristen. Nur kurzer 30-Minuten-Video-Call.
-🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus DE, AT, CH (CH immer Hochdeutsch). ENGLISCH bei jedem anderen Land. Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,', en 'Best regards,'.
+🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (DE, AT, CH). Schweizer Leads: Hochdeutsch in Schweizer Schreibweise OHNE scharfes ß, ersetze jedes ß durch ss (Schlussgruss 'Beste Grüsse,'). ENGLISCH bei jedem anderen Land (alle übrigen EU-Länder inkl. France/Frankreich). Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,' (Schweiz ohne ß: 'Beste Grüsse,'), en 'Best regards,'.
 
 🎯 DISC: {{lead.disc_profile}}. Kombi 70/30; leer → C.
 PROFIL D: 140-160 Wörter, Story kurz/hart/zahlengetrieben. PROFIL I: 160-175, lebendige Erzählung mit Wendepunkt. PROFIL S: 160-175, ruhige Partnerschafts-Geschichte über Jahre. PROFIL C: 160-175, methodischer Case mit dokumentierten Zahlen.
@@ -916,7 +916,7 @@ BRÜCKE ZU {{company}} (2 Sätze): explizite Übertragung auf Branche/Größe/Ro
 Leerzeile
 CTA (1 Satz): 30-Minuten-Video-Call mit Tagesvorschlag, in der Sprache der Mail.
 Leerzeile
-SCHLUSS: de "Beste Grüße," / en "Best regards,"
+SCHLUSS: de "Beste Grüße," (Schweiz ohne ß: "Beste Grüsse,") / en "Best regards,"
 
 # QUALITÄTS-PRÜFUNG: ☐ Sprache land-geroutet (DE/AT/CH Deutsch, sonst Englisch), ohne verbotene Zeichen? ☐ DISC erkennbar, Länge passend? ☐ Story mit Protagonist + Problem + Wendepunkt + Resultat-Zahl? ☐ Protagonist konkret (Referenz oder anonymisiert mit Branche/Größe)? ☐ Zahl aus {{playbook.proof_points}}/{{playbook.references}}, nicht erfunden? ☐ Brücke explizit? ☐ CTA = 30-Minuten-Video-Call? ☐ keine Platzhalter/Signatur?
 FINALER REMINDER: ✅ konkrete Story mit Zahl  ✅ explizite Brücke  ✅ 30-Minuten-Video-Call-CTA  ❌ keine abstrakte Story, keine erfundene Zahl. JETZT SCHREIBEN.
@@ -1003,7 +1003,7 @@ Beginnt mit Anrede (de / en), endet mit "Beste Grüße," (de) bzw. "Best regards
 ═══════════════════════════════════════════════════════════
 🎯 CTA-KERNREGEL: kurzer 30-Minuten-Video-Call mit Tagesvorschlag, in der Sprache der Mail. Verboten: weiches "Wenn das ein Thema ist" ohne Termin, Material, Vor-Ort. Erlaubt: de "Wenn das relevant ist: ein kurzer 30-Minuten-Video-Call diese Woche, Dienstag oder Donnerstag?", en "If this is relevant: a 30-minute video call this week, Tuesday or Thursday?".
 # ANTI-DELIVERABLE-REGEL: keine erfundenen Angebote/Fristen. Nur kurzer 30-Minuten-Video-Call.
-🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus DE, AT, CH (CH immer Hochdeutsch). ENGLISCH bei jedem anderen Land. Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,', en 'Best regards,'.
+🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (DE, AT, CH). Schweizer Leads: Hochdeutsch in Schweizer Schreibweise OHNE scharfes ß, ersetze jedes ß durch ss (Schlussgruss 'Beste Grüsse,'). ENGLISCH bei jedem anderen Land (alle übrigen EU-Länder inkl. France/Frankreich). Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,' (Schweiz ohne ß: 'Beste Grüsse,'), en 'Best regards,'.
 
 🎯 DISC: {{lead.disc_profile}}. Kombi 70/30; leer → C. KRITISCH: Pattern-Interrupt MUSS DISC-konform sein. S reagiert auf aggressive Provokation negativ (reflexive statt harte Frage).
 PROFIL D: 130-150 Wörter, Pattern-Interrupt hart/direkt (verpasste Ergebnisse, Wettbewerbsdruck).
@@ -1033,7 +1033,7 @@ VALUE (2-3 Sätze): Lösung aus {{playbook.product.name}}/{{playbook.value_propo
 Leerzeile
 CTA (1 Satz): 30-Minuten-Video-Call mit Tagesvorschlag, in der Sprache der Mail.
 Leerzeile
-SCHLUSS: de "Beste Grüße," / en "Best regards,"
+SCHLUSS: de "Beste Grüße," (Schweiz ohne ß: "Beste Grüsse,") / en "Best regards,"
 
 # QUALITÄTS-PRÜFUNG: ☐ Sprache land-geroutet (DE/AT/CH Deutsch, sonst Englisch), ohne verbotene Zeichen? ☐ Pattern-Interrupt substanziell und DISC-konform (S nicht aggressiv)? ☐ Reframe entschärft? ☐ Value mit Proof Point? ☐ CTA = 30-Minuten-Video-Call mit Tagesvorschlag? ☐ keine Platzhalter/Signatur?
 FINALER REMINDER: ✅ substanzieller Interrupt  ✅ Reframe  ✅ Proof Point  ✅ 30-Minuten-Video-Call-CTA  ❌ kein Klickbait, keine S-Aggression. JETZT SCHREIBEN.
@@ -1120,7 +1120,7 @@ Beginnt mit Anrede (de / en), endet mit "Beste Grüße," (de) bzw. "Best regards
 ═══════════════════════════════════════════════════════════
 🎯 CTA-KERNREGEL: kurzer 30-Minuten-Video-Call mit konkretem Tagesvorschlag, in der Sprache der Mail. Verboten: unsicheres "würden Sie eventuell", Material, Vor-Ort. Erlaubt: de "Ich habe nächste Woche Dienstag und Donnerstag ein kurzes Fenster, passt ein 30-Minuten-Video-Call?", en "I have a short window next Tuesday and Thursday, would a 30-minute video call work?".
 # ANTI-DELIVERABLE-REGEL: keine erfundenen Angebote/Fristen. Nur kurzer 30-Minuten-Video-Call.
-🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus DE, AT, CH (CH immer Hochdeutsch). ENGLISCH bei jedem anderen Land. Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,', en 'Best regards,'.
+🌐 SPRACH-REGEL (Land-Routing): Die Sprache wird durch das Land des Leads bestimmt ({{lead.country}}, {{location}}, {{company.country}}). DEUTSCH wenn Lead aus Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (DE, AT, CH). Schweizer Leads: Hochdeutsch in Schweizer Schreibweise OHNE scharfes ß, ersetze jedes ß durch ss (Schlussgruss 'Beste Grüsse,'). ENGLISCH bei jedem anderen Land (alle übrigen EU-Länder inkl. France/Frankreich). Konsistent durch die GANZE Mail (Anrede, Body, CTA, Schluss), kein Sprach-Mix. Anrede de: 'Sehr geehrter Herr {{last_name}},' / 'Sehr geehrte Frau {{last_name}},' / unklar 'Hallo {{first_name}},'. Anrede en: 'Dear Mr. {{last_name}},' / 'Dear Ms. {{last_name}},' / unklar 'Hello {{first_name}},'. Schluss de 'Beste Grüße,' (Schweiz ohne ß: 'Beste Grüsse,'), en 'Best regards,'.
 
 🎯 DISC: {{lead.disc_profile}}. Kombi 70/30; leer → C. DISC steuert den Stil der Transparenz.
 PROFIL D: 120-140 Wörter, transparenter Verkauf ("Ich mach es kurz"). PROFIL I: 135-155, warme Authentizität ("Ich war ehrlich neugierig, als ich..."). PROFIL S: 135-155, respektvolle Direktheit ("Ich nehme mir die Freiheit, Sie anzuschreiben, weil..."). PROFIL C: 130-150, methodische Transparenz ("Ich habe Ihre Veröffentlichungen systematisch durchgesehen").
@@ -1147,7 +1147,7 @@ VALUE IN EINER ZEILE (1-2 Sätze): eine starke Aussage + mind. 1 Proof Point aus
 Leerzeile
 CTA (1 Satz): 30-Minuten-Video-Call mit konkretem Tagesvorschlag, in der Sprache der Mail.
 Leerzeile
-SCHLUSS: de "Beste Grüße," / en "Best regards,"
+SCHLUSS: de "Beste Grüße," (Schweiz ohne ß: "Beste Grüsse,") / en "Best regards,"
 
 # QUALITÄTS-PRÜFUNG: ☐ Sprache land-geroutet (DE/AT/CH Deutsch, sonst Englisch), ohne verbotene Zeichen? ☐ Opener mit SPEZIFISCHEM Recherche-Detail, kein erfundenes Signal? ☐ Pain konkret? ☐ Value mit Proof Point? ☐ menschlich, kein Corporate-Speak? ☐ CTA = 30-Minuten-Video-Call mit Tagesvorschlag? ☐ keine Platzhalter/Signatur?
 FINALER REMINDER: ✅ spezifisches Detail  ✅ menschlich  ✅ Proof Point  ✅ 30-Minuten-Video-Call-CTA mit Tag  ❌ kein Corporate-Speak, kein unsicherer CTA. JETZT SCHREIBEN.

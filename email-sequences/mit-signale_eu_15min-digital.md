@@ -2,7 +2,7 @@
 
 > **Variant-Code:** `E1–E10 · MIT (Buying Signals) · EU · 15D · AUGENHÖHE`
 > Jede der 10 Positionen enthält denselben standardisierten Kopf-Block (GRUNDHALTUNG + volle DISC-Profile + SPRACHREGEL DE/FR/EN). Nur **Aufbau** und **Beispiele** ändern sich pro Position.
-> Region EU = Land-Routing DE/AT/CH→Deutsch, FR→Französisch, alle anderen→Englisch. CTA durchgehend 15-Min digitaler Austausch. Output-Zeichen-Regel aktiv.
+> Region EU = Land-Routing Germany/Deutschland/Österreich/Austria/Switzerland/Schweiz→Deutsch (Schweiz ohne ß, mit ss), alle übrigen→Englisch. CTA durchgehend 15-Min digitaler Austausch. Output-Zeichen-Regel aktiv.
 
 ---
 
@@ -10,7 +10,7 @@
 ## EMAIL 1 · MIT · EU · 15D · AUGENHÖHE  (Cold-Open)
 
 ### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
-Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, FR → Französisch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, alle übrigen EU-Länder → Englisch (Schweizer Leads ohne ß, mit ss)). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
 
 Deutsch (DE/AT/CH):
 - {{first_name}}, 15 Min für {{company}}?
@@ -25,10 +25,6 @@ Englisch (Rest):
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, a thought on {{company}}
 - {{first_name}}, 15 minutes this week?
-
-Französisch (FR):
-- {{first_name}}, 15 min pour {{company}} ?
-- {{sender_company}} × {{company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -101,14 +97,13 @@ Die Sprache der Email wird AUSSCHLIESSLICH durch das Land des Leads bestimmt (NI
 Prüfe das Land des Leads anhand von {{lead.country}}, {{lead.location}}, {{company.country}} oder vergleichbaren Standortfeldern.
 
 **MAPPING — STRIKT BEFOLGEN:**
-→ **DEUTSCH** wenn Lead aus: Deutschland (DE), Österreich (AT), Schweiz (CH).
-→ **FRANZÖSISCH** wenn Lead aus: Frankreich (FR).
-→ **ENGLISCH** wenn Lead aus jedem anderen Land (USA, UK, NL, IT, ES, PL, DK, SE, BE, CZ, TR, IN, CN, JP, BR, MX, etc.).
+→ **DEUTSCH** wenn Lead aus: Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (also DE, AT, CH).
+→ **ENGLISCH** wenn Lead aus jedem anderen Land (alle übrigen EU-Länder und Rest der Welt: France, Frankreich, Netherlands, Italy, Spain, Poland, Belgium, Luxembourg, UK, USA, etc.).
 
 **WICHTIG:**
-- Schweizer Leads (CH): IMMER Hochdeutsch, NIEMALS Schweizerdeutsch.
-- Belgische Leads (BE): IMMER Englisch.
-- Luxemburgische Leads (LU): IMMER Englisch.
+- Schweizer Leads (Switzerland, Schweiz, CH): IMMER Hochdeutsch, ABER in Schweizer Schreibweise OHNE scharfes „ß". Ersetze im gesamten Text JEDES „ß" durch „ss" (z. B. „Grüße" → „Grüsse", „Straße" → „Strasse", „außerdem" → „ausserdem", „muß" → „muss"). Der Schlussgruß lautet bei Schweizer Leads „Beste Grüsse,".
+- Deutschland (DE) und Österreich (AT): normales Hochdeutsch mit „ß" wo korrekt.
+- Frankreich (France, FR) und alle übrigen EU-Länder: Englisch.
 - Land nicht eindeutig → Englisch als Default.
 - Sprache MUSS konsistent durch die gesamte Mail (Anrede, Body, CTA, Schluss).
 
@@ -143,7 +138,6 @@ Die Email soll wie folgt aufgebaut sein:
 
 **ANREDE — abhängig von der Sprache (siehe SPRACHREGEL oben):**
 → DEUTSCH (DE/AT/CH): Mann "Sehr geehrter Herr {{last_name}}," / Frau "Sehr geehrte Frau {{last_name}}," / unklar "Hallo {{first_name}},"
-→ FRANZÖSISCH (FR): Mann "Cher Monsieur {{last_name}}," / Frau "Chère Madame {{last_name}}," / unklar "Bonjour {{first_name}},"
 → ENGLISCH (Rest): Mann "Dear Mr. {{last_name}}," / Frau "Dear Ms. {{last_name}}," / unklar "Hello {{first_name}},"
 Geschlecht aus {{full_name}} ableiten.
 
@@ -165,13 +159,12 @@ Leerzeile
 **CTA — 15-Min digitaler Austausch, abhängig von Sprache & DISC, dialogorientiert:**
 Offenes Gesprächsangebot, Interesse nicht vorausgesetzt. Bei I/S einstufig und weich.
 → DEUTSCH: ähnlich "Falls das für Sie relevant ist, würde ich mich über 15 Minuten digitalen Austausch freuen, offen, ob und wo es bei Ihnen passt."
-→ FRANZÖSISCH: ähnlich "Si le sujet vous semble pertinent, je serais ravi d'échanger 15 minutes en visio, ouvertement, sur ce qui correspond à votre contexte."
 → ENGLISCH: ähnlich "If this is a relevant topic on your side, I'd welcome a brief 15-minute call, openly, on whether and where it fits."
 Der CTA darf das Signal subtil aufgreifen.
 
 Leerzeile
 
-**SCHLUSS:** DEUTSCH "Beste Grüße," / FRANZÖSISCH "Cordialement," / ENGLISCH "Best regards,".
+**SCHLUSS:** DEUTSCH "Beste Grüße," (Schweizer Leads ohne ß: "Beste Grüsse,") / ENGLISCH "Best regards,".
 WICHTIG: Niemals Signatur, Namen oder Platzhalter am Ende. Ende ausschließlich mit dem sprachlich passenden Schluss.
 
 ---
@@ -221,7 +214,7 @@ Best regards,"
 ## EMAIL 2 · MIT · EU · 15D · AUGENHÖHE  (Cold-Open Variante)
 
 ### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
-Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, FR → Französisch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, alle übrigen EU-Länder → Englisch (Schweizer Leads ohne ß, mit ss)). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
 
 Deutsch (DE/AT/CH):
 - {{first_name}}, 15 Min für {{company}}?
@@ -236,10 +229,6 @@ Englisch (Rest):
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, a thought on {{company}}
 - {{first_name}}, 15 minutes this week?
-
-Französisch (FR):
-- {{first_name}}, 15 min pour {{company}} ?
-- {{sender_company}} × {{company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -312,14 +301,13 @@ Die Sprache der Email wird AUSSCHLIESSLICH durch das Land des Leads bestimmt (NI
 Prüfe das Land des Leads anhand von {{lead.country}}, {{lead.location}}, {{company.country}} oder vergleichbaren Standortfeldern.
 
 **MAPPING — STRIKT BEFOLGEN:**
-→ **DEUTSCH** wenn Lead aus: Deutschland (DE), Österreich (AT), Schweiz (CH).
-→ **FRANZÖSISCH** wenn Lead aus: Frankreich (FR).
-→ **ENGLISCH** wenn Lead aus jedem anderen Land (USA, UK, NL, IT, ES, PL, DK, SE, BE, CZ, TR, IN, CN, JP, BR, MX, etc.).
+→ **DEUTSCH** wenn Lead aus: Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (also DE, AT, CH).
+→ **ENGLISCH** wenn Lead aus jedem anderen Land (alle übrigen EU-Länder und Rest der Welt: France, Frankreich, Netherlands, Italy, Spain, Poland, Belgium, Luxembourg, UK, USA, etc.).
 
 **WICHTIG:**
-- Schweizer Leads (CH): IMMER Hochdeutsch, NIEMALS Schweizerdeutsch.
-- Belgische Leads (BE): IMMER Englisch.
-- Luxemburgische Leads (LU): IMMER Englisch.
+- Schweizer Leads (Switzerland, Schweiz, CH): IMMER Hochdeutsch, ABER in Schweizer Schreibweise OHNE scharfes „ß". Ersetze im gesamten Text JEDES „ß" durch „ss" (z. B. „Grüße" → „Grüsse", „Straße" → „Strasse", „außerdem" → „ausserdem", „muß" → „muss"). Der Schlussgruß lautet bei Schweizer Leads „Beste Grüsse,".
+- Deutschland (DE) und Österreich (AT): normales Hochdeutsch mit „ß" wo korrekt.
+- Frankreich (France, FR) und alle übrigen EU-Länder: Englisch.
 - Land nicht eindeutig → Englisch als Default.
 - Sprache MUSS konsistent durch die gesamte Mail (Anrede, Body, CTA, Schluss).
 
@@ -354,7 +342,6 @@ Die Email soll wie folgt aufgebaut sein (Cold-Open, zweite Variante, anderer Sig
 
 **ANREDE — abhängig von der Sprache (siehe SPRACHREGEL oben):**
 → DEUTSCH (DE/AT/CH): Mann "Sehr geehrter Herr {{last_name}}," / Frau "Sehr geehrte Frau {{last_name}}," / unklar "Hallo {{first_name}},"
-→ FRANZÖSISCH (FR): Mann "Cher Monsieur {{last_name}}," / Frau "Chère Madame {{last_name}}," / unklar "Bonjour {{first_name}},"
 → ENGLISCH (Rest): Mann "Dear Mr. {{last_name}}," / Frau "Dear Ms. {{last_name}}," / unklar "Hello {{first_name}},"
 Geschlecht aus {{full_name}} ableiten.
 
@@ -372,12 +359,11 @@ Leerzeile
 
 **CTA — 15-Min digitaler Austausch, dialogorientiert:**
 → DEUTSCH: ähnlich "Falls das für Sie relevant ist, würde ich mich über 15 Minuten digitalen Austausch freuen, offen, ob und wo es bei Ihnen passt."
-→ FRANZÖSISCH: ähnlich "Si le sujet vous semble pertinent, je serais ravi d'échanger 15 minutes en visio, ouvertement, sur ce qui correspond à votre contexte."
 → ENGLISCH: ähnlich "If this is a relevant topic on your side, I'd welcome a brief 15-minute call, openly, on whether and where it fits."
 
 Leerzeile
 
-**SCHLUSS:** DEUTSCH "Beste Grüße," / FRANZÖSISCH "Cordialement," / ENGLISCH "Best regards,".
+**SCHLUSS:** DEUTSCH "Beste Grüße," (Schweizer Leads ohne ß: "Beste Grüsse,") / ENGLISCH "Best regards,".
 WICHTIG: Niemals Signatur, Namen oder Platzhalter am Ende. Ende ausschließlich mit dem sprachlich passenden Schluss.
 
 ---
@@ -406,7 +392,7 @@ Beste Grüße,"
 ## EMAIL 3 · MIT · EU · 15D · AUGENHÖHE  (Follow-up)
 
 ### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
-Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, FR → Französisch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, alle übrigen EU-Länder → Englisch (Schweizer Leads ohne ß, mit ss)). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
 
 Deutsch (DE/AT/CH):
 - {{first_name}}, nochmal kurz zu {{company}}
@@ -425,10 +411,6 @@ Englisch (Rest):
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, a thought on {{company}}
 - {{first_name}}, 15 minutes this week?
-
-Französisch (FR):
-- {{first_name}}, 15 min pour {{company}} ?
-- {{sender_company}} × {{company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -501,14 +483,13 @@ Die Sprache der Email wird AUSSCHLIESSLICH durch das Land des Leads bestimmt (NI
 Prüfe das Land des Leads anhand von {{lead.country}}, {{lead.location}}, {{company.country}} oder vergleichbaren Standortfeldern.
 
 **MAPPING — STRIKT BEFOLGEN:**
-→ **DEUTSCH** wenn Lead aus: Deutschland (DE), Österreich (AT), Schweiz (CH).
-→ **FRANZÖSISCH** wenn Lead aus: Frankreich (FR).
-→ **ENGLISCH** wenn Lead aus jedem anderen Land (USA, UK, NL, IT, ES, PL, DK, SE, BE, CZ, TR, IN, CN, JP, BR, MX, etc.).
+→ **DEUTSCH** wenn Lead aus: Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (also DE, AT, CH).
+→ **ENGLISCH** wenn Lead aus jedem anderen Land (alle übrigen EU-Länder und Rest der Welt: France, Frankreich, Netherlands, Italy, Spain, Poland, Belgium, Luxembourg, UK, USA, etc.).
 
 **WICHTIG:**
-- Schweizer Leads (CH): IMMER Hochdeutsch, NIEMALS Schweizerdeutsch.
-- Belgische Leads (BE): IMMER Englisch.
-- Luxemburgische Leads (LU): IMMER Englisch.
+- Schweizer Leads (Switzerland, Schweiz, CH): IMMER Hochdeutsch, ABER in Schweizer Schreibweise OHNE scharfes „ß". Ersetze im gesamten Text JEDES „ß" durch „ss" (z. B. „Grüße" → „Grüsse", „Straße" → „Strasse", „außerdem" → „ausserdem", „muß" → „muss"). Der Schlussgruß lautet bei Schweizer Leads „Beste Grüsse,".
+- Deutschland (DE) und Österreich (AT): normales Hochdeutsch mit „ß" wo korrekt.
+- Frankreich (France, FR) und alle übrigen EU-Länder: Englisch.
 - Land nicht eindeutig → Englisch als Default.
 - Sprache MUSS konsistent durch die gesamte Mail (Anrede, Body, CTA, Schluss).
 
@@ -546,7 +527,6 @@ Knüpfe inhaltlich an {{previous_email_body}} an, OHNE den Inhalt zu wiederholen
 
 **ANREDE — abhängig von der Sprache (siehe SPRACHREGEL oben):**
 → DEUTSCH (DE/AT/CH): Mann "Sehr geehrter Herr {{last_name}}," / Frau "Sehr geehrte Frau {{last_name}}," / unklar "Hallo {{first_name}},"
-→ FRANZÖSISCH (FR): Mann "Cher Monsieur {{last_name}}," / Frau "Chère Madame {{last_name}}," / unklar "Bonjour {{first_name}},"
 → ENGLISCH (Rest): Mann "Dear Mr. {{last_name}}," / Frau "Dear Ms. {{last_name}}," / unklar "Hello {{first_name}},"
 Geschlecht aus {{full_name}} ableiten.
 
@@ -566,12 +546,11 @@ Leerzeile
 
 **CTA — 15-Min digitaler Austausch, dialogorientiert:**
 → DEUTSCH: ähnlich "Falls das für Sie relevant ist, würde ich mich über 15 Minuten digitalen Austausch freuen, offen, ob und wo es bei Ihnen passt."
-→ FRANZÖSISCH: ähnlich "Si le sujet vous semble pertinent, je serais ravi d'échanger 15 minutes en visio, ouvertement, sur ce qui correspond à votre contexte."
 → ENGLISCH: ähnlich "If this is a relevant topic on your side, I'd welcome a brief 15-minute call, openly, on whether and where it fits."
 
 Leerzeile
 
-**SCHLUSS:** DEUTSCH "Beste Grüße," / FRANZÖSISCH "Cordialement," / ENGLISCH "Best regards,".
+**SCHLUSS:** DEUTSCH "Beste Grüße," (Schweizer Leads ohne ß: "Beste Grüsse,") / ENGLISCH "Best regards,".
 WICHTIG: Niemals Signatur, Namen oder Platzhalter am Ende. Ende ausschließlich mit dem sprachlich passenden Schluss.
 
 ---
@@ -600,7 +579,7 @@ Beste Grüße,"
 ## EMAIL 4 · MIT · EU · 15D · AUGENHÖHE  (Kurzvariante)
 
 ### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
-Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, FR → Französisch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, alle übrigen EU-Länder → Englisch (Schweizer Leads ohne ß, mit ss)). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
 
 Deutsch (DE/AT/CH):
 - {{first_name}}, 15 Min für {{company}}?
@@ -615,10 +594,6 @@ Englisch (Rest):
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, a thought on {{company}}
 - {{first_name}}, 15 minutes this week?
-
-Französisch (FR):
-- {{first_name}}, 15 min pour {{company}} ?
-- {{sender_company}} × {{company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -691,14 +666,13 @@ Die Sprache der Email wird AUSSCHLIESSLICH durch das Land des Leads bestimmt (NI
 Prüfe das Land des Leads anhand von {{lead.country}}, {{lead.location}}, {{company.country}} oder vergleichbaren Standortfeldern.
 
 **MAPPING — STRIKT BEFOLGEN:**
-→ **DEUTSCH** wenn Lead aus: Deutschland (DE), Österreich (AT), Schweiz (CH).
-→ **FRANZÖSISCH** wenn Lead aus: Frankreich (FR).
-→ **ENGLISCH** wenn Lead aus jedem anderen Land (USA, UK, NL, IT, ES, PL, DK, SE, BE, CZ, TR, IN, CN, JP, BR, MX, etc.).
+→ **DEUTSCH** wenn Lead aus: Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (also DE, AT, CH).
+→ **ENGLISCH** wenn Lead aus jedem anderen Land (alle übrigen EU-Länder und Rest der Welt: France, Frankreich, Netherlands, Italy, Spain, Poland, Belgium, Luxembourg, UK, USA, etc.).
 
 **WICHTIG:**
-- Schweizer Leads (CH): IMMER Hochdeutsch, NIEMALS Schweizerdeutsch.
-- Belgische Leads (BE): IMMER Englisch.
-- Luxemburgische Leads (LU): IMMER Englisch.
+- Schweizer Leads (Switzerland, Schweiz, CH): IMMER Hochdeutsch, ABER in Schweizer Schreibweise OHNE scharfes „ß". Ersetze im gesamten Text JEDES „ß" durch „ss" (z. B. „Grüße" → „Grüsse", „Straße" → „Strasse", „außerdem" → „ausserdem", „muß" → „muss"). Der Schlussgruß lautet bei Schweizer Leads „Beste Grüsse,".
+- Deutschland (DE) und Österreich (AT): normales Hochdeutsch mit „ß" wo korrekt.
+- Frankreich (France, FR) und alle übrigen EU-Länder: Englisch.
 - Land nicht eindeutig → Englisch als Default.
 - Sprache MUSS konsistent durch die gesamte Mail (Anrede, Body, CTA, Schluss).
 
@@ -733,7 +707,6 @@ Die Email soll wie folgt aufgebaut sein (KURZVARIANTE, kürzeste Mail, ziele auf
 
 **ANREDE — abhängig von der Sprache (siehe SPRACHREGEL oben):**
 → DEUTSCH (DE/AT/CH): Mann "Sehr geehrter Herr {{last_name}}," / Frau "Sehr geehrte Frau {{last_name}}," / unklar "Hallo {{first_name}},"
-→ FRANZÖSISCH (FR): Mann "Cher Monsieur {{last_name}}," / Frau "Chère Madame {{last_name}}," / unklar "Bonjour {{first_name}},"
 → ENGLISCH (Rest): Mann "Dear Mr. {{last_name}}," / Frau "Dear Ms. {{last_name}}," / unklar "Hello {{first_name}},"
 Geschlecht aus {{full_name}} ableiten.
 
@@ -747,12 +720,11 @@ Leerzeile
 
 **CTA — kurz & dialogorientiert, 15-Min digital:**
 → DEUTSCH: "Falls das ein Thema ist: passt ein kurzer digitaler Austausch von 15 Minuten diese Woche?"
-→ FRANZÖSISCH: "Si le sujet vous parle: auriez-vous 15 minutes en visio cette semaine ?"
 → ENGLISCH: "If this is relevant: would a brief 15-minute call this week work?"
 
 Leerzeile
 
-**SCHLUSS:** DEUTSCH "Beste Grüße," / FRANZÖSISCH "Cordialement," / ENGLISCH "Best regards,".
+**SCHLUSS:** DEUTSCH "Beste Grüße," (Schweizer Leads ohne ß: "Beste Grüsse,") / ENGLISCH "Best regards,".
 WICHTIG: Niemals Signatur, Namen oder Platzhalter am Ende. Ende ausschließlich mit dem sprachlich passenden Schluss.
 
 ---
@@ -779,7 +751,7 @@ Beste Grüße,"
 ## EMAIL 5 · MIT · EU · 15D · AUGENHÖHE  (mit P.S.)
 
 ### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
-Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, FR → Französisch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, alle übrigen EU-Länder → Englisch (Schweizer Leads ohne ß, mit ss)). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
 
 Deutsch (DE/AT/CH):
 - {{first_name}}, 15 Min für {{company}}?
@@ -794,10 +766,6 @@ Englisch (Rest):
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, a thought on {{company}}
 - {{first_name}}, 15 minutes this week?
-
-Französisch (FR):
-- {{first_name}}, 15 min pour {{company}} ?
-- {{sender_company}} × {{company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -870,14 +838,13 @@ Die Sprache der Email wird AUSSCHLIESSLICH durch das Land des Leads bestimmt (NI
 Prüfe das Land des Leads anhand von {{lead.country}}, {{lead.location}}, {{company.country}} oder vergleichbaren Standortfeldern.
 
 **MAPPING — STRIKT BEFOLGEN:**
-→ **DEUTSCH** wenn Lead aus: Deutschland (DE), Österreich (AT), Schweiz (CH).
-→ **FRANZÖSISCH** wenn Lead aus: Frankreich (FR).
-→ **ENGLISCH** wenn Lead aus jedem anderen Land (USA, UK, NL, IT, ES, PL, DK, SE, BE, CZ, TR, IN, CN, JP, BR, MX, etc.).
+→ **DEUTSCH** wenn Lead aus: Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (also DE, AT, CH).
+→ **ENGLISCH** wenn Lead aus jedem anderen Land (alle übrigen EU-Länder und Rest der Welt: France, Frankreich, Netherlands, Italy, Spain, Poland, Belgium, Luxembourg, UK, USA, etc.).
 
 **WICHTIG:**
-- Schweizer Leads (CH): IMMER Hochdeutsch, NIEMALS Schweizerdeutsch.
-- Belgische Leads (BE): IMMER Englisch.
-- Luxemburgische Leads (LU): IMMER Englisch.
+- Schweizer Leads (Switzerland, Schweiz, CH): IMMER Hochdeutsch, ABER in Schweizer Schreibweise OHNE scharfes „ß". Ersetze im gesamten Text JEDES „ß" durch „ss" (z. B. „Grüße" → „Grüsse", „Straße" → „Strasse", „außerdem" → „ausserdem", „muß" → „muss"). Der Schlussgruß lautet bei Schweizer Leads „Beste Grüsse,".
+- Deutschland (DE) und Österreich (AT): normales Hochdeutsch mit „ß" wo korrekt.
+- Frankreich (France, FR) und alle übrigen EU-Länder: Englisch.
 - Land nicht eindeutig → Englisch als Default.
 - Sprache MUSS konsistent durch die gesamte Mail (Anrede, Body, CTA, Schluss).
 
@@ -912,7 +879,6 @@ Die Email soll wie folgt aufgebaut sein (mit P.S.; Wortzahl exkl. P.S. laut DISC
 
 **ANREDE — abhängig von der Sprache (siehe SPRACHREGEL oben):**
 → DEUTSCH (DE/AT/CH): Mann "Sehr geehrter Herr {{last_name}}," / Frau "Sehr geehrte Frau {{last_name}}," / unklar "Hallo {{first_name}},"
-→ FRANZÖSISCH (FR): Mann "Cher Monsieur {{last_name}}," / Frau "Chère Madame {{last_name}}," / unklar "Bonjour {{first_name}},"
 → ENGLISCH (Rest): Mann "Dear Mr. {{last_name}}," / Frau "Dear Ms. {{last_name}}," / unklar "Hello {{first_name}},"
 Geschlecht aus {{full_name}} ableiten.
 
@@ -930,12 +896,11 @@ Leerzeile
 
 **CTA — weich & dialogorientiert, 15-Min digital:**
 → DEUTSCH: ähnlich "Falls das für Sie relevant ist, würde ich mich über 15 Minuten digitalen Austausch freuen, offen, ob und wo es bei Ihnen passt."
-→ FRANZÖSISCH: ähnlich "Si le sujet vous semble pertinent, je serais ravi d'échanger 15 minutes en visio, ouvertement, sur ce qui correspond à votre contexte."
 → ENGLISCH: ähnlich "If this is a relevant topic on your side, I'd welcome a brief 15-minute call, openly, on whether and where it fits."
 
 Leerzeile
 
-**SCHLUSS:** DEUTSCH "Beste Grüße," / FRANZÖSISCH "Cordialement," / ENGLISCH "Best regards,".
+**SCHLUSS:** DEUTSCH "Beste Grüße," (Schweizer Leads ohne ß: "Beste Grüsse,") / ENGLISCH "Best regards,".
 WICHTIG: Niemals Signatur, Namen oder Platzhalter am Ende. Ende ausschließlich mit dem sprachlich passenden Schluss.
 
 Leerzeile
@@ -970,7 +935,7 @@ P.S. Ein bayerischer Maschinenbauer hat mit diesem Ansatz innerhalb von sechs Wo
 ## EMAIL 6 · MIT · EU · 15D · AUGENHÖHE  (Follow-up neuer Blickwinkel)
 
 ### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
-Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, FR → Französisch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, alle übrigen EU-Länder → Englisch (Schweizer Leads ohne ß, mit ss)). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
 
 Deutsch (DE/AT/CH):
 - {{first_name}}, nochmal kurz zu {{company}}
@@ -989,10 +954,6 @@ Englisch (Rest):
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, a thought on {{company}}
 - {{first_name}}, 15 minutes this week?
-
-Französisch (FR):
-- {{first_name}}, 15 min pour {{company}} ?
-- {{sender_company}} × {{company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -1065,14 +1026,13 @@ Die Sprache der Email wird AUSSCHLIESSLICH durch das Land des Leads bestimmt (NI
 Prüfe das Land des Leads anhand von {{lead.country}}, {{lead.location}}, {{company.country}} oder vergleichbaren Standortfeldern.
 
 **MAPPING — STRIKT BEFOLGEN:**
-→ **DEUTSCH** wenn Lead aus: Deutschland (DE), Österreich (AT), Schweiz (CH).
-→ **FRANZÖSISCH** wenn Lead aus: Frankreich (FR).
-→ **ENGLISCH** wenn Lead aus jedem anderen Land (USA, UK, NL, IT, ES, PL, DK, SE, BE, CZ, TR, IN, CN, JP, BR, MX, etc.).
+→ **DEUTSCH** wenn Lead aus: Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (also DE, AT, CH).
+→ **ENGLISCH** wenn Lead aus jedem anderen Land (alle übrigen EU-Länder und Rest der Welt: France, Frankreich, Netherlands, Italy, Spain, Poland, Belgium, Luxembourg, UK, USA, etc.).
 
 **WICHTIG:**
-- Schweizer Leads (CH): IMMER Hochdeutsch, NIEMALS Schweizerdeutsch.
-- Belgische Leads (BE): IMMER Englisch.
-- Luxemburgische Leads (LU): IMMER Englisch.
+- Schweizer Leads (Switzerland, Schweiz, CH): IMMER Hochdeutsch, ABER in Schweizer Schreibweise OHNE scharfes „ß". Ersetze im gesamten Text JEDES „ß" durch „ss" (z. B. „Grüße" → „Grüsse", „Straße" → „Strasse", „außerdem" → „ausserdem", „muß" → „muss"). Der Schlussgruß lautet bei Schweizer Leads „Beste Grüsse,".
+- Deutschland (DE) und Österreich (AT): normales Hochdeutsch mit „ß" wo korrekt.
+- Frankreich (France, FR) und alle übrigen EU-Länder: Englisch.
 - Land nicht eindeutig → Englisch als Default.
 - Sprache MUSS konsistent durch die gesamte Mail (Anrede, Body, CTA, Schluss).
 
@@ -1109,7 +1069,6 @@ WICHTIG: zweite Mail im Outreach; die erste wurde gesendet, aber nicht beantwort
 
 **ANREDE — abhängig von der Sprache (siehe SPRACHREGEL oben):**
 → DEUTSCH (DE/AT/CH): Mann "Sehr geehrter Herr {{last_name}}," / Frau "Sehr geehrte Frau {{last_name}}," / unklar "Hallo {{first_name}},"
-→ FRANZÖSISCH (FR): Mann "Cher Monsieur {{last_name}}," / Frau "Chère Madame {{last_name}}," / unklar "Bonjour {{first_name}},"
 → ENGLISCH (Rest): Mann "Dear Mr. {{last_name}}," / Frau "Dear Ms. {{last_name}}," / unklar "Hello {{first_name}},"
 Geschlecht aus {{full_name}} ableiten.
 
@@ -1123,12 +1082,11 @@ Leerzeile
 
 **CTA — 15-Min digital, noch niedrigschwelliger als in der ersten Mail:**
 → DEUTSCH: ähnlich "Vielleicht passt es jetzt besser, ein kurzer digitaler Austausch von 15 Minuten, ganz wie es in Ihren Kalender passt."
-→ FRANZÖSISCH: ähnlich "Le moment est peut-être mieux choisi, 15 minutes en visio, selon votre agenda."
 → ENGLISCH: ähnlich "Maybe the timing fits better now, a brief 15-minute call, whenever it suits your calendar."
 
 Leerzeile
 
-**SCHLUSS:** DEUTSCH "Beste Grüße," / FRANZÖSISCH "Cordialement," / ENGLISCH "Best regards,".
+**SCHLUSS:** DEUTSCH "Beste Grüße," (Schweizer Leads ohne ß: "Beste Grüsse,") / ENGLISCH "Best regards,".
 WICHTIG: Niemals Signatur, Namen oder Platzhalter am Ende. Ende ausschließlich mit dem sprachlich passenden Schluss.
 
 ---
@@ -1155,7 +1113,7 @@ Beste Grüße,"
 ## EMAIL 7 · MIT · EU · 15D · AUGENHÖHE  (Storytelling)
 
 ### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
-Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, FR → Französisch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, alle übrigen EU-Länder → Englisch (Schweizer Leads ohne ß, mit ss)). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
 
 Deutsch (DE/AT/CH):
 - {{first_name}}, 15 Min für {{company}}?
@@ -1170,10 +1128,6 @@ Englisch (Rest):
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, a thought on {{company}}
 - {{first_name}}, 15 minutes this week?
-
-Französisch (FR):
-- {{first_name}}, 15 min pour {{company}} ?
-- {{sender_company}} × {{company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -1246,14 +1200,13 @@ Die Sprache der Email wird AUSSCHLIESSLICH durch das Land des Leads bestimmt (NI
 Prüfe das Land des Leads anhand von {{lead.country}}, {{lead.location}}, {{company.country}} oder vergleichbaren Standortfeldern.
 
 **MAPPING — STRIKT BEFOLGEN:**
-→ **DEUTSCH** wenn Lead aus: Deutschland (DE), Österreich (AT), Schweiz (CH).
-→ **FRANZÖSISCH** wenn Lead aus: Frankreich (FR).
-→ **ENGLISCH** wenn Lead aus jedem anderen Land (USA, UK, NL, IT, ES, PL, DK, SE, BE, CZ, TR, IN, CN, JP, BR, MX, etc.).
+→ **DEUTSCH** wenn Lead aus: Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (also DE, AT, CH).
+→ **ENGLISCH** wenn Lead aus jedem anderen Land (alle übrigen EU-Länder und Rest der Welt: France, Frankreich, Netherlands, Italy, Spain, Poland, Belgium, Luxembourg, UK, USA, etc.).
 
 **WICHTIG:**
-- Schweizer Leads (CH): IMMER Hochdeutsch, NIEMALS Schweizerdeutsch.
-- Belgische Leads (BE): IMMER Englisch.
-- Luxemburgische Leads (LU): IMMER Englisch.
+- Schweizer Leads (Switzerland, Schweiz, CH): IMMER Hochdeutsch, ABER in Schweizer Schreibweise OHNE scharfes „ß". Ersetze im gesamten Text JEDES „ß" durch „ss" (z. B. „Grüße" → „Grüsse", „Straße" → „Strasse", „außerdem" → „ausserdem", „muß" → „muss"). Der Schlussgruß lautet bei Schweizer Leads „Beste Grüsse,".
+- Deutschland (DE) und Österreich (AT): normales Hochdeutsch mit „ß" wo korrekt.
+- Frankreich (France, FR) und alle übrigen EU-Länder: Englisch.
 - Land nicht eindeutig → Englisch als Default.
 - Sprache MUSS konsistent durch die gesamte Mail (Anrede, Body, CTA, Schluss).
 
@@ -1288,7 +1241,6 @@ Die Email soll wie folgt aufgebaut sein (STORYTELLING, 155-175 Wörter). Erzähl
 
 **ANREDE — abhängig von der Sprache (siehe SPRACHREGEL oben):**
 → DEUTSCH (DE/AT/CH): Mann "Sehr geehrter Herr {{last_name}}," / Frau "Sehr geehrte Frau {{last_name}}," / unklar "Hallo {{first_name}},"
-→ FRANZÖSISCH (FR): Mann "Cher Monsieur {{last_name}}," / Frau "Chère Madame {{last_name}}," / unklar "Bonjour {{first_name}},"
 → ENGLISCH (Rest): Mann "Dear Mr. {{last_name}}," / Frau "Dear Ms. {{last_name}}," / unklar "Hello {{first_name}},"
 Geschlecht aus {{full_name}} ableiten.
 
@@ -1306,12 +1258,11 @@ Leerzeile
 
 **CTA — 15-Min digital:**
 → DEUTSCH: ähnlich "Ich würde Ihnen in einem kurzen digitalen Austausch von 15 Minuten gern zeigen, ob ein ähnlicher Ansatz auch für Sie Sinn ergibt."
-→ FRANZÖSISCH: ähnlich "En 15 minutes de visio, je vous montrerais volontiers si une approche similaire a du sens chez vous."
 → ENGLISCH: ähnlich "In a brief 15-minute call I'd gladly show whether a similar approach makes sense for you."
 
 Leerzeile
 
-**SCHLUSS:** DEUTSCH "Beste Grüße," / FRANZÖSISCH "Cordialement," / ENGLISCH "Best regards,".
+**SCHLUSS:** DEUTSCH "Beste Grüße," (Schweizer Leads ohne ß: "Beste Grüsse,") / ENGLISCH "Best regards,".
 WICHTIG: Niemals Signatur, Namen oder Platzhalter am Ende. Ende ausschließlich mit dem sprachlich passenden Schluss.
 
 ---
@@ -1340,7 +1291,7 @@ Beste Grüße,"
 ## EMAIL 8 · MIT · EU · 15D · AUGENHÖHE  (Pattern-Interrupt)
 
 ### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
-Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, FR → Französisch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, alle übrigen EU-Länder → Englisch (Schweizer Leads ohne ß, mit ss)). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
 
 Deutsch (DE/AT/CH):
 - {{first_name}}, 15 Min für {{company}}?
@@ -1355,10 +1306,6 @@ Englisch (Rest):
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, a thought on {{company}}
 - {{first_name}}, 15 minutes this week?
-
-Französisch (FR):
-- {{first_name}}, 15 min pour {{company}} ?
-- {{sender_company}} × {{company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -1431,14 +1378,13 @@ Die Sprache der Email wird AUSSCHLIESSLICH durch das Land des Leads bestimmt (NI
 Prüfe das Land des Leads anhand von {{lead.country}}, {{lead.location}}, {{company.country}} oder vergleichbaren Standortfeldern.
 
 **MAPPING — STRIKT BEFOLGEN:**
-→ **DEUTSCH** wenn Lead aus: Deutschland (DE), Österreich (AT), Schweiz (CH).
-→ **FRANZÖSISCH** wenn Lead aus: Frankreich (FR).
-→ **ENGLISCH** wenn Lead aus jedem anderen Land (USA, UK, NL, IT, ES, PL, DK, SE, BE, CZ, TR, IN, CN, JP, BR, MX, etc.).
+→ **DEUTSCH** wenn Lead aus: Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (also DE, AT, CH).
+→ **ENGLISCH** wenn Lead aus jedem anderen Land (alle übrigen EU-Länder und Rest der Welt: France, Frankreich, Netherlands, Italy, Spain, Poland, Belgium, Luxembourg, UK, USA, etc.).
 
 **WICHTIG:**
-- Schweizer Leads (CH): IMMER Hochdeutsch, NIEMALS Schweizerdeutsch.
-- Belgische Leads (BE): IMMER Englisch.
-- Luxemburgische Leads (LU): IMMER Englisch.
+- Schweizer Leads (Switzerland, Schweiz, CH): IMMER Hochdeutsch, ABER in Schweizer Schreibweise OHNE scharfes „ß". Ersetze im gesamten Text JEDES „ß" durch „ss" (z. B. „Grüße" → „Grüsse", „Straße" → „Strasse", „außerdem" → „ausserdem", „muß" → „muss"). Der Schlussgruß lautet bei Schweizer Leads „Beste Grüsse,".
+- Deutschland (DE) und Österreich (AT): normales Hochdeutsch mit „ß" wo korrekt.
+- Frankreich (France, FR) und alle übrigen EU-Länder: Englisch.
 - Land nicht eindeutig → Englisch als Default.
 - Sprache MUSS konsistent durch die gesamte Mail (Anrede, Body, CTA, Schluss).
 
@@ -1473,7 +1419,6 @@ Die Email soll wie folgt aufgebaut sein (PATTERN-INTERRUPT, 140-165 Wörter). Be
 
 **ANREDE — abhängig von der Sprache (siehe SPRACHREGEL oben):**
 → DEUTSCH (DE/AT/CH): Mann "Sehr geehrter Herr {{last_name}}," / Frau "Sehr geehrte Frau {{last_name}}," / unklar "Hallo {{first_name}},"
-→ FRANZÖSISCH (FR): Mann "Cher Monsieur {{last_name}}," / Frau "Chère Madame {{last_name}}," / unklar "Bonjour {{first_name}},"
 → ENGLISCH (Rest): Mann "Dear Mr. {{last_name}}," / Frau "Dear Ms. {{last_name}}," / unklar "Hello {{first_name}},"
 Geschlecht aus {{full_name}} ableiten.
 
@@ -1491,12 +1436,11 @@ Leerzeile
 
 **CTA — 15-Min digital, selbstbewusst und klar:**
 → DEUTSCH: ähnlich "Wenn das ein Thema ist, das Sie beschäftigt, ein kurzer digitaler Austausch von 15 Minuten reicht, um zu sehen, ob wir helfen können."
-→ FRANZÖSISCH: ähnlich "Si le sujet vous occupe, 15 minutes en visio suffisent pour voir si nous pouvons aider."
 → ENGLISCH: ähnlich "If this is on your mind, a brief 15-minute call is enough to see whether we can help."
 
 Leerzeile
 
-**SCHLUSS:** DEUTSCH "Beste Grüße," / FRANZÖSISCH "Cordialement," / ENGLISCH "Best regards,".
+**SCHLUSS:** DEUTSCH "Beste Grüße," (Schweizer Leads ohne ß: "Beste Grüsse,") / ENGLISCH "Best regards,".
 WICHTIG: Niemals Signatur, Namen oder Platzhalter am Ende. Ende ausschließlich mit dem sprachlich passenden Schluss.
 
 ---
@@ -1525,7 +1469,7 @@ Beste Grüße,"
 ## EMAIL 9 · MIT · EU · 15D · AUGENHÖHE  (radikale Transparenz)
 
 ### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
-Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, FR → Französisch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, alle übrigen EU-Länder → Englisch (Schweizer Leads ohne ß, mit ss)). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
 
 Deutsch (DE/AT/CH):
 - {{first_name}}, 15 Min für {{company}}?
@@ -1540,10 +1484,6 @@ Englisch (Rest):
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, a thought on {{company}}
 - {{first_name}}, 15 minutes this week?
-
-Französisch (FR):
-- {{first_name}}, 15 min pour {{company}} ?
-- {{sender_company}} × {{company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -1616,14 +1556,13 @@ Die Sprache der Email wird AUSSCHLIESSLICH durch das Land des Leads bestimmt (NI
 Prüfe das Land des Leads anhand von {{lead.country}}, {{lead.location}}, {{company.country}} oder vergleichbaren Standortfeldern.
 
 **MAPPING — STRIKT BEFOLGEN:**
-→ **DEUTSCH** wenn Lead aus: Deutschland (DE), Österreich (AT), Schweiz (CH).
-→ **FRANZÖSISCH** wenn Lead aus: Frankreich (FR).
-→ **ENGLISCH** wenn Lead aus jedem anderen Land (USA, UK, NL, IT, ES, PL, DK, SE, BE, CZ, TR, IN, CN, JP, BR, MX, etc.).
+→ **DEUTSCH** wenn Lead aus: Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (also DE, AT, CH).
+→ **ENGLISCH** wenn Lead aus jedem anderen Land (alle übrigen EU-Länder und Rest der Welt: France, Frankreich, Netherlands, Italy, Spain, Poland, Belgium, Luxembourg, UK, USA, etc.).
 
 **WICHTIG:**
-- Schweizer Leads (CH): IMMER Hochdeutsch, NIEMALS Schweizerdeutsch.
-- Belgische Leads (BE): IMMER Englisch.
-- Luxemburgische Leads (LU): IMMER Englisch.
+- Schweizer Leads (Switzerland, Schweiz, CH): IMMER Hochdeutsch, ABER in Schweizer Schreibweise OHNE scharfes „ß". Ersetze im gesamten Text JEDES „ß" durch „ss" (z. B. „Grüße" → „Grüsse", „Straße" → „Strasse", „außerdem" → „ausserdem", „muß" → „muss"). Der Schlussgruß lautet bei Schweizer Leads „Beste Grüsse,".
+- Deutschland (DE) und Österreich (AT): normales Hochdeutsch mit „ß" wo korrekt.
+- Frankreich (France, FR) und alle übrigen EU-Länder: Englisch.
 - Land nicht eindeutig → Englisch als Default.
 - Sprache MUSS konsistent durch die gesamte Mail (Anrede, Body, CTA, Schluss).
 
@@ -1658,7 +1597,6 @@ Die Email soll wie folgt aufgebaut sein (RADIKALE TRANSPARENZ, 130-155 Wörter).
 
 **ANREDE — abhängig von der Sprache (siehe SPRACHREGEL oben):**
 → DEUTSCH (DE/AT/CH): Mann "Sehr geehrter Herr {{last_name}}," / Frau "Sehr geehrte Frau {{last_name}}," / unklar "Hallo {{first_name}},"
-→ FRANZÖSISCH (FR): Mann "Cher Monsieur {{last_name}}," / Frau "Chère Madame {{last_name}}," / unklar "Bonjour {{first_name}},"
 → ENGLISCH (Rest): Mann "Dear Mr. {{last_name}}," / Frau "Dear Ms. {{last_name}}," / unklar "Hello {{first_name}},"
 Geschlecht aus {{full_name}} ableiten.
 
@@ -1676,12 +1614,11 @@ Leerzeile
 
 **CTA — 15-Min digital, menschlich und konkret:**
 → DEUTSCH: ähnlich "Ich habe nächste Woche zwei kurze Fenster, passt ein digitaler Austausch von 15 Minuten, Dienstag oder Donnerstag?"
-→ FRANZÖSISCH: ähnlich "J'ai deux créneaux la semaine prochaine, 15 minutes en visio, mardi ou jeudi ?"
 → ENGLISCH: ähnlich "I have two short windows next week, would a 15-minute call work, Tuesday or Thursday?"
 
 Leerzeile
 
-**SCHLUSS:** DEUTSCH "Beste Grüße," / FRANZÖSISCH "Cordialement," / ENGLISCH "Best regards,".
+**SCHLUSS:** DEUTSCH "Beste Grüße," (Schweizer Leads ohne ß: "Beste Grüsse,") / ENGLISCH "Best regards,".
 WICHTIG: Niemals Signatur, Namen oder Platzhalter am Ende. Ende ausschließlich mit dem sprachlich passenden Schluss.
 
 ---
@@ -1710,7 +1647,7 @@ Beste Grüße,"
 ## EMAIL 10 · MIT · EU · 15D · AUGENHÖHE  (mutiger Reframe)
 
 ### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
-Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, FR → Französisch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, alle übrigen EU-Länder → Englisch (Schweizer Leads ohne ß, mit ss)). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
 
 Deutsch (DE/AT/CH):
 - {{first_name}}, 15 Min für {{company}}?
@@ -1725,10 +1662,6 @@ Englisch (Rest):
 - {{first_name}}, {{sender_company}} × {{company}}
 - {{first_name}}, a thought on {{company}}
 - {{first_name}}, 15 minutes this week?
-
-Französisch (FR):
-- {{first_name}}, 15 min pour {{company}} ?
-- {{sender_company}} × {{company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -1801,14 +1734,13 @@ Die Sprache der Email wird AUSSCHLIESSLICH durch das Land des Leads bestimmt (NI
 Prüfe das Land des Leads anhand von {{lead.country}}, {{lead.location}}, {{company.country}} oder vergleichbaren Standortfeldern.
 
 **MAPPING — STRIKT BEFOLGEN:**
-→ **DEUTSCH** wenn Lead aus: Deutschland (DE), Österreich (AT), Schweiz (CH).
-→ **FRANZÖSISCH** wenn Lead aus: Frankreich (FR).
-→ **ENGLISCH** wenn Lead aus jedem anderen Land (USA, UK, NL, IT, ES, PL, DK, SE, BE, CZ, TR, IN, CN, JP, BR, MX, etc.).
+→ **DEUTSCH** wenn Lead aus: Germany, Deutschland, Österreich, Austria, Switzerland, Schweiz (also DE, AT, CH).
+→ **ENGLISCH** wenn Lead aus jedem anderen Land (alle übrigen EU-Länder und Rest der Welt: France, Frankreich, Netherlands, Italy, Spain, Poland, Belgium, Luxembourg, UK, USA, etc.).
 
 **WICHTIG:**
-- Schweizer Leads (CH): IMMER Hochdeutsch, NIEMALS Schweizerdeutsch.
-- Belgische Leads (BE): IMMER Englisch.
-- Luxemburgische Leads (LU): IMMER Englisch.
+- Schweizer Leads (Switzerland, Schweiz, CH): IMMER Hochdeutsch, ABER in Schweizer Schreibweise OHNE scharfes „ß". Ersetze im gesamten Text JEDES „ß" durch „ss" (z. B. „Grüße" → „Grüsse", „Straße" → „Strasse", „außerdem" → „ausserdem", „muß" → „muss"). Der Schlussgruß lautet bei Schweizer Leads „Beste Grüsse,".
+- Deutschland (DE) und Österreich (AT): normales Hochdeutsch mit „ß" wo korrekt.
+- Frankreich (France, FR) und alle übrigen EU-Länder: Englisch.
 - Land nicht eindeutig → Englisch als Default.
 - Sprache MUSS konsistent durch die gesamte Mail (Anrede, Body, CTA, Schluss).
 
@@ -1843,7 +1775,6 @@ Die Email soll wie folgt aufgebaut sein (MUTIGER REFRAME, 145-170 Wörter). Eine
 
 **ANREDE — abhängig von der Sprache (siehe SPRACHREGEL oben):**
 → DEUTSCH (DE/AT/CH): Mann "Sehr geehrter Herr {{last_name}}," / Frau "Sehr geehrte Frau {{last_name}}," / unklar "Hallo {{first_name}},"
-→ FRANZÖSISCH (FR): Mann "Cher Monsieur {{last_name}}," / Frau "Chère Madame {{last_name}}," / unklar "Bonjour {{first_name}},"
 → ENGLISCH (Rest): Mann "Dear Mr. {{last_name}}," / Frau "Dear Ms. {{last_name}}," / unklar "Hello {{first_name}},"
 Geschlecht aus {{full_name}} ableiten.
 
@@ -1861,12 +1792,11 @@ Leerzeile
 
 **CTA — 15-Min digital, selbstbewusst mit niedrigem Commitment:**
 → DEUTSCH: ähnlich "Kein Pitch, kein Druck, nur 15 Minuten digitaler Austausch, um gemeinsam zu prüfen, ob das für Sie relevant ist."
-→ FRANZÖSISCH: ähnlich "Pas de pitch, pas de pression, juste 15 minutes en visio pour voir ensemble si c'est pertinent pour vous."
 → ENGLISCH: ähnlich "No pitch, no pressure, just a 15-minute call to check together whether this is relevant for you."
 
 Leerzeile
 
-**SCHLUSS:** DEUTSCH "Beste Grüße," / FRANZÖSISCH "Cordialement," / ENGLISCH "Best regards,".
+**SCHLUSS:** DEUTSCH "Beste Grüße," (Schweizer Leads ohne ß: "Beste Grüsse,") / ENGLISCH "Best regards,".
 WICHTIG: Niemals Signatur, Namen oder Platzhalter am Ende. Ende ausschließlich mit dem sprachlich passenden Schluss.
 
 ---
