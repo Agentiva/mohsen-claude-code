@@ -20,6 +20,15 @@
 
 ## EMAIL 1 · OHNE · ASIEN-USA · 30D · DISC-SALES  (Cold-Open)
 
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
+
 ═══════════════════════════════════════════════════════════
 ⚠️ ABSOLUTE OUTPUT-REGEL — VOR ALLEM ANDEREN LESEN UND BEFOLGEN ⚠️
 ═══════════════════════════════════════════════════════════
@@ -239,6 +248,17 @@ Best regards,"
 
 ## EMAIL 2 · OHNE · ASIEN-USA · 30D · DISC-SALES  (Follow-up, neuer Winkel, Bullets erlaubt)
 
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, following up on {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
+
 ═══════════════════════════════════════════════════════════
 ⚠️ ABSOLUTE OUTPUT-REGEL — VOR ALLEM ANDEREN LESEN UND BEFOLGEN ⚠️
 ═══════════════════════════════════════════════════════════
@@ -369,6 +389,17 @@ Best regards,"
 
 ## EMAIL 3 · OHNE · ASIEN-USA · 30D · DISC-SALES  (kompakt, reiner Fließtext, neuer Mini-Case)
 
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, following up on {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
+
 ═══════════════════════════════════════════════════════════
 ⚠️ ABSOLUTE OUTPUT-REGEL: Output ist NUR der E-Mail-Text. Verboten: Anweisungs-Wiederholung, Sektionen, Meta-Kommentare, Markdown.
 ZEICHEN-REGEL IM OUTPUT: KEINE Zeichen Minus, Gedankenstrich, Stern, Raute, Plus. Reiner Fließtext, Komma/Punkt/Klammern. Wort-Bindestriche erlaubt.
@@ -462,6 +493,15 @@ Best regards,"
 
 ## EMAIL 4 · OHNE · ASIEN-USA · 30D · DISC-SALES  (ultrakurz, Pain+Value verschmolzen)
 
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
+
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
 ZEICHEN-REGEL IM OUTPUT: KEINE Zeichen Minus, Gedankenstrich, Stern, Raute, Plus. Reiner Fließtext. Wort-Bindestriche erlaubt.
@@ -547,6 +587,17 @@ Best regards,"
 ---
 
 ## EMAIL 5 · OHNE · ASIEN-USA · 30D · DISC-SALES  (P.S.-Recovery)
+
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, following up on {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
@@ -658,6 +709,17 @@ P.S. We have supported several industrial customers for over five years in exact
 
 ## EMAIL 6 · OHNE · ASIEN-USA · 30D · DISC-SALES  (Perspektivwechsel)
 
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, following up on {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
+
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
 ZEICHEN-REGEL IM OUTPUT: KEINE Zeichen Minus, Gedankenstrich, Stern, Raute, Plus. Reiner Fließtext. Wort-Bindestriche erlaubt.
@@ -748,6 +810,15 @@ Best regards,"
 ---
 
 ## EMAIL 7 · OHNE · ASIEN-USA · 30D · DISC-SALES  (Story / Mini-Case)
+
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
@@ -844,6 +915,15 @@ Best regards,"
 ---
 
 ## EMAIL 8 · OHNE · ASIEN-USA · 30D · DISC-SALES  (Pattern-Interrupt)
+
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
@@ -944,6 +1024,15 @@ Best regards,"
 ---
 
 ## EMAIL 9 · OHNE · ASIEN-USA · 30D · DISC-SALES  (radikale Transparenz)
+
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.

@@ -19,6 +19,15 @@
 
 ## EMAIL 1 · MIT · DACH · VORORT · AUGENHÖHE  (Cold-Open)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
@@ -171,6 +180,15 @@ Beste Grüße,"
 
 ## EMAIL 2 · MIT · DACH · VORORT · AUGENHÖHE  (Cold-Open, Variante)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
@@ -241,6 +259,17 @@ Beste Grüße,"
 
 ## EMAIL 3 · MIT · DACH · VORORT · AUGENHÖHE  (Follow-up, neuer Aspekt)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, nochmal kurz zu {{company}}
+- Re: {{company}} × {{sender_company}}
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Der Schreibstil soll nach DISC Modell {{lead.disc_profile}} und Position {{job_title}} gerichtet sein.
 
@@ -307,6 +336,15 @@ Beste Grüße,"
 
 ## EMAIL 4 · MIT · DACH · VORORT · AUGENHÖHE  (Kurzvariante)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
@@ -363,6 +401,15 @@ Beste Grüße,"
 ---
 
 ## EMAIL 5 · MIT · DACH · VORORT · AUGENHÖHE  (mit P.S.)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -433,6 +480,17 @@ P.S. Ein bayerischer Maschinenbauer hat mit diesem Ansatz innerhalb von sechs Wo
 
 ## EMAIL 6 · MIT · DACH · VORORT · AUGENHÖHE  (Follow-up, neuer Blickwinkel)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, nochmal kurz zu {{company}}
+- Re: {{company}} × {{sender_company}}
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte FOLLOW-UP Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Es ist die zweite Mail im Outreach; die erste wurde gesendet, aber nicht beantwortet. Die Follow-Up Mail soll keinesfalls nervig oder fordernd wirken, sondern neuen Mehrwert oder einen anderen Blickwinkel liefern. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}.
 
@@ -480,6 +538,15 @@ Beste Grüße,"
 ---
 
 ## EMAIL 7 · MIT · DACH · VORORT · AUGENHÖHE  (Storytelling)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}. Nutze Storytelling: erzähle kurz von einem ähnlichen Unternehmen aus der Branche von {{company_domain}}, das ein vergleichbares Problem gelöst hat, ohne echte Namen, wenn keine Referenz bekannt ist ("Ein Unternehmen aus Ihrer Branche...").
@@ -535,6 +602,15 @@ Beste Grüße,"
 
 ## EMAIL 8 · MIT · DACH · VORORT · AUGENHÖHE  (Pattern-Interrupt)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}. Die Email soll mit einem provokanten, aufmerksamkeitsstarken Pattern-Interrupt-Satz beginnen, einer Aussage oder Frage, die {{full_name}} sofort innehalten lässt. Kein generisches Lob, keine weiche Einleitung.
 
@@ -589,6 +665,15 @@ Beste Grüße,"
 
 ## EMAIL 9 · MIT · DACH · VORORT · AUGENHÖHE  (radikale Transparenz)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}. Die Email soll radikal transparent und menschlich wirken, so als würde eine echte Person schreiben, die sich wirklich vorbereitet hat. Kein Corporate-Speak, keine aufgeblasene Sprache. Direkt, ehrlich, fast schon entwaffnend offen.
 
@@ -642,6 +727,15 @@ Beste Grüße,"
 ---
 
 ## EMAIL 10 · MIT · DACH · VORORT · AUGENHÖHE  (mutiger Reframe)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}. Die Email soll einen mutigen Reframe liefern, eine unbequeme Wahrheit aussprechen, die {{full_name}} innerlich bereits kennt, aber noch nie so direkt gehört hat. Kein Angriff, kein Vorwurf, sondern das Gefühl: "Dieser Mensch versteht mein Business wirklich." Ton respektvoll-provokant, wie von einem Berater auf Augenhöhe.

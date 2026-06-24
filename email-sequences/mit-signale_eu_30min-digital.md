@@ -19,6 +19,23 @@
 
 ## EMAIL 1 · MIT · EU · 30D · AUGENHÖHE  (Cold-Open)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+Deutsch (DE/AT/CH):
+- {{first_name}}, 30 Min zu {{company}}?
+- 30min Austausch {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 30 Minuten diese Woche?
+
+Englisch (Rest):
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
@@ -173,6 +190,23 @@ Bei englischsprachigen Leads derselbe Stil vollständig auf Englisch (Anrede 'De
 
 ## EMAIL 2 · MIT · EU · 30D · AUGENHÖHE  (Cold-Open, Variante)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+Deutsch (DE/AT/CH):
+- {{first_name}}, 30 Min zu {{company}}?
+- 30min Austausch {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 30 Minuten diese Woche?
+
+Englisch (Rest):
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
@@ -245,6 +279,27 @@ Bei englischsprachigen Leads derselbe Stil vollständig auf Englisch (Anrede 'De
 
 ## EMAIL 3 · MIT · EU · 30D · AUGENHÖHE  (Follow-up, neuer Aspekt)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+Deutsch (DE/AT/CH):
+- {{first_name}}, nochmal kurz zu {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 30 Min zu {{company}}?
+- 30min Austausch {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 30 Minuten diese Woche?
+
+Englisch (Rest):
+- {{first_name}}, following up on {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Der Schreibstil soll nach DISC Modell {{lead.disc_profile}} und Position {{job_title}} gerichtet sein.
 
@@ -313,6 +368,23 @@ Bei englischsprachigen Leads derselbe Stil vollständig auf Englisch (Anrede 'De
 
 ## EMAIL 4 · MIT · EU · 30D · AUGENHÖHE  (Kurzvariante)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+Deutsch (DE/AT/CH):
+- {{first_name}}, 30 Min zu {{company}}?
+- 30min Austausch {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 30 Minuten diese Woche?
+
+Englisch (Rest):
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
@@ -371,6 +443,23 @@ Bei englischsprachigen Leads derselbe Stil vollständig auf Englisch (Anrede 'De
 ---
 
 ## EMAIL 5 · MIT · EU · 30D · AUGENHÖHE  (mit P.S.)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+Deutsch (DE/AT/CH):
+- {{first_name}}, 30 Min zu {{company}}?
+- 30min Austausch {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 30 Minuten diese Woche?
+
+Englisch (Rest):
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -443,6 +532,27 @@ Bei englischsprachigen Leads derselbe Stil vollständig auf Englisch (Anrede 'De
 
 ## EMAIL 6 · MIT · EU · 30D · AUGENHÖHE  (Follow-up, neuer Blickwinkel)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+Deutsch (DE/AT/CH):
+- {{first_name}}, nochmal kurz zu {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 30 Min zu {{company}}?
+- 30min Austausch {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 30 Minuten diese Woche?
+
+Englisch (Rest):
+- {{first_name}}, following up on {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte FOLLOW-UP Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Es ist die zweite Mail im Outreach; die erste wurde gesendet, aber nicht beantwortet. Die Follow-Up Mail soll keinesfalls nervig oder fordernd wirken, sondern neuen Mehrwert oder einen anderen Blickwinkel liefern. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}.
 
@@ -492,6 +602,23 @@ Bei englischsprachigen Leads derselbe Stil vollständig auf Englisch (Anrede 'De
 ---
 
 ## EMAIL 7 · MIT · EU · 30D · AUGENHÖHE  (Storytelling)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+Deutsch (DE/AT/CH):
+- {{first_name}}, 30 Min zu {{company}}?
+- 30min Austausch {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 30 Minuten diese Woche?
+
+Englisch (Rest):
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}. Nutze Storytelling: erzähle kurz von einem ähnlichen Unternehmen aus der Branche von {{company_domain}}, das ein vergleichbares Problem gelöst hat, ohne echte Namen, wenn keine Referenz bekannt ist ("Ein Unternehmen aus Ihrer Branche...").
@@ -549,6 +676,23 @@ Bei englischsprachigen Leads derselbe Stil vollständig auf Englisch (Anrede 'De
 
 ## EMAIL 8 · MIT · EU · 30D · AUGENHÖHE  (Pattern-Interrupt)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+Deutsch (DE/AT/CH):
+- {{first_name}}, 30 Min zu {{company}}?
+- 30min Austausch {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 30 Minuten diese Woche?
+
+Englisch (Rest):
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}. Die Email soll mit einem provokanten, aufmerksamkeitsstarken Pattern-Interrupt-Satz beginnen, einer Aussage oder Frage, die {{full_name}} sofort innehalten lässt. Kein generisches Lob, keine weiche Einleitung.
 
@@ -605,6 +749,23 @@ Bei englischsprachigen Leads derselbe Stil vollständig auf Englisch (Anrede 'De
 
 ## EMAIL 9 · MIT · EU · 30D · AUGENHÖHE  (radikale Transparenz)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+Deutsch (DE/AT/CH):
+- {{first_name}}, 30 Min zu {{company}}?
+- 30min Austausch {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 30 Minuten diese Woche?
+
+Englisch (Rest):
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}. Die Email soll radikal transparent und menschlich wirken, so als würde eine echte Person schreiben, die sich wirklich vorbereitet hat. Kein Corporate-Speak, keine aufgeblasene Sprache. Direkt, ehrlich, fast schon entwaffnend offen.
 
@@ -660,6 +821,23 @@ Bei englischsprachigen Leads derselbe Stil vollständig auf Englisch (Anrede 'De
 ---
 
 ## EMAIL 10 · MIT · EU · 30D · AUGENHÖHE  (mutiger Reframe)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile in der Sprache der Mail (Lead aus DE/AT/CH → Deutsch, sonst Englisch). Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+Deutsch (DE/AT/CH):
+- {{first_name}}, 30 Min zu {{company}}?
+- 30min Austausch {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 30 Minuten diese Woche?
+
+Englisch (Rest):
+- {{first_name}}, 30 min on {{company}}?
+- 30-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 30 minutes this week?
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}. Die Email soll einen mutigen Reframe liefern, eine unbequeme Wahrheit aussprechen, die {{full_name}} innerlich bereits kennt, aber noch nie so direkt gehört hat. Kein Angriff, kein Vorwurf, sondern das Gefühl: "Dieser Mensch versteht mein Business wirklich." Ton respektvoll-provokant, wie von einem Berater auf Augenhöhe.

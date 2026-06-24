@@ -20,6 +20,15 @@
 
 ## EMAIL 1 · OHNE · DACH · 15D · DISC-SALES  (Cold-Open)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, 15 Min für {{company}}?
+- 15min Termin {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 15 Minuten diese Woche?
+
 ═══════════════════════════════════════════════════════════
 ⚠️ ABSOLUTE OUTPUT-REGEL — VOR ALLEM ANDEREN LESEN UND BEFOLGEN ⚠️
 ═══════════════════════════════════════════════════════════
@@ -239,6 +248,17 @@ Beste Grüße,"
 
 ## EMAIL 2 · OHNE · DACH · 15D · DISC-SALES  (Follow-up, neuer Winkel, Bullets erlaubt)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, nochmal kurz zu {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 15 Min für {{company}}?
+- 15min Termin {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 15 Minuten diese Woche?
+
 ═══════════════════════════════════════════════════════════
 ⚠️ ABSOLUTE OUTPUT-REGEL — VOR ALLEM ANDEREN LESEN UND BEFOLGEN ⚠️
 ═══════════════════════════════════════════════════════════
@@ -366,6 +386,17 @@ Beste Grüße,"
 
 ## EMAIL 3 · OHNE · DACH · 15D · DISC-SALES  (kompakt, reiner Fließtext, neuer Mini-Case)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, nochmal kurz zu {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 15 Min für {{company}}?
+- 15min Termin {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 15 Minuten diese Woche?
+
 ═══════════════════════════════════════════════════════════
 ⚠️ ABSOLUTE OUTPUT-REGEL: Output ist NUR der E-Mail-Text. Verboten: Anweisungs-Wiederholung, Sektionen, Meta-Kommentare, Markdown.
 ZEICHEN-REGEL IM OUTPUT: KEINE Zeichen Minus, Gedankenstrich, Stern, Raute, Plus. Reiner Fließtext, Komma/Punkt/Klammern. Wort-Bindestriche erlaubt.
@@ -459,6 +490,15 @@ Beste Grüße,"
 
 ## EMAIL 4 · OHNE · DACH · 15D · DISC-SALES  (ultrakurz, Pain+Value verschmolzen)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, 15 Min für {{company}}?
+- 15min Termin {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 15 Minuten diese Woche?
+
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
 ZEICHEN-REGEL IM OUTPUT: KEINE Zeichen Minus, Gedankenstrich, Stern, Raute, Plus. Reiner Fließtext. Wort-Bindestriche erlaubt.
@@ -544,6 +584,17 @@ Beste Grüße,"
 ---
 
 ## EMAIL 5 · OHNE · DACH · 15D · DISC-SALES  (P.S.-Recovery)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, nochmal kurz zu {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 15 Min für {{company}}?
+- 15min Termin {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 15 Minuten diese Woche?
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
@@ -655,6 +706,17 @@ P.S. Mehrere Industriekunden begleiten wir seit über fünf Jahren in genau dies
 
 ## EMAIL 6 · OHNE · DACH · 15D · DISC-SALES  (Perspektivwechsel)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, nochmal kurz zu {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 15 Min für {{company}}?
+- 15min Termin {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 15 Minuten diese Woche?
+
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
 ZEICHEN-REGEL IM OUTPUT: KEINE Zeichen Minus, Gedankenstrich, Stern, Raute, Plus. Reiner Fließtext. Wort-Bindestriche erlaubt.
@@ -745,6 +807,15 @@ Beste Grüße,"
 ---
 
 ## EMAIL 7 · OHNE · DACH · 15D · DISC-SALES  (Story / Mini-Case)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, 15 Min für {{company}}?
+- 15min Termin {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 15 Minuten diese Woche?
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
@@ -841,6 +912,15 @@ Beste Grüße,"
 ---
 
 ## EMAIL 8 · OHNE · DACH · 15D · DISC-SALES  (Pattern-Interrupt)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, 15 Min für {{company}}?
+- 15min Termin {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 15 Minuten diese Woche?
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
@@ -941,6 +1021,15 @@ Beste Grüße,"
 ---
 
 ## EMAIL 9 · OHNE · DACH · 15D · DISC-SALES  (radikale Transparenz)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, 15 Min für {{company}}?
+- 15min Termin {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- {{first_name}}, 15 Minuten diese Woche?
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.

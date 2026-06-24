@@ -20,6 +20,15 @@
 
 ## EMAIL 1 · OHNE · DACH · VORORT · DISC-SALES  (Cold-Open)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
+
 ═══════════════════════════════════════════════════════════
 ⚠️ ABSOLUTE OUTPUT-REGEL — VOR ALLEM ANDEREN LESEN UND BEFOLGEN ⚠️
 ═══════════════════════════════════════════════════════════
@@ -239,6 +248,17 @@ Beste Grüße,"
 
 ## EMAIL 2 · OHNE · DACH · VORORT · DISC-SALES  (Follow-up, neuer Winkel, Bullets erlaubt)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, nochmal kurz zu {{company}}
+- Re: {{company}} × {{sender_company}}
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
+
 ═══════════════════════════════════════════════════════════
 ⚠️ ABSOLUTE OUTPUT-REGEL — VOR ALLEM ANDEREN LESEN UND BEFOLGEN ⚠️
 ═══════════════════════════════════════════════════════════
@@ -369,6 +389,17 @@ Beste Grüße,"
 
 ## EMAIL 3 · OHNE · DACH · VORORT · DISC-SALES  (kompakt, reiner Fließtext, neuer Mini-Case)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, nochmal kurz zu {{company}}
+- Re: {{company}} × {{sender_company}}
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
+
 ═══════════════════════════════════════════════════════════
 ⚠️ ABSOLUTE OUTPUT-REGEL: Output ist NUR der E-Mail-Text. Verboten: Anweisungs-Wiederholung, Sektionen, Meta-Kommentare, Markdown.
 ZEICHEN-REGEL IM OUTPUT: KEINE Zeichen Minus, Gedankenstrich, Stern, Raute, Plus. Reiner Fließtext, Komma/Punkt/Klammern. Wort-Bindestriche erlaubt.
@@ -462,6 +493,15 @@ Beste Grüße,"
 
 ## EMAIL 4 · OHNE · DACH · VORORT · DISC-SALES  (ultrakurz, Pain+Value verschmolzen)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
+
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
 ZEICHEN-REGEL IM OUTPUT: KEINE Zeichen Minus, Gedankenstrich, Stern, Raute, Plus. Reiner Fließtext. Wort-Bindestriche erlaubt.
@@ -547,6 +587,17 @@ Beste Grüße,"
 ---
 
 ## EMAIL 5 · OHNE · DACH · VORORT · DISC-SALES  (P.S.-Recovery)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, nochmal kurz zu {{company}}
+- Re: {{company}} × {{sender_company}}
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
@@ -658,6 +709,17 @@ P.S. Mehrere Industriekunden begleiten wir seit über fünf Jahren in genau dies
 
 ## EMAIL 6 · OHNE · DACH · VORORT · DISC-SALES  (Perspektivwechsel)
 
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- {{first_name}}, nochmal kurz zu {{company}}
+- Re: {{company}} × {{sender_company}}
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
+
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
 ZEICHEN-REGEL IM OUTPUT: KEINE Zeichen Minus, Gedankenstrich, Stern, Raute, Plus. Reiner Fließtext. Wort-Bindestriche erlaubt.
@@ -748,6 +810,15 @@ Beste Grüße,"
 ---
 
 ## EMAIL 7 · OHNE · DACH · VORORT · DISC-SALES  (Story / Mini-Case)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
@@ -844,6 +915,15 @@ Beste Grüße,"
 ---
 
 ## EMAIL 8 · OHNE · DACH · VORORT · DISC-SALES  (Pattern-Interrupt)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
@@ -944,6 +1024,15 @@ Beste Grüße,"
 ---
 
 ## EMAIL 9 · OHNE · DACH · VORORT · DISC-SALES  (radikale Transparenz)
+
+### ✉️ Betreff  (separat über der Mail; der Prompt unten bleibt unverändert)
+Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neugierig, ohne Superlative und ohne Sonderzeichen (kein Gedankenstrich, Sternchen, Raute, Plus). Platzhalter bleiben stehen.
+
+- Terminanfrage {{first_name}} {{last_name}} // {{sender_company}}
+- {{first_name}}, kurzer Vor-Ort-Termin zu {{company}}?
+- {{sender_company}} × {{company}}
+- {{first_name}}, ein Gedanke zu {{company}}
+- Vor-Ort-Termin {{company}} × {{sender_company}}
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.

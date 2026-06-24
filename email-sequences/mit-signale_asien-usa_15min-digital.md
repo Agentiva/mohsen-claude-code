@@ -19,6 +19,15 @@
 
 ## EMAIL 1 · MIT · ASIEN-USA · 15D · AUGENHÖHE  (Cold-Open)
 
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 15 min for {{company}}?
+- 15-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 15 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
@@ -171,6 +180,15 @@ Best regards,"
 
 ## EMAIL 2 · MIT · ASIEN-USA · 15D · AUGENHÖHE  (Cold-Open, Variante)
 
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 15 min for {{company}}?
+- 15-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 15 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
@@ -241,6 +259,17 @@ Best regards,"
 
 ## EMAIL 3 · MIT · ASIEN-USA · 15D · AUGENHÖHE  (Follow-up, neuer Aspekt)
 
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, following up on {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 15 min for {{company}}?
+- 15-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 15 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Der Schreibstil soll nach DISC Modell {{lead.disc_profile}} und Position {{job_title}} gerichtet sein.
 
@@ -307,6 +336,15 @@ Best regards,"
 
 ## EMAIL 4 · MIT · ASIEN-USA · 15D · AUGENHÖHE  (Kurzvariante)
 
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 15 min for {{company}}?
+- 15-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 15 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
@@ -363,6 +401,15 @@ Best regards,"
 ---
 
 ## EMAIL 5 · MIT · ASIEN-USA · 15D · AUGENHÖHE  (mit P.S.)
+
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 15 min for {{company}}?
+- 15-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 15 minutes this week?
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
@@ -433,6 +480,17 @@ P.S. A Bavarian machinery firm opened three new OEM accounts within six weeks us
 
 ## EMAIL 6 · MIT · ASIEN-USA · 15D · AUGENHÖHE  (Follow-up, neuer Blickwinkel)
 
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, following up on {{company}}
+- Re: {{company}} × {{sender_company}}
+- {{first_name}}, 15 min for {{company}}?
+- 15-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 15 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte FOLLOW-UP Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Es ist die zweite Mail im Outreach; die erste wurde gesendet, aber nicht beantwortet. Die Follow-Up Mail soll keinesfalls nervig oder fordernd wirken, sondern neuen Mehrwert oder einen anderen Blickwinkel liefern. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}.
 
@@ -480,6 +538,15 @@ Best regards,"
 ---
 
 ## EMAIL 7 · MIT · ASIEN-USA · 15D · AUGENHÖHE  (Storytelling)
+
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 15 min for {{company}}?
+- 15-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 15 minutes this week?
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}. Nutze Storytelling: erzähle kurz von einem ähnlichen Unternehmen aus der Branche von {{company_domain}}, das ein vergleichbares Problem gelöst hat, ohne echte Namen, wenn keine Referenz bekannt ist ("A company in your industry...").
@@ -535,6 +602,15 @@ Best regards,"
 
 ## EMAIL 8 · MIT · ASIEN-USA · 15D · AUGENHÖHE  (Pattern-Interrupt)
 
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 15 min for {{company}}?
+- 15-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 15 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}. Die Email soll mit einem provokanten, aufmerksamkeitsstarken Pattern-Interrupt-Satz beginnen, einer Aussage oder Frage, die {{full_name}} sofort innehalten lässt. Kein generisches Lob, keine weiche Einleitung.
 
@@ -589,6 +665,15 @@ Best regards,"
 
 ## EMAIL 9 · MIT · ASIEN-USA · 15D · AUGENHÖHE  (radikale Transparenz)
 
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 15 min for {{company}}?
+- 15-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 15 minutes this week?
+
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}. Die Email soll radikal transparent und menschlich wirken, so als würde eine echte Person schreiben, die sich wirklich vorbereitet hat. Kein Corporate-Speak, keine aufgeblasene Sprache. Direkt, ehrlich, fast schon entwaffnend offen.
 
@@ -642,6 +727,15 @@ Best regards,"
 ---
 
 ## EMAIL 10 · MIT · ASIEN-USA · 15D · AUGENHÖHE  (mutiger Reframe)
+
+### ✉️ Subject  (set separately, above the mail; the prompt below stays unchanged)
+Pick ONE subject line (English), matching the CTA. Short (max 6 words), curious, no superlatives, none of the special characters (no dash, asterisk, hash, plus). Keep variables as placeholders.
+
+- {{first_name}}, 15 min for {{company}}?
+- 15-min call {{company}} × {{sender_company}}
+- {{first_name}}, {{sender_company}} × {{company}}
+- {{first_name}}, a thought on {{company}}
+- {{first_name}}, 15 minutes this week?
 
 Stelle dich als coldmail experte bei {{organization.website_url}} vor.
 Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben. Schreibstil nach DISC {{lead.disc_profile}} und Position {{job_title}}. Die Email soll einen mutigen Reframe liefern, eine unbequeme Wahrheit aussprechen, die {{full_name}} innerlich bereits kennt, aber noch nie so direkt gehört hat. Kein Angriff, kein Vorwurf, sondern das Gefühl: "This person really understands my business." Ton respektvoll-provokant, wie von einem Berater auf Augenhöhe.
