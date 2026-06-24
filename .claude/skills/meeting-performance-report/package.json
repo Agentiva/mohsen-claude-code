@@ -1,0 +1,13 @@
+{
+  "name": "meeting-performance-report",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Headless-Scraper für app.amplifa.ai – zählt Meetings pro Kunde (rollierende 7 Tage) und gibt JSON aus.",
+  "scripts": {
+    "scrape": "node scrape.mjs"
+  },
+  "dependencies": {
+    "playwright-core": "^1.49.0"
+  }
+}

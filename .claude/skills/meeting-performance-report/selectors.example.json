@@ -1,0 +1,27 @@
+{
+  "_hinweis": "Diese Datei steuert den Scraper deterministisch. Bei der einmaligen Kalibrierung (siehe SKILL.md) werden die echten Selektoren von app.amplifa.ai eingetragen und als selectors.json committet. Alles hier ist überschreibbar; leere Strings = 'automatisch raten'.",
+
+  "login": {
+    "comment": "App-eigener Login (kein Google-SSO). Felder werden, wenn leer, generisch geraten (input[type=email] / input[type=password]).",
+    "emailInput": "input[type=email], input[name=email], #email",
+    "passwordInput": "input[type=password], input[name=password], #password",
+    "submitButton": "button[type=submit]",
+    "loggedInMarker": "comment: Selektor, der NUR im eingeloggten Zustand existiert (z. B. Avatar/Logout). Wird zur Erfolgsprüfung genutzt.",
+    "loggedInMarkerSelector": ""
+  },
+
+  "reports": {
+    "comment": "Pfad zur Admin-/Reports-Ansicht relativ zur Base-URL, plus optionaler 7-Tage-Filter.",
+    "path": "/admin/reports",
+    "rangeControlSelector": "",
+    "rangeOption7dSelector": "",
+    "waitForSelector": ""
+  },
+
+  "table": {
+    "comment": "Extraktion: pro Zeile ein Kunde + seine Meeting-Zahl. nameSelector/countSelector sind relativ zur Zeile.",
+    "rowSelector": "table tbody tr",
+    "nameSelector": "td:nth-child(1)",
+    "countSelector": "td:last-child"
+  }
+}
