@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>amplifa · Printec-DS Market Intelligence Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  :root {
+    --bg: #f6f5f1;
+    --bg-2: #ffffff;
+    --bg-3: #efece5;
+    --ink: #0a0a0f;
+    --ink-2: #1a1a22;
+    --muted: #6b6b75;
+    --muted-2: #9a9aa3;
+    --line: #e6e4dd;
+    --line-2: #d6d4cb;
+    --accent-yel: #ffb800;
+    --accent-red: #ff3b30;
+    --accent-blu: #2a6ffd;
+    --accent-pur: #7b3aed;
+    --accent-grn: #1f8a5b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #0a0a0f; font-family: 'Inter', -apple-system, sans-serif; }
+
+  deck-stage section {
+    background: var(--bg);
+    color: var(--ink);
+    width: 1920px;
+    height: 1080px;
+    padding: 88px 112px;
+    position: relative;
+    overflow: hidden;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  .chrome {
+    position: absolute;
+    inset: 56px 112px auto 112px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .chrome .mark { display: flex; align-items: center; gap: 12px; }
+  .chrome .mark img { height: 22px; display: block; }
+  .chrome .meta { display: flex; gap: 28px; align-items: center; }
+  .chrome .meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-grn); display: inline-block; margin-right: 8px; vertical-align: middle; }
+  .chrome-pages { font-variant-numeric: tabular-nums; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .eyebrow::before {
+    content: ""; width: 28px; height: 1px; background: var(--ink); display: inline-block;
+  }
+  .eyebrow.warn::before { background: var(--accent-red); }
+
+  h1.display { font-size: 132px; line-height: 0.96; letter-spacing: -0.04em; font-weight: 700; margin: 0; text-wrap: balance; }
+  h2.title { font-size: 96px; line-height: 0.98; letter-spacing: -0.035em; font-weight: 700; margin: 0; text-wrap: balance; }
+  h2.title-md { font-size: 72px; line-height: 1.0; letter-spacing: -0.03em; font-weight: 700; margin: 0; text-wrap: balance; }
+  h3.sub { font-size: 32px; line-height: 1.25; letter-spacing: -0.01em; font-weight: 400; color: var(--muted); margin: 0; text-wrap: pretty; }
+  .mono { font-family: 'JetBrains Mono', monospace; font-feature-settings: "ss01"; }
+
+  .body-text { font-size: 22px; line-height: 1.5; color: var(--ink-2); text-wrap: pretty; }
+  .body-text.muted { color: var(--muted); }
+
+  .pad-top { padding-top: 180px; }
+  .pad-top-lg { padding-top: 220px; }
+
+  /* ============ COVER ============ */
+  .s-title { display: grid; grid-template-rows: auto 1fr auto; }
+  .s-title .hero { align-self: center; }
+  .s-title .kicker { font-family: 'JetBrains Mono', monospace; font-size: 18px; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 28px; }
+  .s-title h1.display { font-size: 132px; }
+  .s-title .underline { margin-top: 56px; display: flex; gap: 6px; height: 14px; max-width: 900px; }
+  .s-title .underline span { flex: 1; height: 100%; }
+  .s-title .underline span:nth-child(1) { background: var(--accent-yel); }
+  .s-title .underline span:nth-child(2) { background: var(--accent-red); }
+  .s-title .underline span:nth-child(3) { background: var(--accent-blu); }
+  .s-title .underline span:nth-child(4) { background: var(--accent-pur); }
+  .s-title .underline span:nth-child(5) { background: var(--ink); }
+  .s-title .footnote { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; font-size: 18px; color: var(--muted); }
+  .s-title .footnote strong { color: var(--ink); font-weight: 600; display: block; font-size: 22px; letter-spacing: -0.01em; margin-bottom: 4px; }
+
+  /* ============ DIVIDER ============ */
+  .s-divider { background: var(--ink); color: #fff; display: grid; grid-template-rows: auto 1fr auto; }
+  .s-divider .chrome { color: rgba(255,255,255,0.5); }
+  .s-divider .core { align-self: center; }
+  .s-divider .num { font-family: 'JetBrains Mono', monospace; font-size: 22px; color: rgba(255,255,255,0.5); margin-bottom: 32px; letter-spacing: 0.04em; }
+  .s-divider h2 { font-size: 168px; line-height: 0.92; letter-spacing: -0.04em; font-weight: 700; margin: 0; }
+  .s-divider .sub { font-size: 30px; color: rgba(255,255,255,0.65); margin-top: 48px; max-width: 1100px; line-height: 1.4; }
+  .s-divider .stripe { display: flex; gap: 6px; height: 10px; max-width: 480px; margin-top: 56px; }
+  .s-divider .stripe span { flex: 1; }
+  .s-divider .stripe span:nth-child(1) { background: var(--accent-yel); }
+  .s-divider .stripe span:nth-child(2) { background: var(--accent-red); }
+  .s-divider .stripe span:nth-child(3) { background: var(--accent-blu); }
+  .s-divider .stripe span:nth-child(4) { background: var(--accent-pur); }
+  .s-divider .foot { display: flex; justify-content: space-between; font-size: 16px; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ============ EXECUTIVE SUMMARY ============ */
+  .insights { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 56px; }
+  .insight {
+    background: var(--bg-2); border: 1px solid var(--line);
+    border-radius: 20px; padding: 32px 28px;
+    display: flex; flex-direction: column; min-height: 360px;
+  }
+  .insight .idx { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+  .insight h4 { font-size: 26px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.15; margin: 18px 0 14px; }
+  .insight p { font-size: 16px; line-height: 1.45; color: var(--muted); margin: 0; }
+  .insight .tag { margin-top: auto; padding-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); letter-spacing: 0.06em; }
+  .insight .bar { display: block; width: 36px; height: 4px; margin-bottom: 18px; }
+  .insight:nth-child(1) .bar { background: var(--accent-grn); }
+  .insight:nth-child(2) .bar { background: var(--accent-blu); }
+  .insight:nth-child(3) .bar { background: var(--accent-yel); }
+  .insight:nth-child(4) .bar { background: var(--accent-pur); }
+  .insight:nth-child(5) .bar { background: var(--accent-red); }
+
+  /* ============ COMPANY SNAPSHOT ============ */
+  .snap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+  .snap {
+    background: var(--bg-2); border: 1px solid var(--line);
+    border-radius: 18px; padding: 32px 28px;
+    display: flex; flex-direction: column; min-height: 200px;
+  }
+  .snap .lbl { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .snap .val { font-size: 56px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.0; margin-top: auto; }
+  .snap .val .unit { font-size: 22px; font-weight: 500; color: var(--muted); margin-left: 6px; letter-spacing: -0.01em; }
+  .snap .note { font-size: 14px; color: var(--muted); margin-top: 10px; line-height: 1.35; }
+  .snap.dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .snap.dark .lbl { color: rgba(255,255,255,0.55); }
+  .snap.dark .note { color: rgba(255,255,255,0.6); }
+  .snap.dark .val .unit { color: rgba(255,255,255,0.5); }
+
+  /* ============ BRAND / TIER ARCHITECTURE ============ */
+  .brand-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
+  .brand-card {
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: 22px;
+    padding: 38px 36px 40px; min-height: 480px;
+    display: flex; flex-direction: column;
+  }
+  .brand-card .lvl { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+  .brand-card h3 { font-size: 44px; font-weight: 700; letter-spacing: -0.03em; margin: 12px 0 6px; line-height: 1.0; }
+  .brand-card .tag { font-size: 15px; font-family: 'JetBrains Mono', monospace; color: var(--ink); letter-spacing: 0.04em; margin-bottom: 24px; }
+  .brand-card .desc { font-size: 18px; color: var(--muted); line-height: 1.5; }
+  .brand-card ul { margin: 24px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .brand-card ul li { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--ink-2); display: flex; justify-content: space-between; gap: 16px; }
+  .brand-card ul li span { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 13px; text-align: right; }
+  .brand-card .accent-bar { width: 64px; height: 6px; margin-bottom: 24px; }
+  .brand-card.v-a .accent-bar { background: var(--accent-grn); }
+  .brand-card.v-b .accent-bar { background: var(--accent-blu); }
+  .brand-card.v-c .accent-bar { background: var(--accent-pur); }
+  .brand-card.v-d .accent-bar { background: var(--accent-yel); }
+  .brand-card.v-a { border-color: var(--ink); border-width: 2px; }
+
+  /* ============ MARKET / CRISIS LAYOUT ============ */
+  .crisis { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; padding-top: 180px; }
+  .crisis h2 { margin-top: 28px; }
+  .crisis .lede { font-size: 24px; color: var(--muted); line-height: 1.5; margin-top: 36px; max-width: 640px; }
+  .bars-chart { display: flex; flex-direction: column; gap: 18px; margin-top: 12px; }
+  .bar-line { display: grid; grid-template-columns: 110px 1fr 120px; align-items: center; gap: 20px; }
+  .bar-line .yr { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 600; color: var(--ink); }
+  .bar-line .track { height: 56px; background: var(--bg-3); border-radius: 8px; position: relative; overflow: hidden; }
+  .bar-line .fill { height: 100%; background: var(--ink); border-radius: 8px; display: flex; align-items: center; justify-content: flex-end; padding-right: 18px; color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; }
+  .bar-line.crisis-y .fill { background: var(--accent-red); }
+  .bar-line.future .fill { background: var(--accent-grn); }
+  .bar-line .delta { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 600; color: var(--accent-red); }
+  .bar-line.future .delta { color: var(--accent-grn); }
+  .bar-line .delta.pos { color: var(--accent-grn); }
+
+  /* ============ DRIVERS & INHIBITORS ============ */
+  .di-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .di-col { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 40px 36px; }
+  .di-col.dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .di-col .head { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  .di-col .head .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent-grn); }
+  .di-col.dark .head .dot { background: var(--accent-red); }
+  .di-col .head h4 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+  .di-col ul { margin: 0; padding: 0; list-style: none; }
+  .di-col ul li { padding: 18px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 36px 1fr auto; gap: 18px; align-items: center; }
+  .di-col.dark ul li { border-color: rgba(255,255,255,0.12); }
+  .di-col ul li .ico { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); }
+  .di-col.dark ul li .ico { color: rgba(255,255,255,0.5); }
+  .di-col ul li .txt { font-size: 19px; line-height: 1.35; }
+  .di-col.dark ul li .txt { color: rgba(255,255,255,0.9); }
+  .di-col ul li .val { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 600; text-align: right; }
+  .di-col.dark ul li .val { color: #fff; }
+  .di-col ul li .val.up, .di-col ul li .val.down { color: var(--accent-red); }
+  .di-col ul li .val.pos { color: var(--accent-grn); }
+
+  /* ============ USP / PLATFORMS ============ */
+  .usp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
+  .usp { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 32px 30px; min-height: 240px; display: flex; flex-direction: column; }
+  .usp .nm { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+  .usp .desc { font-size: 16px; color: var(--muted); line-height: 1.45; margin-top: 12px; }
+  .usp .ico-block { width: 56px; height: 56px; border-radius: 14px; background: var(--bg-3); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 18px; }
+  .usp:nth-child(1) .ico-block { background: var(--accent-grn); color: #fff; }
+  .usp:nth-child(2) .ico-block { background: var(--accent-blu); color: #fff; }
+  .usp:nth-child(3) .ico-block { background: var(--ink); color: #fff; }
+  .usp:nth-child(4) .ico-block { background: var(--accent-pur); color: #fff; }
+  .usp:nth-child(5) .ico-block { background: var(--accent-yel); }
+  .usp:nth-child(6) .ico-block { background: var(--accent-red); color: #fff; }
+
+  /* ============ TAM/SAM/SOM ============ */
+  .funnel { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .fn { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 40px 36px; min-height: 460px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .fn .lbl { font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.1em; color: var(--muted); }
+  .fn h4 { font-size: 32px; font-weight: 700; letter-spacing: -0.025em; margin: 16px 0 12px; line-height: 1.1; }
+  .fn .desc { font-size: 17px; color: var(--muted); line-height: 1.45; }
+  .fn .bignum { font-size: 80px; font-weight: 700; letter-spacing: -0.04em; line-height: 0.95; margin-top: auto; }
+  .fn .bignum .unit { font-size: 26px; font-weight: 500; color: var(--muted); margin-left: 6px; letter-spacing: -0.01em; }
+  .fn .alt { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--ink-2); line-height: 1.5; }
+  .fn .alt strong { font-weight: 700; color: var(--ink); }
+  .fn.som { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .fn.som .lbl { color: rgba(255,255,255,0.55); }
+  .fn.som .desc { color: rgba(255,255,255,0.65); }
+  .fn.som .bignum .unit { color: rgba(255,255,255,0.5); }
+  .fn.som .alt { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); }
+  .fn.som .alt strong { color: var(--accent-yel); }
+
+  /* ============ PERSONAS ============ */
+  .persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+  .pcard { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 28px 28px; min-height: 300px; display: flex; flex-direction: column; }
+  .pcard .role { font-size: 24px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; }
+  .pcard .role small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 6px; }
+  .pcard .kpis { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; margin-top: 16px; line-height: 1.5; }
+  .pcard .trig { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+  .pcard .trig strong { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 12px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .pcard .channels { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+  .pcard .channels .ch { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--ink-2); letter-spacing: 0.04em; }
+  .pcard .channels .ch.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  /* ============ SIGNALS / TRIGGER ============ */
+  .signals-list { margin-top: 40px; display: flex; flex-direction: column; gap: 0; }
+  .sig { display: grid; grid-template-columns: 80px 1fr 320px 160px; align-items: center; padding: 17px 0; border-top: 1px solid var(--line-2); gap: 32px; }
+  .sig:last-child { border-bottom: 1px solid var(--line-2); }
+  .sig .num { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--ink); }
+  .sig .nm { font-size: 27px; font-weight: 700; letter-spacing: -0.02em; }
+  .sig .nm small { display: block; font-size: 15px; color: var(--muted); font-weight: 400; margin-top: 6px; line-height: 1.35; }
+  .sig .src { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--muted); }
+  .sig .when { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--ink); font-weight: 600; padding: 8px 14px; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 999px; text-align: center; }
+
+  /* ============ HOOK / MESSAGING ============ */
+  .hooks-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 40px; }
+  .hook { background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 26px 30px; display: flex; flex-direction: column; min-height: 206px; }
+  .hook .idx { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
+  .hook q { display: block; font-size: 22px; line-height: 1.3; letter-spacing: -0.01em; color: var(--ink); font-weight: 500; margin-top: 14px; quotes: "„" "\201C" "\201A" "\2018"; }
+  .hook q::before { content: open-quote; }
+  .hook q::after { content: close-quote; }
+  .hook .ctx { font-size: 12px; color: var(--muted); margin-top: auto; padding-top: 14px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ============ CHANNEL MATRIX (effective view) ============ */
+  .cmx { margin-top: 44px; }
+  .cmx-row { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.7fr; align-items: center; gap: 28px; padding: 24px 0; border-top: 1px solid var(--line-2); }
+  .cmx-row.head { border-top: none; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 0 0 14px; }
+  .cmx-row:last-child { border-bottom: 1px solid var(--line-2); }
+  .cmx-row .pn { font-size: 23px; font-weight: 700; letter-spacing: -0.015em; }
+  .cmx-row .pn small { display: block; font-size: 14px; color: var(--muted); font-weight: 400; margin-top: 4px; }
+  .lv { display: flex; flex-direction: column; gap: 8px; }
+  .lv .badge { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
+  .lv .meter { height: 8px; border-radius: 999px; background: var(--bg-3); overflow: hidden; }
+  .lv .meter i { display: block; height: 100%; border-radius: 999px; }
+  .lv.primar .badge { color: var(--accent-grn); }
+  .lv.primar .meter i { width: 100%; background: var(--accent-grn); }
+  .lv.sek .badge { color: var(--ink); }
+  .lv.sek .meter i { width: 58%; background: var(--ink); }
+  .lv.consent .badge { color: var(--muted); }
+  .lv.consent .meter i { width: 34%; background: var(--muted-2); }
+  .lv.none .badge { color: var(--muted-2); }
+  .lv.none .meter { background: transparent; }
+  .cmx-row .seq { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1.45; }
+  .cmx-row .seq b { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent-grn); font-weight: 700; margin-right: 6px; }
+  .cmx-legend { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 26px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.03em; }
+  .cmx-legend span { display: inline-flex; align-items: center; gap: 9px; }
+  .cmx-legend i { width: 26px; height: 8px; border-radius: 999px; display: inline-block; }
+
+  /* ============ TARGET / VENDOR TABLE ============ */
+  .trg-table { margin-top: 40px; }
+  .trg-row { display: grid; grid-template-columns: 1.4fr 1.6fr 220px; align-items: center; padding: 20px 0; border-top: 1px solid var(--line-2); gap: 28px; }
+  .trg-row.head { border-top: none; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-bottom: 14px; }
+  .trg-row:last-child { border-bottom: 1px solid var(--line-2); }
+  .trg-row .tname { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .trg-row .tname small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 3px; font-family: 'JetBrains Mono', monospace; }
+  .trg-row .tsrc { font-size: 16px; color: var(--muted); line-height: 1.4; }
+  .trg-row .tw { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; padding: 10px 18px; background: var(--bg-2); border-radius: 999px; border: 1px solid var(--line-2); text-align: center; }
+  .trg-row .tw.urgent { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .trg-row .tw.opp { color: var(--muted); }
+
+  /* ============ REFERENCE WALL ============ */
+  .ref-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+  .ref-col { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 34px 32px 36px; display: flex; flex-direction: column; }
+  .ref-col .accent-bar { width: 56px; height: 6px; margin-bottom: 22px; }
+  .ref-col:nth-child(1) .accent-bar { background: var(--accent-grn); }
+  .ref-col:nth-child(2) .accent-bar { background: var(--accent-blu); }
+  .ref-col:nth-child(3) .accent-bar { background: var(--accent-pur); }
+  .ref-col .rh { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+  .ref-col h3 { font-size: 32px; font-weight: 700; letter-spacing: -0.025em; margin: 10px 0 22px; line-height: 1.05; }
+  .ref-col ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .ref-col ul li { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 17px; color: var(--ink); font-weight: 600; letter-spacing: -0.01em; }
+  .ref-col ul li small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 3px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em; }
+
+  /* ============ RISKS ============ */
+  .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .risk { background: var(--bg-2); border: 1px solid var(--line); border-left: 4px solid var(--accent-red); border-radius: 14px; padding: 28px 28px; min-height: 230px; display: flex; flex-direction: column; }
+  .risk .nm { font-size: 22px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; }
+  .risk .desc { font-size: 16px; color: var(--muted); line-height: 1.45; margin-top: 12px; }
+  .risk .mit { margin-top: auto; padding-top: 16px; font-size: 14px; font-family: 'JetBrains Mono', monospace; color: var(--accent-grn); letter-spacing: 0.02em; line-height: 1.4; }
+  .risk .mit strong { display: block; font-size: 11px; color: var(--ink); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+
+  /* ============ PHASED APPROACH ============ */
+  .phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; position: relative; }
+  .phases::before { content: ""; position: absolute; top: 38px; left: 38px; right: 38px; height: 2px; background: var(--line-2); z-index: 0; }
+  .phase { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 36px 32px; position: relative; z-index: 1; min-height: 480px; display: flex; flex-direction: column; }
+  .phase .nd { width: 76px; height: 76px; border-radius: 50%; background: var(--bg-2); border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 22px; margin: -10px 0 24px; }
+  .phase:nth-child(1) .nd { background: var(--ink); color: #fff; }
+  .phase .wk { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .phase h4 { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 10px 0 24px; line-height: 1.1; }
+  .phase ul { margin: 0; padding: 0; list-style: none; }
+  .phase ul li { padding: 14px 0; border-top: 1px solid var(--line); font-size: 16px; color: var(--ink-2); line-height: 1.4; display: grid; grid-template-columns: 16px 1fr; gap: 12px; align-items: start; }
+  .phase ul li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); margin-top: 8px; }
+  .phase .bench { margin-top: auto; padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent-grn); letter-spacing: 0.04em; }
+
+  /* ============ RECOMMENDATIONS ============ */
+  .recs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 48px; }
+  .rec { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 28px 30px; display: flex; gap: 24px; align-items: flex-start; min-height: 140px; }
+  .rec .num { font-family: 'JetBrains Mono', monospace; font-size: 38px; font-weight: 700; color: var(--accent-grn); line-height: 1.0; letter-spacing: -0.02em; min-width: 60px; }
+  .rec h5 { font-size: 22px; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 8px; line-height: 1.2; }
+  .rec p { font-size: 15px; color: var(--muted); line-height: 1.45; margin: 0; }
+
+  /* ============ CAVEATS ============ */
+  .caveats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+  .cv { display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid var(--line-2); }
+  .cv .i { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--accent-red); font-weight: 700; min-width: 30px; }
+  .cv .t { font-size: 16px; color: var(--ink-2); line-height: 1.5; }
+
+  /* ============ PRODUCT CORRECTION (special) ============ */
+  .correction { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; padding-top: 168px; align-items: start; }
+  .correction .lede { font-size: 26px; color: var(--muted); line-height: 1.5; margin-top: 36px; max-width: 680px; }
+  .myth-real { display: flex; flex-direction: column; gap: 20px; }
+  .mr-card { border-radius: 18px; padding: 32px 34px; }
+  .mr-card.myth { background: var(--bg-2); border: 1px solid var(--line); }
+  .mr-card.real { background: var(--ink); color: #fff; }
+  .mr-card .mr-lbl { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+  .mr-card.myth .mr-lbl { color: var(--accent-red); }
+  .mr-card.real .mr-lbl { color: var(--accent-grn); }
+  .mr-card .mr-lbl::before { content: ""; width: 12px; height: 12px; border-radius: 50%; }
+  .mr-card.myth .mr-lbl::before { background: var(--accent-red); }
+  .mr-card.real .mr-lbl::before { background: var(--accent-grn); }
+  .mr-card .mr-head { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin: 18px 0 14px; }
+  .mr-card .mr-body { font-size: 18px; line-height: 1.5; }
+  .mr-card.myth .mr-body { color: var(--muted); }
+  .mr-card.real .mr-body { color: rgba(255,255,255,0.78); }
+  .mr-card .mr-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .mr-card .mr-tags span { font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: 999px; letter-spacing: 0.04em; }
+  .mr-card.myth .mr-tags span { border: 1px solid var(--line-2); color: var(--muted); text-decoration: line-through; }
+  .mr-card.real .mr-tags span { background: rgba(255,255,255,0.1); color: #fff; }
+
+  /* ============ CLOSING ============ */
+  .s-close { background: var(--ink); color: #fff; display: grid; grid-template-rows: auto 1fr auto; }
+  .s-close .chrome { color: rgba(255,255,255,0.5); }
+  .s-close .core { align-self: center; }
+  .s-close .eyebrow { color: rgba(255,255,255,0.55); }
+  .s-close .eyebrow::before { background: rgba(255,255,255,0.6); }
+  .s-close h2 { font-size: 132px; color: #fff; margin-top: 32px; line-height: 0.95; letter-spacing: -0.04em; font-weight: 700; }
+  .s-close .accent { color: var(--accent-grn); }
+  .s-close .sub-cta { font-size: 26px; color: rgba(255,255,255,0.65); max-width: 1080px; margin-top: 40px; line-height: 1.45; }
+  .s-close .actions { display: flex; gap: 24px; margin-top: 56px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 14px; padding: 22px 36px; border-radius: 999px; font-size: 22px; font-weight: 500; letter-spacing: -0.005em; background: #fff; color: var(--ink); text-decoration: none; border: 1px solid #fff; }
+  .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.25); }
+  .btn .arr { width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: #fff; display: inline-flex; align-items: center; justify-content: center; }
+  .btn.ghost .arr { background: rgba(255,255,255,0.12); color: #fff; }
+  .s-close .foot { display: flex; justify-content: space-between; align-items: end; color: rgba(255,255,255,0.5); font-size: 18px; }
+  .s-close .foot strong { color: #fff; display: block; font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .s-close .swatches { display: flex; gap: 8px; margin-top: 48px; }
+  .s-close .swatches span { width: 56px; height: 8px; }
+
+  .pop-red { color: var(--accent-red); }
+  .pop-blu { color: var(--accent-blu); }
+  .pop-yel { color: var(--accent-yel); }
+  .pop-grn { color: var(--accent-grn); }
+
+  /* ===================== PER-SLIDE OVERRIDES ===================== */
+  /* Meilenstein-Liste: Jahres-Spalte breiter, Zahlen kleiner */
+  section[data-screen-label="06 Meilensteine"] .sig { grid-template-columns: 120px 1fr 1fr 180px; gap: 28px; padding: 14px 0; }
+  section[data-screen-label="06 Meilensteine"] .sig .num { font-size: 22px; }
+  section[data-screen-label="06 Meilensteine"] .sig .nm { font-size: 24px; }
+  /* brand-cols-Slides: Block nach oben schieben, Karten in voller Größe lassen */
+  section[data-screen-label="07 Produktlinien"] .pad-top { padding-top: 128px; }
+  section[data-screen-label="07 Produktlinien"] .brand-cols { margin-top: 44px; }
+  section[data-screen-label="09 Wettbewerb"] .pad-top { padding-top: 128px; }
+  section[data-screen-label="09 Wettbewerb"] .brand-cols { margin-top: 44px; }
+  /* Buying Committee: 6 Karten in 2 Reihen → Block hochziehen, Karten leicht verdichten */
+  section[data-screen-label="15 Buying Committee"] .pad-top { padding-top: 118px; }
+  section[data-screen-label="15 Buying Committee"] .persona-grid { margin-top: 32px; }
+  section[data-screen-label="15 Buying Committee"] .pcard { min-height: 250px; padding: 24px 26px; }
+  section[data-screen-label="15 Buying Committee"] .pcard .channels { margin-top: 14px; }
+  section[data-screen-label="15 Buying Committee"] .pcard .trig { padding-top: 14px; }
+  /* Kanal-Strategie: Platz für UWG-Hinweis unter der Legende sichern */
+  section[data-screen-label="19 Kanal-Strategie"] .pad-top { padding-top: 140px; }
+  section[data-screen-label="19 Kanal-Strategie"] .cmx { margin-top: 36px; }
+  section[data-screen-label="19 Kanal-Strategie"] .cmx-row { padding: 20px 0; }
+</style>
+</head>
+<body>
+<deck-stage>
+
+  <!-- ============================== 01 COVER ============================== -->
+  <section data-screen-label="01 Cover" class="s-title">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span><span class="dot"></span>Vertraulich · für Printec-DS</span><span class="chrome-pages">01 / 23</span></div>
+    </div>
+    <div class="hero">
+      <div class="kicker">MARKT-INTELLIGENZ &amp; OUTBOUND-GTM-ANALYSE · DE / DACH · JUNI 2026</div>
+      <h1 class="display">Nicht Druck.<br>Sondern die<br><span class="pop-red">Schnittstelle.</span></h1>
+      <div class="underline"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="footnote" style="margin-top:96px">
+      <div><strong>Auftraggeber</strong>Printec-DS HMI Solutions GmbH · Steißlingen (Bodensee)<br>Industrietastaturen, HMI- &amp; Touchsysteme · GF Thomas U. Holeczek</div>
+      <div><strong>Gegenstand &amp; Zweck</strong>Kundenspezifische Eingabesysteme „Made in Germany"<br>KI-gestützte Outbound-Neukundenakquise via amplifa</div>
+      <div><strong>Stand</strong>Juni 2026<br>v1.0 · DE · amplifa</div>
+    </div>
+  </section>
+
+  <!-- ============================== 02 DIVIDER 01 ============================== -->
+  <section data-screen-label="02 Divider Executive Summary" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 01</span><span class="chrome-pages">02 / 23</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 01</div>
+      <h2>Executive<br>Summary.</h2>
+      <p class="sub">Die fünf Kernaussagen, auf denen die gesamte Akquise-Story für Printec-DS aufbaut — verdichtet auf eine Seite.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>amplifa · Market Intelligence</span><span>Printec-DS HMI Solutions GmbH</span></div>
+  </section>
+
+  <!-- ============================== 03 TOP 5 INSIGHTS ============================== -->
+  <section data-screen-label="03 Top 5 Insights">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Executive Summary</span><span class="chrome-pages">03 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Top 5</span>
+      <h2 class="title-md" style="margin-top:24px">Die&nbsp;fünf&nbsp;Insights<br>für die Akquise-Story.</h2>
+      <div class="insights">
+        <div class="insight">
+          <span class="bar"></span><span class="idx">01</span>
+          <h4>Der Name ist eine Verkaufsfalle — und ein Hebel</h4>
+          <p>„Printec" wird oft als Druckerei gelesen. Tatsächlich ist Printec-DS Hersteller von Industrietastaturen, HMI- und Touchsystemen. Wer die Positionierung früh klärt, gewinnt Aufmerksamkeit.</p>
+          <div class="tag">→ Positionierung</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">02</span>
+          <h4>Markt mit klarem Rückenwind</h4>
+          <p>Der europäische HMI-Markt lag 2024 bei ~1,91 Mrd. USD und wächst mit ~8,5 % p.a. (Mordor). Deutschland ist mit 23,7 % der größte Teilmarkt Europas — Heimvorteil.</p>
+          <div class="tag">→ Marktgröße</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">03</span>
+          <h4>„Made in Germany" + Zertifikate als Differenzierung</h4>
+          <p>Fertigung nach EN ISO 13485 (Medizin) und IATF 16949 (Automotive). Im Reshoring-/China+1-Trend ein konkreter Kaufgrund gegen Asien-Importware.</p>
+          <div class="tag">→ Differenzierung</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">04</span>
+          <h4>Skalierbare Custom-Manufaktur</h4>
+          <p>40+ Jahre Historie, 900+ Produktvarianten, Export in 58+ Länder, eigene US-Tochter (PDS HMI Solutions Corp.). Die Tiefe trägt projektbasiertes Wachstum.</p>
+          <div class="tag">→ Leistungstiefe</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">05</span>
+          <h4>Wiederkehrende Redesign-Fenster</h4>
+          <p>Abkündigungen (EOL) bestehender Eingabesysteme und neue Geräteentwicklungen erzeugen planbare Kaufanlässe — der ideale Trigger für Trigger-getriebenes Outbound.</p>
+          <div class="tag">→ Trigger</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 04 DIVIDER 02 ============================== -->
+  <section data-screen-label="04 Divider Unternehmen" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 02</span><span class="chrome-pages">04 / 23</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 02</div>
+      <h2>Unternehmen<br>&amp; Produkt.</h2>
+      <p class="sub">Wer Printec-DS ist, was wirklich verkauft wird — und der Irrtum, den jeder Erstkontakt zuerst ausräumen muss.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Profil · Portfolio · Klarstellung</span><span>Steißlingen · HRB 550206</span></div>
+  </section>
+
+  <!-- ============================== 05 SNAPSHOT ============================== -->
+  <section data-screen-label="05 Snapshot">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Account at a glance</span><span class="chrome-pages">05 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Account at a glance</span>
+      <h2 class="title-md" style="margin-top:24px">Printec-DS<br>in Zahlen.</h2>
+      <div class="snap-grid">
+        <div class="snap"><div class="lbl">Gegründet</div><div class="val">1983</div><div class="note">DS Keyboard Technic · Wurzeln 1966 (Dekorsy)</div></div>
+        <div class="snap"><div class="lbl">Erfahrung</div><div class="val">40+<span class="unit">Jahre</span></div><div class="note">Eingabesysteme · lt. Unternehmensangabe</div></div>
+        <div class="snap dark"><div class="lbl">Hauptsitz</div><div class="val" style="font-size:34px">Steißlingen</div><div class="note">Zeppelinstr. 11 · Bodensee · Baden-Württemberg</div></div>
+        <div class="snap"><div class="lbl">Mitarbeiter</div><div class="val">50–99</div><div class="note">Schätzung · wlw.com (öffentlich)</div></div>
+        <div class="snap"><div class="lbl">Produktvarianten</div><div class="val">900+</div><div class="note">über 10+ Branchen · Unternehmensangabe</div></div>
+        <div class="snap"><div class="lbl">Export</div><div class="val">58+<span class="unit">Länder</span></div><div class="note">+ US-Tochter PDS HMI Solutions Corp.</div></div>
+        <div class="snap"><div class="lbl">Geschäftsführung</div><div class="val" style="font-size:30px">Holeczek</div><div class="note">GF Thomas U. Holeczek · COO N. Zimmermann (01/2026)</div></div>
+        <div class="snap"><div class="lbl">Register</div><div class="val" style="font-size:36px">HRB&nbsp;550206</div><div class="note">Amtsgericht Freiburg</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 06 MEILENSTEINE ============================== -->
+  <section data-screen-label="06 Meilensteine">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Firmengeschichte</span><span class="chrome-pages">06 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Vom Schalterbau zur HMI-Manufaktur</span>
+      <h2 class="title-md" style="margin-top:24px">Vier Jahrzehnte<br>Eingabe-Kompetenz.</h2>
+      <div class="signals-list">
+        <div class="sig"><div class="num">1983</div><div class="nm">DS Keyboard Technic GmbH<small>eigenständige GmbH mit 18 Mitarbeitern · Schalter &amp; Baugruppen</small></div><div class="src">Wurzeln: Ing. G. Dekorsy GmbH, 1966</div><div class="when">Gründung</div></div>
+        <div class="sig"><div class="num">1992</div><div class="nm">Erste eigene Tastatur mit Controller (DS102W)<small>Einstieg in die Eigenentwicklung von Eingabesystemen</small></div><div class="src">Eigenfertigung</div><div class="when">Produkt</div></div>
+        <div class="sig"><div class="num">2000</div><div class="nm">Erste vandalismusgeschützte Edelstahltastatur<small>Grundstein für die Outdoor-/Industrie-Nische</small></div><div class="src">Edelstahl-Linie</div><div class="when">Nische</div></div>
+        <div class="sig"><div class="num">2009</div><div class="nm">Umfirmierung zu Printec-DS Keyboard GmbH<small>Gesellschafterwechsel · Kooperation mit Printec H.T. (Taiwan) · 2010 Touch</small></div><div class="src">Strategiewechsel</div><div class="when">Wandel</div></div>
+        <div class="sig"><div class="num">2016</div><div class="nm">Neubau in Steißlingen<small>PV-Anlage &amp; E-Ladestation · „Made in Germany"-Fertigung</small></div><div class="src">Standort</div><div class="when">Ausbau</div></div>
+        <div class="sig"><div class="num">2026</div><div class="nm">Printec-DS HMI Solutions GmbH · COO Nina Zimmermann<small>HMI-Positionierung · US-Tochter · Generationswechsel im Management</small></div><div class="src">openpr · 01/2026</div><div class="when" style="background:var(--ink);color:#fff;border-color:var(--ink)">Aktuell</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 07 PRODUKTLINIEN ============================== -->
+  <section data-screen-label="07 Produktlinien">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Portfolio</span><span class="chrome-pages">07 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Drei Linien — ein roter Faden: Eingabe</span>
+      <h2 class="title-md" style="margin-top:24px">Tastatur, Custom-System<br>und Touch/HMI.</h2>
+      <div class="brand-cols">
+        <div class="brand-card v-b">
+          <div class="accent-bar"></div>
+          <div class="lvl">LINIE 01 / SERIE</div>
+          <h3>Industrie-<br>tastaturen</h3>
+          <div class="tag">Made in Germany</div>
+          <p class="desc">Von der Standard- bis zur Langhub-Tastatur aus Kunststoff sowie Edelstahltastaturen.</p>
+          <ul>
+            <li>Edelstahl <span>vandalismusgesch.</span></li>
+            <li>Schutz <span>IP65 / IK09</span></li>
+            <li>Einsatz <span>Outdoor / Industrie</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-a">
+          <div class="accent-bar"></div>
+          <div class="lvl">LINIE 02 / KERNGESCHÄFT</div>
+          <h3>Kunden-<br>spezifisch</h3>
+          <div class="tag">Folie · Silikon · Software</div>
+          <p class="desc">Individuelle Folien- und Silikontastaturen mit Spezial-Oberflächen, integrierten Touchpads/Trackballs und eigener Interface- &amp; Softwarelösung.</p>
+          <ul>
+            <li>Technik <span>Folie / Silikon</span></li>
+            <li>Integration <span>Touchpad / Trackball</span></li>
+            <li>Hook <span>volle Individualisierung</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-c">
+          <div class="accent-bar"></div>
+          <div class="lvl">LINIE 03 / ZUKUNFT</div>
+          <h3>Touch &amp;<br>HMI</h3>
+          <div class="tag">PCAP · Panzerglas</div>
+          <p class="desc">Industrietaugliche PCAP-Touchsysteme — hinter Panzerglas montierbar, bedienbar selbst mit dicken Handschuhen und bei starker Verschmutzung.</p>
+          <ul>
+            <li>Technologie <span>PCAP-Touch</span></li>
+            <li>Robustheit <span>Glove / Soiled</span></li>
+            <li>Hook <span>komplette HMI-Lösung</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 08 KLARSTELLUNG ============================== -->
+  <section data-screen-label="08 Klarstellung">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Klarstellung fürs Kickoff</span><span class="chrome-pages">08 / 23</span></div></div>
+    <div class="correction">
+      <div>
+        <span class="eyebrow warn">Wichtig fürs Kickoff</span>
+        <h2 class="title-md" style="margin-top:24px">Printec ist<br>keine Druckerei.</h2>
+        <p class="lede">Der Name „Printec" und die Domain .com lassen viele an Druck oder Kartendruck denken — und es gibt mehrere namensgleiche Firmen (Printec Solutions, Printec Distribution). Tatsächlich ist Printec-DS HMI Solutions GmbH ein Hersteller von Industrietastaturen, kundenspezifischen Eingabesystemen und Touch-/HMI-Lösungen. Diese Verwechslung kostet im Erstkontakt Aufmerksamkeit — und ist zugleich ein starker Opener.</p>
+        <div style="margin-top:36px;padding:24px 28px;background:var(--bg-2);border:1px solid var(--line);border-radius:14px;font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--ink-2);line-height:1.6">Slogan des Hauses: „Eingabe ist ihre Kompetenz." · HRB 550206, AG Freiburg · Unternehmensgegenstand: Entwicklung, Fertigung &amp; Vertrieb elektronischer Eingabesysteme.</div>
+      </div>
+      <div class="myth-real">
+        <div class="mr-card myth">
+          <div class="mr-lbl">Mythos · zu korrigieren</div>
+          <div class="mr-head">„Printec = Druck / Kartendruck"</div>
+          <div class="mr-body">Aus Name und Domain abgeleitet, verstärkt durch namensgleiche Druck- und Distributionsfirmen. Falsche Kategorie, falsche Ansprache.</div>
+          <div class="mr-tags"><span>Druckerei</span><span>Kartendruck</span><span>Print-Dienstleister</span></div>
+        </div>
+        <div class="mr-card real">
+          <div class="mr-lbl">Verifiziert</div>
+          <div class="mr-head">HMI- &amp; Eingabesystem-Hersteller</div>
+          <div class="mr-body">Printec-DS HMI Solutions GmbH, Steißlingen — Industrietastaturen, Folien-/Silikon-Eingabesysteme, PCAP-Touch &amp; HMI. „Made in Germany".</div>
+          <div class="mr-tags"><span>Industrietastaturen</span><span>HMI / Touch</span><span>Custom Input</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 09 WETTBEWERB ============================== -->
+  <section data-screen-label="09 Wettbewerb">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Wettbewerb &amp; Positionierung</span><span class="chrome-pages">09 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Drei Wettbewerbsgruppen — eine Nische</span>
+      <h2 class="title-md" style="margin-top:24px">Wo Printec-DS<br>gewinnt.</h2>
+      <div class="brand-cols">
+        <div class="brand-card v-d">
+          <div class="accent-bar"></div>
+          <div class="lvl">GRUPPE A / VOLUMEN</div>
+          <h3>Standard-<br>Importware</h3>
+          <div class="tag">Distributoren · Asien</div>
+          <p class="desc">Günstige Katalog-Tastaturen, austauschbar, ohne kundenspezifische Entwicklung oder Zertifizierungstiefe.</p>
+          <ul>
+            <li>Stärke <span>Preis</span></li>
+            <li>Schwäche <span>kein Custom / Service</span></li>
+            <li>Konter <span>Made in Germany</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-a">
+          <div class="accent-bar"></div>
+          <div class="lvl">GRUPPE B / DIREKT</div>
+          <h3>Eingabe-<br>Spezialisten</h3>
+          <div class="tag">DACH · marktbekannt</div>
+          <p class="desc">Spezialisten für Folien-/Eingabesysteme (z. B. RAFI, GETT/InduKey, Schurter, Hoffmann+Krippner). Der eigentliche Wettbewerb.</p>
+          <ul>
+            <li>Stärke <span>Custom / Qualität</span></li>
+            <li>Feld <span>direkter Vergleich</span></li>
+            <li>Konter <span>Edelstahl-Nische</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-c">
+          <div class="accent-bar"></div>
+          <div class="lvl">GRUPPE C / EBENE DRÜBER</div>
+          <h3>HMI- &amp;<br>Panel-PC</h3>
+          <div class="tag">Integrations-Ebene</div>
+          <p class="desc">Siemens SIMATIC HMI, ADS-TEC, Phoenix Contact u. a. — eher Komplett-Panels; Printec liefert die robuste Eingabe-/Touch-Komponente.</p>
+          <ul>
+            <li>Stärke <span>System / Marke</span></li>
+            <li>Rolle <span>Komponentenpartner</span></li>
+            <li>Konter <span>Spezialisierung</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 10 DIVIDER 03 ============================== -->
+  <section data-screen-label="10 Divider Markt" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 03</span><span class="chrome-pages">10 / 23</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 03</div>
+      <h2>Markt &amp;<br>Zielgruppe.</h2>
+      <p class="sub">Marktgröße, strukturelle Treiber, TAM/SAM/SOM, Zielvertikalen, Buying Committee und die Trigger, die einen Kauf auslösen.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>HMI-Markt DACH · Treiber · Personas</span><span>Quellen je Slide</span></div>
+  </section>
+
+  <!-- ============================== 11 MARKTANALYSE ============================== -->
+  <section data-screen-label="11 Marktanalyse">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Markt-Kontext</span><span class="chrome-pages">11 / 23</span></div></div>
+    <div class="crisis">
+      <div>
+        <span class="eyebrow">Markt-Kontext</span>
+        <h2 class="title-md">Markt mit<br>Rückenwind.</h2>
+        <p class="lede">Der europäische HMI-Markt lag 2024 bei rund 1,91 Mrd. USD und wächst mit ~8,5 % p.a. bis 2030 (Mordor Intelligence). Parallel wächst der globale Membrane-Switch-Markt — das Kernsegment von Printec-DS.</p>
+        <div style="margin-top:32px;padding:22px 28px;background:var(--accent-red);color:#fff;border-radius:14px;font-size:17px;line-height:1.5">Deutschland ist mit <strong>23,7 %</strong> der größte HMI-Teilmarkt Europas — direkter Heimvorteil für „Made in Germany".</div>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px">HMI-Markt Europa · Mrd. USD (Mordor Intelligence)</div>
+        <div class="bars-chart">
+          <div class="bar-line"><span class="yr">2024</span><div class="track"><div class="fill" style="width:61%">1,91</div></div><span class="delta pos">Basis</span></div>
+          <div class="bar-line"><span class="yr">2027e</span><div class="track"><div class="fill" style="width:78%">2,44</div></div><span class="delta pos">+8,5%</span></div>
+          <div class="bar-line future"><span class="yr">2030e</span><div class="track"><div class="fill" style="width:100%">3,12</div></div><span class="delta pos">CAGR</span></div>
+        </div>
+        <div style="margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div style="background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:26px 28px"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em">Membrane-Switch global</div><div style="font-size:40px;font-weight:700;letter-spacing:-0.03em;margin-top:10px">7,65 Mrd $</div><div style="font-size:14px;color:var(--muted);margin-top:8px">2030e · CAGR 7,9 % (Grand View)</div></div>
+          <div style="background:var(--ink);color:#fff;border-radius:16px;padding:26px 28px"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.1em">DE-Anteil EU-HMI</div><div style="font-size:40px;font-weight:700;letter-spacing:-0.03em;margin-top:10px">23,7 %</div><div style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:8px">größter Teilmarkt Europas, 2024</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 12 TREIBER ============================== -->
+  <section data-screen-label="12 Treiber">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Strukturelle Treiber</span><span class="chrome-pages">12 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Was die Nachfrage trägt</span>
+      <h2 class="title-md" style="margin-top:24px">Sechs Treiber<br>für Eingabe &amp; HMI.</h2>
+      <div class="trg-table">
+        <div class="trg-row head"><div>Treiber / Markt</div><div>Kennzahl &amp; Status</div><div style="text-align:center">Relevanz</div></div>
+        <div class="trg-row"><div class="tname">Automatisierung &amp; Industrie 4.0<small>jede neue Maschine braucht ein Bedienkonzept</small></div><div class="tsrc">EU-HMI-Markt ~8,5 % CAGR bis 2030 (Mordor)</div><div class="tw urgent">Kern</div></div>
+        <div class="trg-row"><div class="tname">Reshoring / China+1<small>Lieferketten-Diversifizierung, „Made in Germany"</small></div><div class="tsrc">DE = 23,7 % des EU-HMI-Markts (größter Teilmarkt)</div><div class="tw urgent">Kern</div></div>
+        <div class="trg-row"><div class="tname">Robustheit, Hygiene &amp; Outdoor<small>Edelstahl, PCAP, IP65 / IK09</small></div><div class="tsrc">Wachstum Touch-/Capacitive-Membrane-Segment</div><div class="tw">hoch</div></div>
+        <div class="trg-row"><div class="tname">Regulatorik Medizintechnik<small>MDR, EN ISO 13485 → Requalifizierung</small></div><div class="tsrc">Printec zertifiziert nach EN ISO 13485</div><div class="tw">hoch</div></div>
+        <div class="trg-row"><div class="tname">Komponenten-Abkündigungen (EOL)<small>Redesign-Zwang bei Tastatur/Touch-Wegfall</small></div><div class="tsrc">wiederkehrende, planbare Kaufanlässe</div><div class="tw opp">Kontext</div></div>
+        <div class="trg-row"><div class="tname">Fachkräftemangel &amp; Bedienbarkeit<small>intuitive, fehlerarme Bedienung gefragt</small></div><div class="tsrc">UX/Haptik als Differenzierungsfeld</div><div class="tw opp">Kontext</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 13 TAM/SAM/SOM ============================== -->
+  <section data-screen-label="13 TAM SAM SOM">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Marktpotenzial</span><span class="chrome-pages">13 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Marktpotenzial — Bandbreiten, keine Punktprognosen</span>
+      <h2 class="title-md" style="margin-top:24px">TAM · SAM · SOM.</h2>
+      <div class="funnel">
+        <div class="fn"><div class="lbl">TAM · MARKTPOTENZIAL</div><h4>Eingabe &amp; HMI in DACH</h4><p class="desc">Industrietastaturen, Folien-/Silikon-Eingabesysteme, PCAP-Touch &amp; HMI-Komponenten im DACH-Raum.</p><div class="bignum" style="font-size:58px">450–650<span class="unit">Mio €/J</span></div><div class="alt">Abgeleitet aus EU-HMI + DE-Anteil 23,7 % · <strong>illustrativ</strong></div></div>
+        <div class="fn"><div class="lbl">SAM · ERREICHBAR</div><h4>Custom-bedürftige OEMs</h4><p class="desc">DACH-OEMs mit Bedarf an kundenspezifischen, zertifizierten Eingabe-/HMI-Systemen (Maschinenbau, Medtech, Bahn, Outdoor).</p><div class="bignum" style="font-size:58px">120–180<span class="unit">Mio €/J</span></div><div class="alt">Teilmenge mit Custom-/Zertifizierungsbedarf · <strong>illustrativ</strong></div></div>
+        <div class="fn som"><div class="lbl">SOM · 12–24 MONATE</div><h4>Über Outbound erreichbar</h4><p class="desc">Realistisch über trigger-getriebenes Outbound adressierbares Neugeschäft (Projekt- &amp; Serienvolumen).</p><div class="bignum" style="font-size:58px">1,5–3,0<span class="unit">Mio €</span></div><div class="alt">Pipeline-Ziel · mit CRM zu kalibrieren · <strong>illustrativ</strong></div></div>
+      </div>
+      <div style="margin-top:22px;padding:24px 36px;background:var(--ink);color:#fff;border-radius:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-yel);letter-spacing:0.1em;text-transform:uppercase;margin-right:18px">Hinweis</span><span style="font-size:20px;line-height:1.4;color:rgba(255,255,255,0.9)">Illustrative Größenordnungen aus Drittquellen-Reports; mit realen CRM-/Pipeline-Daten von Printec-DS zu kalibrieren.</span></div>
+    </div>
+  </section>
+
+  <!-- ============================== 14 ZIELVERTIKALEN ============================== -->
+  <section data-screen-label="14 Zielvertikalen">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Zielvertikalen</span><span class="chrome-pages">14 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Wo der Bedarf am höchsten ist</span>
+      <h2 class="title-md" style="margin-top:24px">Sechs Vertikalen<br>mit echtem Bedarf.</h2>
+      <div class="usp-grid">
+        <div class="usp"><div class="ico-block">01</div><div class="nm">Maschinen- &amp; Anlagenbau</div><div class="desc">Kernmarkt: jede neue Maschine braucht robuste Bedienelemente. DACH-OEM-Dichte hoch.</div></div>
+        <div class="usp"><div class="ico-block">02</div><div class="nm">Medizintechnik</div><div class="desc">EN ISO 13485-zertifiziert · hohe Zahlungsbereitschaft, lange Lebenszyklen, Hygiene-Anforderung.</div></div>
+        <div class="usp"><div class="ico-block">03</div><div class="nm">Bahn, Verkehr &amp; Outdoor</div><div class="desc">Edelstahl/PCAP, vandalismus- &amp; witterungsfest (IP65/IK09) — Terminals, Ticketing, Leitstände.</div></div>
+        <div class="usp"><div class="ico-block">04</div><div class="nm">Automotive &amp; Zulieferer</div><div class="desc">Fertigung nach IATF 16949 darstellbar · Test-, Prüf- &amp; Produktionsequipment.</div></div>
+        <div class="usp"><div class="ico-block">05</div><div class="nm">Chemie, Pharma &amp; Food</div><div class="desc">Reinigungs- &amp; chemikalienfeste Eingabe; Silikon-/Folientastaturen mit Spezial-Coatings.</div></div>
+        <div class="usp"><div class="ico-block">06</div><div class="nm">E-Mobilität &amp; Selbstbedienung</div><div class="desc">Ladeinfrastruktur, Kiosk- &amp; SB-Terminals — Edelstahl gegen Vandalismus, draußen 24/7.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 15 BUYING COMMITTEE ============================== -->
+  <section data-screen-label="15 Buying Committee">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Buying Committee</span><span class="chrome-pages">15 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Wer entscheidet beim OEM</span>
+      <h2 class="title-md" style="margin-top:24px">Das Buying Committee.</h2>
+      <div class="persona-grid">
+        <div class="pcard">
+          <div class="role">Leiter Konstruktion / Entwicklung<small>R&amp;D · technischer Initiator</small></div>
+          <div class="kpis">FOKUS · Funktion, Integration, Haptik, Time-to-Market</div>
+          <div class="channels"><span class="ch primary">Telefon*</span><span class="ch">LinkedIn</span></div>
+          <div class="trig"><strong>Hebel</strong>Design-In früh: Muster &amp; Machbarkeit statt Katalog.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Strategischer Einkauf<small>Lieferantenqualifizierung · Preis</small></div>
+          <div class="kpis">FOKUS · Second Source, Liefersicherheit, TCO, Zertifikate</div>
+          <div class="channels"><span class="ch primary">Telefon*</span><span class="ch">LinkedIn</span></div>
+          <div class="trig"><strong>Hebel</strong>„Made in Germany" + Liefersicherheit gegen Asien-Risiko.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Produktmanager / GF (KMU-OEM)<small>Roadmap · Budget-Owner</small></div>
+          <div class="kpis">FOKUS · Differenzierung des Endprodukts, Marge, Termine</div>
+          <div class="channels"><span class="ch primary">Telefon*</span><span class="ch">LinkedIn</span></div>
+          <div class="trig"><strong>Hebel</strong>Bedienkonzept als Verkaufsargument des Endgeräts.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">QM / Regulatory<small>Medtech · Compliance</small></div>
+          <div class="kpis">FOKUS · ISO 13485, MDR, Validierung, Dokumentation</div>
+          <div class="channels"><span class="ch">LinkedIn</span><span class="ch">Telefon*</span></div>
+          <div class="trig"><strong>Hebel</strong>Zertifizierte Fertigung senkt Audit-/Validierungsaufwand.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Industrial Designer / UX<small>Bedienkonzept · Haptik</small></div>
+          <div class="kpis">FOKUS · Optik, Oberflächen, Beleuchtung, Markenanmutung</div>
+          <div class="channels"><span class="ch">LinkedIn</span><span class="ch">Telefon*</span></div>
+          <div class="trig"><strong>Hebel</strong>Custom-Oberflächen/Beschriftung als Design-Freiheitsgrad.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Service / After-Sales<small>Ersatzteile · Lebenszyklus</small></div>
+          <div class="kpis">FOKUS · Langzeitverfügbarkeit, Wartung, EOL-Vermeidung</div>
+          <div class="channels"><span class="ch primary">Telefon*</span><span class="ch">LinkedIn</span></div>
+          <div class="trig"><strong>Hebel</strong>Langlebige, nachbaubare Systeme statt Abkündigungsrisiko.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 16 TRIGGER ============================== -->
+  <section data-screen-label="16 Trigger">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Trigger-Events</span><span class="chrome-pages">16 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Wann der Bedarf akut wird</span>
+      <h2 class="title-md" style="margin-top:24px">Sechs Trigger<br>für den Erstkontakt.</h2>
+      <div class="signals-list">
+        <div class="sig"><div class="num">01</div><div class="nm">Neue Geräte-/Maschinenentwicklung<small>Produktrelaunch oder neue Baureihe → Bedienkonzept wird definiert</small></div><div class="src">Messen, PM-News, Patente</div><div class="when" style="background:var(--ink);color:#fff;border-color:var(--ink)">Top-Trigger</div></div>
+        <div class="sig"><div class="num">02</div><div class="nm">Abkündigung / EOL eines Eingabesystems<small>Lieferant stellt ein oder wird insolvent → Redesign-Zwang</small></div><div class="src">Lieferanten-Bulletins</div><div class="when">sehr hoch</div></div>
+        <div class="sig"><div class="num">03</div><div class="nm">Reshoring / China+1-Lieferantenwechsel<small>Diversifizierung weg von Asien-Importen</small></div><div class="src">Geschäftsberichte, Presse</div><div class="when">hoch</div></div>
+        <div class="sig"><div class="num">04</div><div class="nm">Neue Zulassung / Normwechsel<small>MDR, EN ISO 13485-Update → Requalifizierung der Eingabe</small></div><div class="src">Regulatorik, Audits</div><div class="when">hoch</div></div>
+        <div class="sig"><div class="num">05</div><div class="nm">Hiring Konstruktion / Entwicklung<small>Stellenanzeigen signalisieren neue Projekte</small></div><div class="src">Jobportale, LinkedIn</div><div class="when">mittel</div></div>
+        <div class="sig"><div class="num">06</div><div class="nm">Outdoor-/Hygiene-/Vandalismus-Anforderung<small>Ladesäulen, Kiosk, Medtech → Edelstahl/PCAP gefragt</small></div><div class="src">Ausschreibungen, Projekte</div><div class="when">mittel</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 17 DIVIDER 04 ============================== -->
+  <section data-screen-label="17 Divider GTM" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 04</span><span class="chrome-pages">17 / 23</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 04</div>
+      <h2>Go-to-<br>Market.</h2>
+      <p class="sub">Hook-Lines je Persona, ein compliance-konformer Kanal-Mix, der Phasenplan und die konkreten Handlungsempfehlungen.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Messaging · Kanäle · Roadmap</span><span>Telefon-/LinkedIn-first · UWG-konform</span></div>
+  </section>
+
+  <!-- ============================== 18 HOOK-LINES ============================== -->
+  <section data-screen-label="18 Hook-Lines">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Messaging</span><span class="chrome-pages">18 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Gesprächsaufhänger je Persona</span>
+      <h2 class="title-md" style="margin-top:24px">Hook-Lines,<br>die anschließen.</h2>
+      <div class="hooks-grid">
+        <div class="hook"><span class="idx">01 · Konstruktion</span><q>Wenn Ihre neue Baureihe ein Bedienfeld braucht: Wir liefern Muster zur Machbarkeit, bevor Sie sich festlegen.</q><div class="ctx">Design-In · Time-to-Market</div></div>
+        <div class="hook"><span class="idx">02 · Einkauf</span><q>Eine zweite, deutsche Quelle für Ihre Eingabesysteme — liefersicher, zertifiziert, ohne Asien-Risiko.</q><div class="ctx">Second Source · Made in Germany</div></div>
+        <div class="hook"><span class="idx">03 · Produktmanagement</span><q>Das Bedienkonzept entscheidet, wie wertig Ihr Gerät wirkt — machen wir es zum Verkaufsargument.</q><div class="ctx">Differenzierung · Marge</div></div>
+        <div class="hook"><span class="idx">04 · QM / Regulatory</span><q>Fertigung nach EN ISO 13485 — das spart Ihnen Aufwand bei Validierung und Audit.</q><div class="ctx">Compliance · Medtech</div></div>
+        <div class="hook"><span class="idx">05 · Service</span><q>Wurde Ihr Eingabesystem abgekündigt? Wir bauen ein langlebiges, nachfertigbares Pendant.</q><div class="ctx">EOL · Langzeitverfügbarkeit</div></div>
+        <div class="hook"><span class="idx">06 · Outdoor / SB</span><q>Edelstahl, hinter Panzerglas, mit Handschuhen bedienbar — auch bei Vandalismus und Wetter.</q><div class="ctx">Robustheit · IP65 / IK09</div></div>
+      </div>
+      <div style="margin-top:26px;padding:22px 30px;background:var(--ink);color:#fff;border-radius:14px;display:flex;gap:24px;align-items:center"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-yel);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap">Genereller CTA</span><span style="font-size:19px;line-height:1.4;color:rgba(255,255,255,0.9)">„Schicken Sie uns Ihre Anforderung — Sie bekommen ein kostenloses Muster bzw. einen Design-In-Vorschlag, kein Verkaufsgespräch."</span></div>
+    </div>
+  </section>
+
+  <!-- ============================== 19 KANAL-STRATEGIE ============================== -->
+  <section data-screen-label="19 Kanal-Strategie">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Kanal-Strategie &amp; Compliance</span><span class="chrome-pages">19 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Kanal-Mix je Persona — UWG-konform</span>
+      <h2 class="title-md" style="margin-top:24px">Telefon- &amp;<br>LinkedIn-first.</h2>
+      <div class="cmx">
+        <div class="cmx-row head"><div>Persona</div><div>Telefon*</div><div>LinkedIn</div><div>Empfohlene Sequenz</div></div>
+        <div class="cmx-row">
+          <div class="pn">Konstruktion / Entwicklung<small>technischer Initiator</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv sek"><span class="badge">Sekundär</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>LinkedIn → <b>2</b>Telefon → <b>3</b>Consent → E-Mail (Muster)</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">Strategischer Einkauf<small>Lieferantenqualifizierung</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv consent"><span class="badge">Consent</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>Telefon → <b>2</b>LinkedIn → <b>3</b>Consent → E-Mail (Zertifikate)</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">Produktmanager / GF<small>Budget-Owner</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv sek"><span class="badge">Sekundär</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>LinkedIn → <b>2</b>Telefon → <b>3</b>Consent → E-Mail</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">QM / Regulatory<small>Medtech-Compliance</small></div>
+          <div class="lv sek"><span class="badge">Sekundär</span><span class="meter"><i></i></span></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>LinkedIn → <b>2</b>Consent → <b>3</b>E-Mail (Doku) → Telefon</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">Service / After-Sales<small>EOL &amp; Ersatzteile</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv consent"><span class="badge">Consent</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>Telefon → <b>2</b>LinkedIn → <b>3</b>Consent → E-Mail</div>
+        </div>
+      </div>
+      <div class="cmx-legend"><span><i style="background:var(--accent-grn)"></i>Primär</span><span><i style="background:var(--ink)"></i>Sekundär</span><span><i style="background:var(--muted-2)"></i>Consent erforderlich</span></div>
+      <div style="margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--muted);line-height:1.6">§ 7 UWG / BVerwG 6 C 3.23: Cold-E-Mail &amp; KI-Voice nur NACH dokumentierter Einwilligung; Branchen-/Sachbezug je Account festhalten. B2B-Telefonakquise nur bei mutmaßlicher Einwilligung mit konkretem Sachbezug.</div>
+    </div>
+  </section>
+
+  <!-- ============================== 20 PHASENPLAN ============================== -->
+  <section data-screen-label="20 Phasenplan">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Roadmap</span><span class="chrome-pages">20 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Vorgehen in drei Phasen</span>
+      <h2 class="title-md" style="margin-top:24px">Von Setup<br>zu Pipeline.</h2>
+      <div class="phases">
+        <div class="phase"><div class="nd">01</div><div class="wk">Monat 1–3</div><h4>Setup &amp; ICP</h4>
+          <ul>
+            <li><span>Account-Liste DACH-OEMs nach Vertikalen (Maschinenbau, Medtech, Bahn, Outdoor)</span></li>
+            <li><span>Trigger-Monitoring aufsetzen: EOL, Hiring, Neuentwicklungen</span></li>
+            <li><span>Positionierung „Eingabe statt Druck" testen, Hook-Lines validieren</span></li>
+          </ul>
+          <div class="bench">→ Threshold: 300+ qualifizierte Accounts, erste Gespräche</div>
+        </div>
+        <div class="phase"><div class="nd">02</div><div class="wk">Monat 3–6</div><h4>Skalierung</h4>
+          <ul>
+            <li><span>Multi-Persona-Sequenzen (Konstruktion, Einkauf, PM) live</span></li>
+            <li><span>Telefon-first, Muster-/Design-In-Angebot als CTA</span></li>
+            <li><span>Wöchentliche Optimierung von Antwort- &amp; Terminquote</span></li>
+          </ul>
+          <div class="bench">→ Threshold: planbare Pipeline, &gt;5 % Antwortquote</div>
+        </div>
+        <div class="phase"><div class="nd">03</div><div class="wk">Monat 6–12</div><h4>Vertikalisierung</h4>
+          <ul>
+            <li><span>Branchen-Playbooks: Medtech &amp; Outdoor zuerst</span></li>
+            <li><span>Referenz-Loop: gewonnene Projekte als Proof in neue Vertikalen</span></li>
+            <li><span>Skalierung auf Export-/US-Markt (PDS HMI Solutions Corp.)</span></li>
+          </ul>
+          <div class="bench">→ Threshold: wiederholbare Plays je Vertikale, SOM kalibriert</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 21 EMPFEHLUNGEN ============================== -->
+  <section data-screen-label="21 Empfehlungen">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Handlungsempfehlungen</span><span class="chrome-pages">21 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Was zuerst zu tun ist</span>
+      <h2 class="title-md" style="margin-top:24px">Fünf<br>Empfehlungen.</h2>
+      <div class="recs">
+        <div class="rec"><div class="num">01</div><div><h5>Positionierung aktiv klarstellen</h5><p>„Eingabe statt Druck" als Opener nutzen — die Namensverwechslung in den Vorteil drehen und sofort die richtige Kategorie setzen.</p></div></div>
+        <div class="rec"><div class="num">02</div><div><h5>Trigger-getrieben statt Gießkanne</h5><p>EOL-Abkündigungen, neue Geräteentwicklungen und Reshoring als konkrete Aufhänger pro Account monitoren und ansprechen.</p></div></div>
+        <div class="rec"><div class="num">03</div><div><h5>Telefon-/LinkedIn-first, UWG-konform</h5><p>Erstkontakt über Telefon &amp; LinkedIn; Cold-E-Mail/KI-Voice erst nach dokumentierter Einwilligung mit Sachbezug.</p></div></div>
+        <div class="rec"><div class="num">04</div><div><h5>Stärkster Hebel: Muster &amp; Design-In</h5><p>Statt „Demo" ein kostenloses Muster bzw. einen Machbarkeits-/Design-In-Vorschlag anbieten — niedrige Hürde, hoher Bindungseffekt.</p></div></div>
+        <div class="rec"><div class="num">05</div><div><h5>Vertikale Playbooks priorisieren</h5><p>Medtech (ISO 13485) und Outdoor/SB (Edelstahl, PCAP) zuerst — höchste Zahlungsbereitschaft und klarste Differenzierung.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 22 VORBEHALTE ============================== -->
+  <section data-screen-label="22 Vorbehalte">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Vorbehalte &amp; Datenlage</span><span class="chrome-pages">22 / 23</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow warn">Ehrliche Datenlage</span>
+      <h2 class="title-md" style="margin-top:24px">Vorbehalte<br>&amp; Annahmen.</h2>
+      <div class="caveats">
+        <div class="cv"><div class="i">01</div><div class="t">Mitarbeiterzahl (50–99) ist eine öffentliche Schätzung (wlw.com); exakte Zahlen sowie Umsatz liegen hinter der Premium-Schranke von North Data und sind nicht verifiziert.</div></div>
+        <div class="cv"><div class="i">02</div><div class="t">Marktzahlen zu HMI und Membrane Switch stammen aus Drittanbieter-Reports (Mordor, Grand View u. a.); je Quelle bestehen deutliche Spannbreiten bei Größe und CAGR.</div></div>
+        <div class="cv"><div class="i">03</div><div class="t">TAM/SAM/SOM sind illustrative Größenordnungen, aus Marktanteilen abgeleitet — mit realen CRM-/Pipeline-Daten von Printec-DS zu kalibrieren.</div></div>
+        <div class="cv"><div class="i">04</div><div class="t">Die Wettbewerberliste ist marktbekannt, aber nicht abschließend und nicht von Printec-DS bestätigt; Positionierung dient der Einordnung.</div></div>
+        <div class="cv"><div class="i">05</div><div class="t">Website-Inhalte wurden über Such-Snippets erhoben — der direkte Abruf von printecds.com war im Recherchezeitraum (Juni 2026) technisch blockiert.</div></div>
+        <div class="cv"><div class="i">06</div><div class="t">Produktangaben (Schutzklassen IP65/IK09, PCAP-Eigenschaften, Zertifizierungen) folgen Herstellerangaben und sind im Onboarding zu verifizieren.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== 23 CLOSING ============================== -->
+  <section data-screen-label="23 Closing" class="s-close">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Empfehlung &amp; nächste Schritte</span><span class="chrome-pages">23 / 23</span></div></div>
+    <div class="core">
+      <span class="eyebrow">Empfehlung</span>
+      <h2>Aus „Made in Germany"<br>wird <span class="accent">Pipeline</span>.</h2>
+      <p class="sub-cta" style="margin-top:32px">Trigger-getriebenes, UWG-konformes Outbound auf DACH-OEMs in Maschinenbau, Medtech, Bahn und Outdoor — mit dem Opener „Eingabe statt Druck" und kostenlosen Mustern als Conversion-Hebel. Start mit Setup &amp; ICP-Schärfung in den ersten drei Monaten.</p>
+      <div class="actions" style="margin-top:40px">
+        <a class="btn" href="#">Kickoff &amp; ICP-Workshop terminieren <span class="arr">↗</span></a>
+        <a class="btn ghost" href="#">Trigger-Monitoring aufsetzen <span class="arr">→</span></a>
+      </div>
+      <div class="swatches" style="margin-top:36px"><span style="background:var(--accent-grn)"></span><span style="background:var(--accent-blu)"></span><span style="background:var(--accent-yel)"></span><span style="background:var(--accent-pur)"></span></div>
+    </div>
+    <div class="foot">
+      <div><strong>amplifa</strong>Outbound-Akquise · Printec-DS HMI Solutions GmbH</div>
+      <div style="text-align:right"><strong>Report v1.0 · Juni 2026</strong>für Printec-DS · vertraulich</div>
+    </div>
+  </section>
+
+</deck-stage>
+</body>
+</html>
