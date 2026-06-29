@@ -70,9 +70,9 @@ GIB NUR DIESES JSON ZURÜCK (nichts anderes):
   "reason": "<2-3 Sätze: warum dieses Tier>"
 }
 
-Tier A = Klarer Hardware-OEM mit Kleinserienbedarf, starke Passung für GBN Systems
-Tier B = Wahrscheinlich Hardware-Fertiger, aber Seriengröße unklar oder Outsourcing-Bedarf unsicher
-Tier C = Ausschluss – kein echter Bedarf an mechatronischer Auftragsfertigung
+Tier A = SEHR GUT — Klarer Hardware-OEM, eigene Geräte/Baugruppen, Kleinserie eindeutig, starke Passung für GBN Systems
+Tier B = MITTEL — Wahrscheinlich Hardware-Fertiger, aber Seriengröße unklar, Outsourcing-Bedarf unsicher, oder nur Teilpassung
+Tier C = KEIN BEDARF — Ausschlusskriterium trifft zu; kein echter Bedarf an mechatronischer Auftragsfertigung
 
 Firma: {{company_name}}
 Domain: {{domain}}
