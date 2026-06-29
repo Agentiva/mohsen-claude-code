@@ -1,0 +1,85 @@
+## Clay Sculptor / Claygent – Bedarfsprüfung GBN Systems
+## Inputs: {{company_name}}, {{domain}}
+
+Besuche https://{{domain}} (Startseite, Produkte/Leistungen, Über uns, ggf. Karriere).
+
+Beantworte: Hat diese Firma einen echten Bedarf an mechatronischer Auftragsfertigung in Kleinserien?
+
+---
+
+GBN Systems (gbn.de) ist ein bayerischer Mechatronik-Lohnfertiger.
+KERNLEISTUNG: Serienproduktion mechatronischer Baugruppen und Geräte.
+NICHT: Entwicklung, nicht reine Mechanikteile, nicht reine Elektronikfertigung.
+GERÄTEGRÖSSE: Alles was auf eine Palette passt – kein Schwermaschinenbau.
+STÜCKZAHLEN: 2–5.000 Stück/Jahr. Sweet-Spot: 30–500 Stück/Jahr.
+BRANCHEN: Branchenübergreifend – Medizintechnik, Laborgeräte, Diagnostik, Halbleiter-Equipment, Messtechnik, Photonik, Automatisierung, Robotik, Cleantech, Industrieelektronik, HealthTech u.v.m.
+
+---
+
+ECHTER BEDARF (Tier A oder B) liegt vor, wenn die Firma:
+1. Eigene physische Hardware-Produkte entwickelt oder herstellt (Geräte, Instrumente, Maschinen, Sensoren, Baugruppen)
+2. In Kleinserien oder Mittelserien produziert – KEINE Massenproduktion (Millionen Stück)
+3. Mechatronische Baugruppen oder Geräte FERTIGUNGSSEITIG auslagern könnte oder bereits auslagert
+4. Sich in der Überführungsphase Prototyp → Vorserie → Serie befindet ODER laufende Serienfertigung mit Outsourcing-Bedarf hat
+5. Ihren Hauptstandort oder Produktions-/Entwicklungsstandort in Deutschland (Schwerpunkt Südbayern, Baden-Württemberg) hat
+
+POSITIVE BEDARFSSIGNALE – erhöhen Wahrscheinlichkeit (nicht alle müssen zutreffen):
+- Firma hat kürzlich Prototyp auf Messe präsentiert → braucht Serienproduktion
+- Neue Finanzierungsrunde (Seed/Series A/B) → Produkt soll in Produktion
+- Stellenausschreibungen für Fertigungspersonal / Produktionsmitarbeiter
+- Reshoring-Signale (Produktion zurück aus Asien nach Deutschland)
+- Presseberichte oder LinkedIn-Posts zu Produktlaunch, neuer Produktgeneration, Kapazitätserweiterung
+- Patentanmeldungen in Kombination mit Hardware-Produktentwicklung
+- Produktroadmap oder Serienanlauf auf Website sichtbar
+- Öffentlich geförderte Projekte (BMBF, Bayern Innovativ, EU Horizon) in Hardware-Produktentwicklung
+- Unternehmensexpansion / neuer Standort / Aufbau Produktion
+
+AUSSCHLUSS (Tier C) – mindestens ein Kriterium reicht:
+- Reine Software / SaaS-Unternehmen ohne eigenes Hardware-Produkt
+- Klinik, Krankenhaus, Uni, öffentliches Forschungsinstitut
+- Reiner Händler / Distributor ohne eigene Produkte
+- Reines Beratungs- oder Dienstleistungsunternehmen
+- Unternehmen mit >10.000 Mitarbeitern (wahrscheinlich Eigenproduktion)
+- Automotive Tier 1 oder Tier 2 Zulieferer
+- Luft-/Raumfahrt oder Rüstung Tier 1 oder Tier 2 (fehlende Zulassungen)
+- Reiner Großmaschinenhersteller (Anlagen >10 Tonnen, Produktionsmaschinen)
+- Reine Elektronikfertigung / EMS ohne mechatronische Geräte
+- Massenproduktion (>50.000 Stück/Jahr, Konsumgüter, FMCG)
+
+NICHT ausschließen:
+- Aerospace/Rüstung auf Tier 3–5 Ebene (brauchen keine Zulassungen)
+- Internationale Firmen mit Produktions- oder Entwicklungsstandort in Süddeutschland
+- Mittelständische Konzernteile (<10.000 MA im relevanten Segment)
+
+---
+
+VORGEHEN:
+1. Besuche die Website: Startseite → Produkte/Leistungen → Über uns → ggf. Karriere
+2. Prüfe: Stellt die Firma eigene mechatronische Geräte oder Baugruppen her?
+3. Prüfe: Ist Kleinserienfertigung (keine Massenproduktion) wahrscheinlich?
+4. Prüfe: Treffen Ausschlusskriterien zu?
+5. Identifiziere das stärkste konkrete Bedarfssignal
+
+GIB NUR DIESES JSON ZURÜCK (nichts anderes):
+{
+  "fit_tier": "A" | "B" | "C",
+  "makes_own_hardware": true | false,
+  "small_series_likely": true | false | "unclear",
+  "is_excluded_category": true | false,
+  "key_signal": "<stärkstes Signal in max. 12 Wörtern, oder 'kein Signal gefunden'>",
+  "reason": "<2-3 Sätze: warum dieses Tier>"
+}
+
+Tier A = Klarer Hardware-OEM mit Kleinserienbedarf, starke Passung für GBN Systems
+Tier B = Wahrscheinlich Hardware-Fertiger, aber Seriengröße unklar oder Outsourcing-Bedarf unsicher
+Tier C = Ausschluss – kein echter Bedarf an mechatronischer Auftragsfertigung
+
+Firma: {{company_name}}
+Domain: {{domain}}
+
+---
+NACHGELAGERT IN CLAY:
+- Filter: fit_tier IN (A, B) behalten, C entfernen
+- Priorisierung: A vor B
+- Export: company_name, domain, fit_tier, key_signal
+- Erwartetes Ergebnis: ~35–50% A/B-Firmen aus der Gesamtliste (~1.200–1.700 von 3.341)
