@@ -70,15 +70,26 @@ Zusätzlich zur CSV **immer** einen fertigen Claygent-/Sculptor-Prompt ausgeben,
 
 Die Vorlage steht in `clay_sculptor_prompt.md` – Platzhalter durch das jeweilige Kundenprodukt ersetzen.
 
-## Schritt 5c – Jobtitel für „Find People" in Clay (IMMER mitliefern)
+## Schritt 5c – Apollo/Clay „Find People"-Filter je ICP (IMMER mitliefern)
 
-Zusätzlich zur CSV und zum Sculptor-Prompt **immer** eine Liste von **genau ~25 Jobtiteln, komma-separiert in EINER Zeile** ausgeben, mit der der User in Clay „Find People / Find Contacts" auf die qualifizierten Firmen anwendet. Die Titel **auf das konkrete Kundenprodukt / die Buying-Center-Persona zuschneiden** (aus dem Bedarfsprofil, Schritt 1):
+Zusätzlich zur CSV und zum Sculptor-Prompt **immer** einen vollständigen **People-Such-Filter im Apollo-Stil** ausgeben – **pro ICP / Playbook je eine Filter-Tabelle**, nicht nur eine Titelzeile. Ziel ist ein copy-paste-fertiges Set an Filterwerten, mit dem der User in Apollo/Clay direkt die richtigen Personen in den qualifizierten Firmen findet. **Alle Werte aus der vorliegenden Kunden-Intelligenz ableiten** – Market-Intelligence-Report, Playbooks (Personas/Buying Committee), Meeting-/Onboarding-Transkripte und Notion-Material – nicht generisch raten.
 
-- **Tier 1 (Entscheider / Economic Buyer):** die Rollen, die das Produkt budgetieren/freigeben (z. B. bei einer Spedition: Leiter Logistik, Head of Supply Chain, Geschäftsführer, Werkleiter).
-- **Tier 2 (Nutzer / Influencer / operative Ebene):** die Rollen, die operativ damit arbeiten oder den Bedarf melden (z. B. Versandleiter, Disponent, Einkauf Logistikdienstleistungen, Lagerleiter).
-- Beide Tiers in **derselben Zeile** mischen, deutsche UND gängige englische Varianten aufnehmen (Clay matcht über Titel-Strings), Singular-Form bevorzugen.
-- Format: eine einzige komma-separierte Zeile, copy-paste-fertig für das Clay-Titelfeld. Keine Nummerierung, keine Erklärtexte in der Zeile.
-- Kurz dazuschreiben, welche Titel Tier 1 vs. Tier 2 sind (außerhalb der copy-paste-Zeile), damit der User in Clay ggf. priorisieren kann.
+Jeder Filter-Block hat **genau diese 6 Kriterien** (exakt diese Reihenfolge, als Tabelle oder klar gelabelte Liste):
+
+| Kriterium | Inhalt |
+|---|---|
+| **Jobtitel** | ~15–25 konkrete Titel, komma-separiert in EINER Zeile (Tier 1 + Tier 2 gemischt), DE **und** gängige EN-Varianten, Singular bevorzugt. Tier 1 = Entscheider/Economic Buyer, Tier 2 = Champion/Anwender/Influencer aus dem realen Buying-Center. |
+| **Industrie** | komma-separierte Apollo-Industrie-Tags, die zum ICP passen (z. B. `aviation & aerospace, defense & space`). |
+| **Mitarbeiter** | Größenband + Sweet Spot (z. B. `50–5.000 (Sweet Spot 50–1.000)`). |
+| **Standort** | Zielregion/Länder hart wie im Bedarfsprofil (z. B. `Germany, Austria, Switzerland …` bzw. Ausschlüsse wie UK). |
+| **Seniority** | Apollo-Seniority-Stufen, z. B. `head, director, manager, senior, lead` – plus `owner, partner, c_suite`, **wenn** GF/Inhaber im KMU ein echter Entscheider ist (dann ausdrücklich zulassen). |
+| **Keywords (bedarfsorientiert)** | DE+EN Begriffe, die den **Bedarf/Use-Case** signalisieren (Verfahren, Produktkategorien, Maschinen/Tech, Normen) – nicht nur Branchennamen. Das ist der entscheidende Bedarfs-Hebel. |
+
+Regeln dazu:
+- **Eine Filter-Tabelle pro ICP/Playbook**; Jobtitel/Industrie/Keywords je ICP zuschneiden (ein Aerospace-ICP hat andere Keywords/Industrien als ein Medizintechnik-ICP), Mitarbeiter/Standort/Seniority dürfen sich wiederholen.
+- Die **Jobtitel-Zeile** bleibt copy-paste-fertig (eine Zeile, komma-separiert, keine Nummerierung).
+- Kurz außerhalb der Tabelle markieren, welche Titel **Tier 1** vs. **Tier 2** sind, damit in Apollo/Clay priorisiert werden kann.
+- Titel/Keywords aus den **Persona-Pains und O-Tönen** der Transkripte/Playbooks ziehen (z. B. genannte Maschinen, Verfahren, Zertifizierungen, Entscheider-Rollen), damit der Filter wirklich firmenspezifisch ist.
 
 ## „Finde mehr" / „Finde 1000 mehr"
 
@@ -99,4 +110,4 @@ So wächst die Liste dublettenfrei weiter, ohne dass schon gefundene Firmen erne
 - Wenn die Zielzahl an passenden Firmen realistisch nicht erreichbar ist, das **ehrlich melden** (z. B. „im Markt sind ~1300 passende Firmen") statt mit Schrott aufzufüllen.
 - Endausgabe immer durch das Dedup-Skript schicken.
 - **Niemals pro Firma die Website durch Claude lesen lassen, um zu qualifizieren** – das ist token-teuer und skaliert nicht. Claude macht nur die günstige Firmographie-Filterung; die intelligente Pro-Firma-Bedarfsprüfung läuft über den Clay-Sculptor-Prompt in Clay.
-- **Immer alle drei Artefakte liefern:** (1) `liste.csv` (Name+Domain), (2) den auf das Kundenprodukt zugeschnittenen Clay-Sculptor-Prompt, (3) die ~25 komma-separierten Tier-1/Tier-2-Jobtitel für „Find People" in Clay (Schritt 5c).
+- **Immer alle drei Artefakte liefern:** (1) `liste.csv` (Name+Domain), (2) den auf das Kundenprodukt zugeschnittenen Clay-Sculptor-Prompt, (3) **pro ICP/Playbook einen Apollo/Clay-„Find People"-Filter im 6-Kriterien-Format** (Jobtitel · Industrie · Mitarbeiter · Standort · Seniority · bedarfsorientierte Keywords), abgeleitet aus Market Intelligence/Playbooks/Transkripten/Notion (Schritt 5c).
