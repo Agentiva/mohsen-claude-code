@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>amplifa · König MTM Market Intelligence Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  :root {
+    --bg: #f6f5f1;
+    --bg-2: #ffffff;
+    --bg-3: #efece5;
+    --ink: #0a0a0f;
+    --ink-2: #1a1a22;
+    --muted: #6b6b75;
+    --muted-2: #9a9aa3;
+    --line: #e6e4dd;
+    --line-2: #d6d4cb;
+    --accent-yel: #ffb800;
+    --accent-red: #ff3b30;
+    --accent-blu: #2a6ffd;
+    --accent-pur: #7b3aed;
+    --accent-grn: #1f8a5b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #0a0a0f; font-family: 'Inter', -apple-system, sans-serif; }
+
+  deck-stage section {
+    background: var(--bg);
+    color: var(--ink);
+    width: 1920px;
+    height: 1080px;
+    padding: 88px 112px;
+    position: relative;
+    overflow: hidden;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  .chrome {
+    position: absolute;
+    inset: 56px 112px auto 112px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .chrome .mark { display: flex; align-items: center; gap: 12px; }
+  .chrome .mark img { height: 22px; display: block; }
+  .chrome .meta { display: flex; gap: 28px; align-items: center; }
+  .chrome .meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-grn); display: inline-block; margin-right: 8px; vertical-align: middle; }
+  .chrome-pages { font-variant-numeric: tabular-nums; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .eyebrow::before {
+    content: ""; width: 28px; height: 1px; background: var(--ink); display: inline-block;
+  }
+  .eyebrow.warn::before { background: var(--accent-red); }
+
+  h1.display { font-size: 132px; line-height: 0.96; letter-spacing: -0.04em; font-weight: 700; margin: 0; text-wrap: balance; }
+  h2.title { font-size: 96px; line-height: 0.98; letter-spacing: -0.035em; font-weight: 700; margin: 0; text-wrap: balance; }
+  h2.title-md { font-size: 72px; line-height: 1.0; letter-spacing: -0.03em; font-weight: 700; margin: 0; text-wrap: balance; }
+  h3.sub { font-size: 32px; line-height: 1.25; letter-spacing: -0.01em; font-weight: 400; color: var(--muted); margin: 0; text-wrap: pretty; }
+  .mono { font-family: 'JetBrains Mono', monospace; font-feature-settings: "ss01"; }
+
+  .body-text { font-size: 22px; line-height: 1.5; color: var(--ink-2); text-wrap: pretty; }
+  .body-text.muted { color: var(--muted); }
+
+  .pad-top { padding-top: 180px; }
+  .pad-top-lg { padding-top: 220px; }
+
+  /* ============ COVER ============ */
+  .s-title { display: grid; grid-template-rows: auto 1fr auto; }
+  .s-title .hero { align-self: center; }
+  .s-title .kicker { font-family: 'JetBrains Mono', monospace; font-size: 18px; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 28px; }
+  .s-title h1.display { font-size: 132px; }
+  .s-title .underline { margin-top: 56px; display: flex; gap: 6px; height: 14px; max-width: 900px; }
+  .s-title .underline span { flex: 1; height: 100%; }
+  .s-title .underline span:nth-child(1) { background: var(--accent-yel); }
+  .s-title .underline span:nth-child(2) { background: var(--accent-red); }
+  .s-title .underline span:nth-child(3) { background: var(--accent-blu); }
+  .s-title .underline span:nth-child(4) { background: var(--accent-pur); }
+  .s-title .underline span:nth-child(5) { background: var(--ink); }
+  .s-title .footnote { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; font-size: 18px; color: var(--muted); }
+  .s-title .footnote strong { color: var(--ink); font-weight: 600; display: block; font-size: 22px; letter-spacing: -0.01em; margin-bottom: 4px; }
+
+  /* ============ DIVIDER ============ */
+  .s-divider { background: var(--ink); color: #fff; display: grid; grid-template-rows: auto 1fr auto; }
+  .s-divider .chrome { color: rgba(255,255,255,0.5); }
+  .s-divider .core { align-self: center; }
+  .s-divider .num { font-family: 'JetBrains Mono', monospace; font-size: 22px; color: rgba(255,255,255,0.5); margin-bottom: 32px; letter-spacing: 0.04em; }
+  .s-divider h2 { font-size: 168px; line-height: 0.92; letter-spacing: -0.04em; font-weight: 700; margin: 0; }
+  .s-divider .sub { font-size: 30px; color: rgba(255,255,255,0.65); margin-top: 48px; max-width: 1100px; line-height: 1.4; }
+  .s-divider .stripe { display: flex; gap: 6px; height: 10px; max-width: 480px; margin-top: 56px; }
+  .s-divider .stripe span { flex: 1; }
+  .s-divider .stripe span:nth-child(1) { background: var(--accent-yel); }
+  .s-divider .stripe span:nth-child(2) { background: var(--accent-red); }
+  .s-divider .stripe span:nth-child(3) { background: var(--accent-blu); }
+  .s-divider .stripe span:nth-child(4) { background: var(--accent-pur); }
+  .s-divider .foot { display: flex; justify-content: space-between; font-size: 16px; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ============ EXECUTIVE SUMMARY ============ */
+  .insights { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 56px; }
+  .insight {
+    background: var(--bg-2); border: 1px solid var(--line);
+    border-radius: 20px; padding: 32px 28px;
+    display: flex; flex-direction: column; min-height: 360px;
+  }
+  .insight .idx { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+  .insight h4 { font-size: 26px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.15; margin: 18px 0 14px; }
+  .insight p { font-size: 16px; line-height: 1.45; color: var(--muted); margin: 0; }
+  .insight .tag { margin-top: auto; padding-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); letter-spacing: 0.06em; }
+  .insight .bar { display: block; width: 36px; height: 4px; margin-bottom: 18px; }
+  .insight:nth-child(1) .bar { background: var(--accent-grn); }
+  .insight:nth-child(2) .bar { background: var(--accent-blu); }
+  .insight:nth-child(3) .bar { background: var(--accent-yel); }
+  .insight:nth-child(4) .bar { background: var(--accent-pur); }
+  .insight:nth-child(5) .bar { background: var(--accent-red); }
+
+  /* ============ COMPANY SNAPSHOT ============ */
+  .snap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+  .snap {
+    background: var(--bg-2); border: 1px solid var(--line);
+    border-radius: 18px; padding: 32px 28px;
+    display: flex; flex-direction: column; min-height: 200px;
+  }
+  .snap .lbl { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .snap .val { font-size: 56px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.0; margin-top: auto; }
+  .snap .val .unit { font-size: 22px; font-weight: 500; color: var(--muted); margin-left: 6px; letter-spacing: -0.01em; }
+  .snap .note { font-size: 14px; color: var(--muted); margin-top: 10px; line-height: 1.35; }
+  .snap.dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .snap.dark .lbl { color: rgba(255,255,255,0.55); }
+  .snap.dark .note { color: rgba(255,255,255,0.6); }
+  .snap.dark .val .unit { color: rgba(255,255,255,0.5); }
+
+  /* ============ BRAND / TIER ARCHITECTURE ============ */
+  .brand-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
+  .brand-card {
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: 22px;
+    padding: 38px 36px 40px; min-height: 480px;
+    display: flex; flex-direction: column;
+  }
+  .brand-card .lvl { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+  .brand-card h3 { font-size: 44px; font-weight: 700; letter-spacing: -0.03em; margin: 12px 0 6px; line-height: 1.0; }
+  .brand-card .tag { font-size: 15px; font-family: 'JetBrains Mono', monospace; color: var(--ink); letter-spacing: 0.04em; margin-bottom: 24px; }
+  .brand-card .desc { font-size: 18px; color: var(--muted); line-height: 1.5; }
+  .brand-card ul { margin: 24px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .brand-card ul li { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--ink-2); display: flex; justify-content: space-between; gap: 16px; }
+  .brand-card ul li span { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 13px; text-align: right; }
+  .brand-card .accent-bar { width: 64px; height: 6px; margin-bottom: 24px; }
+  .brand-card.v-a .accent-bar { background: var(--accent-grn); }
+  .brand-card.v-b .accent-bar { background: var(--accent-blu); }
+  .brand-card.v-c .accent-bar { background: var(--accent-pur); }
+  .brand-card.v-d .accent-bar { background: var(--accent-yel); }
+  .brand-card.v-a { border-color: var(--ink); border-width: 2px; }
+
+  /* ============ MARKET / CRISIS LAYOUT ============ */
+  .crisis { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; padding-top: 180px; }
+  .crisis h2 { margin-top: 28px; }
+  .crisis .lede { font-size: 24px; color: var(--muted); line-height: 1.5; margin-top: 36px; max-width: 640px; }
+  .bars-chart { display: flex; flex-direction: column; gap: 18px; margin-top: 12px; }
+  .bar-line { display: grid; grid-template-columns: 110px 1fr 120px; align-items: center; gap: 20px; }
+  .bar-line .yr { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 600; color: var(--ink); }
+  .bar-line .track { height: 56px; background: var(--bg-3); border-radius: 8px; position: relative; overflow: hidden; }
+  .bar-line .fill { height: 100%; background: var(--ink); border-radius: 8px; display: flex; align-items: center; justify-content: flex-end; padding-right: 18px; color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; }
+  .bar-line.crisis-y .fill { background: var(--accent-red); }
+  .bar-line.future .fill { background: var(--accent-grn); }
+  .bar-line .delta { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 600; color: var(--accent-red); }
+  .bar-line.future .delta { color: var(--accent-grn); }
+  .bar-line .delta.pos { color: var(--accent-grn); }
+
+  /* ============ DRIVERS & INHIBITORS ============ */
+  .di-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .di-col { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 40px 36px; }
+  .di-col.dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .di-col .head { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  .di-col .head .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent-grn); }
+  .di-col.dark .head .dot { background: var(--accent-red); }
+  .di-col .head h4 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+  .di-col ul { margin: 0; padding: 0; list-style: none; }
+  .di-col ul li { padding: 18px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 36px 1fr auto; gap: 18px; align-items: center; }
+  .di-col.dark ul li { border-color: rgba(255,255,255,0.12); }
+  .di-col ul li .ico { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); }
+  .di-col.dark ul li .ico { color: rgba(255,255,255,0.5); }
+  .di-col ul li .txt { font-size: 19px; line-height: 1.35; }
+  .di-col.dark ul li .txt { color: rgba(255,255,255,0.9); }
+  .di-col ul li .val { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 600; text-align: right; }
+  .di-col.dark ul li .val { color: #fff; }
+  .di-col ul li .val.up, .di-col ul li .val.down { color: var(--accent-red); }
+  .di-col ul li .val.pos { color: var(--accent-grn); }
+
+  /* ============ USP / PLATFORMS ============ */
+  .usp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
+  .usp { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 32px 30px; min-height: 240px; display: flex; flex-direction: column; }
+  .usp .nm { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+  .usp .desc { font-size: 16px; color: var(--muted); line-height: 1.45; margin-top: 12px; }
+  .usp .ico-block { width: 56px; height: 56px; border-radius: 14px; background: var(--bg-3); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 18px; }
+  .usp:nth-child(1) .ico-block { background: var(--accent-grn); color: #fff; }
+  .usp:nth-child(2) .ico-block { background: var(--accent-blu); color: #fff; }
+  .usp:nth-child(3) .ico-block { background: var(--ink); color: #fff; }
+  .usp:nth-child(4) .ico-block { background: var(--accent-pur); color: #fff; }
+  .usp:nth-child(5) .ico-block { background: var(--accent-yel); }
+  .usp:nth-child(6) .ico-block { background: var(--accent-red); color: #fff; }
+
+  /* ============ TAM/SAM/SOM ============ */
+  .funnel { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .fn { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 40px 36px; min-height: 460px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .fn .lbl { font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.1em; color: var(--muted); }
+  .fn h4 { font-size: 32px; font-weight: 700; letter-spacing: -0.025em; margin: 16px 0 12px; line-height: 1.1; }
+  .fn .desc { font-size: 17px; color: var(--muted); line-height: 1.45; }
+  .fn .bignum { font-size: 80px; font-weight: 700; letter-spacing: -0.04em; line-height: 0.95; margin-top: auto; }
+  .fn .bignum .unit { font-size: 26px; font-weight: 500; color: var(--muted); margin-left: 6px; letter-spacing: -0.01em; }
+  .fn .alt { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--ink-2); line-height: 1.5; }
+  .fn .alt strong { font-weight: 700; color: var(--ink); }
+  .fn.som { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .fn.som .lbl { color: rgba(255,255,255,0.55); }
+  .fn.som .desc { color: rgba(255,255,255,0.65); }
+  .fn.som .bignum .unit { color: rgba(255,255,255,0.5); }
+  .fn.som .alt { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); }
+  .fn.som .alt strong { color: var(--accent-yel); }
+
+  /* ============ PERSONAS ============ */
+  .persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+  .pcard { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 28px 28px; min-height: 300px; display: flex; flex-direction: column; }
+  .pcard .role { font-size: 24px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; }
+  .pcard .role small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 6px; }
+  .pcard .kpis { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; margin-top: 16px; line-height: 1.5; }
+  .pcard .trig { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+  .pcard .trig strong { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 12px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .pcard .channels { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+  .pcard .channels .ch { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--ink-2); letter-spacing: 0.04em; }
+  .pcard .channels .ch.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  /* ============ SIGNALS / TRIGGER ============ */
+  .signals-list { margin-top: 40px; display: flex; flex-direction: column; gap: 0; }
+  .sig { display: grid; grid-template-columns: 80px 1fr 320px 160px; align-items: center; padding: 17px 0; border-top: 1px solid var(--line-2); gap: 32px; }
+  .sig:last-child { border-bottom: 1px solid var(--line-2); }
+  .sig .num { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--ink); }
+  .sig .nm { font-size: 27px; font-weight: 700; letter-spacing: -0.02em; }
+  .sig .nm small { display: block; font-size: 15px; color: var(--muted); font-weight: 400; margin-top: 6px; line-height: 1.35; }
+  .sig .src { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--muted); }
+  .sig .when { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--ink); font-weight: 600; padding: 8px 14px; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 999px; text-align: center; }
+
+  /* ============ HOOK / MESSAGING ============ */
+  .hooks-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 40px; }
+  .hook { background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 26px 30px; display: flex; flex-direction: column; min-height: 206px; }
+  .hook .idx { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
+  .hook q { display: block; font-size: 22px; line-height: 1.3; letter-spacing: -0.01em; color: var(--ink); font-weight: 500; margin-top: 14px; quotes: "„" "\201C" "\201A" "\2018"; }
+  .hook q::before { content: open-quote; }
+  .hook q::after { content: close-quote; }
+  .hook .ctx { font-size: 12px; color: var(--muted); margin-top: auto; padding-top: 14px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ============ CHANNEL MATRIX (effective view) ============ */
+  .cmx { margin-top: 44px; }
+  .cmx-row { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.7fr; align-items: center; gap: 28px; padding: 24px 0; border-top: 1px solid var(--line-2); }
+  .cmx-row.head { border-top: none; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 0 0 14px; }
+  .cmx-row:last-child { border-bottom: 1px solid var(--line-2); }
+  .cmx-row .pn { font-size: 23px; font-weight: 700; letter-spacing: -0.015em; }
+  .cmx-row .pn small { display: block; font-size: 14px; color: var(--muted); font-weight: 400; margin-top: 4px; }
+  .lv { display: flex; flex-direction: column; gap: 8px; }
+  .lv .badge { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
+  .lv .meter { height: 8px; border-radius: 999px; background: var(--bg-3); overflow: hidden; }
+  .lv .meter i { display: block; height: 100%; border-radius: 999px; }
+  .lv.primar .badge { color: var(--accent-grn); }
+  .lv.primar .meter i { width: 100%; background: var(--accent-grn); }
+  .lv.sek .badge { color: var(--ink); }
+  .lv.sek .meter i { width: 58%; background: var(--ink); }
+  .lv.consent .badge { color: var(--muted); }
+  .lv.consent .meter i { width: 34%; background: var(--muted-2); }
+  .lv.none .badge { color: var(--muted-2); }
+  .lv.none .meter { background: transparent; }
+  .cmx-row .seq { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1.45; }
+  .cmx-row .seq b { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent-grn); font-weight: 700; margin-right: 6px; }
+  .cmx-legend { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 26px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.03em; }
+  .cmx-legend span { display: inline-flex; align-items: center; gap: 9px; }
+  .cmx-legend i { width: 26px; height: 8px; border-radius: 999px; display: inline-block; }
+
+  /* ============ TARGET / VENDOR TABLE ============ */
+  .trg-table { margin-top: 40px; }
+  .trg-row { display: grid; grid-template-columns: 1.4fr 1.6fr 220px; align-items: center; padding: 20px 0; border-top: 1px solid var(--line-2); gap: 28px; }
+  .trg-row.head { border-top: none; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-bottom: 14px; }
+  .trg-row:last-child { border-bottom: 1px solid var(--line-2); }
+  .trg-row .tname { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .trg-row .tname small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 3px; font-family: 'JetBrains Mono', monospace; }
+  .trg-row .tsrc { font-size: 16px; color: var(--muted); line-height: 1.4; }
+  .trg-row .tw { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; padding: 10px 18px; background: var(--bg-2); border-radius: 999px; border: 1px solid var(--line-2); text-align: center; }
+  .trg-row .tw.urgent { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .trg-row .tw.opp { color: var(--muted); }
+
+  /* ============ REFERENCE WALL ============ */
+  .ref-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+  .ref-col { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 34px 32px 36px; display: flex; flex-direction: column; }
+  .ref-col .accent-bar { width: 56px; height: 6px; margin-bottom: 22px; }
+  .ref-col:nth-child(1) .accent-bar { background: var(--accent-grn); }
+  .ref-col:nth-child(2) .accent-bar { background: var(--accent-blu); }
+  .ref-col:nth-child(3) .accent-bar { background: var(--accent-pur); }
+  .ref-col .rh { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+  .ref-col h3 { font-size: 32px; font-weight: 700; letter-spacing: -0.025em; margin: 10px 0 22px; line-height: 1.05; }
+  .ref-col ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .ref-col ul li { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 17px; color: var(--ink); font-weight: 600; letter-spacing: -0.01em; }
+  .ref-col ul li small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 3px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em; }
+
+  /* ============ RISKS ============ */
+  .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .risk { background: var(--bg-2); border: 1px solid var(--line); border-left: 4px solid var(--accent-red); border-radius: 14px; padding: 28px 28px; min-height: 230px; display: flex; flex-direction: column; }
+  .risk .nm { font-size: 22px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; }
+  .risk .desc { font-size: 16px; color: var(--muted); line-height: 1.45; margin-top: 12px; }
+  .risk .mit { margin-top: auto; padding-top: 16px; font-size: 14px; font-family: 'JetBrains Mono', monospace; color: var(--accent-grn); letter-spacing: 0.02em; line-height: 1.4; }
+  .risk .mit strong { display: block; font-size: 11px; color: var(--ink); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+
+  /* ============ PHASED APPROACH ============ */
+  .phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; position: relative; }
+  .phases::before { content: ""; position: absolute; top: 38px; left: 38px; right: 38px; height: 2px; background: var(--line-2); z-index: 0; }
+  .phase { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 36px 32px; position: relative; z-index: 1; min-height: 480px; display: flex; flex-direction: column; }
+  .phase .nd { width: 76px; height: 76px; border-radius: 50%; background: var(--bg-2); border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 22px; margin: -10px 0 24px; }
+  .phase:nth-child(1) .nd { background: var(--ink); color: #fff; }
+  .phase .wk { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .phase h4 { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 10px 0 24px; line-height: 1.1; }
+  .phase ul { margin: 0; padding: 0; list-style: none; }
+  .phase ul li { padding: 14px 0; border-top: 1px solid var(--line); font-size: 16px; color: var(--ink-2); line-height: 1.4; display: grid; grid-template-columns: 16px 1fr; gap: 12px; align-items: start; }
+  .phase ul li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); margin-top: 8px; }
+  .phase .bench { margin-top: auto; padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent-grn); letter-spacing: 0.04em; }
+
+  /* ============ RECOMMENDATIONS ============ */
+  .recs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 48px; }
+  .rec { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 28px 30px; display: flex; gap: 24px; align-items: flex-start; min-height: 140px; }
+  .rec .num { font-family: 'JetBrains Mono', monospace; font-size: 38px; font-weight: 700; color: var(--accent-grn); line-height: 1.0; letter-spacing: -0.02em; min-width: 60px; }
+  .rec h5 { font-size: 22px; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 8px; line-height: 1.2; }
+  .rec p { font-size: 15px; color: var(--muted); line-height: 1.45; margin: 0; }
+
+  /* ============ CAVEATS ============ */
+  .caveats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+  .cv { display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid var(--line-2); }
+  .cv .i { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--accent-red); font-weight: 700; min-width: 30px; }
+  .cv .t { font-size: 16px; color: var(--ink-2); line-height: 1.5; }
+
+  /* ============ PRODUCT CORRECTION (special) ============ */
+  .correction { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; padding-top: 168px; align-items: start; }
+  .correction .lede { font-size: 26px; color: var(--muted); line-height: 1.5; margin-top: 36px; max-width: 680px; }
+  .myth-real { display: flex; flex-direction: column; gap: 20px; }
+  .mr-card { border-radius: 18px; padding: 32px 34px; }
+  .mr-card.myth { background: var(--bg-2); border: 1px solid var(--line); }
+  .mr-card.real { background: var(--ink); color: #fff; }
+  .mr-card .mr-lbl { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+  .mr-card.myth .mr-lbl { color: var(--accent-red); }
+  .mr-card.real .mr-lbl { color: var(--accent-grn); }
+  .mr-card .mr-lbl::before { content: ""; width: 12px; height: 12px; border-radius: 50%; }
+  .mr-card.myth .mr-lbl::before { background: var(--accent-red); }
+  .mr-card.real .mr-lbl::before { background: var(--accent-grn); }
+  .mr-card .mr-head { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin: 18px 0 14px; }
+  .mr-card .mr-body { font-size: 18px; line-height: 1.5; }
+  .mr-card.myth .mr-body { color: var(--muted); }
+  .mr-card.real .mr-body { color: rgba(255,255,255,0.78); }
+  .mr-card .mr-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .mr-card .mr-tags span { font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: 999px; letter-spacing: 0.04em; }
+  .mr-card.myth .mr-tags span { border: 1px solid var(--line-2); color: var(--muted); text-decoration: line-through; }
+  .mr-card.real .mr-tags span { background: rgba(255,255,255,0.1); color: #fff; }
+
+  /* ============ CLOSING ============ */
+  .s-close { background: var(--ink); color: #fff; display: grid; grid-template-rows: auto 1fr auto; }
+  .s-close .chrome { color: rgba(255,255,255,0.5); }
+  .s-close .core { align-self: center; }
+  .s-close .eyebrow { color: rgba(255,255,255,0.55); }
+  .s-close .eyebrow::before { background: rgba(255,255,255,0.6); }
+  .s-close h2 { font-size: 132px; color: #fff; margin-top: 32px; line-height: 0.95; letter-spacing: -0.04em; font-weight: 700; }
+  .s-close .accent { color: var(--accent-grn); }
+  .s-close .sub-cta { font-size: 26px; color: rgba(255,255,255,0.65); max-width: 1080px; margin-top: 40px; line-height: 1.45; }
+  .s-close .actions { display: flex; gap: 24px; margin-top: 56px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 14px; padding: 22px 36px; border-radius: 999px; font-size: 22px; font-weight: 500; letter-spacing: -0.005em; background: #fff; color: var(--ink); text-decoration: none; border: 1px solid #fff; }
+  .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.25); }
+  .btn .arr { width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: #fff; display: inline-flex; align-items: center; justify-content: center; }
+  .btn.ghost .arr { background: rgba(255,255,255,0.12); color: #fff; }
+  .s-close .foot { display: flex; justify-content: space-between; align-items: end; color: rgba(255,255,255,0.5); font-size: 18px; }
+  .s-close .foot strong { color: #fff; display: block; font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .s-close .swatches { display: flex; gap: 8px; margin-top: 48px; }
+  .s-close .swatches span { width: 56px; height: 8px; }
+
+  .pop-red { color: var(--accent-red); }
+  .pop-blu { color: var(--accent-blu); }
+  .pop-yel { color: var(--accent-yel); }
+  .pop-grn { color: var(--accent-grn); }
+
+  /* ============ PER-SLIDE DENSITY OVERRIDES ============ */
+  section[data-screen-label="07 Produktlinien"] .pad-top { padding-top: 128px; }
+  section[data-screen-label="07 Produktlinien"] .brand-cols { margin-top: 44px; }
+  section[data-screen-label="17 ICP Priorisierung"] .pad-top { padding-top: 128px; }
+  section[data-screen-label="17 ICP Priorisierung"] .brand-cols { margin-top: 44px; }
+  section[data-screen-label="08 Technik-Datenblatt"] .snap-grid { margin-top: 40px; }
+  section[data-screen-label="08 Technik-Datenblatt"] .snap { min-height: 188px; }
+  section[data-screen-label="08 Technik-Datenblatt"] .pad-top { padding-top: 150px; }
+  section[data-screen-label="05 Snapshot"] .pad-top { padding-top: 150px; }
+  section[data-screen-label="05 Snapshot"] .snap-grid { margin-top: 40px; }
+  section[data-screen-label="05 Snapshot"] .snap { min-height: 188px; }
+  section[data-screen-label="16 Zielvertikalen"] .pad-top { padding-top: 140px; }
+  section[data-screen-label="16 Zielvertikalen"] .usp-grid { margin-top: 40px; }
+  section[data-screen-label="16 Zielvertikalen"] .usp { min-height: 226px; }
+  section[data-screen-label="18 Buying Committee"] .pad-top { padding-top: 118px; }
+  section[data-screen-label="18 Buying Committee"] .persona-grid { margin-top: 24px; }
+  section[data-screen-label="18 Buying Committee"] .pcard { min-height: 256px; padding: 24px 26px; }
+  section[data-screen-label="06 Historie"] .pad-top { padding-top: 140px; }
+  section[data-screen-label="06 Historie"] .trg-row { padding: 15px 0; }
+  section[data-screen-label="11 Wettbewerb"] .pad-top { padding-top: 138px; }
+  section[data-screen-label="11 Wettbewerb"] .trg-row { padding: 15px 0; }
+  section[data-screen-label="17 ICP Priorisierung"] .brand-cols { margin-top: 24px; }
+  section[data-screen-label="19 Trigger-Events"] .pad-top { padding-top: 140px; }
+  section[data-screen-label="19 Trigger-Events"] .sig { padding: 14px 0; }
+  section[data-screen-label="21 Hook-Lines"] .pad-top { padding-top: 150px; }
+  section[data-screen-label="21 Hook-Lines"] .hooks-grid { margin-top: 28px; }
+  section[data-screen-label="22 Kanal-Strategie"] .pad-top { padding-top: 138px; }
+  section[data-screen-label="22 Kanal-Strategie"] .cmx { margin-top: 28px; }
+  section[data-screen-label="23 Phasenplan"] .pad-top { padding-top: 150px; }
+  section[data-screen-label="23 Phasenplan"] .phases { margin-top: 36px; }
+  section[data-screen-label="26 Closing"] h2 { font-size: 112px; margin-top: 24px; }
+  section[data-screen-label="26 Closing"] .sub-cta { margin-top: 28px !important; font-size: 24px; }
+  section[data-screen-label="26 Closing"] .actions { margin-top: 36px !important; }
+  section[data-screen-label="26 Closing"] .swatches { margin-top: 30px !important; }
+</style>
+</head>
+<body>
+<deck-stage>
+
+  <!-- 01 — COVER -->
+  <section data-screen-label="01 Cover" class="s-title">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span><span class="dot"></span>Vertraulich · für König MTM</span><span class="chrome-pages">01 / 26</span></div>
+    </div>
+    <div class="hero">
+      <div class="kicker">MARKT-INTELLIGENZ &amp; OUTBOUND-GTM-ANALYSE · EUROPA (OHNE UK) · AEROSPACE-FIRST · JUNI 2026</div>
+      <h1 class="display">Weltmarktführer<br>im Verborgenen.<br><span class="pop-red">Sichtbar machen.</span></h1>
+      <div class="underline"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="footnote" style="margin-top:96px">
+      <div><strong>Auftraggeber</strong>WILHELM KÖNIG MTM GmbH · Wertheim<br>Sonderspannmittel „Königdorn" · GF Horst König &amp; Christoph Baumann</div>
+      <div><strong>Gegenstand &amp; Zweck</strong>Hydraulische &amp; mechanische Präzisions-Spanntechnik<br>KI-gestützte Outbound-Neukundenakquise via amplifa</div>
+      <div><strong>Stand</strong>Juni 2026 · v2.0 (nach Kickoff)<br>DE · amplifa · Korrekturen aus Onboarding 25.06.2026</div>
+    </div>
+  </section>
+
+  <!-- 02 — DIVIDER · TEIL 01 -->
+  <section data-screen-label="02 Divider Exec" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 01</span><span class="chrome-pages">02 / 26</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 01</div>
+      <h2>Executive<br>Summary.</h2>
+      <p class="sub">Die fünf Insights, die das Akquise-Narrativ für König MTM tragen — verdichtet aus Firmenanalyse, Markt- und Wettbewerbsrecherche und geschärft durch die Korrekturen aus dem Kickoff (Onboarding 25.06.2026): Luft- &amp; Raumfahrt als Fokusvertikale, Primärmarkt Europa (ohne UK).</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Markt- &amp; Akquise-Intelligenz</span><span>Wertheim · Spanntechnik · vertraulich</span></div>
+  </section>
+
+  <!-- 03 — TOP 5 INSIGHTS -->
+  <section data-screen-label="03 Top 5 Insights">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Strategische Insights</span><span class="chrome-pages">03 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Top 5</span>
+      <h2 class="title-md" style="margin-top:24px">Die&nbsp;fünf&nbsp;Insights<br>für die Akquise-Story.</h2>
+      <div class="insights">
+        <div class="insight">
+          <span class="bar"></span><span class="idx">01</span>
+          <h4>Frisch gekrönter Weltmarktführer</h4>
+          <p>Seit Sept. 2025 von „Die Deutsche Wirtschaft" als Weltmarktführer für hydraulische, mechanische &amp; hydromechanische Sonderspannlösungen anerkannt (geprüft v. Prof. Venohr). Ein Vertrauens-Asset, das im Vertrieb noch kaum aktiviert ist.</p>
+          <div class="tag">→ Positionierung</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">02</span>
+          <h4>Eigenmarke mit 100.000er-Beweis</h4>
+          <p>Der „Königdorn" ist seit 1965 patentiert; April 2024 lief der 100.000ste vom Band. Rundlauf hydraulisch &lt; 0,003 mm, mechanisch &lt; 0,005 mm — und besser. Ein harter, belegbarer Proof-Point gegenüber Katalog-Wettbewerb.</p>
+          <div class="tag">→ Produkt-USP</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">03</span>
+          <h4>Markt im Tal, Strukturtrend intakt</h4>
+          <p>Werkzeugmaschinen-Konjunktur in DE 2024/25 stark rückläufig (Aufträge zeitw. −28 %), Erholung erst 2026. Workholding global wächst aber strukturell mit ~6–8 % p.a. — antizyklische Akquise zahlt sich aus.</p>
+          <div class="tag">→ Timing</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">04</span>
+          <h4>Sonderlösung schlägt Katalog</h4>
+          <p>Während Hainbuch, Schunk, Röhm &amp; Emuge modulare Katalogsysteme skalieren, ist König der Engineering-to-Order-Spezialist: Angebot in 3 Werktagen, Lösung exakt auf Werkstück &amp; Prozess. Genau der Nischen-Hebel für Outbound.</p>
+          <div class="tag">→ Differenzierung</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">05</span>
+          <h4>Aerospace zuerst — global denken</h4>
+          <p>Fokusvertikale Nr. 1 ist Luft- &amp; Raumfahrt / Defense (Triebwerk &amp; MRO; Luftverkehr verdoppelt sich in ~10 J.). Referenzen wie MTU, Rolls-Royce, Bosch &amp; Liebherr öffnen analoge Accounts. Pilot: Europa (ohne UK), USA/Asien als nächste Stufe.</p>
+          <div class="tag">→ Zielmärkte</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 — DIVIDER · TEIL 02 -->
+  <section data-screen-label="04 Divider Unternehmen" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 02</span><span class="chrome-pages">04 / 26</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 02</div>
+      <h2>Unternehmen<br>&amp; Produkt.</h2>
+      <p class="sub">Wer König MTM ist, was den Königdorn einzigartig macht — die verifizierten Kennzahlen, die Produktlinien, die Referenzen, die Wettbewerbslandschaft und der verbreitete Irrtum, der vor dem Kickoff zu korrigieren ist.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Familienunternehmen · 3. Generation</span><span>Gegr. 1946 · Wertheim-Bestenheid</span></div>
+  </section>
+
+  <!-- 05 — SNAPSHOT -->
+  <section data-screen-label="05 Snapshot">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>König MTM · Kennzahlen</span><span class="chrome-pages">05 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Account at a glance</span>
+      <h2 class="title-md" style="margin-top:24px">König MTM<br>in Zahlen.</h2>
+      <div class="snap-grid">
+        <div class="snap"><div class="lbl">Gegründet</div><div class="val">1946<span class="unit"></span></div><div class="note">Wilhelm König · Werkstatt &amp; Schlosserei · Wertheim</div></div>
+        <div class="snap"><div class="lbl">Umsatz</div><div class="val" style="font-size:40px">~32–33<span class="unit">Mio €</span></div><div class="note">GF-Angabe (Strategiegespräch 05/2026) · DDW nennt ~30 Mio</div></div>
+        <div class="snap"><div class="lbl">Mitarbeitende</div><div class="val">~250<span class="unit"></span></div><div class="note">GF-Angabe 2026 · ~240 bei Fusion 2023</div></div>
+        <div class="snap dark"><div class="lbl">Hauptsitz</div><div class="val" style="font-size:40px">Wertheim</div><div class="note">Am Stammholz 13 · 97877 · Baden-Württemberg</div></div>
+        <div class="snap"><div class="lbl">Umsatz-Split</div><div class="val" style="font-size:34px">60 / 40</div><div class="note">60 % Spanntechnik · 40 % Ventiltechnik (Liebherr, Bosch Rexroth)</div></div>
+        <div class="snap"><div class="lbl">Eigenmarke</div><div class="val" style="font-size:38px">Königdorn</div><div class="note">patentiert seit 1965 · 3. Generation · Horst König (GF)</div></div>
+        <div class="snap"><div class="lbl">Königdorne geliefert</div><div class="val" style="font-size:46px">100k+<span class="unit"></span></div><div class="note">100.000ster · April 2024 · weltweit im Einsatz</div></div>
+        <div class="snap"><div class="lbl">Status</div><div class="val" style="font-size:30px">Weltmarkt­führer</div><div class="note">DDW · Sept. 2025 · Hidden Champion</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 — HISTORIE & MEILENSTEINE -->
+  <section data-screen-label="06 Historie">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Historie &amp; Meilensteine</span><span class="chrome-pages">06 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Knapp 80 Jahre Präzision</span>
+      <h2 class="title-md" style="margin-top:24px">Vom Schlosser-Betrieb<br>zum Weltmarktführer.</h2>
+      <div class="trg-table">
+        <div class="trg-row head"><div>Meilenstein</div><div>Bedeutung</div><div style="text-align:center">Jahr</div></div>
+        <div class="trg-row"><div class="tname">Gründung Wilhelm König<small>Werkstatt &amp; Schlosserei</small></div><div class="tsrc">Mechanische Werkstatt &amp; Schlosserei in Wertheim, später Abrichtmaschinen — der Ursprung.</div><div class="tw">1946</div></div>
+        <div class="trg-row"><div class="tname">Patent Königdorn<small>Eigenmarke</small></div><div class="tsrc">Erster KÖNIGDORN-Spanndorn zum Patent angemeldet — Grundstein der Nische.</div><div class="tw urgent">1965</div></div>
+        <div class="trg-row"><div class="tname">Main-Tauber-Maschinenbau<small>das „MTM" im Namen</small></div><div class="tsrc">Belegschaft &gt;120; Gründung der MTM GmbH für die Königdorn-Serienfertigung.</div><div class="tw">1978</div></div>
+        <div class="trg-row"><div class="tname">3. Generation · Horst König<small>Geschäftsführung</small></div><div class="tsrc">Horst König wird Geschäftsführer; 2025 ergänzt durch Christoph Baumann.</div><div class="tw">2000</div></div>
+        <div class="trg-row"><div class="tname">Preferred Supplier Bosch<small>+ 75.000ster Dorn</small></div><div class="tsrc">Lieferanten-Status bei Bosch — Beleg für Großserien-Tauglichkeit.</div><div class="tw">2015</div></div>
+        <div class="trg-row"><div class="tname">Weltmarktführer-Titel<small>DDW-Anerkennung</small></div><div class="tsrc">100.000ster Königdorn (2024); Weltmarktführer-Titel durch DDW (2025).</div><div class="tw urgent">2025</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 — PRODUKTLINIEN -->
+  <section data-screen-label="07 Produktlinien">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Produktportfolio (bestätigt)</span><span class="chrome-pages">07 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Vier Produktgruppen — ein Spann-Prinzip</span>
+      <h2 class="title-md" style="margin-top:24px">Spannen, wechseln,<br>in Serie fertigen.</h2>
+      <div class="brand-cols">
+        <div class="brand-card v-a">
+          <div class="accent-bar"></div>
+          <div class="lvl">LINIE 01 / KERNGESCHÄFT</div>
+          <h3>Sonder­spannmittel</h3>
+          <div class="tag">hydraulisch · mechanisch · hydromechanisch</div>
+          <p class="desc">Der Königdorn &amp; kundenspezifische Spannlösungen für messende und spanende Bearbeitung — exakt auf Werkstück und Prozess konstruiert. Tailor-made statt Katalog.</p>
+          <ul>
+            <li>Rundlauf <span>hydr. &lt;0,003 · mech. &lt;0,005 mm</span></li>
+            <li>Hook <span>Engineering-to-Order</span></li>
+            <li>Angebot <span>in 3 Werktagen</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-b">
+          <div class="accent-bar"></div>
+          <div class="lvl">LINIE 02 / PRODUKTIVITÄT</div>
+          <h3>Schnell­wechsel­systeme</h3>
+          <div class="tag">Rüstzeit-Reduktion</div>
+          <p class="desc">Aus der Spann-Kompetenz entwickelt: minimierte Rüstzeiten und höhere Maschinen-Auslastung bei Serien- und Variantenfertigung.</p>
+          <ul>
+            <li>Nutzen <span>weniger Rüsten</span></li>
+            <li>Effekt <span>mehr Spindelzeit</span></li>
+            <li>Leistung <span>OEE-Hebel</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-c">
+          <div class="accent-bar"></div>
+          <div class="lvl">LINIE 03+04 / FERTIGUNG &amp; HYDRAULIK</div>
+          <h3>Serien &amp; Ventiltechnik</h3>
+          <div class="tag">Dreh-/Fräs-/Schleifteile · Ventiltechnik</div>
+          <p class="desc">Hochpräzise Dreh-, Fräs- und Schleifteile, komplette Baugruppen der Ventiltechnik sowie Ölhydraulik-Bauteile — die zweite Standbein-Säule (~40 % Umsatz).</p>
+          <ul>
+            <li>Tiefe <span>Präzisionsteile</span></li>
+            <li>Großkunden <span>Liebherr · Bosch Rexroth</span></li>
+            <li>Hook <span>Single-Source</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 — TECHNIK-DATENBLATT KÖNIGDORN -->
+  <section data-screen-label="08 Technik-Datenblatt">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Technik-Datenblatt · Königdorn</span><span class="chrome-pages">08 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Warum der Königdorn überzeugt — korrigiert im Kickoff</span>
+      <h2 class="title-md" style="margin-top:20px">Präzision, die man<br>in Mikrometern misst.</h2>
+      <div class="snap-grid">
+        <div class="snap dark"><div class="lbl">Rundlaufgenauigkeit</div><div class="val" style="font-size:34px">&lt;0,003 mm</div><div class="note">hydraulisch &lt;0,003 · mechanisch &lt;0,005 mm — und besser</div></div>
+        <div class="snap"><div class="lbl">Spannprinzip</div><div class="val" style="font-size:26px">hydr. · mech.<br>hydromech.</div><div class="note">Präzision für jede Anwendung</div></div>
+        <div class="snap"><div class="lbl">Betätigung</div><div class="val" style="font-size:30px">Hydraulik</div><div class="note">Druck-/Zugkraft · manuelle Betätigung · Reitstockkraft</div></div>
+        <div class="snap"><div class="lbl">Spannbereich</div><div class="val" style="font-size:34px">groß</div><div class="note">ein Dorn deckt breite Durchmesser ab</div></div>
+        <div class="snap"><div class="lbl">Aufweitung / Toleranz</div><div class="val" style="font-size:34px">bis 1 mm</div><div class="note">Toleranzausgleich · hydraulisch &amp; mechanisch (allgemein)</div></div>
+        <div class="snap"><div class="lbl">Drehmoment</div><div class="val" style="font-size:34px">hoch</div><div class="note">hohe übertragbare Momente · hohe Steifigkeit, auch kurze Werkstücke</div></div>
+        <div class="snap"><div class="lbl">Anwendungen</div><div class="val" style="font-size:26px">11 Verfahren</div><div class="note">Verzahnungsschleifen/-fräsen, Wuchten, Schleifen, Drehen, Fräsen, Räumen, Messen, Montieren, Honen, Stoßen</div></div>
+        <div class="snap"><div class="lbl">Liefer-Angebot</div><div class="val" style="font-size:34px">3 Werktage</div><div class="note">Angebot nach Zeichnung / 3D-Modell</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 — KLARSTELLUNG / KORREKTUR -->
+  <section data-screen-label="09 Klarstellung">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Klarstellung fürs Kickoff</span><span class="chrome-pages">09 / 26</span></div></div>
+    <div class="correction">
+      <div>
+        <span class="eyebrow warn">Wichtig fürs Kickoff</span>
+        <h2 class="title-md" style="margin-top:24px">„MTM" ist kein<br>Arbeitsstudium.</h2>
+        <p class="lede">Das Kürzel „MTM" wird häufig mit der Arbeitsstudien-Methode „Methods-Time Measurement" (REFA/MTM) verwechselt — oder König wird für einen reinen Lohn-/Teilefertiger gehalten. Beides ist falsch: MTM steht für „Main-Tauber-Maschinenbau" (gegr. 1978) und König ist Markenhersteller mit eigener Spanntechnik-Marke „Königdorn".</p>
+        <div style="margin-top:36px;padding:24px 28px;background:var(--bg-2);border:1px solid var(--line);border-radius:14px;font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--ink-2);line-height:1.6">Quelle: koenig-mtm.de / Firmengeschichte · DDW-Weltmarktführer-Profil (2025). Made-to-order: Kunde kommt mit Bauteilzeichnung + Maschine, wenn der Katalog-Standard nicht mehr reicht.</div>
+      </div>
+      <div class="myth-real">
+        <div class="mr-card myth">
+          <div class="mr-lbl">Mythos · zu korrigieren</div>
+          <div class="mr-head">„König MTM = Methodenlehre / Lohnfertiger"</div>
+          <div class="mr-body">MTM wird mit der Zeitstudien-Methode gleichgesetzt oder König als austauschbarer Zulieferer ohne eigenes Produkt eingeordnet.</div>
+          <div class="mr-tags"><span>Methods-Time</span><span>nur Lohnfertigung</span></div>
+        </div>
+        <div class="mr-card real">
+          <div class="mr-lbl">Verifiziert</div>
+          <div class="mr-head">Markenhersteller &amp; Weltmarktführer</div>
+          <div class="mr-body">MTM = Main-Tauber-Maschinenbau (1978). Eigenmarke „Königdorn", patentiert seit 1965, Weltmarktführer-Status für Sonderspannlösungen (DDW 2025).</div>
+          <div class="mr-tags"><span>Eigenmarke Königdorn</span><span>Weltmarktführer</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 — REFERENZEN -->
+  <section data-screen-label="10 Referenzen">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Proof-Points · Referenzen</span><span class="chrome-pages">10 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Wer König heute vertraut — Website-freigegeben</span>
+      <h2 class="title-md" style="margin-top:24px">Referenzen, die<br>analoge Accounts öffnen.</h2>
+      <div class="ref-cols">
+        <div class="ref-col">
+          <div class="accent-bar"></div>
+          <div class="rh">FOKUS · HIGH-TECH &amp; DEFENSE</div>
+          <h3>Aerospace &amp; Verteidigung</h3>
+          <ul>
+            <li>MTU Aero Engines <small>Triebwerke · freigegebene Referenz</small></li>
+            <li>Rolls-Royce <small>Triebwerk / Engine</small></li>
+            <li>Pratt &amp; Whitney · Collins <small>Engine-OEMs · größte Marktspieler</small></li>
+            <li>MRO / Maintenance <small>weltweite Instandhaltung · Wachstumshebel</small></li>
+          </ul>
+        </div>
+        <div class="ref-col">
+          <div class="accent-bar"></div>
+          <div class="rh">MOBILITÄT &amp; ANTRIEB</div>
+          <h3>Automotive &amp; Drivetrain</h3>
+          <ul>
+            <li>BMW <small>OEM · Antrieb / Fertigung</small></li>
+            <li>ZF <small>Antriebs- &amp; Getriebetechnik</small></li>
+            <li>Neugart · Wittenstein <small>Planetengetriebe · Robotik</small></li>
+            <li>CNH <small>Landtechnik / Off-Highway</small></li>
+          </ul>
+        </div>
+        <div class="ref-col">
+          <div class="accent-bar"></div>
+          <div class="rh">INDUSTRIE &amp; MASCHINEN</div>
+          <h3>Maschinen- &amp; Anlagenbau</h3>
+          <ul>
+            <li>Bosch <small>Preferred Supplier (2015)</small></li>
+            <li>Liebherr <small>Maschinenbau / Verzahnung</small></li>
+            <li>INDEX <small>Werkzeugmaschinen / Drehen</small></li>
+            <li>Medizintechnik · Windkraft <small>Mikrobohrungen · erneuerbare Energien</small></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 — WETTBEWERB -->
+  <section data-screen-label="11 Wettbewerb">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Wettbewerbslandschaft</span><span class="chrome-pages">11 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Wo König gewinnt</span>
+      <h2 class="title-md" style="margin-top:24px">Katalog-Riesen vs.<br>Sonderlösungs-Spezialist.</h2>
+      <div class="trg-table">
+        <div class="trg-row head"><div>Wettbewerber</div><div>Profil &amp; Abgrenzung zu König</div><div style="text-align:center">Bedrohung</div></div>
+        <div class="trg-row"><div class="tname">Hainbuch<small>Marbach · MANDO / MAXXOS</small></div><div class="tsrc">Größter Spanndorn-Wettbewerber, modulares Katalogsystem, Rundlauf ≤10 µm Std. König kontert mit Sonderkonstruktion &amp; &lt;0,003 mm.</div><div class="tw urgent">hoch</div></div>
+        <div class="trg-row"><div class="tname">SCHUNK<small>Lauffen · Hydrodehnspanntechnik</small></div><div class="tsrc">Marktführer Greif-/Spanntechnik, sehr breites Standardprogramm. Stark im Katalog, weniger im hochindividuellen Sonderbau.</div><div class="tw urgent">hoch</div></div>
+        <div class="trg-row"><div class="tname">Emuge-Franken<small>Spanndorne · Kickoff-Ergänzung</small></div><div class="tsrc">Im Onboarding von König als ähnlich wichtiger Marktbegleiter wie Hainbuch / Schunk benannt. Etablierter Spanndorn-/Spannsystem-Anbieter.</div><div class="tw urgent">hoch</div></div>
+        <div class="trg-row"><div class="tname">Röhm<small>Sontheim · Spann-/Greiftechnik</small></div><div class="tsrc">7.000+ Standardprodukte, &gt;50 % kundenspezifisch. Direkter Reibungspunkt bei Sonderlösungen.</div><div class="tw">mittel</div></div>
+        <div class="trg-row"><div class="tname">SMW-Autoblok · Kitagawa<small>Futter &amp; Spanntechnik</small></div><div class="tsrc">International breit; Fokus Futter/Standard. König differenziert über Dorn-Nische &amp; Engineering-Tiefe.</div><div class="tw opp">Kontext</div></div>
+        <div class="trg-row"><div class="tname">myTEC u. a. Nischenanbieter<small>HYDRACLAMP / Spezial-Dorne</small></div><div class="tsrc">Kleinere Spezialisten in Teilsegmenten; selten mit Weltmarktführer-Profil &amp; 100k-Track-Record.</div><div class="tw opp">Kontext</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 — DIVIDER · TEIL 03 -->
+  <section data-screen-label="12 Divider Markt" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 03</span><span class="chrome-pages">12 / 26</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 03</div>
+      <h2>Markt &amp;<br>Zielgruppe.</h2>
+      <p class="sub">Marktgröße, Treiber und Hemmnisse, das adressierbare Potenzial sowie die Vertikalen (Aerospace zuerst), Personas und Trigger für die Outbound-Akquise in Europa (ohne UK).</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Workholding · Spanntechnik</span><span>Primärmarkt: Europa (ohne UK)</span></div>
+  </section>
+
+  <!-- 13 — MARKTANALYSE (BARS) -->
+  <section data-screen-label="13 Marktanalyse">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Markt-Kontext · Workholding</span><span class="chrome-pages">13 / 26</span></div></div>
+    <div class="crisis">
+      <div>
+        <span class="eyebrow">Markt-Kontext</span>
+        <h2 class="title-md">Konjunktur im Tal,<br>Struktur im Plus.</h2>
+        <p class="lede">Der globale Workholding-Markt wächst strukturell mit ~6–8 % p.a. (Größenordnung 5–7 Mrd USD, je nach Quelle 2024). Kurzfristig drückt die WZM-Schwäche in DE — ideale Phase, um Marktanteile per Outbound zu gewinnen.</p>
+        <div style="margin-top:32px;padding:22px 28px;background:var(--accent-red);color:#fff;border-radius:14px;font-size:17px;line-height:1.5">Deutsche Werkzeugmaschinen-Aufträge zeitweise −28 % (Q2/2024); VDW erwartet Erholung erst 2026. Antizyklisch zuschlagen, bevor die Wettbewerber wieder hochfahren.</div>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px">Workholding Devices · Mrd. USD (illustrativ, Quellen-Mittel)</div>
+        <div class="bars-chart">
+          <div class="bar-line"><span class="yr">2024</span><div class="track"><div class="fill" style="width:62%">~6,8</div></div><span class="delta pos">Basis</span></div>
+          <div class="bar-line future"><span class="yr">2030</span><div class="track"><div class="fill" style="width:100%">~10,9</div></div><span class="delta pos">CAGR ~8 %</span></div>
+        </div>
+        <div style="margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div style="background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:26px 28px"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);letter-spacing:0.08em">WZM-UMSATZ DE</div><div style="font-size:44px;font-weight:700;letter-spacing:-0.03em;margin-top:10px">21,5 <span style="font-size:18px;font-weight:500;color:var(--muted)">Mrd €</span></div><div style="font-size:14px;color:var(--muted);margin-top:6px">2024 · Werkzeugmaschinen DE (Referenzjahr)</div></div>
+          <div style="background:var(--ink);color:#fff;border-radius:16px;padding:26px 28px"><div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:rgba(255,255,255,0.55);letter-spacing:0.08em">PRÄZISIONSWERKZEUGE</div><div style="font-size:44px;font-weight:700;letter-spacing:-0.03em;margin-top:10px;color:var(--accent-grn)">&gt;11,5 <span style="font-size:18px;font-weight:500;color:rgba(255,255,255,0.5)">Mrd €</span></div><div style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:6px">VDMA-Branche · Referenzjahr</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 — TREIBER & HEMMNISSE -->
+  <section data-screen-label="14 Treiber Hemmnisse">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Treiber &amp; Hemmnisse</span><span class="chrome-pages">14 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Was den Markt bewegt</span>
+      <h2 class="title-md" style="margin-top:24px">Rückenwind &amp;<br>Gegenwind zugleich.</h2>
+      <div class="di-grid">
+        <div class="di-col">
+          <div class="head"><span class="dot"></span><h4>Treiber</h4></div>
+          <ul>
+            <li><span class="ico">↑</span><span class="txt">Luft-/Raumfahrt, Defense &amp; MRO — Luftverkehr verdoppelt sich in ~10 J.</span><span class="val pos">Fokus</span></li>
+            <li><span class="ico">↑</span><span class="txt">5-Achs-Bearbeitung wächst → Bedarf an 5-Achs-Spannelementen</span><span class="val pos">Trend</span></li>
+            <li><span class="ico">↑</span><span class="txt">E-Antrieb, Medizintechnik &amp; Windkraft treiben Präzisions-Zerspanung</span><span class="val pos">Wachstum</span></li>
+            <li><span class="ico">↑</span><span class="txt">Höchste Präzisions- &amp; Prozesssicherheits-Anforderungen</span><span class="val pos">Premium</span></li>
+          </ul>
+        </div>
+        <div class="di-col dark">
+          <div class="head"><span class="dot"></span><h4>Hemmnisse</h4></div>
+          <ul>
+            <li><span class="ico">↓</span><span class="txt">WZM-Auftragseingang DE stark rückläufig</span><span class="val down">−28 %</span></li>
+            <li><span class="ico">↓</span><span class="txt">Inlandsnachfrage H1/2025 schwach</span><span class="val down">−22 %</span></li>
+            <li><span class="ico">↓</span><span class="txt">US-Zölle belasten Exporte (15 % Satz)</span><span class="val down">Risiko</span></li>
+            <li><span class="ico">↓</span><span class="txt">Preisdruck aus China/Asien, v. a. in Aerospace-Serien</span><span class="val down">verzögert</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 — TAM/SAM/SOM -->
+  <section data-screen-label="15 TAM SAM SOM">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Marktpotenzial (illustrativ)</span><span class="chrome-pages">15 / 26</span></div></div>
+    <div style="padding-top:140px">
+      <span class="eyebrow">Adressierbares Potenzial · transparente Bandbreiten</span>
+      <h2 class="title-md" style="margin-top:20px">TAM · SAM · SOM<br>für König MTM.</h2>
+      <div class="funnel" style="margin-top:40px">
+        <div class="fn" style="min-height:380px">
+          <div class="lbl">TAM · MARKTPOTENZIAL</div>
+          <h4>Spann-/Workholding global</h4>
+          <p class="desc">Globaler Markt für Werkstück-Spanntechnik über alle Bearbeitungsverfahren.</p>
+          <div class="bignum" style="font-size:56px">~5–7<span class="unit">Mrd USD</span></div>
+          <div class="alt">2024 · <strong>CAGR ~6–8 % bis 2030</strong></div>
+        </div>
+        <div class="fn" style="min-height:380px">
+          <div class="lbl">SAM · ERREICHBAR</div>
+          <h4>Sonderspannmittel Europa</h4>
+          <p class="desc">Zerspaner &amp; OEM in Europa (ohne UK) mit Bedarf an hochpräzisen, kundenspezifischen Spannlösungen.</p>
+          <div class="bignum" style="font-size:52px">~200–400<span class="unit">Mio €</span></div>
+          <div class="alt">illustrativ · <strong>Premium-Nische</strong></div>
+        </div>
+        <div class="fn som" style="min-height:380px">
+          <div class="lbl">SOM · 12–24 MONATE</div>
+          <h4>Realistisch via Outbound</h4>
+          <p class="desc">Neukunden-Umsatz, der mit fokussierter Akquise (Aerospace zuerst) in 1–2 Jahren erreichbar ist.</p>
+          <div class="bignum" style="font-size:52px">~2–5<span class="unit">Mio €</span></div>
+          <div class="alt">Ziel · <strong>mit Pipeline kalibrieren</strong></div>
+        </div>
+      </div>
+      <div style="margin-top:22px;padding:24px 36px;background:var(--ink);color:#fff;border-radius:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-yel);letter-spacing:0.1em;text-transform:uppercase;margin-right:18px">Hinweis</span>
+        <span style="font-size:20px;line-height:1.4;color:rgba(255,255,255,0.9)">Illustrative Größenordnungen — mit König-ERP (proALPHA), Marge &amp; Auftragsdaten zu kalibrieren. Auftragsgrößen real: ~1.000 € (Ersatzteil) bis 300.000–500.000 € (Großprojekt).</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 — ZIELVERTIKALEN -->
+  <section data-screen-label="16 Zielvertikalen">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Zielvertikalen · Aerospace zuerst</span><span class="chrome-pages">16 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Wo der Bedarf am höchsten ist — priorisiert (Kickoff)</span>
+      <h2 class="title-md" style="margin-top:20px">Sechs Branchen<br>mit Spann-Hunger.</h2>
+      <div class="usp-grid">
+        <div class="usp"><div class="ico-block">01</div><div class="nm">Luft- &amp; Raumfahrt / Defense</div><div class="desc">FOKUS Nr. 1 (~80–90 % Energie): Turbinen- &amp; Strukturteile, lange Prozessketten, Rückverfolgbarkeit, MRO weltweit. Defense-Budgets steigen.</div></div>
+        <div class="usp"><div class="ico-block">02</div><div class="nm">Antrieb &amp; E-Mobilität</div><div class="desc">Getriebe, Wellen, Rotoren — Verzahnungsschleifen mit höchstem Rundlauf. König hier in DACH bereits stark; läuft als Nr. 2 mit (~10–20 %).</div></div>
+        <div class="usp"><div class="ico-block">03</div><div class="nm">Medizintechnik</div><div class="desc">Mikrobohrungen, Implantate, Instrumente — kleinste Durchmesser, Null-Fehler-Toleranz. Künstliche Gelenke als struktureller Treiber.</div></div>
+        <div class="usp"><div class="ico-block">04</div><div class="nm">Maschinen- &amp; Werkzeugbau</div><div class="desc">Werkzeugmaschinen-OEM und Lohnzerspaner — der breite Kern des Spanntechnik-Bedarfs.</div></div>
+        <div class="usp"><div class="ico-block">05</div><div class="nm">Robotik &amp; Antriebstechnik</div><div class="desc">Präzisionsgetriebe &amp; Aktuatorik — hohe Drehmomente bei kompakter Bauform.</div></div>
+        <div class="usp"><div class="ico-block">06</div><div class="nm">Windkraft &amp; Schwerindustrie</div><div class="desc">Große, hochbelastete Bauteile; erneuerbare Energien (inkl. Nuklear-Antriebe) als struktureller Treiber.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17 — ICP-PRIORISIERUNG -->
+  <section data-screen-label="17 ICP Priorisierung">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>ICP-Priorisierung</span><span class="chrome-pages">17 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Wen zuerst ansprechen</span>
+      <h2 class="title-md" style="margin-top:24px">Drei Tiers —<br>klare Reihenfolge.</h2>
+      <div class="brand-cols">
+        <div class="brand-card v-a">
+          <div class="accent-bar"></div>
+          <div class="lvl">TIER 1 / SWEET SPOT</div>
+          <h3>Präzisions­zerspaner</h3>
+          <div class="tag">Aerospace-Zulieferer &amp; Serienfertiger</div>
+          <p class="desc">Zerspaner &amp; Zulieferer mit CNC-Dreh-/Schleif-/Verzahnungsfertigung in Europa (ohne UK), Schwerpunkt Luft-/Raumfahrt, hohe Stückzahlen, Premium-Toleranzen.</p>
+          <ul>
+            <li>Größe <span>50–1.000 MA</span></li>
+            <li>Verfahren <span>Drehen/Schleifen</span></li>
+            <li>Bedarf <span>akut · wiederkehrend</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-b">
+          <div class="accent-bar"></div>
+          <div class="lvl">TIER 2 / AUSBAU</div>
+          <h3>OEM-Werke &amp; Konzern­sparten</h3>
+          <div class="tag">Aerospace · Antrieb · Medtech</div>
+          <p class="desc">Werke großer OEMs &amp; Tier-1 in den Zielvertikalen — längere Sales-Zyklen, aber hohe Volumina &amp; Referenzwert (MTU/ZF-analog).</p>
+          <ul>
+            <li>Größe <span>&gt;1.000 MA</span></li>
+            <li>Zyklus <span>länger</span></li>
+            <li>Hebel <span>Referenz-Sog</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-c">
+          <div class="accent-bar"></div>
+          <div class="lvl">AUSSCHLUSS / NACHRANG</div>
+          <h3>Nicht im Fokus</h3>
+          <div class="tag">geringe Passung</div>
+          <p class="desc">Reine Handwerks-/Einzelteilfertigung ohne Präzisionsbedarf, Branchen ohne rotationssymmetrische Zerspanung, Re-Seller ohne eigene Fertigung.</p>
+          <ul>
+            <li>Toleranz <span>unkritisch</span></li>
+            <li>Volumen <span>Einzelteil</span></li>
+            <li>Status <span>deprior.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 18 — BUYING COMMITTEE -->
+  <section data-screen-label="18 Buying Committee">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Buying Committee</span><span class="chrome-pages">18 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Wer über den Kauf entscheidet — bestätigt im Kickoff</span>
+      <h2 class="title-md" style="margin-top:20px">Das Buying Committee<br>im Zerspanungs-Werk.</h2>
+      <div class="persona-grid">
+        <div class="pcard">
+          <div class="role">Fertigungs-/Produktionsleiter<small>Wirtschaftlicher Entscheider · Hauptadressat</small></div>
+          <div class="kpis">FOKUS · OEE · Durchsatz · Ausschuss</div>
+          <div class="channels"><span class="ch primary">E-Mail (Pilot)</span><span class="ch">LinkedIn</span><span class="ch">Telefon</span></div>
+          <div class="trig"><strong>Hebel</strong>Weniger Rüsten, mehr Spindelzeit, stabile Prozesse.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Leiter Zerspanung / Dreherei<small>Technischer Champion</small></div>
+          <div class="kpis">FOKUS · Rundlauf · Taktzeit · Standzeit</div>
+          <div class="channels"><span class="ch primary">E-Mail (Pilot)</span><span class="ch">LinkedIn</span><span class="ch">Telefon</span></div>
+          <div class="trig"><strong>Hebel</strong>&lt;0,003 mm Rundlauf, höhere Drehmomente, weniger Nacharbeit.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Arbeitsvorbereitung / Rüsten<small>Anwender &amp; Influencer (REFA)</small></div>
+          <div class="kpis">FOKUS · Rüstzeit · Wechsel · Handling</div>
+          <div class="channels"><span class="ch primary">E-Mail (Pilot)</span><span class="ch">LinkedIn</span></div>
+          <div class="trig"><strong>Hebel</strong>Schnellwechsel &amp; einfache Bedienung im Alltag.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Technischer Einkauf<small>Kommerzieller Gatekeeper · oft Endentscheider</small></div>
+          <div class="kpis">FOKUS · TCO · Liefertreue · Single-Source</div>
+          <div class="channels"><span class="ch primary">E-Mail (Pilot)</span><span class="ch">Telefon</span></div>
+          <div class="trig"><strong>Hebel</strong>Angebot in 3 Werktagen, Lebensdauer, Preferred-Supplier-Track-Record.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Qualität / QS<small>Risiko-Wächter (~5 % der Fälle)</small></div>
+          <div class="kpis">FOKUS · Maßhaltigkeit · ppm · Doku</div>
+          <div class="channels"><span class="ch primary">E-Mail (Pilot)</span><span class="ch">LinkedIn</span></div>
+          <div class="trig"><strong>Hebel</strong>Prozesssicherheit &amp; reproduzierbare Genauigkeit.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Geschäftsführung (KMU)<small>Strategischer Sponsor</small></div>
+          <div class="kpis">FOKUS · Marge · Kapazität · Wettbewerb</div>
+          <div class="channels"><span class="ch primary">E-Mail (Pilot)</span><span class="ch">LinkedIn</span></div>
+          <div class="trig"><strong>Hebel</strong>Mehr Output ohne Neumaschine; Premium-Aufträge gewinnen.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 19 — TRIGGER-EVENTS -->
+  <section data-screen-label="19 Trigger-Events">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Trigger-Events · Kauf-Signale</span><span class="chrome-pages">19 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Wann der Bedarf entsteht</span>
+      <h2 class="title-md" style="margin-top:24px">Sechs Kauf-Signale<br>für das Timing.</h2>
+      <div class="signals-list">
+        <div class="sig"><div class="num">01</div><div class="nm">Neue CNC-/Schleif-/Verzahnungsmaschine<small>frische Investition → Spannmittel-Bedarf für Inbetriebnahme</small></div><div class="src">Maschinen-PR · Capex in Jahresabschluss</div><div class="when" style="background:var(--ink);color:#fff;border-color:var(--ink)">Top-Trigger</div></div>
+        <div class="sig"><div class="num">02</div><div class="nm">Maschinenpark Kapp · Reishauer · Liebherr<small>Verzahnungsmaschinen → Spanndorn-Bedarf sehr wahrscheinlich</small></div><div class="src">Maschinenliste · Tech-Stack</div><div class="when">sehr hoch</div></div>
+        <div class="sig"><div class="num">03</div><div class="nm">Neues Bauteil / Serienanlauf<small>neue Werkstückgeometrie braucht passende Sonderspannlösung</small></div><div class="src">Produkt-Launch · OEM-Nominierung</div><div class="when">sehr hoch</div></div>
+        <div class="sig"><div class="num">04</div><div class="nm">Rundlauf- / Qualitätsprobleme<small>Ausschuss / Nacharbeit steigt → Spannmittel als Ursache</small></div><div class="src">Reklamationen · QS-Signale</div><div class="when">hoch</div></div>
+        <div class="sig"><div class="num">05</div><div class="nm">Kapazitätsausbau / Hiring Zerspanung<small>Werkserweiterung, neue Schicht, mehr Maschinen</small></div><div class="src">Jobs · Standort-News</div><div class="when">mittel</div></div>
+        <div class="sig"><div class="num">06</div><div class="nm">Reshoring / Lieferanten-Wechsel<small>Single-Source-Risiko, EU-Lieferant gesucht</small></div><div class="src">Branchen-News · Ausschreibung</div><div class="when">mittel</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 20 — DIVIDER · TEIL 04 -->
+  <section data-screen-label="20 Divider GTM" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 04</span><span class="chrome-pages">20 / 26</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 04</div>
+      <h2>Go-to-<br>Market.</h2>
+      <p class="sub">Hook-Lines je Persona, der Kanal-Mix (Pilot: E-Mail-first), der Phasenplan und die konkreten Empfehlungen für die amplifa-Akquise — Conversion-Hebel: digitaler Erst-Termin &amp; Werkstück-Analyse.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Outbound-Strategie</span><span>Pilot: E-Mail-first · Aerospace · Europa</span></div>
+  </section>
+
+  <!-- 21 — HOOK-LINES -->
+  <section data-screen-label="21 Hook-Lines">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Messaging · Hook-Lines</span><span class="chrome-pages">21 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Aufhänger je Persona</span>
+      <h2 class="title-md" style="margin-top:20px">Was wirklich<br>ein Gespräch auslöst.</h2>
+      <div class="hooks-grid">
+        <div class="hook"><span class="idx">01 · Leiter Zerspanung</span><q>Rundlauf bis 0,003 mm — wie viel Nacharbeit würde Ihnen das beim Verzahnungsschleifen sparen?</q><div class="ctx">Präzision · Ausschuss</div></div>
+        <div class="hook"><span class="idx">02 · Fertigungsleiter</span><q>Was wäre Ihre Spindelzeit wert, wenn das Rüsten halb so lang dauert?</q><div class="ctx">OEE · Durchsatz</div></div>
+        <div class="hook"><span class="idx">03 · Technischer Einkauf</span><q>Sonderspannmittel mit Angebot in 3 Werktagen — und einem Lieferanten, dem Bosch vertraut.</q><div class="ctx">TCO · Liefertreue</div></div>
+        <div class="hook"><span class="idx">04 · Aerospace-Zulieferer</span><q>Triebwerksteile prozesssicher spannen — wie MTU &amp; Rolls-Royce es tun. Auch in der MRO.</q><div class="ctx">Aerospace · Rückverfolgbarkeit</div></div>
+        <div class="hook"><span class="idx">05 · QS / Qualität</span><q>Reproduzierbare Maßhaltigkeit über 100.000 Spannungen hinweg — belegbar.</q><div class="ctx">ppm · Prozesssicherheit</div></div>
+        <div class="hook"><span class="idx">06 · GF (KMU)</span><q>Mehr Premium-Aufträge annehmen — ohne in eine neue Maschine zu investieren.</q><div class="ctx">Marge · Kapazität</div></div>
+      </div>
+      <div style="margin-top:26px;padding:22px 30px;background:var(--ink);color:#fff;border-radius:14px;display:flex;gap:24px;align-items:center"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-yel);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap">Genereller CTA</span><span style="font-size:19px;line-height:1.4;color:rgba(255,255,255,0.9)">„Lassen Sie uns in 15–30 Min. digital Ihr kritischstes Werkstück anschauen — wir rechnen Ihnen die Spann-Lösung in 3 Tagen durch."</span></div>
+    </div>
+  </section>
+
+  <!-- 22 — KANAL-STRATEGIE -->
+  <section data-screen-label="22 Kanal-Strategie">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Kanal-Strategie · Compliance</span><span class="chrome-pages">22 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Kanal-Mix je Persona</span>
+      <h2 class="title-md" style="margin-top:20px">Pilot: E-Mail-first,<br>Telefon in der Wachstumsphase.</h2>
+      <div class="cmx">
+        <div class="cmx-row head"><div>Persona</div><div>E-Mail (Pilot)</div><div>LinkedIn / Telefon</div><div>Empfohlene Sequenz</div></div>
+        <div class="cmx-row">
+          <div class="pn">Leiter Zerspanung<small>Technischer Champion</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv sek"><span class="badge">Wachstum</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>E-Mail (Werkstück-Hook) → <b>2</b>LinkedIn → <b>3</b>Telefon (Enterprise)</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">Fertigungsleiter<small>Wirtschaftl. Entscheider</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv sek"><span class="badge">Wachstum</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>E-Mail (OEE-Hook) → <b>2</b>LinkedIn → <b>3</b>Telefon (Enterprise)</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">Technischer Einkauf<small>Kommerzieller Gatekeeper</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv consent"><span class="badge">Bedingt</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>E-Mail (TCO-/Angebot-Hook) → <b>2</b>Telefon (Enterprise)</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">Geschäftsführung (KMU)<small>Strategischer Sponsor</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv sek"><span class="badge">Wachstum</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>E-Mail (Marge-Hook) → <b>2</b>LinkedIn → <b>3</b>Telefon (Enterprise)</div>
+        </div>
+      </div>
+      <div class="cmx-legend"><span><i style="background:var(--accent-grn)"></i>Primär (Pilot)</span><span><i style="background:var(--ink)"></i>Wachstumsphase</span><span><i style="background:var(--muted-2)"></i>Bedingt / nach Consent</span></div>
+      <div style="margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--muted);line-height:1.6">Pilotphase (4 Monate) = rein E-Mail, KI-gestützt &amp; signalbasiert; Telefon ist ein Enterprise-/Wachstums-Thema. § 7 UWG / BVerwG 6 C 3.23: Sach-/Branchenbezug je Account dokumentieren; Blacklist (Bestandskunden, MTU-Domains etc.) gepflegt.</div>
+    </div>
+  </section>
+
+  <!-- 23 — PHASENPLAN -->
+  <section data-screen-label="23 Phasenplan">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Vorgehen · Phasenplan</span><span class="chrome-pages">23 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">In drei Phasen zur Pipeline</span>
+      <h2 class="title-md" style="margin-top:20px">Vom Setup<br>zur Skalierung.</h2>
+      <div class="phases">
+        <div class="phase">
+          <div class="nd">01</div>
+          <div class="wk">Monat 1–2</div>
+          <h4>Fundament &amp; Aerospace Tier-1</h4>
+          <ul>
+            <li><span>ICP &amp; Tier-1-Zielliste Aerospace Europa (ohne UK) bauen — Königs 400er-Aerospace-Liste einspielen</span></li>
+            <li><span>Königdorn-Proof-Story &amp; 3 Hook-Tests aufsetzen</span></li>
+            <li><span>E-Mail-Infrastruktur, Blacklist &amp; Playbooks (6 Branchen) live</span></li>
+          </ul>
+          <div class="bench">→ Threshold: ≥ 300 qualifizierte Tier-1-Accounts</div>
+        </div>
+        <div class="phase">
+          <div class="nd">02</div>
+          <div class="wk">Monat 3–5</div>
+          <h4>Skalierung &amp; Vertikalen</h4>
+          <ul>
+            <li><span>Beste Vertikalen &amp; Hooks doppeln (Antrieb, Medtech ergänzen)</span></li>
+            <li><span>Digitaler Erst-Termin / Werkstück-Analyse als Conversion-CTA</span></li>
+            <li><span>Tier-2 OEM-Werke ergänzen · Trigger-Monitoring (Maschinen-Invest, Serienanlauf)</span></li>
+          </ul>
+          <div class="bench">→ Threshold: planbarer Meeting-Flow / Monat</div>
+        </div>
+        <div class="phase">
+          <div class="nd">03</div>
+          <div class="wk">Monat 6+</div>
+          <h4>System &amp; Referenz-Sog</h4>
+          <ul>
+            <li><span>Gewonnene Cases zu Referenzen ausbauen · Weltmarktführer-Story breit ausspielen</span></li>
+            <li><span>Internationale Accounts selektiv testen (USA-Aerospace via Händler, Südostasien)</span></li>
+            <li><span>proALPHA-Webhook-Feedback in ICP &amp; Messaging zurückspielen</span></li>
+          </ul>
+          <div class="bench">→ Threshold: wiederholbare, kalkulierbare Pipeline</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 24 — HANDLUNGSEMPFEHLUNGEN -->
+  <section data-screen-label="24 Empfehlungen">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Handlungsempfehlungen</span><span class="chrome-pages">24 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow">Was jetzt zu tun ist</span>
+      <h2 class="title-md" style="margin-top:24px">Fünf Empfehlungen<br>für den Start.</h2>
+      <div class="recs">
+        <div class="rec"><div class="num">01</div><div><h5>Aerospace zuerst — Weltmarktführer-Titel aktivieren</h5><p>Luft- &amp; Raumfahrt als Fokusvertikale (~80–90 % Energie); den DDW-Status zum zentralen Trust-Anker in jeder Erstansprache machen — neu und im Vertrieb unterausgespielt.</p></div></div>
+        <div class="rec"><div class="num">02</div><div><h5>Antizyklisch jetzt akquirieren</h5><p>Während Wettbewerber im WZM-Tal die Vertriebskraft drosseln, Marktanteile per Outbound sichern — vor der Erholung 2026.</p></div></div>
+        <div class="rec"><div class="num">03</div><div><h5>Digitaler Erst-Termin &amp; Werkstück-Analyse als CTA</h5><p>Statt „Demo": 15–30-Min-Teams-Call zum Vertrauensaufbau, dann konkrete Spann-Lösung fürs kritischste Bauteil, Angebot in 3 Werktagen — der stärkste Conversion-Hebel.</p></div></div>
+        <div class="rec"><div class="num">04</div><div><h5>Königs 400er-Aerospace-Liste einspielen</h5><p>Die bereits gepflegte Zielfirmen-Liste (Christoph) als Tier-1-Jumpstart nutzen; amplifa ergänzt Personas &amp; Buying-Signals pro Account.</p></div></div>
+        <div class="rec"><div class="num">05</div><div><h5>Referenz-Sog nutzen</h5><p>MTU/Rolls-Royce/ZF/Bosch-Analogien gezielt für ähnliche Accounts einsetzen — Branche &amp; Anwendung (Triebwerk, Verzahnung) spiegeln.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 25 — VORBEHALTE -->
+  <section data-screen-label="25 Vorbehalte">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div><div class="meta"><span>Vorbehalte &amp; Datenlage</span><span class="chrome-pages">25 / 26</span></div></div>
+    <div class="pad-top">
+      <span class="eyebrow warn">Ehrliche Datenlage</span>
+      <h2 class="title-md" style="margin-top:24px">Was noch zu<br>verifizieren ist.</h2>
+      <div class="caveats">
+        <div class="cv"><div class="i">01</div><div class="t">Umsatz ~32–33 Mio € (GF-Angabe Strategiegespräch 05/2026); DDW/Drittquellen nennen ~30 Mio — exakte Zahl im Onboarding bestätigen.</div></div>
+        <div class="cv"><div class="i">02</div><div class="t">TAM/SAM/SOM sind illustrative Größenordnungen aus Sekundärquellen; mit ERP- (proALPHA), Marge- &amp; Pipeline-Daten zu kalibrieren.</div></div>
+        <div class="cv"><div class="i">03</div><div class="t">Workholding-Marktzahlen variieren je Research-Haus stark (4–7 Mrd USD); als Bandbreite, nicht Punktwert lesen.</div></div>
+        <div class="cv"><div class="i">04</div><div class="t">Technische Kennwerte (Rundlauf hydr. &lt;0,003 / mech. &lt;0,005 mm, Aufweitung bis 1 mm) sind im Kickoff bestätigte Hersteller-Angaben, anwendungsabhängig.</div></div>
+        <div class="cv"><div class="i">05</div><div class="t">Wettbewerber „Emuge-Franken" stammt aus dem Kickoff-Hinweis (Schreibweise/Phonetik im Onboarding final bestätigen); Referenzkunden Website-freigegeben (MTU, Bosch, INDEX), Nennung nur nach Freigabe.</div></div>
+        <div class="cv"><div class="i">06</div><div class="t">Personas &amp; Trigger sind Hypothesen aus Marktlogik &amp; Kickoff; Signale bewusst offen halten (KI findet sie). Pilot = E-Mail-only, Europa (ohne UK).</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 26 — CLOSING -->
+  <section data-screen-label="26 Closing" class="s-close">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Empfehlung &amp; nächste Schritte</span><span class="chrome-pages">26 / 26</span></div></div>
+    <div class="core">
+      <span class="eyebrow">Empfehlung</span>
+      <h2>Den Weltmarktführer <span class="accent">hörbar</span> machen.<br>Aerospace-first. Jetzt.</h2>
+      <p class="sub-cta" style="margin-top:32px">Antizyklisch — König MTM hat Produkt, Proof und Titel — was fehlt, ist systematische Sichtbarkeit bei neuen Zerspanern, allen voran in der Luft- &amp; Raumfahrt. amplifa setzt eine signalbasierte, E-Mail-first-Akquise (Pilot) in Europa (ohne UK) auf, die den Königdorn-Vorteil in messbare Pipeline übersetzt — mit dem digitalen Erst-Termin &amp; der Werkstück-Analyse als Conversion-Hebel.</p>
+      <div class="actions" style="margin-top:40px">
+        <a class="btn" href="#">Kickoff &amp; Aerospace-Tier-1-Liste starten <span class="arr">↗</span></a>
+        <a class="btn ghost" href="#">Königdorn-Proof-Story finalisieren <span class="arr">→</span></a>
+      </div>
+      <div class="swatches" style="margin-top:36px"><span style="background:var(--accent-grn)"></span><span style="background:var(--accent-blu)"></span><span style="background:var(--accent-yel)"></span><span style="background:var(--accent-pur)"></span></div>
+    </div>
+    <div class="foot">
+      <div><strong>amplifa</strong>Outbound-Akquise · WILHELM KÖNIG MTM</div>
+      <div style="text-align:right"><strong>Report v2.0 · Juni 2026</strong>für König MTM · vertraulich · nach Kickoff</div>
+    </div>
+  </section>
+
+</deck-stage>
+</body>
+</html>
