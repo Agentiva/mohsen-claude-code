@@ -1,30 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000" width="1500" height="1000" role="img" aria-label="MIZANA Küchen">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" width="1536" height="1024" role="img" aria-label="MIZANA Küchen">
   <title>MIZANA Küchen</title>
-  <rect width="1500" height="1000" fill="#ffffff"/>
+  <rect width="1536" height="1024" fill="#ffffff"/>
 
-  <!-- Outer frame -->
-  <rect x="150" y="300" width="1200" height="420" fill="none" stroke="#1a1a1a" stroke-width="5"/>
+  <!-- Outer frame (measured centerline: x159-1376, y300.5-722.5) -->
+  <rect x="159" y="300.5" width="1217" height="422" fill="none" stroke="#1a1a1a" stroke-width="7.5"/>
 
-  <!-- Wordmark: MIZANA (monoline geometric caps) -->
-  <g fill="none" stroke="#1a1a1a" stroke-width="9" stroke-linejoin="miter" stroke-linecap="butt">
+  <!-- Wordmark: MIZANA (traced polygon outlines, pixel-matched to source) -->
+  <g fill="#1a1a1a" stroke="none">
     <!-- M -->
-    <path d="M303,530 L303,395 L380,470 L458,395 L458,530"/>
+    <path d="M 266,401 L 266,538 L 282,538 L 282,530 L 283,529 L 283,518 L 282,517 L 282,459 L 283,458 L 282,455 L 283,439 L 282,438 L 283,435 L 282,434 L 283,433 L 286,435 L 333,505 L 344,523 L 353,523 L 413,432 L 414,433 L 414,538 L 430,538 L 430,401 L 415,401 L 349,502 L 281,401 Z"/>
     <!-- I -->
-    <path d="M500,395 L500,530"/>
+    <path d="M 516,400 L 515,401 L 500,401 L 501,402 L 501,538 L 517,538 L 517,401 Z"/>
     <!-- Z -->
-    <path d="M543,395 L658,395 L543,530 L658,530"/>
+    <path d="M 582,400 L 582,413 L 679,413 L 680,414 L 586,526 L 586,538 L 709,538 L 709,525 L 610,525 L 609,524 L 649,475 L 703,413 L 703,401 L 702,400 Z"/>
     <!-- A -->
-    <path d="M703,530 L770,395 L838,530"/>
-    <path d="M727,492 L813,492"/>
+    <path d="M 820,401 L 817,407 L 817,409 L 810,422 L 810,424 L 802,439 L 802,441 L 790,464 L 790,466 L 780,485 L 780,487 L 772,502 L 772,504 L 760,527 L 760,529 L 756,536 L 756,538 L 771,538 L 772,537 L 826,422 L 828,424 L 845,458 L 845,460 L 849,466 L 849,468 L 866,501 L 866,503 L 882,534 L 883,538 L 899,538 L 898,534 L 888,515 L 888,513 L 850,437 L 850,435 L 836,408 L 834,402 L 833,401 Z"/>
     <!-- N -->
-    <path d="M883,530 L883,395 L1018,530 L1018,395"/>
+    <path d="M 953,401 L 953,538 L 969,538 L 969,432 L 970,431 L 1079,538 L 1089,538 L 1089,401 L 1073,401 L 1073,508 L 1072,509 L 963,401 Z"/>
     <!-- A -->
-    <path d="M1063,530 L1130,395 L1198,530"/>
-    <path d="M1087,492 L1173,492"/>
+    <path d="M 1207,401 L 1200,415 L 1200,417 L 1188,440 L 1188,442 L 1177,463 L 1177,465 L 1166,486 L 1166,488 L 1156,507 L 1156,509 L 1154,511 L 1154,513 L 1145,530 L 1145,532 L 1142,538 L 1158,538 L 1159,537 L 1159,535 L 1166,522 L 1166,520 L 1175,503 L 1175,501 L 1183,486 L 1183,484 L 1192,467 L 1192,465 L 1213,422 L 1215,424 L 1221,436 L 1221,438 L 1256,508 L 1256,510 L 1269,535 L 1269,537 L 1270,538 L 1286,538 L 1278,522 L 1278,520 L 1261,487 L 1261,485 L 1227,417 L 1227,415 L 1222,407 L 1220,401 Z"/>
   </g>
 
-  <!-- Sub-wordmark: Küchen with flanking rules -->
-  <line x1="300" y1="600" x2="632" y2="600" stroke="#1a1a1a" stroke-width="3"/>
-  <line x1="868" y1="600" x2="1200" y2="600" stroke="#1a1a1a" stroke-width="3"/>
-  <text x="750" y="620" text-anchor="middle" font-family="'Century Gothic', 'Futura', 'Questrial', 'Nunito Sans', 'Segoe UI', Arial, sans-serif" font-size="66" letter-spacing="6" fill="#1a1a1a">Küchen</text>
+  <!-- Sub-wordmark: Küchen with flanking rules (measured: rule y618.5, left 266-558, right 1000-1286) -->
+  <line x1="266" y1="618.5" x2="558" y2="618.5" stroke="#1a1a1a" stroke-width="4"/>
+  <line x1="1000" y1="618.5" x2="1286" y2="618.5" stroke="#1a1a1a" stroke-width="4"/>
+  <text x="789.5" y="644" text-anchor="middle" font-family="'Century Gothic', 'Questrial', 'Futura', 'Nunito Sans', 'Segoe UI', Arial, sans-serif" font-size="76" letter-spacing="20" fill="#1a1a1a">Küchen</text>
 </svg>
