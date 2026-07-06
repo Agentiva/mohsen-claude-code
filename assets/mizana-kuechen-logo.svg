@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1000" width="1500" height="1000" role="img" aria-label="MIZANA Küchen">
+  <title>MIZANA Küchen</title>
+  <rect width="1500" height="1000" fill="#ffffff"/>
+
+  <!-- Outer frame -->
+  <rect x="150" y="300" width="1200" height="420" fill="none" stroke="#1a1a1a" stroke-width="5"/>
+
+  <!-- Wordmark: MIZANA (monoline geometric caps) -->
+  <g fill="none" stroke="#1a1a1a" stroke-width="9" stroke-linejoin="miter" stroke-linecap="butt">
+    <!-- M -->
+    <path d="M303,530 L303,395 L380,470 L458,395 L458,530"/>
+    <!-- I -->
+    <path d="M500,395 L500,530"/>
+    <!-- Z -->
+    <path d="M543,395 L658,395 L543,530 L658,530"/>
+    <!-- A -->
+    <path d="M703,530 L770,395 L838,530"/>
+    <path d="M727,492 L813,492"/>
+    <!-- N -->
+    <path d="M883,530 L883,395 L1018,530 L1018,395"/>
+    <!-- A -->
+    <path d="M1063,530 L1130,395 L1198,530"/>
+    <path d="M1087,492 L1173,492"/>
+  </g>
+
+  <!-- Sub-wordmark: Küchen with flanking rules -->
+  <line x1="300" y1="600" x2="632" y2="600" stroke="#1a1a1a" stroke-width="3"/>
+  <line x1="868" y1="600" x2="1200" y2="600" stroke="#1a1a1a" stroke-width="3"/>
+  <text x="750" y="620" text-anchor="middle" font-family="'Century Gothic', 'Futura', 'Questrial', 'Nunito Sans', 'Segoe UI', Arial, sans-serif" font-size="66" letter-spacing="6" fill="#1a1a1a">Küchen</text>
+</svg>
