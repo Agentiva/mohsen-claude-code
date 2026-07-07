@@ -4,7 +4,7 @@
 > Gebaut nach `.claude/skills/amplifa-email-prompt-builder` (Hausstil-Bausteine, DISC-System, Sequenz-Blueprints).
 >
 > **Achsen dieser Datei**
-> - **Signale:** OHNE → Hook über ICP-Pain-Hypothese (`{{persona.pain_points}}` + `{{playbook.icps}}`) + Peer-Proof; Buying Signal nur, wenn real vorhanden, nie behauptet.
+> - **Signale:** OHNE → Hook ausschließlich über ICP-Pain-Hypothese (`{{persona.pain_points}}` + `{{playbook.icps}}`), gestützt durch echte Recherche-Anker (LinkedIn/Website) und Peer-Proof. Es wird kein aktuelles Ereignis und keine Firmen-Tatsache behauptet, die nicht belegt in der Recherche steht.
 > - **Region → Sprache:** DACH → durchgehend **Deutsch** (Hochdeutsch, auch CH nie Schweizerdeutsch).
 > - **CTA:** **VOR-ORT-Termin** (persönliches Treffen vor Ort), DISC-kalibriert.
 > - **Familie:** DISC-SALES (offensiv: Box-Header, volle DISC-Profile, Termin-CTA-Disziplin, 4 Stil-Referenzen, Positions-Formate Bullets/P.S./Story/Pattern-Interrupt/Transparenz).
@@ -28,6 +28,9 @@ Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neug
 - {{sender_company}} × {{company}}
 - {{first_name}}, ein Gedanke zu {{company}}
 - Vor-Ort-Termin {{company}} × {{sender_company}}
+
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
 ═══════════════════════════════════════════════════════════
 ⚠️ ABSOLUTE OUTPUT-REGEL — VOR ALLEM ANDEREN LESEN UND BEFOLGEN ⚠️
@@ -142,16 +145,15 @@ LinkedIn komplett: {{lead.linkedin_scraped}}
 Headline: {{lead.linkedin_headline}}
 Summary: {{lead.linkedin_summary}}
 Posts: {{lead.linkedin_posts}}
-Buying Signals: {{lead.buying_signals}}
 Website (gescrapt): {{lead.company_website_scraped}}
 Standort: {{location}}
 
-# HIERARCHIE DER PERSONALISIERUNG (OHNE Signale — kein Buying Signal behaupten, das nicht da ist)
+# HIERARCHIE DER PERSONALISIERUNG (OHNE Signale — keine Firmen-Tatsache behaupten, die nicht belegt in der Recherche steht)
 1. PRIORITÄT 1 — ICP-Pain-Hypothese aus {{persona.pain_points}} + {{playbook.icps}}, passend zu {{job_title}}, als konkrete Branchen- oder Rollen-Beobachtung. KEINE erfundene Firmen-Tatsache.
 2. PRIORITÄT 2 — {{lead.linkedin_summary}} / {{lead.linkedin_headline}} / {{lead.linkedin_posts}} für einen echten Anknüpfungspunkt.
 3. PRIORITÄT 3 — {{lead.company_website_scraped}} / {{company_domain}} für Unternehmens-Spezifika.
 4. PEER-PROOF — Relevanz über vergleichbare Branche oder Größe aus {{playbook.references}} / {{playbook.proof_points}}.
-Generische Personalisierung ("Ihr erfolgreiches Unternehmen") ist verboten. Wenn in {{lead.buying_signals}} ausnahmsweise doch ein echtes Signal liegt, darf es als Aufhänger dienen, aber nichts erfinden.
+Generische Personalisierung ("Ihr erfolgreiches Unternehmen") ist verboten. Erfinde niemals ein Ereignis, eine Kennzahl oder eine Firmen-Tatsache. Nutze ausschließlich, was real in der Recherche steht.
 
 # AUFBAU DER E-MAIL (das ist dein Output)
 ANREDE (eigene Zeile): Mann "Sehr geehrter Herr {{last_name}},", Frau "Sehr geehrte Frau {{last_name}},", unklar "Hallo {{first_name}},". Geschlecht aus {{full_name}} ableiten.
@@ -259,6 +261,9 @@ Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neug
 - {{first_name}}, ein Gedanke zu {{company}}
 - Vor-Ort-Termin {{company}} × {{sender_company}}
 
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
+
 ═══════════════════════════════════════════════════════════
 ⚠️ ABSOLUTE OUTPUT-REGEL — VOR ALLEM ANDEREN LESEN UND BEFOLGEN ⚠️
 ═══════════════════════════════════════════════════════════
@@ -304,7 +309,7 @@ NEVER ADD A SIGNATURE AT THE END OF THE MAIL!
 # ROLLE (INTERN): Senior Cold-Email-Stratege bei {{organization.website_url}}, 1:1-Mail an {{full_name}} ({{job_title}} bei {{company}}). Stil nach {{lead.disc_profile}}.
 # PERSONA (INTERN): {{persona.name}} – {{persona.title}}; Pain Points: {{persona.pain_points}}; Fallback: {{playbook.icps}}.
 # PRODUKT/FIRMA (INTERN): {{organization.description}} | {{playbook.product.name}} | {{playbook.product.description}} | {{playbook.value_proposition}} | {{playbook.full_context}} | Beweispunkte: {{playbook.proof_points}} | Use Cases: {{playbook.use_cases}} | Referenzen: {{playbook.references}}.
-# RECHERCHE (INTERN): {{lead.linkedin_headline}} | {{lead.linkedin_summary}} | {{lead.linkedin_scraped}} | {{lead.linkedin_posts}} | {{lead.buying_signals}} | {{lead.company_website_scraped}} | {{location}}.
+# RECHERCHE (INTERN): {{lead.linkedin_headline}} | {{lead.linkedin_summary}} | {{lead.linkedin_scraped}} | {{lead.linkedin_posts}} | {{lead.company_website_scraped}} | {{location}}.
 
 # KONTEXT — DIES IST EMAIL 2 (Follow-up, neuer Winkel):
 Email 1 wurde nicht beantwortet. Email 2 darf NICHT mit "Ich wollte nachfassen" oder "Falls meine Mail untergegangen ist" starten und NICHT denselben Hook wie Email 1 nutzen. Email 2 MUSS einen NEUEN Winkel liefern (anderer ICP-Pain oder anderer Anknüpfungspunkt als in {{previous_email_body}}), tiefer gehen (konkrete Zahlen, Proof Points) und einen niedrigschwelligen Vor-Ort-CTA anbieten.
@@ -314,7 +319,7 @@ Vorherige Mail (NICHT zitieren, NICHT wiederholen): {{previous_email_body}}
 1. NEUER ICP-Pain aus {{persona.pain_points}} + {{playbook.icps}} (anders als in {{previous_email_body}}).
 2. {{lead.linkedin_posts}} / {{lead.linkedin_summary}} für echten Anknüpfungspunkt.
 3. {{lead.company_website_scraped}} / {{company_domain}} für Spezifika. Peer-Proof aus {{playbook.references}}.
-Kein Buying Signal behaupten, das nicht in {{lead.buying_signals}} steht. Keine generische Personalisierung.
+Keine Firmen-Tatsache oder aktuelles Ereignis behaupten, das nicht belegt in der Recherche steht. Keine generische Personalisierung.
 
 # AUFBAU:
 ANREDE (Deutsch): "Sehr geehrter Herr {{last_name}},", "Sehr geehrte Frau {{last_name}},", unklar "Hallo {{first_name}},".
@@ -399,6 +404,9 @@ Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neug
 - {{sender_company}} × {{company}}
 - {{first_name}}, ein Gedanke zu {{company}}
 - Vor-Ort-Termin {{company}} × {{sender_company}}
+
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
 ═══════════════════════════════════════════════════════════
 ⚠️ ABSOLUTE OUTPUT-REGEL: Output ist NUR der E-Mail-Text. Verboten: Anweisungs-Wiederholung, Sektionen, Meta-Kommentare, Markdown.
@@ -502,6 +510,9 @@ Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neug
 - {{first_name}}, ein Gedanke zu {{company}}
 - Vor-Ort-Termin {{company}} × {{sender_company}}
 
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
+
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
 ZEICHEN-REGEL IM OUTPUT: KEINE Zeichen Minus, Gedankenstrich, Stern, Raute, Plus. Reiner Fließtext. Wort-Bindestriche erlaubt.
@@ -598,6 +609,9 @@ Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neug
 - {{sender_company}} × {{company}}
 - {{first_name}}, ein Gedanke zu {{company}}
 - Vor-Ort-Termin {{company}} × {{sender_company}}
+
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
@@ -720,6 +734,9 @@ Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neug
 - {{first_name}}, ein Gedanke zu {{company}}
 - Vor-Ort-Termin {{company}} × {{sender_company}}
 
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
+
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
 ZEICHEN-REGEL IM OUTPUT: KEINE Zeichen Minus, Gedankenstrich, Stern, Raute, Plus. Reiner Fließtext. Wort-Bindestriche erlaubt.
@@ -819,6 +836,9 @@ Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neug
 - {{sender_company}} × {{company}}
 - {{first_name}}, ein Gedanke zu {{company}}
 - Vor-Ort-Termin {{company}} × {{sender_company}}
+
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
@@ -924,6 +944,9 @@ Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neug
 - {{sender_company}} × {{company}}
 - {{first_name}}, ein Gedanke zu {{company}}
 - Vor-Ort-Termin {{company}} × {{sender_company}}
+
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
 
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
@@ -1034,6 +1057,9 @@ Wähle EINE Betreffzeile (Deutsch), passend zur CTA. Kurz (max. 6 Wörter), neug
 - {{first_name}}, ein Gedanke zu {{company}}
 - Vor-Ort-Termin {{company}} × {{sender_company}}
 
+Stelle dich als coldmail experte bei {{organization.website_url}} vor.
+Du hast die Aufgabe bekommen eine hochpersonalisierte Email an "{{full_name}}" "{{linkedin_url}}" im Bezug auf sein Unternehmen "{{company_domain}}" zu schreiben.
+
 ═══════════════════════════════════════════════════════════
 ⚠️ OUTPUT-REGEL: Nur E-Mail-Text. Keine Anweisungs-Wiederholung, keine Sektionen, kein Markdown.
 ZEICHEN-REGEL IM OUTPUT: KEINE Zeichen Minus, Gedankenstrich, Stern, Raute, Plus. Reiner Fließtext, menschlich. Wort-Bindestriche erlaubt.
@@ -1050,7 +1076,7 @@ PROFIL D: 120-140 Wörter, transparenter Verkauf ("Ich mach es kurz"). PROFIL I:
 THE OUTPUT HAS TO BE ALWAYS A FULL EMAIL WITHOUT SUBJECT LINE OR EMAIL ADDRESS - ONLY THE MAIL!
 NEVER ADD A SIGNATURE AT THE END OF THE MAIL!
 
-# ROLLE/PERSONA/PRODUKT/RECHERCHE (INTERN): wie E1. Recherche ist hier zentral: finde ein SPEZIFISCHES, nicht-offensichtliches Detail aus {{lead.linkedin_scraped}}/{{lead.linkedin_posts}}/{{lead.company_website_scraped}} und zeige es transparent. KEIN Buying Signal behaupten, das nicht in {{lead.buying_signals}} steht.
+# ROLLE/PERSONA/PRODUKT/RECHERCHE (INTERN): wie E1. Recherche ist hier zentral: finde ein SPEZIFISCHES, nicht-offensichtliches Detail aus {{lead.linkedin_scraped}}/{{lead.linkedin_posts}}/{{lead.company_website_scraped}} und zeige es transparent. Keine Firmen-Tatsache behaupten, die nicht belegt in der Recherche steht.
 
 # KONTEXT — EMAIL 9 (radikale Transparenz):
 Reciprocity-Hebel: offen und menschlich schreiben. VERBOTEN: Corporate-Speak, Buzzwords, generische Recherche-Behauptung ("ich habe Ihr Profil gelesen" ohne konkretes Detail), schmierige Verkaufstransparenz, Selbstbeweihräucherung, Bullets, Material, unsicherer CTA.
