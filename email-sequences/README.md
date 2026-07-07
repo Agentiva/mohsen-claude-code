@@ -6,8 +6,8 @@
 
 ```
 Signale?
- ├─ Mit Signale   → Familie AUGENHÖHE (zurückhaltend, Signal-Hook)        → 10 Mails je Master
- └─ Ohne Signale  → Familie DISC-SALES (offensiv, ICP-Pain-Hook)          →  9 Mails je Master
+ ├─ Mit Signale   → Familie AUGENHÖHE (zurückhaltend, Buying-Signal-Hook)  → 10 Mails je Master
+ └─ Ohne Signale  → Familie AUGENHÖHE (zurückhaltend, ICP-Pain-Hook)       → 10 Mails je Master
         │
    Welche Länder?
      ├─ DACH        → Deutsch (Hochdeutsch, CH nie Schweizerdeutsch)
@@ -38,7 +38,7 @@ Vor-Ort nur bei DACH (Skill-Guardrail: bei USA/Asien Vor-Ort unrealistisch → n
 
 **MIT Signale (AUGENHÖHE, 10 Mails):** E1 Cold-Open · E2 Cold-Open-Variante · E3 Follow-up · E4 Kurzvariante · E5 mit P.S. · E6 Follow-up neuer Blickwinkel · E7 Storytelling · E8 Pattern-Interrupt · E9 radikale Transparenz · E10 mutiger Reframe.
 
-**OHNE Signale (DISC-SALES, 9 Mails):** E1 Cold-Open · E2 Follow-up (Bullets) · E3 kompakt · E4 ultrakurz · E5 P.S.-Recovery · E6 Perspektivwechsel · E7 Story · E8 Pattern-Interrupt · E9 radikale Transparenz.
+**OHNE Signale (AUGENHÖHE, 10 Mails):** E1 Cold-Open · E2 Cold-Open-Variante · E3 Follow-up · E4 Kurzvariante · E5 mit P.S. · E6 Follow-up neuer Blickwinkel · E7 Storytelling · E8 Pattern-Interrupt · E9 radikale Transparenz · E10 mutiger Reframe. Gleiche Struktur wie MIT, aber der Einstieg kommt aus der ICP-Pain-Hypothese (`{{persona.pain_points}}` + `{{playbook.icps}}`) statt aus einem Buying Signal.
 
 ## Globale Regeln (in jedem Prompt verankert)
 
