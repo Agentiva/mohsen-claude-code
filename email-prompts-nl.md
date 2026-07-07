@@ -9,9 +9,13 @@ Vaste conventies in alle prompts:
 - Aanhef vrouw: `Geachte mevrouw {{last_name}},`
 - Aanhef onduidelijk: `Hallo {{first_name}},`
 - Afsluiting: `Met vriendelijke groet,`
+- CTA: elke CTA nodigt uit tot **30 minuten digitaal koffiedrinken** (een digitale
+  koffie van 30 minuten), met behoud van de DISC-toonvariatie (D/I/S/C). E-mail 9
+  behoudt de concrete tijdslotvoorstellen, nu geframed als digitale koffie.
 
 De DISC-logica, structuur, woordaantallen, checklists en stijlvoorbeelden zijn
-behouden — alleen de taal is nu uitsluitend Nederlands.
+behouden — alleen de taal is nu uitsluitend Nederlands en de CTA is overal een
+digitale koffie van 30 minuten.
 
 
 ---
@@ -90,7 +94,7 @@ AANBEVOLEN WERKWOORDEN: leveren, winnen, veiligstellen, versnellen, beslissen, d
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: resultaat, marktaandeel, concurrentievoordeel, ROI, snelheid, pipeline, efficiëntie, tijd
 VERBODEN WOORDEN: misschien, eventueel, samen, behoedzaam, zorgvuldig, langdurig, harmonieus
 PAIN-FRAMING: als misgelopen deal, gemiste kans, voorsprong van de concurrent
-CTA-STIJL: Zelfverzekerd, direct: "Laten we 15 minuten spreken – ik laat u zien hoe [X] [meetbare hefboom]." (stijlvoorbeeld — altijd volledig in het Nederlands formuleren)
+CTA-STIJL: Zelfverzekerd, direct: "30 minuten digitaal koffiedrinken deze week – ik laat u zien hoe [X] [meetbare hefboom]." (stijlvoorbeeld — altijd volledig in het Nederlands formuleren)
 
 ────────────────────────────────────────
 **PROFIEL I (Influence) — Relatiegericht, enthousiast, visueel**
@@ -102,7 +106,7 @@ AANBEVOLEN WERKWOORDEN: vormgeven, in beweging brengen, inspireren, zichtbaar ma
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: visie, effect, zichtbaarheid, merk, succesverhaal, podium, impact, weerklank
 VERBODEN WOORDEN: auditering, methodiek, KPI, specificatie, procesmatig, genormeerd
 PAIN-FRAMING: als gemiste erkenning, stilstand van het merk, onbenut potentieel
-CTA-STIJL: Uitnodigend, persoonlijk: "Laten we bij een kopje koffie van 15 minuten samen nadenken over hoe [X] [beeldend voordeel]." (stijlvoorbeeld — altijd volledig in het Nederlands formuleren)
+CTA-STIJL: Uitnodigend, persoonlijk: "Zullen we bij een digitale koffie van 30 minuten samen nadenken over hoe [X] [beeldend voordeel]? Past volgende week?" (stijlvoorbeeld — altijd volledig in het Nederlands formuleren)
 
 ────────────────────────────────────────
 **PROFIEL S (Stabiel) — Relatiegetrouw, harmoniegericht, risicomijdend**
@@ -114,7 +118,7 @@ AANBEVOLEN WERKWOORDEN: ondersteunen, begeleiden, veiligstellen, behouden, betro
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: partnerschap, betrouwbaarheid, zekerheid, continuïteit, ervaring, vertrouwen, bewezen aanpak
 VERBODEN WOORDEN: agressief, disruptief, onmiddellijk, doorbreken, aanvallen, vechten, dominant
 PAIN-FRAMING: zacht, als "misschien herkent u dit" — nooit als verwijt, nooit als dreiging
-CTA-STIJL: Laagdrempelig, vrijblijvend: "Zou het een idee zijn om in een vrijblijvend gesprek van 15 minuten te kijken hoe wij u bij [X] zouden kunnen ondersteunen?" (stijlvoorbeeld — altijd volledig in het Nederlands formuleren)
+CTA-STIJL: Laagdrempelig, vrijblijvend: "Zou een vrijblijvende digitale koffie van 30 minuten een idee zijn om te kijken hoe wij u bij [X] zouden kunnen ondersteunen — helemaal in uw agenda?" (stijlvoorbeeld — altijd volledig in het Nederlands formuleren)
 
 ────────────────────────────────────────
 **PROFIEL C (Consciëntieus) — Analytisch, feitgericht, sceptisch**
@@ -126,7 +130,7 @@ AANBEVOLEN WERKWOORDEN: valideren, documenteren, verifiëren, optimaliseren, met
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: mechanisme, methodiek, specificatie, tolerantie, reproduceerbaarheid, KPI, gegevensbasis, bewijs
 VERBODEN WOORDEN: spannend, opwindend, fantastisch, gepassioneerd, samen (in emotionele zin)
 PAIN-FRAMING: als efficiëntie-/kwaliteitsprobleem met een duidelijk oorzaak-gevolgverband, onderbouwd met cijfers
-CTA-STIJL: Concreet, met mechanisme: "Laten we in 15 minuten bespreken hoe wij [X] via [concreet mechanisme] met [meetbaar X%] [verbeteren]." (stijlvoorbeeld — altijd volledig in het Nederlands formuleren)
+CTA-STIJL: Concreet, met mechanisme: "30 minuten digitaal koffiedrinken voor een technische deep-dive over hoe wij [X] via [concreet mechanisme] met [meetbaar X%] [verbeteren] — welk tijdslot past deze week?" (stijlvoorbeeld — altijd volledig in het Nederlands formuleren)
 
 ════════════════════════════════════════════════════════════
 
@@ -285,7 +289,7 @@ PALFINGER MARINE heeft in 2025 vier nieuwe kranen aan Damen geleverd – gefelic
 
 Norbert Kempf levert hydrauliekgerelateerde precisieonderdelen tot 400×400 mm volledig automatisch. Eenmaal ingesteld, loopt elke vervolgpartij tegen dezelfde stukprijs – of het nu 5 of 5.000 stuks zijn. Festo, SKF, ZF en Bosch kopen precies daarom bij hen in. Zo borgt u levertijden die uw concurrenten niet kunnen waarmaken.
 
-Laten we 15 minuten spreken – ik laat u zien hoe u uw stukkosten bij engineering changes met 20% verlaagt.
+30 minuten digitaal koffiedrinken deze week – ik laat u zien hoe u uw stukkosten bij engineering changes met 20% verlaagt.
 
 Met vriendelijke groet,
 
@@ -301,7 +305,7 @@ Dit probleem kennen we van veel techbedrijven: briljant engineeringwerk dat op b
 
 Precies hier komen wij in beeld: LIMELIGHT maakt van technische specs echte belevingen. LED-wanden die uw filterprocessen in realtime visualiseren. Lichtontwerp dat uw innovatiekracht letterlijk laat schitteren. Al 45 jaar ontwerpen wij podia voor bedrijven die technisch toonaangevend zijn en dat ook willen laten zien.
 
-Laten we bij een digitale kop koffie van 15 minuten samen nadenken over hoe uw beursaanwezigheid bezoekers nog weken later doet napraten.
+Zullen we bij een digitale koffie van 30 minuten samen nadenken over hoe uw beursaanwezigheid bezoekers nog weken later doet napraten? Past volgende week?
 
 Met vriendelijke groet,
 
@@ -317,7 +321,7 @@ Misschien herkent u de situatie: een nieuwe 800-VDC-pilootklant wil snel het RFQ
 
 Bij amplifa ondersteunen we bedrijven zoals Schaltbau bij het stapsgewijs opbouwen van gekwalificeerde koopsignalen bij BESS- en datacenterintegratoren – zonder druk, zonder risico voor bestaande klantrelaties. Meer dan 30 geverifieerde opportunities per maand zijn geen belofte, maar gedocumenteerde standaard.
 
-Zou het een idee zijn om in een vrijblijvend gesprek van 15 minuten te kijken hoe wij u zouden kunnen ondersteunen bij de rustige uitbreiding van uw pilootklantenportfolio?
+Zou een vrijblijvende digitale koffie van 30 minuten een idee zijn om te kijken hoe wij u zouden kunnen ondersteunen bij de rustige uitbreiding van uw pilootklantenportfolio — helemaal in uw agenda?
 
 Met vriendelijke groet,
 
@@ -331,7 +335,7 @@ Uw uitbreiding van 12 FTE in Power Electronics in Q4 2025 is ons niet ontgaan �
 
 Bij amplifa identificeren wij DC-switching-vensters bij BESS- en datacenterintegratoren in realtime – nog vóór het RFQ. Mechanisme: realtime monitoring van 14 koopsignaalcategorieën (funding, hiring, patentaanvragen, locatie-expansies) bij 2.400+ geverifieerde ICP-accounts in de DACH-regio. Gedocumenteerde output: 30+ gekwalificeerde opportunities/maand bij GE Vernova, Quinbrook, Hitachi Energy. Directe pipeline naar R&D-leads, niet naar inkoop.
 
-Laten we in 15 minuten bespreken hoe wij uw 800-VDC-pipeline via trigger-gebaseerde monitoring met 30% versnellen.
+30 minuten digitaal koffiedrinken voor een technische deep-dive over hoe wij uw 800-VDC-pipeline via trigger-gebaseerde monitoring met 30% versnellen — welk tijdslot past deze week?
 
 Met vriendelijke groet,
 ```
@@ -387,7 +391,7 @@ BULLETS: 3 bullets, elk MAX. 12 woorden, met een harde cijfer vooraan
 AANBEVOLEN WERKWOORDEN: leveren, winnen, zekerstellen, versnellen, doorzetten, opschalen
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: resultaat, marktaandeel, concurrentievoordeel, ROI, pipeline
 VERBODEN WOORDEN: misschien, eventueel, samen, behoedzaam, zorgvuldig, harmonieus
-CTA: Zelfverzekerd. "Mijn voorstel: [concrete meerwaarde]. 20 minuten – ik laat u de cijfers zien."
+CTA: Zelfverzekerd. "Mijn voorstel: [concrete meerwaarde]. 30 minuten digitaal koffiedrinken deze week – ik laat u de cijfers zien."
 
 ────────────────────────────────────────
 **PROFIEL I (Invloedrijk) — relatiegericht, enthousiast**
@@ -398,7 +402,7 @@ BULLETS: 3 bullets, elk 12-18 woorden, met story-element/referentieklant
 AANBEVOLEN WERKWOORDEN: vormgeven, bewegen, inspireren, zichtbaar maken, samen ontwikkelen
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: visie, impact, zichtbaarheid, merk, podium, effect
 VERBODEN WOORDEN: audit, methodiek, KPI, procesmatig, genormeerd
-CTA: Uitnodigend. "Mijn voorstel: laten we samen [concrete meerwaarde]. Wat dacht u van 20 minuten overleg?"
+CTA: Uitnodigend. "Mijn voorstel: laten we samen [concrete meerwaarde] verkennen. Wat dacht u van 30 minuten digitaal koffiedrinken? Past volgende week?"
 
 ────────────────────────────────────────
 **PROFIEL S (Stabiel) — loyaal, risicomijdend**
@@ -409,7 +413,7 @@ BULLETS: 3 bullets, elk 12-18 woorden, met een veiligheids-/ervaringsanker
 AANBEVOLEN WERKWOORDEN: ondersteunen, begeleiden, zekerstellen, behouden, stapsgewijs verbeteren
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: partnerschap, betrouwbaarheid, zekerheid, continuïteit, ervaring, vertrouwen
 VERBODEN WOORDEN: agressief, disruptief, onmiddellijk, doorbreken, aanvallen, dominant
-CTA: Laagdrempelig. "Zou het een idee zijn om in een vrijblijvend gesprek van 20 minuten te bekijken hoe wij u bij [X] zouden kunnen ondersteunen?"
+CTA: Laagdrempelig. "Zou een vrijblijvende digitale koffie van 30 minuten een idee zijn om te bekijken hoe wij u bij [X] zouden kunnen ondersteunen — helemaal in uw agenda?"
 
 ────────────────────────────────────────
 **PROFIEL C (Consciëntieus) — analytisch, feitengericht**
@@ -420,7 +424,7 @@ BULLETS: 3 bullets, elk 14-20 woorden, met mechanisme + bewijspunt
 AANBEVOLEN WERKWOORDEN: valideren, documenteren, verifiëren, optimaliseren, kwantificeren
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: mechanisme, methodiek, specificatie, tolerantie, KPI, gegevensbasis, bewijs
 VERBODEN WOORDEN: spannend, fantastisch, gepassioneerd, samen (emotioneel)
-CTA: Concreet. "Mijn voorstel: een 48-uurs-[audit/quick-check/marktradar] met [concrete output]. 20 minuten voor een technische deep-dive?"
+CTA: Concreet. "Mijn voorstel: een 48-uurs-[audit/quick-check/marktradar] met [concrete output]. 30 minuten digitaal koffiedrinken voor een technische deep-dive — welk tijdslot past deze week?"
 
 ────────────────────────────────────────
 **COMBINATIES (DC, IS, CD, DI, SC etc.)**
@@ -497,7 +501,7 @@ E-mail 1 is niet beantwoord. E-mail 2 mag NIET:
 E-mail 2 MOET:
 - een NIEUWE invalshoek bieden (ander koopsignaal dan in {{previous_email_body}})
 - dieper gaan dan e-mail 1: concrete cijfers, bewijspunten, engineering-hooks
-- een laagdrempeliger CTA aanbieden (analyse/audit/quick-check, 20 min.)
+- een laagdrempeliger CTA aanbieden (analyse/audit/quick-check via 30 minuten digitaal koffiedrinken)
 
 Vorige mail ter referentie (NIET herhalen, NIET citeren):
 {{previous_email_body}}
@@ -626,7 +630,7 @@ Drie hefbomen:
 - Kleine series: stukprijs vanaf 1 stuk = stukprijs vanaf 1.000
 - Levertijden: tot 40% sneller dan verspaning in meerdere stappen
 
-Mijn voorstel: een 48-uurs-quick-check van een actueel onderdeel. 20 minuten – ik laat u de cijfers zien.
+Mijn voorstel: een 48-uurs-quick-check van een actueel onderdeel. 30 minuten digitaal koffiedrinken – ik laat u de cijfers zien.
 
 Met vriendelijke groet,
 
@@ -645,7 +649,7 @@ Drie concrete aanknopingspunten:
 - Windenergie: +30% levensduur door geoptimaliseerde magneetopstelling – in de praktijk gedocumenteerd bij toeleveranciers van Vestas
 - Navya-shuttles: 20 jaar garantie op temperatuurstabiele magneten (-30 tot +40°C)
 
-Mijn voorstel: laten we samen een van uw huidige motoren magnetisch doorlichten – gratis, 48-uurs-analyse. Wat dacht u van 20 minuten overleg?
+Mijn voorstel: laten we samen een van uw huidige motoren magnetisch doorlichten – gratis, 48-uurs-analyse. Wat dacht u van 30 minuten digitaal koffiedrinken?
 
 Met vriendelijke groet,
 
@@ -664,7 +668,7 @@ Drie gedocumenteerde mechanismen:
 - 800-VDC-roadmaps: trigger-gebaseerde identificatie van nieuwe specificatie-eisen in het hyperscaler-segment
 - Reactivering van bestaande klanten: meetbare toename van 22% in pipeline-velocity bij vergelijkbare industrieprojecten
 
-Mijn voorstel: een 48-uurs-marktradar met 20 gekwalificeerde DC-switching-opportunities, methodisch gefilterd op uw ICP. 20
+Mijn voorstel: een 48-uurs-marktradar met 20 gekwalificeerde DC-switching-opportunities, methodisch gefilterd op uw ICP. 30 minuten digitaal koffiedrinken
 ```
 
 ---
@@ -698,7 +702,7 @@ heb je de opdracht verkeerd begrepen.
 🎯 CTA-KERNREGEL — GELDT VOOR ELKE E-MAIL IN DEZE SEQUENTIE 🎯
 ═══════════════════════════════════════════════════════════
 
-ELKE CTA PITCHT UITSLUITEND OP EEN AFSPRAAK / GESPREK (CALL).
+ELKE CTA PITCHT UITSLUITEND OP 30 MINUTEN DIGITAAL KOFFIEDRINKEN.
 
 VERBODEN als CTA:
 ❌ "Zal ik u een 1-pager sturen?"
@@ -707,14 +711,14 @@ VERBODEN als CTA:
 ❌ "Ben ik bij de verkeerde contactpersoon?" (zonder afspraak-frame)
 ❌ Elke vorm van materiaal versturen in plaats van een afspraak vragen
 
-TOEGESTAAN als CTA (altijd afspraak-gerelateerd):
-✅ "Laten we in 15/20 minuten bespreken hoe..."
-✅ "Past een kort gesprek van 15 minuten deze week?"
-✅ "Heeft u 20 minuten voor een technische deep-dive?"
-✅ "Zou een vrijblijvend gesprek van 15 minuten denkbaar zijn?"
-✅ "Welk moment past – dinsdag of donderdag?"
+TOEGESTAAN als CTA (altijd 30 minuten digitaal koffiedrinken):
+✅ "Laten we 30 minuten digitaal koffiedrinken om te bespreken hoe..."
+✅ "Past een digitale koffie van 30 minuten deze week?"
+✅ "Heeft u 30 minuten voor een digitale koffie en een technische deep-dive?"
+✅ "Zou een vrijblijvende digitale koffie van 30 minuten denkbaar zijn?"
+✅ "Welk tijdslot past voor 30 minuten digitaal koffiedrinken – dinsdag of donderdag?"
 
-Variatie komt uit de DISC-stijl en woordkeuze — NIET uit het format. Altijd een afspraak.
+Variatie komt uit de DISC-stijl en woordkeuze — NIET uit het format. Altijd 30 minuten digitaal koffiedrinken.
 
 ═══════════════════════════════════════════════════════════
 🎯 DISC-SCHRIJFSTIJL — HOOGSTE PRIORITEIT NA DE OUTPUT-REGEL 🎯
@@ -729,7 +733,7 @@ DISC-NORMALISATIE:
   → Tweede letter = TINT (30% gewicht)
 - Leeg/onduidelijk/null → C-profiel als default
 
-DISC STUURT WOORDKEUZE, TOON EN CTA-FRAME (maar de CTA blijft ALTIJD een afspraak-verzoek).
+DISC STUURT WOORDKEUZE, TOON EN CTA-FRAME (maar de CTA blijft ALTIJD een pitch voor 30 minuten digitaal koffiedrinken).
 
 ────────────────────────────────────────
 **PROFIEL D (Dominant) — resultaatgericht, ongeduldig**
@@ -740,8 +744,8 @@ PIJNPUNT-FRAMING: Als gemiste kans, verloren pipeline-tijd
 AANBEVOLEN WERKWOORDEN: leveren, veiligstellen, versnellen, doorzetten, winnen
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: resultaat, pipeline, ROI, concurrentievoordeel, hefboom
 VERBODEN WOORDEN: misschien, eventueel, gezamenlijk, behoedzaam, harmonieus
-CTA-STIJL: Direct, zelfverzekerd, afspraak-verzoek
-Voorbeeld: "15 minuten deze week – ik laat u de hefboom zien in cijfers."
+CTA-STIJL: Direct, zelfverzekerd, pitch voor 30 minuten digitaal koffiedrinken
+Voorbeeld: "30 minuten digitaal koffiedrinken deze week – ik laat u de hefboom zien in cijfers. Dinsdag of donderdag?"
 
 ────────────────────────────────────────
 **PROFIEL I (Invloedrijk) — relatiegericht, enthousiast**
@@ -752,8 +756,8 @@ PIJNPUNT-FRAMING: Als onbenut potentieel, gemiste zichtbaarheid
 AANBEVOLEN WERKWOORDEN: vormgeven, in beweging brengen, samen nadenken, zichtbaar maken
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: visie, impact, podium, weerklank, resonantie
 VERBODEN WOORDEN: auditering, methodiek, KPI, procesmatig
-CTA-STIJL: Uitnodigend, persoonlijk, afspraak-verzoek
-Voorbeeld: "Laten we in een gesprek van 15 minuten samen bekijken hoe dat er bij [Company] uit zou kunnen zien."
+CTA-STIJL: Uitnodigend, persoonlijk, pitch voor 30 minuten digitaal koffiedrinken
+Voorbeeld: "Zullen we bij een digitale koffie van 30 minuten samen bekijken hoe dat er bij [Company] uit zou kunnen zien? Past volgende week?"
 
 ────────────────────────────────────────
 **PROFIEL S (Stabiel) — loyaal, risicomijdend**
@@ -764,8 +768,8 @@ PIJNPUNT-FRAMING: Zachtaardig, partnerschappelijk, "misschien herkent u dit"
 AANBEVOLEN WERKWOORDEN: ondersteunen, begeleiden, veiligstellen, behouden
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: partnerschap, betrouwbaarheid, zekerheid, ervaring, vertrouwen
 VERBODEN WOORDEN: agressief, disruptief, onmiddellijk, aanvallen, doorbreken
-CTA-STIJL: Laagdrempelig, vrijblijvend, afspraak-verzoek
-Voorbeeld: "Zou het een idee zijn om in een vrijblijvend gesprek van 20 minuten te bekijken hoe wij u bij [X] zouden kunnen begeleiden?"
+CTA-STIJL: Laagdrempelig, vrijblijvend, pitch voor 30 minuten digitaal koffiedrinken
+Voorbeeld: "Zou een vrijblijvende digitale koffie van 30 minuten een idee zijn om te bekijken hoe wij u bij [X] zouden kunnen begeleiden?"
 
 ────────────────────────────────────────
 **PROFIEL C (Consciëntieus) — analytisch, feitengericht**
@@ -776,15 +780,15 @@ PIJNPUNT-FRAMING: Als efficiëntie-/kwaliteitsprobleem met oorzaak-gevolg-logica
 AANBEVOLEN WERKWOORDEN: valideren, documenteren, optimaliseren, kwantificeren
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: mechanisme, methodiek, specificatie, KPI, bewijs
 VERBODEN WOORDEN: spannend, fantastisch, gepassioneerd, gezamenlijk (emotioneel)
-CTA-STIJL: Concreet, met mechanisme, afspraak-verzoek
-Voorbeeld: "20 minuten voor een technische deep-dive over het [mechanisme] – welk moment past?"
+CTA-STIJL: Concreet, met mechanisme, pitch voor 30 minuten digitaal koffiedrinken
+Voorbeeld: "30 minuten digitaal koffiedrinken voor een technische deep-dive over het [mechanisme] – welk tijdslot past deze week?"
 
 ────────────────────────────────────────
 **COMBINATIES (DC, IS, CD, DI, SC etc.)**
 ────────────────────────────────────────
 - Structuur, lengte en CTA-frame van het dominante profiel
 - 30% woordkeuze/tint van het tweede profiel verweven
-- CTA blijft ALTIJD een afspraak-verzoek, in de dominante stijl
+- CTA blijft ALTIJD een pitch voor 30 minuten digitaal koffiedrinken, in de dominante stijl
 
 ════════════════════════════════════════════════════════════
 
@@ -854,7 +858,7 @@ E-mail 1 en e-mail 2 zijn niet beantwoord. E-mail 3 moet BEWUST anders zijn:
 - GEEN verontschuldiging ("Mocht ik lastig zijn...", "Excuses als...")
 - GEEN lange pijnpunt-dump — e-mail 3 is KOMPAKT
 - GEEN opsommingstekens (bullets) (e-mail 3 is pure lopende tekst, anders dan e-mail 2)
-- GEEN materiaal-aanbod (1-pager, PDF, case sturen) — ALTIJD afspraak-pitch
+- GEEN materiaal-aanbod (1-pager, PDF, case sturen) — ALTIJD pitch voor 30 minuten digitaal koffiedrinken
 
 **WAT E-MAIL 3 MOET LEVEREN:**
 1. **Zachte re-engagement in DISC-stijl** (1-2 zinnen): Bondig aanknopen bij het eerdere contact, zonder smekende toon. Voorbeeld D: "Kort: ik had u geschreven over [X]." Voorbeeld I: "Mocht mijn laatste twee mails in de inbox-drukte zijn ondergesneeuwd — geen probleem."
@@ -863,11 +867,11 @@ E-mail 1 en e-mail 2 zijn niet beantwoord. E-mail 3 moet BEWUST anders zijn:
    - Een **concreet inzicht** uit {{playbook.use_cases}}, passend bij de persona
    - Een **tweede koopsignaal**, dat nog niet gebruikt is in {{previous_email_body}}
    - Een **marktsignaal met verliesaversie** ("3 van uw directe concurrenten zijn de afgelopen 90 dagen vergelijkbare initiatieven gestart.")
-3. **AFSPRAAK-CTA in DISC-stijl** (1 zin): Pitch op een call van 15-20 minuten. GEEN materiaalverzending, GEEN antwoordvraag zonder afspraak-frame. Variatie alleen via DISC-stijl:
-   - D: "15 minuten deze week — ik laat u de hefboom zien."
-   - I: "Laten we in een gesprek van 15 minuten samen bekijken hoe dat er bij [Company] uit zou kunnen zien."
-   - S: "Zou een vrijblijvend gesprek van 20 minuten denkbaar zijn om dit rustig te bespreken?"
-   - C: "20 minuten voor een technische deep-dive over [mechanisme] — welk moment past?"
+3. **CTA in DISC-stijl** (1 zin): Pitch op 30 minuten digitaal koffiedrinken. GEEN materiaalverzending, GEEN antwoordvraag zonder een concrete pitch voor 30 minuten digitaal koffiedrinken. Variatie alleen via DISC-stijl:
+   - D: "30 minuten digitaal koffiedrinken deze week — dinsdag of donderdag?"
+   - I: "Zullen we bij een digitale koffie van 30 minuten samen bekijken hoe dat er bij [Company] uit zou kunnen zien? Past volgende week?"
+   - S: "Zou een vrijblijvende digitale koffie van 30 minuten denkbaar zijn om dit rustig te bespreken?"
+   - C: "30 minuten digitaal koffiedrinken voor een technische deep-dive over [mechanisme] — welk tijdslot past deze week?"
 
 Vorige e-mailinhoud ter referentie (NIET herhalen, NIET citeren):
 {{previous_email_body}}
@@ -906,8 +910,8 @@ Lege regel
 
 Lege regel
 
-**ALINEA 3 — AFSPRAAK-CTA (1 zin, DISC-stijl):**
-Pitch op een call van 15-20 minuten. NOOIT materiaalverzending. In de stijl van het DISC-profiel.
+**ALINEA 3 — CTA (1 zin, DISC-stijl):**
+Pitch op 30 minuten digitaal koffiedrinken. NOOIT materiaalverzending. In de stijl van het DISC-profiel.
 
 Lege regel
 
@@ -928,7 +932,7 @@ NOOIT een handtekening, naam of placeholder aan het einde!
 ☐ NIEUWE invalshoek (mini-case / nieuw bewijspunt / nieuw koopsignaal) ingebouwd?
 ☐ GEEN smekende taal, geen verontschuldiging?
 ☐ GEEN opsommingstekens — pure lopende tekst?
-☐ **CTA = AFSPRAAK-VERZOEK (geen 1-pager, geen materiaalverzending)?**
+☐ **CTA = PITCH VOOR 30 MINUTEN DIGITAAL KOFFIEDRINKEN (geen 1-pager, geen materiaalverzending)?**
 ☐ Taal doorgaand consistent Nederlands?
 ☐ Geen holle frases, geen placeholders, geen handtekening?
 
@@ -940,7 +944,7 @@ FINALE REMINDER — JOUW OUTPUT:
 ✅ LENGTE 110-150 woorden (DISC-afhankelijk, korter dan e-mail 2)
 ✅ PURE LOPENDE TEKST — GEEN BULLETS
 ✅ NIEUWE INVALSHOEK — geen herhaling uit e-mail 1+2
-✅ CTA = AFSPRAAK-VERZOEK (call/gesprek/deep-dive)
+✅ CTA = PITCH VOOR 30 MINUTEN DIGITAAL KOFFIEDRINKEN (evt. als technische deep-dive)
 ✅ Een lezer zou aan de stijl moeten herkennen of het D, I, S of C is
 
 ❌ GEEN "Hier is de e-mail:"
@@ -952,7 +956,7 @@ FINALE REMINDER — JOUW OUTPUT:
 ❌ GEEN blinde kopie van de onderstaande voorbeelden
 
 SCHRIJF NU DE E-MAIL.
-Volgorde: DISC-profiel bepalen → nieuwe invalshoek kiezen (niet uit e-mail 1+2!) → afspraak-CTA formuleren → schrijven.
+Volgorde: DISC-profiel bepalen → nieuwe invalshoek kiezen (niet uit e-mail 1+2!) → CTA voor 30 minuten digitaal koffiedrinken formuleren → schrijven.
 ═══════════════════════════════════════════════════════════
 
 # STIJL-REFERENTIES (4 VOORBEELDEN — elk een profiel/combi — NIET blind kopiëren)
@@ -970,7 +974,7 @@ kort: ik had u geschreven over de opstartkosten bij uw klepblokvarianten.
 
 Inmiddels een interessant datapunt: een tier-1-hydrauliekklant – vergelijkbaar variantenspectrum als PALFINGER MARINE – heeft zijn stukkosten bij engineering changes binnen 6 weken met 35% verlaagd. Festo verplaatst parallel de volgende onderdelenfamilie naar ons. Uw directe concurrenten rekenen de hefboom nu zelf door.
 
-15 minuten deze week – ik laat u de hefboom zien in cijfers. Dinsdag of donderdag?
+30 minuten digitaal koffiedrinken deze week – ik laat u de hefboom zien in cijfers. Dinsdag of donderdag?
 
 Met vriendelijke groet,
 
@@ -984,7 +988,7 @@ mocht mijn laatste twee mails in de inbox-drukte zijn ondergesneeuwd – geen pr
 
 Een kleine gedachte die ik u wil meegeven: een fabrikant van e-mobility-aandrijvingen waarmee we vorig jaar hebben samengewerkt, had precies uw uitgangspositie – sterk merk, bekroond engineering, maar het efficiëntie-voordeel bleef verstopt in het datasheet. We hebben samen één enkele motor magnetisch doorgelicht. Daar kwam 18 maanden roadmap-werk voor zijn team uit voort.
 
-Laten we in een gesprek van 15 minuten samen bekijken waar zoiets bij ABM Greiffenberger zou kunnen zitten. Hoe past volgende week?
+Zullen we bij een digitale koffie van 30 minuten samen bekijken waar zoiets bij ABM Greiffenberger zou kunnen zitten? Hoe past volgende week?
 
 Met vriendelijke groet,
 
@@ -998,7 +1002,7 @@ ter herinnering: ik had u geschreven over de DC1-800-VDC-pilootklant-pipeline.
 
 Een methodisch datapunt ter duiding: drie DACH-concurrenten in het segment power electronics hebben in de afgelopen 90 dagen hun outbound-trigger-logica aangepast — gedocumenteerd via publieke hiring-signalen voor "Demand Generation Engineering". Parallel heeft een vergelijkbare industriële mkb-onderneming via onze methodiek 47 geverifieerde 800-VDC-opportunities opgebouwd in 14 weken, met een conversieratio van 11,4% naar RFQ.
 
-20 minuten voor een technische deep-dive over de trigger-logica en de gedocumenteerde KPI's – welk moment past deze of volgende week?
+30 minuten digitaal koffiedrinken voor een technische deep-dive over de trigger-logica en de gedocumenteerde KPI's – welk tijdslot past deze of volgende week?
 
 Met vriendelijke groet,
 
@@ -1012,7 +1016,7 @@ misschien kwamen mijn laatste twee mails gewoon op het verkeerde moment – dat 
 
 Een observatie die ik u rustig wil meegeven: een langjarige partner uit het mkb-segment liften met een vergelijkbare leveranciersstructuur heeft over 18 maanden zijn engineering-change-kosten gedocumenteerd met 28% verlaagd – zonder wissel van vaste leveranciers, maar door een geleidelijke uitbreiding met Norbert Kempf als specialist voor lot-size-onafhankelijke productie. Precies het soort rustige verandering die u bij Wittur al jaren succesvol vormgeeft.
 
-Zou een vrijblijvend gesprek van 20 minuten denkbaar zijn om dit rustig te bespreken? Ik richt me naar uw agenda.
+Zou een vrijblijvende digitale koffie van 30 minuten denkbaar zijn om dit rustig te bespreken? Ik richt me naar uw agenda.
 
 Met vriendelijke groet,
 ```
@@ -1048,7 +1052,7 @@ heb je de taak verkeerd begrepen.
 🎯 CTA-KERNREGEL — GELDT VOOR ELKE E-MAIL IN DEZE SEQUENTIE 🎯
 ═══════════════════════════════════════════════════════════
 
-ELKE CTA PITCHT UITSLUITEND EEN AFSPRAAK / GESPREK.
+ELKE CTA PITCHT UITSLUITEND 30 MINUTEN DIGITAAL KOFFIEDRINKEN.
 
 VERBODEN als CTA:
 ❌ "Zal ik u een 1-pager sturen?"
@@ -1057,12 +1061,12 @@ VERBODEN als CTA:
 ❌ "Ben ik bij de verkeerde contactpersoon?" (zonder afspraak-frame)
 ❌ Elke vorm van materiaal versturen in plaats van een afspraak-ask
 
-TOEGESTAAN als CTA (altijd afspraak-gerelateerd):
-✅ "Past een kort gesprek van 10 minuten deze week?"
-✅ "Heeft u 15 minuten voor een korte uitwisseling?"
-✅ "Is een gesprek van 10 minuten zinvol — dinsdag of donderdag?"
-✅ "Zou een vrijblijvende uitwisseling van 10 minuten denkbaar zijn?"
-✅ "Welk moment past — deze of volgende week?"
+TOEGESTAAN als CTA (altijd 30 minuten digitaal koffiedrinken):
+✅ "Past 30 minuten digitaal koffiedrinken deze week?"
+✅ "Heeft u 30 minuten voor een digitale koffie?"
+✅ "Is 30 minuten digitaal koffiedrinken zinvol — dinsdag of donderdag?"
+✅ "Zou een vrijblijvende digitale koffie van 30 minuten denkbaar zijn?"
+✅ "Welk moment past voor 30 minuten digitaal koffiedrinken — deze of volgende week?"
 
 ═══════════════════════════════════════════════════════════
 🎯 DISC-SCHRIJFSTIJL — HOOGSTE PRIORITEIT NA DE OUTPUT-REGEL 🎯
@@ -1087,8 +1091,8 @@ HOOK: 1 zin, harde constatering, geen vraag
 AANBEVOLEN WERKWOORDEN: leveren, winnen, veiligstellen, versnellen, doorzetten
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: resultaat, pipeline, ROI, concurrentievoordeel, hefboom
 VERBODEN WOORDEN: misschien, eventueel, gezamenlijk, behoedzaam, harmonieus
-CTA: Directe afspraak-ask, zonder omhaal
-Voorbeeld: "10 minuten deze week — dinsdag of donderdag?"
+CTA: Directe 30-minuten-digitale-koffie-ask, zonder omhaal
+Voorbeeld: "30 minuten digitaal koffiedrinken deze week — dinsdag of donderdag?"
 
 ────────────────────────────────────────
 **PROFIEL I (Invloedrijk) — relatiegericht, enthousiast**
@@ -1098,8 +1102,8 @@ HOOK: 1-2 zinnen, beeldend, eventueel met retorische vraag
 AANBEVOLEN WERKWOORDEN: vormgeven, in beweging brengen, samen nadenken, zichtbaar maken
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: visie, impact, podium, weerklank, resonantie
 VERBODEN WOORDEN: auditering, methodologie, KPI, procesmatig
-CTA: Uitnodigende afspraak-ask
-Voorbeeld: "Hoe klinkt 10 minuten uitwisseling volgende week?"
+CTA: Uitnodigende 30-minuten-digitale-koffie-ask
+Voorbeeld: "Zullen we bij een digitale koffie van 30 minuten samen verkennen hoe dat kan werken? Past volgende week?"
 
 ────────────────────────────────────────
 **PROFIEL S (Stabiel) — loyaal, risicomijdend**
@@ -1109,8 +1113,8 @@ HOOK: 1-2 zinnen, waarderend, rustig, geen drukmakende taal
 AANBEVOLEN WERKWOORDEN: ondersteunen, begeleiden, veiligstellen, behouden
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: partnerschap, betrouwbaarheid, zekerheid, ervaring, vertrouwen
 VERBODEN WOORDEN: agressief, disruptief, onmiddellijk, aanvallen, doorbreken
-CTA: Laagdrempelige afspraak-ask
-Voorbeeld: "Zou een vrijblijvende uitwisseling van 10 minuten denkbaar zijn — helemaal naar uw agenda?"
+CTA: Laagdrempelige 30-minuten-digitale-koffie-ask
+Voorbeeld: "Zou een vrijblijvende digitale koffie van 30 minuten een idee zijn — helemaal in uw agenda?"
 
 ────────────────────────────────────────
 **PROFIEL C (Consciëntieus) — analytisch, feitengericht**
@@ -1120,15 +1124,15 @@ HOOK: 1-2 zinnen, feitelijk onderbouwd, met cijfer/datum/specificatie
 AANBEVOLEN WERKWOORDEN: valideren, documenteren, optimaliseren, kwantificeren
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: mechanisme, methodologie, specificatie, KPI, bewijs
 VERBODEN WOORDEN: spannend, fantastisch, gepassioneerd, gezamenlijk (emotioneel)
-CTA: Precieze afspraak-ask over de methodiek
-Voorbeeld: "10 minuten over de methodiek — welk moment past deze week?"
+CTA: Precieze 30-minuten-digitale-koffie-ask over de methodiek
+Voorbeeld: "30 minuten digitaal koffiedrinken voor een technische deep-dive — welk tijdslot past deze week?"
 
 ────────────────────────────────────────
 **COMBINATIES (DC, IS, CD, DI, SC enz.)**
 ────────────────────────────────────────
 - Structuur, lengte, CTA-frame van het dominante profiel (70%)
 - 30% woordkeuze/tint van het tweede profiel verweven
-- CTA blijft ALTIJD een afspraak-ask in de dominante stijl
+- CTA blijft ALTIJD 30 minuten digitaal koffiedrinken, in de dominante stijl
 
 ════════════════════════════════════════════════════════════
 
@@ -1215,11 +1219,11 @@ E-mail 1, 2 en 3 zijn niet beantwoord. E-mail 4 is de **laatste zachte touch vó
    GEEN pain-dump. GEEN mechanisme-college. Eén vloeiend idee.
 
 3. **MICRO-AFSPRAAK-CTA (1 zin, DISC-stijl):**
-   Maximale verlaging van de antwoorddrempel — maar ALTIJD een afspraak-ask. Kies ÉÉN variant:
-   - D: "10 minuten deze week — dinsdag of donderdag?"
-   - I: "Hoe klinkt 10 minuten uitwisseling volgende week?"
-   - S: "Zou een vrijblijvende uitwisseling van 10 minuten denkbaar zijn — helemaal naar uw agenda?"
-   - C: "10 minuten over de methodiek — welk moment past deze week?"
+   Maximale verlaging van de antwoorddrempel — maar ALTIJD 30 minuten digitaal koffiedrinken. Kies ÉÉN variant:
+   - D: "30 minuten digitaal koffiedrinken deze week — dinsdag of donderdag?"
+   - I: "Zullen we bij een digitale koffie van 30 minuten samen verkennen hoe dat kan werken? Past volgende week?"
+   - S: "Zou een vrijblijvende digitale koffie van 30 minuten een idee zijn — helemaal in uw agenda?"
+   - C: "30 minuten digitaal koffiedrinken voor een technische deep-dive — welk tijdslot past deze week?"
    
    NOOIT: "Zal ik u de case sturen?", "Ben ik bij de verkeerde contactpersoon?" zonder afspraak-frame, of vergelijkbare materiaal-CTA's.
 
@@ -1260,7 +1264,7 @@ Pijn en waarde in één alinea. Verdicht met 1 bewijspunt.
 Lege regel
 
 **MICRO-AFSPRAAK-CTA (1 zin, DISC-stijl):**
-Afspraak-ask, laagdrempelig, in DISC-stijl. NOOIT materiaalversturing.
+30 minuten digitaal koffiedrinken, laagdrempelig geformuleerd in DISC-stijl. NOOIT materiaalversturing.
 
 Lege regel
 
@@ -1282,7 +1286,7 @@ NOOIT handtekening, naam of placeholder aan het einde!
 ☐ Pijn + waarde samengesmolten (NIET gescheiden alinea's)?
 ☐ Precies 1 bewijspunt als verdichting?
 ☐ GEEN opsommingstekens — pure lopende tekst?
-☐ **CTA = AFSPRAAK-ASK (geen 1-pager, geen materiaalversturing, geen "Ben ik bij de juiste persoon?")?**
+☐ **CTA = 30 MINUTEN DIGITAAL KOFFIEDRINKEN (geen 1-pager, geen materiaalversturing, geen "Ben ik bij de juiste persoon?")?**
 ☐ Taal doorgaand consistent Nederlands?
 ☐ Geen holle frasen, geen placeholders, geen handtekening?
 
@@ -1294,7 +1298,7 @@ LAATSTE HERINNERING — JOUW OUTPUT:
 ✅ LENGTE 90-130 woorden (afhankelijk van DISC, kortste mail van de sequentie)
 ✅ PURE LOPENDE TEKST — GEEN BULLETS
 ✅ NIEUWE INVALSHOEK — geen herhaling uit e-mail 1, 2, 3
-✅ CTA = AFSPRAAK-ASK (10-15 min gesprek)
+✅ CTA = 30 MINUTEN DIGITAAL KOFFIEDRINKEN
 ✅ Een lezer zou aan de stijl moeten herkennen of het D, I, S of C is
 
 ❌ GEEN "Hier is de e-mail:"
@@ -1324,7 +1328,7 @@ Uw expansie naar Polen in 2024 laat zien: KERN Microtechnik schaalt op.
 
 Maar groeit uw pipeline even snel als uw productiecapaciteit? Precisiefabrikanten in uw klasse verliezen regelmatig weken omdat verkoop handmatig kwalificeert in plaats van sluit. Wij leveren gekwalificeerde eerste gesprekken met beslissers uit uw doelsector — Tier-1-machinebouwers hebben daarmee hun pipeline-snelheid in 6 weken verdubbeld.
 
-10 minuten deze week — dinsdag of donderdag?
+30 minuten digitaal koffiedrinken deze week — dinsdag of donderdag?
 
 Met vriendelijke groet,
 
@@ -1338,7 +1342,7 @@ de rebranding naar „magier" was een schot in de roos — maar hoe vertaalt u d
 
 Veel designbureaus slagen er niet in om hun digitale briljantie te vertalen naar fysieke ervaringen. LIMELIGHT ontwerpt technische enscenering die uw merk omzet in onvergetelijke live-momenten — van interactieve LED-installaties tot immersieve presentatieruimtes. Met meer dan 45 jaar ervaring hebben we onlangs voor een vergelijkbare tech-klant op de Hannover Messe resonantie gecreëerd.
 
-Hoe klinkt 10 minuten uitwisseling volgende week, om samen na te denken waar zoiets bij magier zou passen?
+Zullen we bij een digitale koffie van 30 minuten volgende week samen verkennen waar zoiets bij magier zou passen?
 
 Met vriendelijke groet,
 
@@ -1352,7 +1356,7 @@ Uw publicatie van de DC1-800-VDC-specificatie in februari 2026 wijst op een syst
 
 In deze fase is de conversieratio van gekwalificeerde koopsignaal-herkenning naar RFQ-pipeline de kritieke hefboom. Bij amplifa kwantificeren we 14 gedocumenteerde signaalcategorieën over 2.400+ DACH-ICP-accounts — met een reproduceerbare conversieratio van 11,4% naar RFQ bij vergelijkbare industriële klanten binnen 14 weken.
 
-20 minuten over de methodiek en de gedocumenteerde KPI's — welk moment past deze of volgende week?
+30 minuten digitaal koffiedrinken over de methodiek en de gedocumenteerde KPI's — welk moment past deze of volgende week?
 
 Met vriendelijke groet,
 
@@ -1366,7 +1370,7 @@ Uw presentatie op de electronica over het opbouwen van betrouwbare leveranciersn
 
 Precies in die geest wil ik aanknopen. Bij amplifa begeleiden we industriële bedrijven zoals Schaltbau bij het stap voor stap en partnerschappelijk opbouwen van nieuwe pilotklantrelaties — zonder risico voor de bestaande pipeline. Meer dan 30 geverifieerde 800-VDC-opportunities per maand zijn geen belofte, maar gedocumenteerde standaard bij vergelijkbare partners.
 
-Zou een vrijblijvende uitwisseling van 15 minuten denkbaar zijn om dit rustig samen te bespreken — helemaal naar uw agenda?
+Zou een vrijblijvende digitale koffie van 30 minuten denkbaar zijn om dit rustig samen te bespreken — helemaal naar uw agenda?
 
 Met vriendelijke groet,
 ```
@@ -1401,21 +1405,21 @@ heb je de taak verkeerd begrepen.
 🎯 CTA-KERNREGEL — GELDT VOOR ELKE E-MAIL IN DEZE REEKS 🎯
 ═══════════════════════════════════════════════════════════
 
-ELKE CTA PITCHT UITSLUITEND OP EEN AFSPRAAK / GESPREK.
+ELKE CTA PITCHT UITSLUITEND 30 MINUTEN DIGITAAL KOFFIEDRINKEN.
 
 VERBODEN ALS CTA:
 ❌ "Zal ik u een 1-pager sturen?"
 ❌ "Ik stuur u de case als PDF"
 ❌ "Zal ik u de kerncijfers mailen?"
 ❌ "Ben ik bij de verkeerde contactpersoon?" (zonder afspraak-frame)
-❌ "Ik deel graag details tijdens het gesprek" (passief, dwingt niet tot een afspraak)
+❌ "Ik deel graag details bij de digitale koffie" (passief, dwingt niet tot een afspraak)
 ❌ Elke vorm van materiaal versturen in plaats van een afspraak vragen
 
-TOEGESTAAN ALS CTA (altijd afspraak-gerelateerd):
-✅ "Heeft u 15 minuten voor een kort gesprek?"
-✅ "Past een korte call van 15 minuten deze week?"
-✅ "Welk moment past u het beste – dinsdag of donderdag?"
-✅ "Zou een vrijblijvend gesprek van 15 minuten iets voor u zijn?"
+TOEGESTAAN ALS CTA (altijd 30 minuten digitaal koffiedrinken):
+✅ "Heeft u 30 minuten voor een digitale koffie?"
+✅ "Past 30 minuten digitaal koffiedrinken deze week?"
+✅ "Welk moment past u het beste voor 30 minuten digitaal koffiedrinken – dinsdag of donderdag?"
+✅ "Zou een vrijblijvende digitale koffie van 30 minuten iets voor u zijn?"
 
 Ook de P.S. mag de afspraak versterken, maar mag nooit uitwijken naar materiaal.
 
@@ -1443,7 +1447,7 @@ PIJNPUNT-FRAMING: Als gemiste pipeline, verloren marktaandeel
 AANBEVOLEN WERKWOORDEN: leveren, winnen, veiligstellen, versnellen, doorzetten
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: resultaat, pipeline, ROI, concurrentievoordeel, hefboom
 VERBODEN WOORDEN: misschien, eventueel, samen, behoedzaam, harmonieus
-CTA-STIJL: Direct, zelfverzekerd. "15 minuten deze week?"
+CTA-STIJL: Direct, zelfverzekerd. "30 minuten digitaal koffiedrinken deze week?"
 P.S.-STIJL: Concurrentie-/verliesaversie. Voorbeeld: "P.S. Twee van uw directe concurrenten zijn de afgelopen 60 dagen met vergelijkbare initiatieven gestart — dit moment vult snel."
 
 ────────────────────────────────────────
@@ -1455,8 +1459,8 @@ PIJNPUNT-FRAMING: Als onbenut potentieel, gemiste zichtbaarheid
 AANBEVOLEN WERKWOORDEN: vormgeven, in beweging brengen, samen nadenken, zichtbaar maken
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: visie, impact, podium, weerklank, resonantie
 VERBODEN WOORDEN: audit, methodiek, KPI, procesmatig
-CTA-STIJL: Uitnodigend. "Heeft u zin in een gesprek van 15 minuten?"
-P.S.-STIJL: Korte anekdote, referentieklant als verhaal met afspraak-hook. Voorbeeld: "P.S. Een vergelijkbare klant uit uw branche heeft dezelfde uitgangspositie omgezet in 3 live ervaringen — dat verhaal vertel ik u graag tijdens het gesprek."
+CTA-STIJL: Uitnodigend. "Zullen we bij een digitale koffie van 30 minuten samen verkennen hoe dat kan werken?"
+P.S.-STIJL: Korte anekdote, referentieklant als verhaal met afspraak-hook. Voorbeeld: "P.S. Een vergelijkbare klant uit uw branche heeft dezelfde uitgangspositie omgezet in 3 live ervaringen — dat verhaal vertel ik u graag bij de digitale koffie."
 
 ────────────────────────────────────────
 **PROFIEL S (Stabiel) — loyaal, risicomijdend**
@@ -1467,8 +1471,8 @@ PIJNPUNT-FRAMING: Zacht, partnerschappelijk
 AANBEVOLEN WERKWOORDEN: ondersteunen, begeleiden, veiligstellen, behouden
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: partnerschap, betrouwbaarheid, zekerheid, ervaring, vertrouwen
 VERBODEN WOORDEN: agressief, disruptief, direct, aanvallen, doorbreken
-CTA-STIJL: Laagdrempelig. "Zou een vrijblijvend gesprek van 15 minuten iets voor u zijn?"
-P.S.-STIJL: Veiligheidsanker, langdurig partnerschap. Voorbeeld: "P.S. Drie van onze klanten uit uw branche begeleiden wij al meer dan 5 jaar — graag vertel ik u tijdens het gesprek hoe deze relaties zijn ontstaan."
+CTA-STIJL: Laagdrempelig. "Zou een vrijblijvende digitale koffie van 30 minuten iets voor u zijn?"
+P.S.-STIJL: Veiligheidsanker, langdurig partnerschap. Voorbeeld: "P.S. Drie van onze klanten uit uw branche begeleiden wij al meer dan 5 jaar — graag vertel ik u bij de digitale koffie hoe deze relaties zijn ontstaan."
 
 ────────────────────────────────────────
 **PROFIEL C (Consciëntieus) — analytisch, feitengericht**
@@ -1479,8 +1483,8 @@ PIJNPUNT-FRAMING: Efficiëntie-/kwaliteitsprobleem met oorzaak-gevolglogica
 AANBEVOLEN WERKWOORDEN: valideren, documenteren, optimaliseren, kwantificeren
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: mechanisme, methodiek, specificatie, KPI, bewijs
 VERBODEN WOORDEN: spannend, fantastisch, gepassioneerd, samen (emotioneel bedoeld)
-CTA-STIJL: Precies. "20 minuten voor een technische deep-dive — welk moment schikt?"
-P.S.-STIJL: Harde datapunt, gedocumenteerd mechanisme met afspraak-hook. Voorbeeld: "P.S. Gedocumenteerde conversieratio van 11,4% naar RFQ binnen 14 weken bij een vergelijkbaar ICP — de methodiek daarachter laat ik u zien tijdens het gesprek."
+CTA-STIJL: Precies. "30 minuten digitaal koffiedrinken voor een technische deep-dive — welk moment schikt?"
+P.S.-STIJL: Harde datapunt, gedocumenteerd mechanisme met afspraak-hook. Voorbeeld: "P.S. Gedocumenteerde conversieratio van 11,4% naar RFQ binnen 14 weken bij een vergelijkbaar ICP — de methodiek daarachter laat ik u zien bij de digitale koffie."
 
 ────────────────────────────────────────
 **COMBINATIES (DC, IS, CD, DI, SC enz.)**
@@ -1556,7 +1560,7 @@ E-mail 1-4 zijn niet beantwoord. E-mail 5 gebruikt de P.S.-hefboom — statistis
 - GEEN excuus ("Mocht ik lastig zijn...")
 - GEEN opsommingstekens, GEEN lijsten — uitsluitend lopende tekst
 - GEEN materiaal-aanbod (1-pager, PDF, case sturen) als CTA — ALTIJD een afspraak-pitch
-- GEEN passieve P.S. ("Details deel ik graag tijdens het gesprek") zonder nieuwe hefboom
+- GEEN passieve P.S. ("Details deel ik graag bij de digitale koffie") zonder nieuwe hefboom
 
 **WAT E-MAIL 5 MOET LEVEREN:**
 
@@ -1570,18 +1574,18 @@ E-mail 1-4 zijn niet beantwoord. E-mail 5 gebruikt de P.S.-hefboom — statistis
    Concreet voordeel uit {{playbook.value_proposition}} en {{playbook.product.name}}. Met MINSTENS ÉÉN bewijspunt uit {{playbook.proof_points}} OF referentieklant uit {{playbook.references}}, indien nog niet gebruikt in {{previous_email_body}}. GEEN CTA hier.
 
 4. **AFSPRAAK-CTA (1 zin, DISC-stijl):**
-   Zacht/uitnodigend. Pitch op een gesprek van 15-20 minuten. NOOIT materiaal versturen.
+   Zacht/uitnodigend. Pitch op 30 minuten digitaal koffiedrinken. NOOIT materiaal versturen.
 
 5. **AFSLUITING:**
    "Met vriendelijke groet,"
 
 6. **P.S. (1-2 zinnen, max. 30 woorden, DISC-stijl):**
-   De sterkste conversiehefboom van de mail. NOOIT een passieve "Details tijdens het gesprek delen". In plaats daarvan ÉÉN van de volgende varianten — passend bij het DISC-profiel:
+   De sterkste conversiehefboom van de mail. NOOIT een passieve "Details bij de digitale koffie delen". In plaats daarvan ÉÉN van de volgende varianten — passend bij het DISC-profiel:
 
-   - **D-stijl:** Concurrentie-/verliesaversie ("Twee van uw directe concurrenten zijn de afgelopen 60 dagen met vergelijkbare initiatieven gestart — dit laat ik u graag zien tijdens het gesprek.")
-   - **I-stijl:** Korte anekdote met referentie-verhaal ("Een vergelijkbare klant heeft zijn live aanwezigheid binnen 6 weken verdriedubbeld — dat verhaal vertel ik u graag tijdens het gesprek.")
-   - **S-stijl:** Veiligheidsanker, langdurig partnerschap ("Drie industriële klanten uit uw branche begeleiden wij al meer dan 5 jaar — deze ervaringen deel ik graag tijdens het gesprek.")
-   - **C-stijl:** Harde datapunt met mechanisme ("Gedocumenteerde conversieratio van 11,4% naar RFQ binnen 14 weken bij een vergelijkbaar ICP — de methodiek daarachter tijdens het gesprek.")
+   - **D-stijl:** Concurrentie-/verliesaversie ("Twee van uw directe concurrenten zijn de afgelopen 60 dagen met vergelijkbare initiatieven gestart — dit laat ik u graag zien bij de digitale koffie.")
+   - **I-stijl:** Korte anekdote met referentie-verhaal ("Een vergelijkbare klant heeft zijn live aanwezigheid binnen 6 weken verdriedubbeld — dat verhaal vertel ik u graag bij de digitale koffie.")
+   - **S-stijl:** Veiligheidsanker, langdurig partnerschap ("Drie industriële klanten uit uw branche begeleiden wij al meer dan 5 jaar — deze ervaringen deel ik graag bij de digitale koffie.")
+   - **C-stijl:** Harde datapunt met mechanisme ("Gedocumenteerde conversieratio van 11,4% naar RFQ binnen 14 weken bij een vergelijkbaar ICP — de methodiek daarachter bij de digitale koffie.")
 
    De inhoud van de P.S. MOET een nieuw aspect brengen dat NIET in de body staat. Het is een **tweede, kleinere hook** — en versterkt de interesse in de afspraak.
 
@@ -1628,7 +1632,7 @@ Concreet voordeel + minstens 1 bewijspunt. GEEN CTA hier.
 Lege regel
 
 **AFSPRAAK-CTA (1 zin, DISC-stijl):**
-Zachte afspraak-vraag.
+Zachte vraag voor 30 minuten digitaal koffiedrinken.
 
 Lege regel
 
@@ -1654,8 +1658,8 @@ NOOIT een handtekening, naam of placeholder aan het einde! De P.S.-regel is de l
 ☐ Pijnpunt persona-specifiek, met vakterminologie?
 ☐ Minstens 1 bewijspunt in body OF P.S.?
 ☐ GEEN opsommingen — uitsluitend lopende tekst?
-☐ **CTA = AFSPRAAK-VRAAG (geen 1-pager, geen materiaal versturen)?**
-☐ **P.S. brengt NIEUWE hefboom in DISC-stijl, GEEN passief "Details tijdens het gesprek"?**
+☐ **CTA = 30 MINUTEN DIGITAAL KOFFIEDRINKEN (geen 1-pager, geen materiaal versturen)?**
+☐ **P.S. brengt NIEUWE hefboom in DISC-stijl, GEEN passief "Details bij de digitale koffie"?**
 ☐ P.S. versterkt de interesse in de afspraak?
 ☐ Taal consistent Nederlands doorgevoerd (body + P.S.)?
 ☐ Geen holle frasen, geen placeholders, geen handtekening?
@@ -1668,13 +1672,13 @@ LAATSTE HERINNERING — JOUW OUTPUT:
 ✅ EINDIGT met de P.S.-regel (niets erna!)
 ✅ LENGTE body 140-160 woorden (afhankelijk van DISC) + P.S. max. 30 woorden
 ✅ UITSLUITEND LOPENDE TEKST — GEEN OPSOMMINGSTEKENS
-✅ CTA = AFSPRAAK-VRAAG
+✅ CTA = 30 MINUTEN DIGITAAL KOFFIEDRINKEN
 ✅ P.S. brengt een NIEUWE HEFBOOM in DISC-stijl
 
 ❌ GEEN "Hier is de e-mail:"
 ❌ GEEN "Heeft u mijn e-mails ontvangen?"
 ❌ GEEN 1-pager, geen case-PDF, geen materiaal versturen als CTA
-❌ GEEN passieve P.S. ("Details deel ik tijdens het gesprek")
+❌ GEEN passieve P.S. ("Details deel ik bij de digitale koffie")
 ❌ GEEN herhaling van de instructies
 ❌ GEEN opsommingstekens
 ❌ GEEN inhoud na de P.S.-regel
@@ -1701,11 +1705,11 @@ Strategische inkopers in uw segment verliezen regelmatig 4-6 weken per engineeri
 
 Norbert Kempf levert hydrauliekgerelateerde precisieonderdelen tot 400×400 mm volautomatisch. Eenmaal ingesteld, loopt elke vervolgpartij tegen dezelfde stukprijs. Festo, SKF, ZF en Bosch kopen daarom precies bij hen — een kostenreductie per stuk van 20-40% bij kleine series is gedocumenteerd.
 
-Heeft u deze week 15 minuten voor een kort gesprek?
+Heeft u deze week 30 minuten voor een digitale koffie?
 
 Met vriendelijke groet,
 
-P.S. Twee van uw directe concurrenten op de Italiaanse hydrauliekmarkt hebben de afgelopen 90 dagen hun verspaningsstrategie aangepast — de achtergronden laat ik u graag zien tijdens het gesprek.
+P.S. Twee van uw directe concurrenten op de Italiaanse hydrauliekmarkt hebben de afgelopen 90 dagen hun verspaningsstrategie aangepast — de achtergronden laat ik u graag zien bij de digitale koffie.
 
 ────────────────────────────────────────
 VOORBEELD 2 — I-PROFIEL (155 woorden body + 28 woorden P.S., verhaal-P.S.)
@@ -1719,11 +1723,11 @@ Veel machinebouwers vertrouwen nog op aanbevelingen en beurzen, terwijl gekwalif
 
 Precies hier komt amplifa in beeld: wij geven het volledige outbound-traject vorm — van doelgroeponderzoek via gepersonaliseerde benadering tot een geboekte eerste afspraak rechtstreeks in uw agenda. Onze klanten in de machinebouw melden 8-15 gekwalificeerde nieuwe-klantgesprekken per maand.
 
-Zou u de komende dagen zin hebben in 15 minuten overleg?
+Zou u de komende dagen zin hebben in 30 minuten digitaal koffiedrinken?
 
 Met vriendelijke groet,
 
-P.S. Een machinebouwer uit Beieren heeft met onze aanpak in 6 weken drie nieuwe OEM-klanten gewonnen — dat verhaal vertel ik u graag persoonlijk tijdens het gesprek.
+P.S. Een machinebouwer uit Beieren heeft met onze aanpak in 6 weken drie nieuwe OEM-klanten gewonnen — dat verhaal vertel ik u graag persoonlijk bij de digitale koffie.
 
 ────────────────────────────────────────
 VOORBEELD 3 — C-PROFIEL (150 woorden body + 28 woorden P.S., datapunt-P.S.)
@@ -1737,11 +1741,11 @@ Strategische inkopers in het power-electronics-segment verliezen pipeline-snelhe
 
 Bij amplifa kwantificeren wij 14 gedocumenteerde signaalcategorieën over 2.400+ DACH-ICP-accounts. Methodiek: continue monitoring, trigger-gebaseerde outreach, reproduceerbare conversieratio van 11,4% naar RFQ bij vergelijkbare industriële klanten.
 
-20 minuten voor een technische deep-dive — welk moment past u deze of volgende week?
+30 minuten digitaal koffiedrinken voor een technische deep-dive — welk moment past u deze of volgende week?
 
 Met vriendelijke groet,
 
-P.S. 47 geverifieerde 800-VDC-opportunities gedocumenteerd binnen 14 weken bij een vergelijkbaar ICP — de methodiek en KPI-logiek daarachter laat ik u gestructureerd zien tijdens het gesprek.
+P.S. 47 geverifieerde 800-VDC-opportunities gedocumenteerd binnen 14 weken bij een vergelijkbaar ICP — de methodiek en KPI-logiek daarachter laat ik u gestructureerd zien bij de digitale koffie.
 
 ────────────────────────────────────────
 VOORBEELD 4 — IS-COMBINATIE (155 woorden body + 30 woorden P.S., I-verhaal met S-warmte)
@@ -1755,11 +1759,11 @@ Strategische inkopers zoals u kennen het spanningsveld: enerzijds de vaste lever
 
 Bij amplifa begeleiden wij bedrijven zoals Schaltbau bij het stapsgewijs en partnerschappelijk opbouwen van nieuwe pilotklant-relaties — zonder risico voor de bestaande pipeline. Samen met u vormen we een rustige, gedocumenteerde uitbreiding die past bij de Schaltbau-DNA.
 
-Zou een vrijblijvend gesprek van 15 minuten passen — helemaal volgens uw agenda?
+Zou een vrijblijvende digitale koffie van 30 minuten passen — helemaal volgens uw agenda?
 
 Met vriendelijke groet,
 
-P.S. Drie van onze industriële klanten begeleiden wij al meer dan 5 jaar volgens precies deze rustige opbouwlogica — deze ervaringsverhalen deel ik graag met u tijdens het gesprek.
+P.S. Drie van onze industriële klanten begeleiden wij al meer dan 5 jaar volgens precies deze rustige opbouwlogica — deze ervaringsverhalen deel ik graag met u bij de digitale koffie.
 ```
 
 ---
@@ -1792,7 +1796,7 @@ Als jouw eerste output-token niet "Geachte" of "Hallo" is, heb je de taak verkee
 🎯 CTA-KERNREGEL — GELDT VOOR ELKE E-MAIL IN DEZE REEKS 🎯
 ═══════════════════════════════════════════════════════════
 
-ELKE CTA IS UITSLUITEND GERICHT OP EEN AFSPRAAK / GESPREK.
+ELKE CTA IS UITSLUITEND GERICHT OP 30 MINUTEN DIGITAAL KOFFIEDRINKEN.
 
 VERBODEN als CTA:
 ❌ "Ik hoor graag een korte reactie" (te vaag, geen afspraak)
@@ -1803,14 +1807,14 @@ VERBODEN als CTA:
 ❌ Elke vorm van materiaal versturen in plaats van een afspraak-ask
 ❌ Elke vorm van "een reactie is genoeg" zonder afspraak-frame
 
-TOEGESTAAN als CTA (altijd gericht op een afspraak):
-✅ "Past een kort gesprek van 15 minuten deze week?"
-✅ "Heeft u 15 minuten voor een kort gesprek?"
-✅ "Zou een vrijblijvend gesprek van 15 minuten mogelijk zijn?"
-✅ "Welk moment past u – deze of volgende week?"
-✅ "Is een gesprek van 15 minuten zinvol — dinsdag of donderdag?"
+TOEGESTAAN als CTA (altijd gericht op 30 minuten digitaal koffiedrinken):
+✅ "Past 30 minuten digitaal koffiedrinken deze week?"
+✅ "Heeft u 30 minuten voor een digitale koffie?"
+✅ "Zou een vrijblijvende digitale koffie van 30 minuten mogelijk zijn?"
+✅ "Welk moment past u voor 30 minuten digitaal koffiedrinken – deze of volgende week?"
+✅ "Is 30 minuten digitaal koffiedrinken zinvol — dinsdag of donderdag?"
 
-Variatie komt voort uit DISC-stijl en woordkeuze — NIET uit het format. Altijd een afspraak.
+Variatie komt voort uit DISC-stijl en woordkeuze — NIET uit het format. Altijd 30 minuten digitaal koffiedrinken.
 
 ═══════════════════════════════════════════════════════════
 🎯 DISC-SCHRIJFSTIJL — HOOGSTE PRIORITEIT NA DE OUTPUTREGEL 🎯
@@ -1825,7 +1829,7 @@ DISC-NORMALISATIE:
   → Tweede letter = NUANCE (30% gewicht)
 - Leeg/onduidelijk/null → C-profiel als standaard
 
-DISC STUURT WOORDKEUZE, TOON EN CTA-FRAME (maar de CTA blijft ALTIJD een afspraak-ask).
+DISC STUURT WOORDKEUZE, TOON EN CTA-FRAME (maar de CTA blijft ALTIJD 30 minuten digitaal koffiedrinken).
 
 ────────────────────────────────────────
 **PROFIEL D (Dominant) — resultaatgericht, ongeduldig**
@@ -1836,8 +1840,8 @@ PIVOT-STIJL: Ander pijnpunt dan verloren zaken / concurrentiedruk
 AANBEVOLEN WERKWOORDEN: leveren, veiligstellen, versnellen, doorzetten, winnen
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: resultaat, pipeline, ROI, concurrentievoordeel, hefboom
 VERBODEN WOORDEN: misschien, eventueel, samen, behoedzaam, harmonieus
-CTA-STIJL: Direct, zelfverzekerd, afspraak-ask
-Voorbeeld: "15 minuten deze week — dinsdag of donderdag?"
+CTA-STIJL: Direct, zelfverzekerd, 30-minuten-digitale-koffie-ask
+Voorbeeld: "30 minuten digitaal koffiedrinken deze week — dinsdag of donderdag?"
 
 ────────────────────────────────────────
 **PROFIEL I (Invloed) — relatiegericht, enthousiast**
@@ -1848,8 +1852,8 @@ PIVOT-STIJL: Ander pijnpunt dan gemiste zichtbaarheid / verhaalelement
 AANBEVOLEN WERKWOORDEN: vormgeven, in beweging brengen, samen nadenken, zichtbaar maken
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: visie, effect, podium, impact, weerklank
 VERBODEN WOORDEN: audit, methodiek, KPI, procesmatig
-CTA-STIJL: Uitnodigend, persoonlijk, afspraak-ask
-Voorbeeld: "Heeft u zin in 15 minuten overleg volgende week?"
+CTA-STIJL: Uitnodigend, persoonlijk, 30-minuten-digitale-koffie-ask
+Voorbeeld: "Zullen we bij een digitale koffie van 30 minuten samen verkennen hoe dat kan werken? Past volgende week?"
 
 ────────────────────────────────────────
 **PROFIEL S (Stabiel) — relatietrouw, risicomijdend**
@@ -1860,8 +1864,8 @@ PIVOT-STIJL: Ander pijnpunt als risico-/stabiliteitsprobleem
 AANBEVOLEN WERKWOORDEN: ondersteunen, begeleiden, veiligstellen, behouden
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: partnerschap, betrouwbaarheid, zekerheid, ervaring, vertrouwen
 VERBODEN WOORDEN: agressief, disruptief, onmiddellijk, aanvallen, doorbreken
-CTA-STIJL: Laagdrempelig, vrijblijvend, afspraak-ask
-Voorbeeld: "Zou een vrijblijvend gesprek van 15 minuten mogelijk zijn — geheel op uw moment?"
+CTA-STIJL: Laagdrempelig, vrijblijvend, 30-minuten-digitale-koffie-ask
+Voorbeeld: "Zou een vrijblijvende digitale koffie van 30 minuten een idee zijn — helemaal in uw agenda?"
 
 ────────────────────────────────────────
 **PROFIEL C (Consciëntieus) — analytisch, feitengericht**
@@ -1872,15 +1876,15 @@ PIVOT-STIJL: Ander pijnpunt als methodiek-/efficiëntieprobleem met datapunt
 AANBEVOLEN WERKWOORDEN: valideren, documenteren, optimaliseren, kwantificeren
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: mechanisme, methodiek, specificatie, KPI, bewijs
 VERBODEN WOORDEN: spannend, fantastisch, gepassioneerd, samen (emotioneel)
-CTA-STIJL: Concreet, met mechanisme, afspraak-ask
-Voorbeeld: "20 minuten voor een technische deep-dive over de methodiek — welk moment past u?"
+CTA-STIJL: Concreet, met mechanisme, 30-minuten-digitale-koffie-ask
+Voorbeeld: "30 minuten digitaal koffiedrinken voor een technische deep-dive over de methodiek — welk moment past u?"
 
 ────────────────────────────────────────
 **COMBINATIES (DC, IS, CD, DI, SC enz.)**
 ────────────────────────────────────────
 - Structuur, lengte en CTA-frame van het dominante profiel
 - 30% woordkeuze/nuance van het tweede profiel verweven
-- De CTA blijft ALTIJD een afspraak-ask, in de dominante stijl
+- De CTA blijft ALTIJD 30 minuten digitaal koffiedrinken, in de dominante stijl
 
 ════════════════════════════════════════════════════════════
 
@@ -1970,7 +1974,7 @@ E-mail 1-5 zijn niet beantwoord. E-mail 6 is GEEN klassieke "ik wil even nagaan"
    Koppel dit aan EEN bewijspunt uit {{playbook.proof_points}} of referentieklant uit {{playbook.references}} — het bewijspunt moet NIEUW zijn, dus niet al voorkomen in {{previous_email_body}}.
 
 3. **AFSPRAAK-CTA in DISC-stijl (1 zin):**
-   Laagdrempeliger dan e-mail 1, maar ALTIJD gericht op een afspraak. GEEN vaag verzoek om "een reactie".
+   Laagdrempeliger dan e-mail 1, maar ALTIJD gericht op 30 minuten digitaal koffiedrinken. GEEN vaag verzoek om "een reactie".
 
 Inhoud van de vorige mail ter referentie (NIET herhalen, NIET citeren):
 {{previous_email_body}}
@@ -2010,7 +2014,7 @@ Pivot naar ander pijnpunt / use case / markttrend. Gekoppeld aan 1 NIEUW bewijsp
 Lege regel
 
 **AFSPRAAK-CTA (1 zin, DISC-stijl):**
-Laagdrempelig, maar ALTIJD een afspraak-ask.
+Laagdrempelig, maar ALTIJD 30 minuten digitaal koffiedrinken.
 
 Lege regel
 
@@ -2033,7 +2037,7 @@ NOOIT een handtekening, naam of placeholder aan het einde!
 ☐ Minstens 1 NIEUW bewijspunt uit {{playbook.proof_points}} of {{playbook.references}}?
 ☐ GEEN smekende taal, geen verontschuldiging?
 ☐ GEEN bullet-lijsten — uitsluitend lopende tekst?
-☐ **CTA = AFSPRAAK-ASK (geen "ik hoor graag een reactie", geen materiaal versturen)?**
+☐ **CTA = 30 MINUTEN DIGITAAL KOFFIEDRINKEN (geen "ik hoor graag een reactie", geen materiaal versturen)?**
 ☐ Taal doorlopend consistent Nederlands?
 ☐ Geen holle frasen, geen placeholders, geen handtekening?
 
@@ -2046,7 +2050,7 @@ LAATSTE REMINDER — JOUW OUTPUT:
 ✅ UITSLUITEND LOPENDE TEKST — GEEN BULLETS
 ✅ NIEUWE INVALSHOEK — ander pijnpunt / use case / markttrigger dan in e-mail 1-5
 ✅ NIEUW BEWIJSPUNT — niet uit {{previous_email_body}}
-✅ CTA = AFSPRAAK-ASK (gesprek/overleg/deep-dive)
+✅ CTA = 30 MINUTEN DIGITAAL KOFFIEDRINKEN
 ✅ Een lezer zou aan de stijl moeten kunnen herkennen of het D, I, S of C is
 
 ❌ GEEN "Hier is de e-mail:"
@@ -2079,7 +2083,7 @@ We hebben de afgelopen weken gesproken met inkoopmanagers uit het hydrauliek-seg
 
 Precies deze hefboom maakt bij de huidige fabrieksbezetting het verschil voor PALFINGER MARINE.
 
-15 minuten deze week — dinsdag of donderdag?
+30 minuten digitaal koffiedrinken deze week — dinsdag of donderdag?
 
 Met vriendelijke groet,
 
@@ -2095,7 +2099,7 @@ Vandaag wil ik graag een ander aspect met u delen: een fabrikant van bijzondere 
 
 Precies dit soort zichtbaarheid zou kunnen passen bij de verdubbelingsstrategie van Schnaithmann voor 2026.
 
-Heeft u zin in 15 minuten overleg volgende week?
+Zullen we bij een digitale koffie van 30 minuten volgende week samen verkennen hoe dat kan werken?
 
 Met vriendelijke groet,
 
@@ -2111,7 +2115,7 @@ De meeste van onze gesprekken met procurement-verantwoordelijken in het power-el
 
 Precies de methodische basis die in de huidige marktfase de doorslag geeft.
 
-20 minuten voor een technische deep-dive over de methodiek — welk moment past u?
+30 minuten digitaal koffiedrinken voor een technische deep-dive over de methodiek — welk moment past u?
 
 Met vriendelijke groet,
 
@@ -2125,7 +2129,7 @@ ik neem nog een keer contact op, geheel vrijblijvend — met een andere invalsho
 
 In gesprekken met strategische inkopers in de lift- en machinebouw horen we op dit moment vaker een andere zorg dan kosten: het onboarden van nieuwe leveranciers tijdens engineering-change-fasen brengt een gedocumenteerd kwaliteitsrisico met zich mee, juist bij veiligheidskritische onderdelen. Drie van onze partners hebben dit risico gestructureerd geminimaliseerd door een gefaseerde uitbreiding met Norbert Kempf — over 5 jaar, met gedocumenteerde slagingspercentages van eerste monsters boven 96%. Precies deze rustige opbouwlogica past bij de Wittur-DNA.
 
-Zou een vrijblijvend gesprek van 15 minuten mogelijk zijn — geheel op uw moment?
+Zou een vrijblijvende digitale koffie van 30 minuten mogelijk zijn — geheel op uw moment?
 
 Met vriendelijke groet,
 ```
@@ -2171,12 +2175,12 @@ VERBODEN ALS CTA:
 ❌ "Ik hoor graag van u" (te vaag)
 ❌ Elke vorm van materiaal versturen in plaats van een afspraak vragen
 
-TOEGESTAAN ALS CTA (altijd afspraak-gerelateerd):
-✅ "Ik laat u graag in 15 minuten zien of een vergelijkbare aanpak zinvol is — dinsdag of donderdag?"
-✅ "Past een kort gesprek van 15 minuten deze week?"
-✅ "Heeft u 20 minuten voor een gesprek?"
-✅ "Zou een vrijblijvend gesprek van 15 minuten denkbaar zijn?"
-✅ "Welk moment past — deze of volgende week?"
+TOEGESTAAN ALS CTA (altijd afspraak-gerelateerd, altijd een digitale koffie van 30 minuten):
+✅ "Ik laat u graag bij een digitale koffie van 30 minuten zien of een vergelijkbare aanpak zinvol is — dinsdag of donderdag?"
+✅ "Past 30 minuten digitaal koffiedrinken deze week?"
+✅ "Heeft u 30 minuten voor een digitale koffie?"
+✅ "Zou een vrijblijvende digitale koffie van 30 minuten denkbaar zijn?"
+✅ "Welk moment past voor 30 minuten digitaal koffiedrinken — deze of volgende week?"
 
 ═══════════════════════════════════════════════════════════
 🎯 DISC-SCHRIJFSTIJL — HOOGSTE PRIORITEIT NA DE OUTPUT-REGEL 🎯
@@ -2202,7 +2206,7 @@ AANBEVOLEN WERKWOORDEN: leveren, winnen, veiligstellen, versnellen, doorzetten
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: resultaat, pipeline, ROI, concurrentievoordeel, hefboom
 VERBODEN WOORDEN: misschien, eventueel, gezamenlijk, behoedzaam, harmonieus
 CTA-STIJL: Direct, zelfverzekerd, afspraak-vraag met voorstel voor moment
-Voorbeeld: "15 minuten deze week — dinsdag of donderdag?"
+Voorbeeld: "30 minuten digitaal koffiedrinken deze week — dinsdag of donderdag?"
 
 ────────────────────────────────────────
 **PROFIEL I (Invloedrijk) — relatiegericht, enthousiast**
@@ -2213,7 +2217,7 @@ AANBEVOLEN WERKWOORDEN: vormgeven, in beweging brengen, samen nadenken, zichtbaa
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: visie, impact, podium, resonantie
 VERBODEN WOORDEN: audit, methodiek, KPI, procesmatig
 CTA-STIJL: Uitnodigend, persoonlijk, afspraak-vraag
-Voorbeeld: "Ik laat graag in 15 minuten zien of een vergelijkbare aanpak interessant kan zijn voor [Company] — past er volgende week iets?"
+Voorbeeld: "Zullen we bij een digitale koffie van 30 minuten samen verkennen of een vergelijkbare aanpak interessant kan zijn voor [Company]? Past er volgende week iets?"
 
 ────────────────────────────────────────
 **PROFIEL S (Stabiel) — relatietrouw, risicomijdend**
@@ -2224,7 +2228,7 @@ AANBEVOLEN WERKWOORDEN: ondersteunen, begeleiden, veiligstellen, behouden, staps
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: partnerschap, betrouwbaarheid, zekerheid, ervaring, vertrouwen
 VERBODEN WOORDEN: agressief, disruptief, meteen, aanvallen, doorbreken
 CTA-STIJL: Laagdrempelig, vrijblijvend, afspraak-vraag
-Voorbeeld: "Zou een vrijblijvend gesprek van 15 minuten denkbaar zijn, om te kijken of dit ook bij uw situatie past?"
+Voorbeeld: "Zou een vrijblijvende digitale koffie van 30 minuten een idee zijn, om te kijken of dit ook bij uw situatie past — helemaal in uw agenda?"
 
 ────────────────────────────────────────
 **PROFIEL C (Consciëntieus) — analytisch, feitelijk gericht**
@@ -2235,7 +2239,7 @@ AANBEVOLEN WERKWOORDEN: valideren, documenteren, optimaliseren, kwantificeren
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: mechanisme, methodiek, specificatie, KPI, bewijs
 VERBODEN WOORDEN: spannend, fantastisch, gepassioneerd, gezamenlijk (emotioneel)
 CTA-STIJL: Concreet, met mechanisme, afspraak-vraag
-Voorbeeld: "20 minuten voor een technische deep-dive over de methodiek — welk moment past?"
+Voorbeeld: "30 minuten digitaal koffiedrinken voor een technische deep-dive over de methodiek — welk tijdslot past deze week?"
 
 ────────────────────────────────────────
 **COMBINATIES (DC, IS, CD, DI, SC enz.)**
@@ -2338,7 +2342,7 @@ E-mail 7 gebruikt **de krachtigste hefboom van de cold-mail-reeks: een concreet 
    De belangrijkste overgang. Maak expliciet waarom dit verhaal relevant is voor de lead. Koppel het aan een concreet aspect van {{company}} of {{job_title}}. NIET generiek — verwijs naar branche, omvang, koopsignaal of marktpositie.
 
 4. **AFSPRAAK-CTA IN DISC-STIJL (1 zin):**
-   Idealiter voortbouwend op het verhaal ("Ik laat u graag in 15 minuten zien of een vergelijkbare aanpak voor u zinvol is — dinsdag of donderdag?"). ALTIJD met voorstel voor moment of vraag naar moment.
+   Idealiter voortbouwend op het verhaal ("Ik laat u graag bij 30 minuten digitaal koffiedrinken zien of een vergelijkbare aanpak voor u zinvol is — dinsdag of donderdag?"). ALTIJD met voorstel voor moment of vraag naar moment, altijd geframed als 30 minuten digitaal koffiedrinken.
 
 Vorige mailinhoud ter referentie (NIET herhalen, NIET citeren):
 {{previous_email_body}}
@@ -2452,7 +2456,7 @@ Een tier-1-hydrauliekklant uit Zuid-Duitsland — vergelijkbaar variantenspectru
 
 Bij uw huidige fabrieksbezetting in Italië is precies deze hefboom marktbepalend. Wie sneller levert, wint de vervolgorder.
 
-15 minuten deze week laat ik u de cijfers zien — dinsdag of donderdag?
+30 minuten digitaal koffiedrinken deze week laat ik u de cijfers zien — dinsdag of donderdag?
 
 Met vriendelijke groet,
 
@@ -2468,7 +2472,7 @@ Een machinebouwer uit de regio Stuttgart — vergelijkbare omvang, vergelijkbare
 
 Bij uw scherp gedefinieerde doelgroep in de automotive-toeleveranciersmarkt zie ik precies dit potentieel bij STROTHMANN — de aanpak is nauwkeurig schaalbaar.
 
-Ik laat u graag in 15 minuten zien of een vergelijkbare aanpak voor u zinvol is — past er volgende week iets?
+Zullen we bij een digitale koffie van 30 minuten samen verkennen of een vergelijkbare aanpak voor u zinvol is? Past er volgende week iets?
 
 Met vriendelijke groet,
 
@@ -2484,7 +2488,7 @@ Een vergelijkbare industriële middelgrote onderneming in het power-electronics-
 
 Voor de 800-VDC-roadmap van Schaltbau is deze methodiek direct overdraagbaar — de ICP-definitie is te spiegelen naar BESS- en datacenter-integrators.
 
-20 minuten voor een technische deep-dive over de triggerlogica en de gedocumenteerde KPI's — welk moment past deze of volgende week?
+30 minuten digitaal koffiedrinken voor een technische deep-dive over de triggerlogica en de gedocumenteerde KPI's — welk tijdslot past deze of volgende week?
 
 Met vriendelijke groet,
 
@@ -2500,7 +2504,7 @@ Een liftonderdelenleverancier uit Noord-Duitsland — vergelijkbare leveranciers
 
 Deze manier van rustige, stapsgewijze uitbreiding past heel goed bij de Wittur-DNA en de huidige schaalstrategie.
 
-Zou een vrijblijvend gesprek van 15 minuten denkbaar zijn, om te kijken of dit ook bij uw situatie past?
+Zou een vrijblijvende digitale koffie van 30 minuten een idee zijn, om te kijken of dit ook bij uw situatie past — helemaal in uw agenda?
 
 Met vriendelijke groet,
 ```
@@ -2545,11 +2549,11 @@ VERBODEN als CTA:
 ❌ "Ben ik bij de verkeerde contactpersoon?" (zonder afspraak-frame)
 ❌ Elke vorm van materiaal versturen in plaats van een afspraak-ask
 
-TOEGESTAAN als CTA (altijd gericht op een afspraak):
-✅ "15 minuten zijn genoeg om u de cijfers te laten zien — dinsdag of donderdag?"
-✅ "Als dit een onderwerp is: 15 minuten deze week?"
-✅ "Heeft u 15 minuten voor een kort gesprek?"
-✅ "Welk moment past — deze of volgende week?"
+TOEGESTAAN als CTA (altijd gericht op een afspraak, altijd een digitale koffie van 30 minuten):
+✅ "30 minuten digitaal koffiedrinken zijn genoeg om u de cijfers te laten zien — dinsdag of donderdag?"
+✅ "Als dit een onderwerp is: 30 minuten digitaal koffiedrinken deze week?"
+✅ "Heeft u 30 minuten voor een digitale koffie?"
+✅ "Welk moment past voor 30 minuten digitaal koffiedrinken — deze of volgende week?"
 
 ═══════════════════════════════════════════════════════════
 🎯 DISC-SCHRIJFSTIJL — HOOGSTE PRIORITEIT NA DE OUTPUT-REGEL 🎯
@@ -2579,7 +2583,7 @@ AANBEVOLEN WERKWOORDEN: leveren, winnen, veiligstellen, doorzetten, versnellen
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: resultaat, pipeline, ROI, concurrentievoordeel, hefboom, marktaandeel
 VERBODEN WOORDEN: misschien, eventueel, samen, behoedzaam, harmonieus
 CTA-STIJL: Direct, zelfverzekerd, afspraak-ask met tijdstip-voorstel
-Voorbeeld: "15 minuten deze week — dinsdag of donderdag?"
+Voorbeeld: "30 minuten digitaal koffiedrinken deze week — dinsdag of donderdag?"
 
 ────────────────────────────────────────
 **PROFIEL I (Influent) — relatiegericht, enthousiast**
@@ -2593,7 +2597,7 @@ AANBEVOLEN WERKWOORDEN: vormgeven, in beweging brengen, zichtbaar maken, stempel
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: visie, impact, podium, resonantie
 VERBODEN WOORDEN: auditering, methodiek, KPI, procesmatig
 CTA-STIJL: Uitnodigend met energie, afspraak-ask
-Voorbeeld: "Als dit u prikkelt: 15 minuten overleg — past volgende week iets?"
+Voorbeeld: "Als dit u prikkelt: zullen we bij een digitale koffie van 30 minuten samen verkennen hoe dat bij [bedrijf] kan werken? Past volgende week iets?"
 
 ────────────────────────────────────────
 **PROFIEL S (Stabiel) — loyaal, risicomijdend**
@@ -2608,7 +2612,7 @@ AANBEVOLEN WERKWOORDEN: ondersteunen, begeleiden, veiligstellen, bewaren
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: partnerschap, betrouwbaarheid, zekerheid, ervaring, vertrouwen
 VERBODEN WOORDEN: agressief, disruptief, onmiddellijk, aanvallen, doorbreken
 CTA-STIJL: Laagdrempelig, vrijblijvend, afspraak-ask
-Voorbeeld: "Als dit blijft hangen: zou een vrijblijvend gesprek van 15 minuten denkbaar zijn?"
+Voorbeeld: "Als dit blijft hangen: zou een vrijblijvende digitale koffie van 30 minuten een idee zijn — helemaal in uw agenda?"
 
 ────────────────────────────────────────
 **PROFIEL C (Consciëntieus) — analytisch, feitelijk gericht**
@@ -2622,7 +2626,7 @@ AANBEVOLEN WERKWOORDEN: valideren, documenteren, optimaliseren, kwantificeren
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: mechanisme, methodiek, specificatie, KPI, bewijs
 VERBODEN WOORDEN: spannend, fantastisch, gepassioneerd, samen (emotioneel)
 CTA-STIJL: Precies, met mechanisme, afspraak-ask
-Voorbeeld: "20 minuten voor een technische deep-dive over de methodiek — welk moment past?"
+Voorbeeld: "30 minuten digitaal koffiedrinken voor een technische deep-dive over de methodiek — welk tijdslot past deze week?"
 
 ────────────────────────────────────────
 **COMBINATIES (DC, IS, CD, DI, SC etc.)**
@@ -2839,7 +2843,7 @@ Uw fabrieksuitbreiding in Caorle geeft een duidelijk groeisignaal, maar de typis
 
 Norbert Kempf levert precisieonderdelen voor hydrauliektoepassingen tot 400×400 mm, volledig geautomatiseerd. Een vergelijkbare tier-1-hydraulicklant heeft zijn setupkosten in 6 weken met 35% verlaagd — Festo, SKF, ZF en Bosch kiezen om precies dezelfde reden.
 
-15 minuten deze week, dan laat ik u de cijfers zien — dinsdag of donderdag?
+30 minuten digitaal koffiedrinken deze week, dan laat ik u de cijfers zien — dinsdag of donderdag?
 
 Met vriendelijke groet,
 
@@ -2855,7 +2859,7 @@ REHM Thermal Systems bouwt soldeersystemen voor de meest veeleisende elektronica
 
 Bij amplifa nemen we het volledige outboundtraject over — doelgroep, gepersonaliseerde eerste benadering, afsprakenplanning. Onze klanten in machinebouw en elektronica krijgen 8-14 gekwalificeerde nieuwe gesprekken per maand, zonder dat sales een vinger uitsteekt.
 
-Als dit u prikkelt: 15 minuten overleg volgende week — past er iets?
+Als dit u prikkelt: zullen we bij een digitale koffie van 30 minuten samen verkennen hoe dat bij REHM Thermal Systems kan werken? Past volgende week iets?
 
 Met vriendelijke groet,
 
@@ -2871,7 +2875,7 @@ De DC1-800-VDC-specificatie van Schaltbau uit februari 2026 laat een systematisc
 
 Bij amplifa kwantificeren we 14 gedocumenteerde vroege indicatoren over 2.400+ DACH-ICP-accounts. Reproduceerbaar conversiepercentage: 11,4% naar RFQ bij vergelijkbare industriële klanten — 47 geverifieerde opportunities in 14 weken.
 
-20 minuten voor een technische deep-dive over de trigger-logica en KPI-methodiek — welk moment past deze of volgende week?
+30 minuten digitaal koffiedrinken voor een technische deep-dive over de trigger-logica en KPI-methodiek — welk tijdslot past deze of volgende week?
 
 Met vriendelijke groet,
 
@@ -2887,7 +2891,7 @@ In gesprekken met strategische inkopers uit de lift- en machinebouw horen we dit
 
 Norbert Kempf wordt precies in dit soort fases ingeschakeld als aanvullende specialist. Bij drie langjarige partners uit de liftenbranche hebben we over 5 jaar tijd onderdeelfamilies opgebouwd die onafhankelijk zijn van batchgrootte — een first-time-right-percentage van meer dan 96%.
 
-Als dit blijft hangen: zou een vrijblijvend gesprek van 15 minuten denkbaar zijn, geheel op uw moment?
+Als dit blijft hangen: zou een vrijblijvende digitale koffie van 30 minuten een idee zijn, geheel op uw moment?
 
 Met vriendelijke groet,
 ```
@@ -2923,8 +2927,8 @@ heb je de opdracht verkeerd begrepen.
 🎯 CTA-KERNREGEL — GELDT VOOR ELKE E-MAIL IN DEZE REEKS 🎯
 ═══════════════════════════════════════════════════════════
 
-ELKE CTA PITCHT UITSLUITEND OP EEN AFSPRAAK / GESPREK.
-E-mail 9 gebruikt SPECIFIEK: concrete tijdslotvoorstellen met dag + tijdsbestek.
+ELKE CTA PITCHT UITSLUITEND OP EEN AFSPRAAK / GESPREK — ALTIJD GEFRAMED ALS 30 MINUTEN DIGITAAL KOFFIEDRINKEN.
+E-mail 9 gebruikt SPECIFIEK: concrete tijdslotvoorstellen met dag + tijdsbestek, voor een digitale koffie van 30 minuten.
 
 VERBODEN ALS CTA:
 ❌ "Zou u eventueel..." (te onzeker)
@@ -2933,10 +2937,10 @@ VERBODEN ALS CTA:
 ❌ "Ik hoor graag van u"
 ❌ Elke vorm van materiaalverzending in plaats van een afspraak-ask
 
-TOEGESTAAN (concrete tijdslots hebben de voorkeur):
-✅ "Ik heb volgende week dinsdag en donderdag ochtend tijd — past een van beide voor 15 minuten?"
-✅ "Deze week woensdag 10 of 14 uur — past een van de slots?"
-✅ "15 minuten donderdag of vrijdag ochtend — welke komt u uit?"
+TOEGESTAAN (concrete tijdslots hebben de voorkeur, altijd geframed als digitale koffie van 30 minuten):
+✅ "Ik heb volgende week dinsdag en donderdag ochtend tijd — past een van beide voor 30 minuten digitaal koffiedrinken?"
+✅ "Deze week woensdag 10 of 14 uur voor een digitale koffie van 30 minuten — past een van de slots?"
+✅ "30 minuten digitaal koffiedrinken donderdag of vrijdag ochtend — welke komt u uit?"
 
 ═══════════════════════════════════════════════════════════
 🎯 DISC-SCHRIJFSTIJL — HOOGSTE PRIORITEIT NA DE OUTPUT-REGEL 🎯
@@ -2963,7 +2967,7 @@ AANBEVOLEN WERKWOORDEN: leveren, veiligstellen, versnellen, doorzetten, winnen
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: resultaat, pipeline, ROI, concurrentievoordeel, hefboom
 VERBODEN WOORDEN: misschien, eventueel, gezamenlijk, behoedzaam, harmonieus
 CTA-STIJL: tijdslotvoorstel, kort en direct
-Voorbeeld: "Dinsdag of donderdag, 15 minuten — welk slot?"
+Voorbeeld: "Dinsdag of donderdag, 30 minuten digitaal koffiedrinken — welk slot?"
 
 ────────────────────────────────────────
 **PROFIEL I (Invloedrijk) — relatiegericht, enthousiast**
@@ -2975,7 +2979,7 @@ AANBEVOLEN WERKWOORDEN: vormgeven, in beweging brengen, samen nadenken, zichtbaa
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: visie, impact, podium, weerklank, resonantie
 VERBODEN WOORDEN: audit, methodiek, KPI, procesmatig
 CTA-STIJL: tijdslotvoorstel met een uitnodigende toon
-Voorbeeld: "Ik heb volgende week dinsdag en donderdag ochtend tijd voor 15 minuten overleg — past een van beide?"
+Voorbeeld: "Ik heb volgende week dinsdag en donderdag ochtend tijd voor een digitale koffie van 30 minuten — past een van beide?"
 
 ────────────────────────────────────────
 **PROFIEL S (Stabiel) — relatietrouw, risicomijdend**
@@ -2987,7 +2991,7 @@ AANBEVOLEN WERKWOORDEN: ondersteunen, begeleiden, veiligstellen, behouden
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: partnerschap, betrouwbaarheid, zekerheid, ervaring, vertrouwen
 VERBODEN WOORDEN: agressief, disruptief, onmiddellijk, aanvallen, doorbreken
 CTA-STIJL: tijdslotvoorstel vrijblijvend
-Voorbeeld: "Ik zou volgende week dinsdag of donderdag ochtend tijd hebben — past een van beide voor een rustig gesprek van 15 minuten?"
+Voorbeeld: "Ik zou volgende week dinsdag of donderdag ochtend tijd hebben — past een van beide voor een rustige digitale koffie van 30 minuten?"
 
 ────────────────────────────────────────
 **PROFIEL C (Consciëntieus) — analytisch, feitengericht**
@@ -2999,14 +3003,14 @@ AANBEVOLEN WERKWOORDEN: valideren, documenteren, optimaliseren, kwantificeren
 AANBEVOLEN ZELFSTANDIGE NAAMWOORDEN: mechanisme, methodiek, specificatie, KPI, bewijs
 VERBODEN WOORDEN: spannend, fantastisch, gepassioneerd, gezamenlijk (emotioneel)
 CTA-STIJL: tijdslotvoorstel precies, met duidelijk doel
-Voorbeeld: "Ik heb dinsdag 10:00 en donderdag 14:00 beschikbaar voor een deep-dive van 20 minuten over de methodiek — welk slot komt u uit?"
+Voorbeeld: "Ik heb dinsdag 10:00 en donderdag 14:00 vrij voor een digitale koffie van 30 minuten als deep-dive over de methodiek — welk slot komt u uit?"
 
 ────────────────────────────────────────
 **COMBINATIES (DC, IS, CD, DI, SC etc.)**
 ────────────────────────────────────────
 - Structuur, lengte en transparantie-stijl van het dominante profiel
 - 30% woordkeuze/tint van het tweede profiel verweven
-- CTA blijft ALTIJD een afspraak-ask met tijdslotvoorstel in de dominante stijl
+- CTA blijft ALTIJD een afspraak-ask met tijdslotvoorstel in de dominante stijl, geframed als 30 minuten digitaal koffiedrinken
 
 ════════════════════════════════════════════════════════════
 
@@ -3099,7 +3103,7 @@ E-mail 9 gebruikt **wederkerigheid** als conversiehefboom: wie open en menselijk
    De KERNZIN van de mail — één krachtige uitspraak over wat {{company}} concreet wint. MOET minstens 1 bewijspunt uit {{playbook.proof_points}} bevatten of een concreet cijfer. Geen bullshit-bingo, geen adjectieven zonder inhoud.
 
 4. **AFSPRAAK-CTA MET TIJDSLOTS (1 zin, DISC-stijl):**
-   Concrete afspraakvoorstellen met dag + idealiter tijdstip. Zelfverzekerde uitnodiging, geen "zou u eventueel...". NOOIT materiaalverzending.
+   Concrete afspraakvoorstellen met dag + idealiter tijdstip, altijd geframed als 30 minuten digitaal koffiedrinken. Zelfverzekerde uitnodiging, geen "zou u eventueel...". NOOIT materiaalverzending.
 
 Vorige mailinhoud ter referentie (NIET herhalen, NIET citeren):
 {{previous_email_body}}
@@ -3145,7 +3149,7 @@ Eén krachtige uitspraak + bewijspunt.
 Witregel
 
 **AFSPRAAK-CTA MET TIJDSLOTS (1 zin, DISC-stijl):**
-Concrete afspraakvoorstellen met dag (en idealiter tijdstip).
+Concrete afspraakvoorstellen met dag (en idealiter tijdstip), geframed als 30 minuten digitaal koffiedrinken.
 
 Witregel
 
@@ -3169,7 +3173,7 @@ VOEG NOOIT EEN HANDTEKENING, NAAM OF PLACEHOLDER TOE AAN HET EINDE!
 ☐ Klinkt de mail alsof die door een mens is geschreven — NIET als corporate-taal?
 ☐ GEEN buzzwords, GEEN opgeblazen taal?
 ☐ GEEN bullet-lijsten — puur lopende tekst?
-☐ **CTA = AFSPRAAK-ASK met concrete tijdslotvoorstellen?**
+☐ **CTA = AFSPRAAK-ASK met concrete tijdslotvoorstellen, geframed als 30 minuten digitaal koffiedrinken?**
 ☐ Taal doorgaand consistent Nederlands?
 ☐ Geen holle frasen, geen placeholders, geen handtekening?
 
@@ -3183,7 +3187,7 @@ LAATSTE HERINNERING — JOUW OUTPUT:
 ✅ MENSELIJKE taal, GEEN corporate-speak
 ✅ OPENER met SPECIFIEK onderzoeksdetail (cijfer/datum/citaat)
 ✅ WAARDEZIN met bewijspunt
-✅ CTA = AFSPRAAK-ASK met concrete tijdslotvoorstellen
+✅ CTA = AFSPRAAK-ASK met concrete tijdslotvoorstellen, geframed als 30 minuten digitaal koffiedrinken
 ✅ Een lezer zou aan de stijl moeten herkennen of het D, I, S of C is
 
 ❌ GEEN "Hier is de e-mail:"
@@ -3214,7 +3218,7 @@ Dat kost u bij uw huidige tempo marge ÉN leverbetrouwbaarheid. Norbert Kempf pr
 
 Een tier-1-hydraulliekklant heeft zijn stukkosten in 6 weken met 35% verlaagd — Festo, SKF en Bosch stappen om precies die reden over.
 
-Dinsdag of donderdag, 15 minuten — welk slot?
+Dinsdag of donderdag, 30 minuten digitaal koffiedrinken — welk slot?
 
 Met vriendelijke groet,
 
@@ -3230,7 +3234,7 @@ Dat zegt me één ding: de wil om te groeien is er, maar het knelpunt zit bij he
 
 amplifa levert u 8-14 geboekte eerste afspraken per maand met beslissers uit uw doelbranche — zonder extra verkooppersoneel.
 
-Ik heb volgende week dinsdag en donderdag ochtend tijd — past een van beide voor 15 minuten?
+Ik heb volgende week dinsdag en donderdag ochtend tijd — past een van beide voor 30 minuten digitaal koffiedrinken?
 
 Met vriendelijke groet,
 
@@ -3246,7 +3250,7 @@ Concreet betekent dit voor uw 800-VDC-fase: methodisch vastgelegde vroege indica
 
 Gedocumenteerde conversieratio naar RFQ: 11,4% in 14 weken — 47 geverifieerde opportunities bij een vergelijkbaar ICP.
 
-Ik heb dinsdag 10:00 en donderdag 14:00 beschikbaar voor een deep-dive van 20 minuten over de methodiek — welk slot komt u uit?
+Ik heb dinsdag 10:00 en donderdag 14:00 vrij voor een digitale koffie van 30 minuten als deep-dive over de methodiek — welk slot komt u uit?
 
 Met vriendelijke groet,
 
@@ -3262,7 +3266,7 @@ Dat creëert een stille spanning — bewezen partners beschermen en tegelijk nie
 
 Drie langjarige liftpartners begeleiden we al meer dan 5 jaar, met een gedocumenteerd eerstemonster-slagingspercentage van meer dan 96%.
 
-Ik zou volgende week dinsdag of donderdag ochtend tijd hebben — past een van beide voor een rustig gesprek van 15 minuten?
+Ik zou volgende week dinsdag of donderdag ochtend tijd hebben — past een van beide voor een rustige digitale koffie van 30 minuten?
 
 Met vriendelijke groet,
 ```
