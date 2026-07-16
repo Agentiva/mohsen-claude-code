@@ -1,0 +1,41 @@
+MEDIENUNTERNEHMEN – UNTERNEHMEN MIT COMPANY DOMAIN
+Quelle: medienunternehmen_blacklist.txt | Stand: 2026-07-16
+Alle Unternehmen dedupliziert, Format: Unternehmen | Domain
+
+=========================================================================
+KLARE MEDIENHAEUSER / VERLAGE / SENDER
+=========================================================================
+ARD | ard.de
+Automobil Industrie (Vogel Communications) | vogel.de
+Axel Springer | axelspringer.com
+Bank-Verlag | bank-verlag.de
+Burda Digital Systems | burdasolutions.com
+BurdaForward | burda-forward.de
+Burda Principal Investments | burdaprincipalinvestments.com
+BWF Media (Firmenverzeichnis-Verlag) | bwf-firmenverzeichnis.de
+Ernst Klett Verlag | ernst-klett-verlag.de
+FINANCE Magazin | finance-magazin.de
+FUNKE Medien | funkemedien.de
+GMX / WEB.DE (Mail & Media) | mail-and-media.com
+Gruner + Jahr | guj.de
+Handelsblatt Media Group | handelsblattgroup.com
+Heise Medien | heisegroup.de
+manager magazin | manager-magazin.de
+MDR Mitteldeutscher Rundfunk | mdr.de
+Motor Presse Stuttgart | motorpresse.de
+NOZ/mh:n MEDIEN | noz-mhn.de
+ntv Nachrichten | n-tv.de
+Nussbaum Medien | nussbaum-medien.de
+NWB Verlag | nwb.de
+private banking magazin | private-banking-magazin.de
+Schwaebisch Media | schwaebisch-media.de
+WELT | welt.de
+
+=========================================================================
+OPTIONAL / MEDIEN-NAH – AGENTUREN & MEDIA-SERVICES
+=========================================================================
+iKO Media Group (Broadcast-Services) | ikomg.com
+Kittelberger media solutions | kittelberger.de
+Media Cologne Kommunikationsmedien | mediacologne.de
+MEDIA BROADCAST (Sendenetzbetreiber) | media-broadcast.com
+Omnicom Media Germany (Media-Agentur) | omnicommediagroup.de
