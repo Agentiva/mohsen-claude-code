@@ -34,3 +34,37 @@ byload ist ein bayerischer Transport- & Logistikdienstleister mit eigenem Fuhrpa
 
 ## Qualitätsregeln
 Domains nie geraten (nur aus real abgerufenen Quellen). KMU-Filter hart. Region priorisiert Süddeutschland. Dedupe über `scripts/merge_dedupe.py`.
+
+---
+
+## Fortschritt (Web-only, über mehrere Sessions)
+
+**Ziel:** 3.000 KMU je Playbook. **Methode:** reine Web-Recherche (Beschluss des Kunden).
+
+| Stand | PB1 (Schwer/Sonder) | PB2 (FTL/LTL) |
+|---|---|---|
+| Session 1 (2026-07-17) | **328** | **347** |
+| **Ziel** | 3.000 | 3.000 |
+
+### Umgebungs-Limits (wichtig für die Planung)
+Reine Web-Recherche ist in dieser Umgebung hart gedeckelt:
+- **WebSearch:** ~200 Queries pro Session (sessionweit geteilt) – nach einer Welle erschöpft.
+- **WebFetch/Egress:** Org-Policy blockt externe Firmen-/Verzeichnis-Websites (403). Domain-Verifikation per Fetch nicht möglich; Domains stammen aus Suchtreffer-URLs.
+
+→ Pro Session realistisch **~600–700 neue verifizierte KMU** (beide Playbooks zusammen). Für 6.000 gesamt sind also ca. **9–10 Folge-Sessions** nötig.
+
+### So geht es in einer neuen Session weiter ("finde mehr")
+1. Bestehende `pb1/liste.csv` / `pb2/liste.csv` sind der **Master** (bereits gefundene Domains werden ausgeschlossen).
+2. Neue Sub-Sektor × Region-Wellen recherchieren (noch nicht ausgeschöpfte Nischen siehe unten), pro Batch als eigene CSV ablegen.
+3. Draufmergen:
+   ```bash
+   python3 .claude/skills/firmen-deepresearch/scripts/merge_dedupe.py \
+     byload-research/pb1/liste.csv byload-research/pb1/<neuer_batch>.csv > byload-research/pb1/liste.new.csv \
+     && mv byload-research/pb1/liste.new.csv byload-research/pb1/liste.csv
+   ```
+4. Zahl im Tracker oben fortschreiben.
+
+### Noch nicht/kaum ausgeschöpfte Nischen (Backlog für Folge-Sessions)
+- **PB1:** Gießereien/Schmieden, Pressen/Umformtechnik, Industrieöfen/Trocknung, Getränke-/Abfülltechnik-Maschinenbau, Windkraft-/Energiekomponenten, Textil-/Papiermaschinen, Pumpen-/Mischtechnik, Vorrichtungs-/Betriebsmittelbau, Bootsbau/Yachten, Modul-/Raumzellenbau, Trafo-/Schaltanlagenbau.
+- **PB2:** Automotive-Zulieferer (palettiert), Möbel/Holzverarbeitung, technischer Großhandel/Industriebedarf, Agrarhandel/Sackware, Elektro-/Elektrotechnik-Produkte, Fliesen/Naturstein, Farben/Lacke (verpackt), Sanitär/Heizung-Produkte, Papierwaren/Hygiene, Tierfutter/Heimtierbedarf, Baumaschinen-Zubehör.
+- **Regionen** je Nische einzeln durchgehen: Schwaben, Oberbayern, Niederbayern, Oberfranken/Mittelfranken/Unterfranken, Oberpfalz, BW (Stuttgart, Ostwürttemberg, Bodensee-Oberschwaben, Schwarzwald), dann NRW/Hessen/Niedersachsen/Sachsen/RLP + AT/CH.
