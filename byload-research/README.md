@@ -28,9 +28,9 @@ byload ist ein bayerischer Transport- & Logistikdienstleister mit eigenem Fuhrpa
 ---
 
 ## Artefakte je Playbook
-1. `pb1/liste.csv` bzw. `pb2/liste.csv` – `company_name,domain` (dedupliziert).
-2. `pb1/clay-qualifizierung-prompt.md` / `pb2/clay-qualifizierung-prompt.md` – Claygent-Bedarfsprüfung.
-3. `pb1/jobtitles-clay.txt` / `pb2/jobtitles-clay.txt` – ~25 Tier-1/Tier-2-Jobtitel für „Find People".
+1. `pb1/liste.csv` bzw. `pb2/liste.csv` – `company_name,domain` (dedupliziert). **Nur diese CSVs kommen ins Repo.**
+2. Clay-/Claygent-Bedarfsprüfungs-Prompt – **nur als Chat-Text geliefert, nicht im Repo** (auf Kundenwunsch).
+3. ~25 Tier-1/Tier-2-Jobtitel für „Find People" – **nur als Chat-Text geliefert, nicht im Repo** (auf Kundenwunsch).
 
 ## Qualitätsregeln
 Domains nie geraten (nur aus real abgerufenen Quellen). KMU-Filter hart. Region priorisiert Süddeutschland. Dedupe über `scripts/merge_dedupe.py`.
