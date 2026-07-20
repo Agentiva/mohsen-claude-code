@@ -1,0 +1,59 @@
+﻿rang;messe;ort;branche;aussteller_ca;besucher_ca;bruttoflaeche_m2_ca;rhythmus;bedeutung
+1;ANUGA;Köln;Food & Beverage;7900;140000;300000;alle 2 Jahre;Weltleitmesse Ernährungswirtschaft (größte der Welt)
+2;ITB Berlin;Berlin;Tourismus/Reise;5500;160000;160000;jährlich;Weltgrößte Reise- & Tourismusmesse
+3;Automechanika;Frankfurt;Automotive Aftermarket;4900;140000;300000;alle 2 Jahre;Weltleitmesse Kfz-Service/Aftermarket
+4;Tendence / Ambiente;Frankfurt;Konsumgüter;4800;140000;370000;jährlich;Weltgrößte Konsumgütermesse
+5;Frankfurter Buchmesse;Frankfurt;Verlage/Buch;4000;215000;170000;jährlich;Weltgrößte Buchmesse
+6;Hannover Messe;Hannover;Industrie/Automation;4000;130000;200000;jährlich;Weltgrößte Industriemesse
+7;electronica;München;Elektronik;3300;80000;180000;alle 2 Jahre;Weltleitmesse Elektronik
+8;IMEX Frankfurt;Frankfurt;MICE/Eventbranche;3000;15000;50000;jährlich;Führende Messe für Meetings & Incentives
+9;IFAT;München;Umwelttechnik;3000;140000;260000;alle 2 Jahre;Weltleitmesse Umwelttechnologien
+10;ACHEMA;Frankfurt;Prozessindustrie/Chemie;2900;150000;130000;alle 3 Jahre;Weltforum der Prozessindustrie
+11;InnoTrans;Berlin;Bahn-/Verkehrstechnik;2900;170000;200000;alle 2 Jahre;Weltgrößte Bahntechnikmesse
+12;Agritechnica;Hannover;Landtechnik;2812;470000;400000;alle 2 Jahre;Weltgrößte Landtechnikmesse
+13;Heimtextil;Frankfurt;Heim-/Objekttextilien;2800;55000;300000;jährlich;Weltleitmesse Heim- & Objekttextilien
+14;Fruit Logistica;Berlin;Frischeprodukte;2700;66000;130000;jährlich;Weltleitmesse Frischfrüchte/-gemüse
+15;Intersolar Europe - The Smarter E;München;Energie/Solar;2700;115000;180000;jährlich;Größte Solar-/Energiemesse Europas
+16;BIOFACH;Nürnberg;Bio-Lebensmittel;2500;35000;60000;jährlich;Weltleitmesse Bio-Lebensmittel
+17;CPHI Worldwide;Frankfurt;Pharma;2500;60000;120000;jährlich (Ort wechselnd);Weltgrößte Pharma-Zuliefermesse
+18;Spielwarenmesse;Nürnberg;Spielwaren;2400;60000;170000;jährlich;Weltgrößte Spielwarenmesse
+19;transport logistic;München;Logistik/Verkehr;2300;75000;125000;alle 2 Jahre;Weltleitmesse Logistik & Mobilität
+20;ISH;Frankfurt;Sanitär/Heizung/Klima;2200;150000;260000;alle 2 Jahre;Weltleitmesse Wasser & Energie im Gebäude
+21;Light & Building;Frankfurt;Licht/Gebäudetechnik;2200;150000;250000;alle 2 Jahre;Weltleitmesse Licht & Gebäudetechnik
+22;EuroTier;Hannover;Tierhaltung/Nutztier;2000;155000;250000;alle 2 Jahre;Weltleitmesse Nutztierhaltung
+23;Interzoo;Nürnberg;Heimtierbedarf;2000;40000;120000;alle 2 Jahre;Weltgrößte Heimtierbedarfsmesse
+24;SMM;Hamburg;Maritim/Schiffbau;2000;40000;90000;alle 2 Jahre;Weltleitmesse maritime Wirtschaft
+25;CMT;Stuttgart;Tourismus/Caravaning (Publikum);2000;300000;120000;jährlich;Weltgrößte Publikumsmesse Tourismus & Freizeit
+26;EMO Hannover;Hannover;Metallbearbeitung;1900;90000;180000;alle 2 Jahre (Ort wechselnd);Weltleitmesse Metallbearbeitung
+27;Fakuma;Friedrichshafen;Kunststofftechnik;1900;36000;85000;jährlich;Int. Leitmesse Kunststoffverarbeitung
+28;LogiMAT;Stuttgart;Intralogistik;1900;65000;125000;jährlich;Größte Intralogistikmesse
+29;IDS;Köln;Dental;1900;120000;170000;alle 2 Jahre;Weltgrößte Dentalmesse
+30;interzum;Köln;Möbelzulieferer;1800;60000;185000;alle 2 Jahre;Weltleitmesse Möbelfertigung/Innenausbau
+31;Eurobike;Frankfurt;Fahrrad;1800;65000;100000;jährlich;Weltleitmesse Fahrrad
+32;Expo Real;München;Immobilien;1800;40000;65000;jährlich;Größte Gewerbeimmobilienmesse Europas
+33;Interschutz;Hannover;Feuerwehr/Rettung/Sicherheit;1500;85000;100000;alle 5 Jahre;Weltleitmesse Brand-/Katastrophenschutz
+34;LIGNA;Hannover;Holzbearbeitung;1500;80000;130000;alle 2 Jahre;Weltleitmesse Holzbe-/verarbeitung
+35;EuroBLECH;Hannover;Blechbearbeitung;1500;56000;90000;alle 2 Jahre;Weltleitmesse Blechbearbeitung
+36;ISM;Köln;Süßwaren/Snacks;1500;25000;110000;jährlich;Weltgrößte Süßwaren-/Snackmesse
+37;Grüne Woche;Berlin;Ernährung/Landwirtschaft (Publikum);1400;300000;120000;jährlich;Weltgrößte Verbrauchermesse Ernährung/Garten
+38;DOMOTEX;Hannover;Bodenbeläge/Teppiche;1400;35000;90000;jährlich;Weltleitmesse Teppiche & Bodenbeläge
+39;WindEnergy Hamburg;Hamburg;Windenergie;1400;40000;65000;alle 2 Jahre;Weltleitmesse Wind (On-/Offshore)
+40;GITEX Europe;Berlin;IT/Digital/Tech;1400;60000;80000;jährlich;Große Tech-/Startup-Messe (Europa-Debüt 2025)
+41;AMB;Stuttgart;Metallbearbeitung;1300;90000;120000;alle 2 Jahre;Int. Messe Metallbearbeitung
+42;INTERNORGA;Hamburg;Gastronomie/Hotellerie;1300;90000;100000;jährlich;Leitmesse Außer-Haus-Markt
+43;INTERGASTRA;Stuttgart;Gastronomie/Hotellerie;1300;90000;100000;alle 2 Jahre;Große Gastronomie-Leitmesse
+44;imm cologne;Köln;Möbel/Interior;1200;100000;180000;jährlich;Int. Einrichtungsmesse
+45;embedded world;Nürnberg;Embedded Systems;1100;30000;60000;jährlich;Weltleitmesse Embedded-Technologien
+46;Christmasworld;Frankfurt;Festdekoration;1000;40000;120000;jährlich;Weltleitmesse saisonale Dekoration
+47;FIBO;Köln;Fitness/Wellness/Gesundheit;1000;130000;120000;jährlich;Weltleitmesse Fitness & Gesundheit
+48;R+T;Stuttgart;Rollladen/Tore/Sonnenschutz;1000;65000;110000;alle 3 Jahre;Weltleitmesse Rollladen/Tore/Sonnenschutz
+49;Prolight & Sound;Frankfurt;Veranstaltungstechnik;1000;40000;80000;jährlich;Int. Messe Veranstaltungstechnik
+50;spoga+gafa;Köln;Garten/Outdoor;1000;30000;120000;jährlich;Weltgrößte Gartenmesse
+51;ISPO München;München;Sportartikel;1000;50000;90000;jährlich;Führende Sportbusiness-Messe
+52;Formnext;Frankfurt;Additive Fertigung/3D-Druck;850;35000;55000;jährlich;Weltleitmesse Additive Manufacturing
+53;it-sa Expo&Congress;Nürnberg;IT-Security;800;25000;45000;jährlich;Europas größte IT-Security-Fachmesse
+54;Fensterbau Frontale;Nürnberg;Fenster/Türen/Fassade;800;50000;90000;alle 2 Jahre;Weltleitmesse Fenster/Türen/Fassaden
+55;ORGATEC;Köln;Büroeinrichtung;800;55000;110000;alle 2 Jahre;Leitmesse moderne Arbeitswelten
+56;DMEXCO;Köln;Digital Marketing;800;40000;55000;jährlich;Führende Digital-Marketing-Messe Europas
+57;IAA Mobility;München;Automobil/Mobilität;750;500000;90000;alle 2 Jahre;Große Publikums-/Mobilitätsmesse
+58;AERO;Friedrichshafen;Allgemeine Luftfahrt;700;33000;60000;jährlich;Weltleitmesse General Aviation
