@@ -110,7 +110,8 @@ besteht, landet hier.
 
 6. **Firmografie setzen** — Industrie (breit), Mitarbeiter (mit Sweet Spot), Standort, Seniority.
 
-7. **Ausgeben** im COI-Tabellenformat (siehe unten), pro ICP eine Tabelle.
+7. **Ausgeben** im COI-Tabellenformat (siehe unten), pro ICP eine Tabelle — **jede Tabelle
+   mit allen sechs Kriterien voll ausgeschrieben** (Vollständigkeitsgebot, keine Verweise).
 
 ---
 
@@ -154,17 +155,41 @@ Optionale Präzisierung als eigene, kleinere Runs: **Technographics** (z. B. `Sh
 Default = saubere Markdown-Tabelle im Chat. Auf Wunsch als styled Navy-Header-Tabelle
 (HTML/docx im amplifa-Stil) rendern.
 
+### ⛔ Vollständigkeitsgebot (Pflicht)
+
+**Jede ICP-Tabelle MUSS alle sechs Kriterien vollständig ausgeschrieben enthalten** —
+`Jobtitel`, `Industrie`, `Mitarbeiter`, `Standort`, `Keywords (bedarfsorientiert)`,
+`Ausschluss-Keywords`. Genau wie in den COI-Beispielen, wo jede Zeile in jedem ICP komplett
+befüllt ist.
+
+**VERBOTEN sind Querverweise oder Auslassungen**, z. B.:
+- ❌ „(wie ICP 1)" / „(wie oben)" / „(dito)"
+- ❌ „(siehe Basiskonfiguration)" / „(gilt für alle ICPs)"
+- ❌ „(WFS-Buying-Center)" als Platzhalter statt der ausgeschriebenen Titelliste
+- ❌ eine geteilte „Basiskonfiguration"-Tabelle, auf die die ICP-Tabellen verweisen
+
+Auch wenn Werte über mehrere ICPs **identisch** sind (z. B. gleiche Jobtitel, gleiche
+Ausschluss-Liste, gleicher Standort): Sie werden in **jeder** Tabelle **erneut voll
+ausgeschrieben**. Jede ICP-Tabelle muss für sich allein **1:1 kopier- und in Apollo
+einsetzbar** sein, ohne dass man an anderer Stelle nachschlagen muss.
+
+Gemeinsame Zusatzinfos (Kontakt-Cap „3–5 Entscheider pro Firma", Compliance-Hinweis,
+Timing-Trigger) dürfen EINMAL separat stehen — die **sechs Filter-Kriterien** dagegen
+NIEMALS auslagern oder verweisen.
+
+### Tabellen-Schema (pro ICP komplett befüllen)
+
 ```
 ### Filter für ICP <N>: <ICP-/Persona-Name>
 
 | Kriterium | Werte |
 |---|---|
-| **Jobtitel** | <DE/EN-Titel des Buying Centers> (jeweils nicht C-Level) |
-| **Industrie** | <breite Apollo-Industry-Tags, komma-separiert> |
+| **Jobtitel** | <vollständige DE/EN-Titelliste des Buying Centers, ausgeschrieben> |
+| **Industrie** | <breite Apollo-Industry-Tags, komma-separiert, ausgeschrieben> |
 | **Mitarbeiter** | <Range> (Sweet Spot <Range>) |
-| **Standort** | Germany, Austria, Switzerland |
-| **Keywords (bedarfsorientiert)** | <nur Bedarfssignale, DE + EN, komma-separiert> |
-| **Ausschluss-Keywords** | <eigene Produkte, Kategorie-Anbieter, Wettbewerber> |
+| **Standort** | <alle Länder ausgeschrieben, z. B. Germany, Austria, Switzerland> |
+| **Keywords (bedarfsorientiert)** | <nur Bedarfssignale, DE + EN, komma-separiert, ausgeschrieben> |
+| **Ausschluss-Keywords** | <eigene Produkte, Kategorie-Anbieter, Wettbewerber — voll ausgeschrieben> |
 ```
 
 ---
@@ -179,6 +204,7 @@ Default = saubere Markdown-Tabelle im Chat. Auf Wunsch als styled Navy-Header-Ta
 - [ ] Jobtitel = Buying Center; C-Level-Regel bewusst gesetzt (Standard raus / Founder-Ausnahme dokumentiert)
 - [ ] Industrie breit, Mitarbeiter mit Sweet Spot, Standort, Seniority gesetzt
 - [ ] Pro ICP eine eigene Tabelle im COI-Format
+- [ ] **Vollständigkeitsgebot**: jede ICP-Tabelle hat alle 6 Kriterien voll ausgeschrieben — KEINE Verweise („wie ICP 1", „siehe Basiskonfiguration", „dito") und keine ausgelagerte Basiskonfig-Tabelle; jede Tabelle allein kopier- und einsetzbar
 - [ ] Hinweis „3–5 Entscheider pro Firma" ergänzt
 - [ ] Compliance-Kurzhinweis (DACH: UWG §7 / DSGVO, nur geschäftliche Adressen, Opt-out) bei Bedarf
 
