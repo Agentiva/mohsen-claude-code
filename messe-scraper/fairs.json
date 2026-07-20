@@ -1,0 +1,88 @@
+{
+  "_comment": "Die ersten 10 Messen aus 'Messen in Deutschland.xlsx'. method: download=direkte Datei (XLS/CSV/PDF), browser=Playwright mit XHR-Sniffing + DOM-Fallback. selector=CSS-Selektor fuer die Ausstellernamen im DOM-Fallback (optional; XHR-Sniffing laeuft immer zuerst).",
+  "fairs": [
+    {
+      "id": "01_afa",
+      "name": "afa",
+      "city": "Augsburg",
+      "method": "browser",
+      "url": "https://www.meine-afa.de/ausstellerverzeichnis/",
+      "download_url": "https://www.afag.de/fileadmin/user_upload/afa/2024/pdf/24AFA-Ausstellerverzeichnis.pdf",
+      "selector": ".listing-title, .exhibitor-name, article h2 a"
+    },
+    {
+      "id": "02_airtec",
+      "name": "AIRTEC",
+      "city": "Augsburg",
+      "method": "browser",
+      "url": "https://airtec.aero/exhibitors2025/",
+      "selector": "table td, .exhibitor, .et_pb_text_inner li"
+    },
+    {
+      "id": "03_biosued",
+      "name": "BioSued",
+      "city": "Augsburg",
+      "method": "browser",
+      "url": "https://biomessen.info/biosued/",
+      "selector": ".exhibitor-name, .listing-title, article h2 a"
+    },
+    {
+      "id": "04_jagen_und_fischen",
+      "name": "JAGEN UND FISCHEN",
+      "city": "Augsburg",
+      "method": "browser",
+      "url": "https://www.jagenundfischen.de/de/messe/profil/ausstellerverzeichnis",
+      "selector": ".exhibitor-list-item a, .tx-exhibitorcatalog a, h3 a"
+    },
+    {
+      "id": "05_regioagrar_bayern",
+      "name": "RegioAgrar Bayern",
+      "city": "Augsburg",
+      "method": "browser",
+      "url": "https://www.regioagrar-bayern.de/ausstellerverzeichnis/",
+      "selector": ".listing-title a, .gd-listing-title a, h3.entry-title a"
+    },
+    {
+      "id": "06_vendtra",
+      "name": "VENDTRA",
+      "city": "Augsburg",
+      "method": "browser",
+      "url": "https://www.vendtra.com/en/",
+      "selector": ".exhibitor-name, .listing-title, h3 a"
+    },
+    {
+      "id": "07_abenteuer_allrad",
+      "name": "Abenteuer & Allrad",
+      "city": "Bad Kissingen",
+      "method": "browser",
+      "url": "https://www.abenteuer-allrad.de/de/aussteller",
+      "selector": ".exhibitor-name, .aussteller a, h3 a"
+    },
+    {
+      "id": "08_bar_convent_berlin",
+      "name": "Bar Convent Berlin",
+      "city": "Berlin",
+      "method": "browser",
+      "url": "https://www.barconvent.com/en-gb/exhibitor-directory.html",
+      "selector": ".m-exhibitor-entry__title, .exhibitor-name, a.js-exhibitor-name"
+    },
+    {
+      "id": "09_bazaar_berlin",
+      "name": "Bazaar Berlin",
+      "city": "Berlin",
+      "method": "download",
+      "url": "https://www.virtualmarket.bazaar-berlin.de/de/ausstellerliste",
+      "download_url": "https://www.virtualmarket.bazaar-berlin.de/download/exhibitor-lists/Ausstellerliste.xls",
+      "selector": ".exhibitor-list a, .m-exhibitor__name"
+    },
+    {
+      "id": "10_cms_berlin",
+      "name": "CMS Berlin",
+      "city": "Berlin",
+      "method": "download",
+      "url": "https://www.virtualmarket.cms-berlin.de/en/list-of-exhibitors",
+      "download_url": "https://www.virtualmarket.cms-berlin.de/download/exhibitor-lists/Ausstellerliste.xls",
+      "selector": ".exhibitor-list a, .m-exhibitor__name"
+    }
+  ]
+}
