@@ -1,7 +1,7 @@
 # Intermediate per-agent research work files (not the deliverable)
 *_raw.csv
 *_apollo.csv
-*_supp.csv
+*_supp*.csv
 banking.csv
 stadtwerke.csv
 government.csv
