@@ -1,0 +1,10 @@
+# Clay "Find People" Jobtitel je Playbook (Tier 1 + Tier 2, ~25, komma-separiert, copy-paste-fähig)
+
+## Banking & Financial Services DACH
+CISO, Chief Information Security Officer, Head of Information Security, Head of IT Security, IT-Sicherheitsbeauftragter, Leiter Informationssicherheit, Deputy CISO, Head of IT, IT-Leiter, DORA Officer, Head of Operational Resilience, Chief Risk Officer, Head of Compliance, Compliance Officer, Head of Governance Risk and Compliance, Datenschutzbeauftragter, Data Protection Officer, Head of Internal Audit, Leiter Interne Revision, Security Awareness Manager, Head of Cyber Security, Cyber Security Officer, IT Security Manager, Head of Information Technology, Vorstand IT
+
+## Stadtwerke & kommunale Versorger DACH
+CISO, IT-Sicherheitsbeauftragter, Leiter Informationssicherheit, Head of IT Security, IT-Leiter, Leiter IT, Head of IT, Leiter Informationstechnik, KRITIS-Beauftragter, Informationssicherheitsbeauftragter, ISB, Datenschutzbeauftragter, Compliance-Beauftragter, Leiter Organisation und IT, Geschäftsführer, Technischer Geschäftsführer, Prokurist IT, Leiter Digitalisierung, Head of Cyber Security, IT Security Manager, Netzleitstelle Leiter, Leiter IT-Infrastruktur, Security Officer, Leiter Interne Revision, IT-Administrator
+
+## Government / Öffentlicher Sektor / Military / Defense DACH
+IT-Sicherheitsbeauftragter, Informationssicherheitsbeauftragter, ISB, CISO, Leiter Informationssicherheit, Leiter IT, IT-Leiter, Head of IT Security, Chief Information Security Officer, Datenschutzbeauftragter, Behördlicher Datenschutzbeauftragter, Compliance Manager, Leiter Organisation, Amtsleiter IT, Leiter Digitalisierung, CDO, Head of Information Security, IT Security Manager, Referatsleiter IT, Dezernent IT, Geheimschutzbeauftragter, Leiter Rechenzentrum, Head of Cyber Defence, Security Officer, Leiter IT-Infrastruktur
