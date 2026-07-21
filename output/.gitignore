@@ -1,0 +1,15 @@
+# Intermediate per-agent research work files (not the deliverable)
+*_raw.csv
+*_apollo.csv
+*_supp*.csv
+banking.csv
+stadtwerke.csv
+government.csv
+*_consolidated.csv
+harvest_websearch.csv
+existing_*_domains.txt
+*_apollo_net.csv
+*_topup_raw.csv
+*.txt
+*.py
+*_from_files.csv
