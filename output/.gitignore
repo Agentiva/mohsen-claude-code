@@ -7,3 +7,7 @@ stadtwerke.csv
 government.csv
 *_consolidated.csv
 harvest_websearch.csv
+existing_*_domains.txt
+*_apollo_net.csv
+*_topup_raw.csv
+*.txt
