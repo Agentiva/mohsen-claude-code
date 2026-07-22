@@ -36,12 +36,15 @@ Auf ausdrücklichen Wunsch geprüft: Sind die Firmen echte potenzielle **Käufer
 | Playbook | vorher | verifiziert | entfernt |
 |---|---:|---:|---:|
 | Private Recyclers & Reprocessors | 1.995 | **1.973** | 22 |
-| Wood & Biomass Recyclers | 1.997 | **1.963** | 34 |
+| Wood & Biomass Recyclers | 1.997 | **1.844** | 153 |
 | Municipal & Public Waste Operators | 619 | **540** | 79 |
 | Cement, Energy & RDF Off-takers | 219 | **219** | 0 |
-| **Gesamt** | 4.830 | **4.695** | 135 |
+| **Gesamt** | 4.830 | **4.576** | 254 |
 
-Entfernt (alle nachvollziehbar in `review/flagged_suspects.csv`): **36 Zulieferer** (Maschinenbau/Anlagenbau/Engineering/Ingenieurbüros, Hydraulik/Antriebe/Fördertechnik, Stahl-/Metallbau, Waagen – z. B. Ledinek, Springer Maschinenfabrik, Wessel-Hydraulik, Uniforest-Forsttechnik), **96 Nicht-Betreiber** (v. a. Fach-/Zweckverbände ohne Abfallbezug wie KiTa-, ÖPNV-, Wasser-, VHS-, IT-Zweckverbände, dazu Verbände/Institute/Akademien/Verlage/Beratungen) und **3 Wettbewerber**. Fehl-Flags wurden korrigiert (echte Abfall-Zweckverbände wie Müllverwertung Schwandorf, KVA Thurgau blieben drin).
+Entfernt (alle nachvollziehbar in `review/flagged_suspects.csv`): **38 Zulieferer** (Maschinenbau/Anlagenbau/Engineering/Ingenieurbüros, Hydraulik/Antriebe/Fördertechnik, Stahl-/Metallbau, Kran-/Wägetechnik – z. B. Ledinek, Springer Maschinenfabrik, Wessel-Hydraulik, KÜHNEZUG), **3 Wettbewerber** (Forsttechnik-Hersteller Uniforest u. a.), **95 Nicht-Betreiber** (v. a. Fach-/Zweckverbände ohne Abfallbezug wie KiTa-, ÖPNV-, Wasser-, VHS-, IT-Zweckverbände, dazu Verbände/Institute/Akademien/Verlage/Beratungen) und **118 Falsch-Segment im Wood-Playbook** (Holz-VERWENDER statt -Zerkleinerer: Fenster-, Türen-, Parkett-/Bodenbelag-, Möbelhersteller, Holzbau/Zimmerei, Holzhändler). Fehl-Flags wurden korrigiert (echte Abfall-Zweckverbände wie Müllverwertung Schwandorf, KVA Thurgau blieben drin).
+
+### Stichproben-Audit (WebSearch, 45 Firmen, risikogewichtet)
+Echte-Käufer-Quote im Sample **≈ 67 %** vor dem Wood-Falsch-Segment-Filter; danach deutlich höher. Nach Playbook: **Cement/Energy/RDF ~93 %** (stärkstes), **Municipal ~78 %**, **Private ~60 %**, **Wood ~33 %** (schwächstes → daher der zusätzliche Falsch-Segment-Filter, der 118 Holz-Endprodukt-Hersteller entfernt hat). Reststreuung (z. B. reine Händler, Grenzfälle) wird final vom Clay-Sculptor-Pass gefiltert.
 
 **Verifizierte Hauptdatei:** `lindner_target_companies_verified.csv` · verifizierte Einzellisten unter `verified/`.
 

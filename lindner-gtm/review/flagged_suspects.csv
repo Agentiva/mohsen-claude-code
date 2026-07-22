@@ -92,7 +92,6 @@ Danish Forest Association,danskskovforening.dk,Wood & Biomass Recyclers,non_oper
 DBI The Danish Institute of Fire and Security Technology,brandogsikring.dk,Wood & Biomass Recyclers,non_operator,institut
 European Forest Institute,efi.int,Wood & Biomass Recyclers,non_operator,institut
 German Biochar e.V. (German Biochar Association),german-biochar.org,Wood & Biomass Recyclers,non_operator,e.v
-ISP - Parkettverband,parkett-verband.ch,Wood & Biomass Recyclers,non_operator,verband
 NEB Academy Alliance,neb.academy,Wood & Biomass Recyclers,non_operator,academy
 Palet Conect & Consult,palet-conect.ro,Wood & Biomass Recyclers,non_operator,consult
 Renewables Academy (RENAC),renac.de,Wood & Biomass Recyclers,non_operator,academy
@@ -113,6 +112,7 @@ Stahl- und Metallbau IHNEN GmbH & Co. KG,stahlbau.de,Private Recyclers & Reproce
 UVP Environmental Management and Engineering GmbH,uvp.at,Private Recyclers & Reprocessors,supplier_to_lindner,engineering
 WERO Antriebstechnik GmbH,wero-antriebstechnik.de,Private Recyclers & Reprocessors,supplier_to_lindner,antriebstechnik
 WESSEL-HYDRAULIK GmbH,wessel-hydraulik.de,Private Recyclers & Reprocessors,supplier_to_lindner,hydraulik
+BMS HEAVY CRANES,bmscranesus.com,Wood & Biomass Recyclers,supplier_to_lindner, cranes
 Degree of Freedom,dofengineers.com,Wood & Biomass Recyclers,supplier_to_lindner,engineers
 devine wellness-anlagenbau gmbh,devine.at,Wood & Biomass Recyclers,supplier_to_lindner,anlagenbau
 DILEB Maschinenbau GmbH & Co. KG,dileb.de,Wood & Biomass Recyclers,supplier_to_lindner,maschinenbau
@@ -124,6 +124,7 @@ JMB Wind Engineering,jmbwind.com,Wood & Biomass Recyclers,supplier_to_lindner,en
 john becker ingenieure GmbH & Co. KG,wirberaten.de,Wood & Biomass Recyclers,supplier_to_lindner,ingenieur
 KEM Engineering,kem.dk,Wood & Biomass Recyclers,supplier_to_lindner,engineering
 Kryjan Structural Engineering,kryjan.com,Wood & Biomass Recyclers,supplier_to_lindner,engineering
+KÜHNEZUG German Cranes GmbH,kuhnezug.com,Wood & Biomass Recyclers,supplier_to_lindner,kühnezug
 LAWI Engineering GmbH,lawipower.com,Wood & Biomass Recyclers,supplier_to_lindner,engineering
 Puunjalostusinsinöörit ry - Finnish Forest Products Engineers' Association,puunjalostusinsinoorit.fi,Wood & Biomass Recyclers,supplier_to_lindner,engineers
 ROPA Fahrzeug- und Maschinenbau GmbH,ropa-maschinenbau.de,Wood & Biomass Recyclers,supplier_to_lindner,maschinenbau
@@ -134,3 +135,121 @@ Timbatec Holzbauingenieure,timbatec.com,Wood & Biomass Recyclers,supplier_to_lin
 WAM Planer und Ingenieure AG,wam-ing.ch,Wood & Biomass Recyclers,supplier_to_lindner,ingenieur
 Werkraum Ingenieure ZT GmbH & Co KG,werkraum.com,Wood & Biomass Recyclers,supplier_to_lindner,ingenieur
 Woodbe Engineering AB,woodbe.se,Wood & Biomass Recyclers,supplier_to_lindner,engineering
+1a hunkeler fenster AG,1a-hunkeler.ch,Wood & Biomass Recyclers,wrong_segment,fenster
+ADLER PARKETT,adlerparkett.com,Wood & Biomass Recyclers,wrong_segment,parkett
+All Windows Group,allwindows.eu,Wood & Biomass Recyclers,wrong_segment,window
+Arbo Windows,arbowindows.lv,Wood & Biomass Recyclers,wrong_segment,window
+Bauwerk Parkett,bauwerk-parkett.com,Wood & Biomass Recyclers,wrong_segment,parkett
+BERTRAND windows & doors,bertrand.pl,Wood & Biomass Recyclers,wrong_segment,doors
+BHB Bertsch HolzBau,bertsch-holzbau.eu,Wood & Biomass Recyclers,wrong_segment,holzbau
+BISANG Holzbau AG,bisangag.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+Blumer Fensterwerke AG,blumer.ch,Wood & Biomass Recyclers,wrong_segment,fenster
+BOEN - Flooring. Rooted in Nature.,boen.com,Wood & Biomass Recyclers,wrong_segment,flooring
+BRÜGGEMANN Holzbau GmbH,brueggemann-holzbau.de,Wood & Biomass Recyclers,wrong_segment,holzbau
+BULGARIAN BRANCH CHAMBER OF WOODWORKING AND FURNITURE INDUSTRY,timberchamber.com,Wood & Biomass Recyclers,wrong_segment,furniture
+Bundesverband ProHolzfenster,proholzfenster.de,Wood & Biomass Recyclers,wrong_segment,fenster
+CAL prawdziwe drzwi / CAL real doors,drzwi-cal.pl,Wood & Biomass Recyclers,wrong_segment,doors
+Coray Holzbau AG,corayholzbau.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+Cordes Holzbau GmbH & Co. KG,cordes-holzbau.de,Wood & Biomass Recyclers,wrong_segment,holzbau
+DANA | JELD-WEN Türen GmbH,dana.at,Wood & Biomass Recyclers,wrong_segment,türen
+Der Holzbau-Podcast,holzbaupodcast.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+DFM Doors sp. z o.o.,dfm-doors.com,Wood & Biomass Recyclers,wrong_segment,doors
+Direktlaminat AB,direktlaminat.se,Wood & Biomass Recyclers,wrong_segment,laminat
+Doleta Windows,doleta.lt,Wood & Biomass Recyclers,wrong_segment,window
+Dubach Holzbau AG,dubachholzbau.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+Eder Holzbau GmbH,eder-holzbau.de,Wood & Biomass Recyclers,wrong_segment,holzbau
+ERNE AG Holzbau,erne.net,Wood & Biomass Recyclers,wrong_segment,holzbau
+Fenster Ruoff GmbH & Co. KG,ruoff.de,Wood & Biomass Recyclers,wrong_segment,fenster
+FensterWerk,fensterwerk.ch,Wood & Biomass Recyclers,wrong_segment,fenster
+FORUM HOLZBAU,forumholzbau.com,Wood & Biomass Recyclers,wrong_segment,holzbau
+Forum Holzbau Polska,forum-holzbau.pl,Wood & Biomass Recyclers,wrong_segment,holzbau
+FREVINI - Parquet Flooring Factory,frevinistudio.com,Wood & Biomass Recyclers,wrong_segment,flooring
+Furrer Schreinerei + Küchenbau AG,furreragwila.ch,Wood & Biomass Recyclers,wrong_segment,küche
+G. Baumgartner AG,baumgartnerfenster.ch,Wood & Biomass Recyclers,wrong_segment,fenster
+GARANT Türen und Zargen GmbH,garant.de,Wood & Biomass Recyclers,wrong_segment,türen
+Gebr. Schütt KG (GmbH & Co.),schuett-holzbau.de,Wood & Biomass Recyclers,wrong_segment,holzbau
+Gindraux Fenêtres SA,gindraux.ch,Wood & Biomass Recyclers,wrong_segment,fenêtre
+Globaltrade Solutions Kft,gtsparquet.com,Wood & Biomass Recyclers,wrong_segment,parquet
+Grauthoff Türengruppe GmbH,grauthoff.com,Wood & Biomass Recyclers,wrong_segment,türen
+Gutknecht SA,gutknecht-fenetres.ch,Wood & Biomass Recyclers,wrong_segment,fenetre
+Hamberger Flooring Gmbh & Co. Kg,haro.com,Wood & Biomass Recyclers,wrong_segment,flooring
+Hammer Holzbautechnik GmbH,hammer-holzbautechnik.de,Wood & Biomass Recyclers,wrong_segment,holzbau
+HANSA Timber Trade,hansatt.com,Wood & Biomass Recyclers,wrong_segment,timber trad
+Hasler Fenster AG,haslerfenster.ch,Wood & Biomass Recyclers,wrong_segment,fenster
+Hasler Fenêtres,haslerfenetres.ch,Wood & Biomass Recyclers,wrong_segment,fenetre
+Hector Egger Holzbau AG,hector-egger.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+HELMUT MEETH® - RAL-geprüfte Fenster und Türen,helmut-meeth.com,Wood & Biomass Recyclers,wrong_segment,türen
+Hirschbach GmbH - Holzbearbeitung & Holzhandel,hirschbach.de,Wood & Biomass Recyclers,wrong_segment,holzhandel
+Holzbau Bruno Kaiser GmbH,bruno-kaiser.de,Wood & Biomass Recyclers,wrong_segment,holzbau
+Holzbau Bucher AG,holzbau-bucher.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+Holzbau Bühlmann AG,holzbau-buehlmann.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+Holzbau Dawen GmbH,holzbau-dawen.de,Wood & Biomass Recyclers,wrong_segment,holzbau
+Holzbau Fichtl,holzbau-fichtl.de,Wood & Biomass Recyclers,wrong_segment,holzbau
+Holzbau Kompetenz Sachsen GmbH,hksachsen-gmbh.de,Wood & Biomass Recyclers,wrong_segment,holzbau
+Holzbauforschung Mainz,holzbauforschung-mainz.de,Wood & Biomass Recyclers,wrong_segment,holzbau
+HolzBauWerk Schwarzwald GmbH,holzbauwerk-schwarzwald.de,Wood & Biomass Recyclers,wrong_segment,holzbau
+Huber Fenster AG,huberfenster.ch,Wood & Biomass Recyclers,wrong_segment,fenster
+Hürzeler Holzbau AG,huerzeler-holz.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+InterProcess d.o.o. Massive Oak Panels & Premium Massive Furniture,process.ba,Wood & Biomass Recyclers,wrong_segment,furniture
+Isenring Holzbau AG,isenringholzbau.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+ISP - Parkettverband,parkett-verband.ch,Wood & Biomass Recyclers,wrong_segment,parkett
+Josef Meeth Fensterfabrik,meeth.de,Wood & Biomass Recyclers,wrong_segment,fenster
+Josko Fenster & Türen GmbH,josko.com,Wood & Biomass Recyclers,wrong_segment,türen
+KAPO Fenster und Türen GmbH,kapo.at,Wood & Biomass Recyclers,wrong_segment,türen
+Keller + Marquart AG,kmfenster.ch,Wood & Biomass Recyclers,wrong_segment,fenster
+Klarer Fenster AG,klarer.ch,Wood & Biomass Recyclers,wrong_segment,fenster
+Klaus Pfeil GmbH & Co. KG,pfeil-fensterbau.de,Wood & Biomass Recyclers,wrong_segment,fenster
+Koch Fensterbau GmbH,koch-fensterbau.de,Wood & Biomass Recyclers,wrong_segment,fenster
+Kronoflooring GmbH,krono-original.com,Wood & Biomass Recyclers,wrong_segment,flooring
+KUBASCH® Fenster & Türen GmbH,kubasch-gmbh.de,Wood & Biomass Recyclers,wrong_segment,türen
+Makiol Wiederkehr,holzbauing.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+MAT-TAR Wood Flooring,mat-tar.pl,Wood & Biomass Recyclers,wrong_segment,flooring
+MAX Holzbau,max-holzbau.com,Wood & Biomass Recyclers,wrong_segment,holzbau
+Mettler Holzbau GmbH,mettler-holzbau.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+MM Timber Windows,mmtimberwindows.com,Wood & Biomass Recyclers,wrong_segment,window
+Mosimann Holzbau AG,mosimann-holzbau.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+Möbelwerke A. Decker GmbH,decker.de,Wood & Biomass Recyclers,wrong_segment,möbel
+neue Holzbau AG,neueholzbau.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+Neuffer Fenster + Türen GmbH,fenster.com,Wood & Biomass Recyclers,wrong_segment,türen
+NIVEAU Fenster Westerburg GmbH,niveau.de,Wood & Biomass Recyclers,wrong_segment,fenster
+PANA Windows,pana.hr,Wood & Biomass Recyclers,wrong_segment,window
+PORTA Doors,portadoors.com,Wood & Biomass Recyclers,wrong_segment,doors
+PRÜM-Türenwerk GmbH,tuer.de,Wood & Biomass Recyclers,wrong_segment,türen
+Ragaba furniture,ragaba.de,Wood & Biomass Recyclers,wrong_segment,furniture
+Rappgo wooden flooring,rappgo.se,Wood & Biomass Recyclers,wrong_segment,flooring
+RITTER Fenster & Türen GmbH,ritter-fenster.de,Wood & Biomass Recyclers,wrong_segment,türen
+RIWAG Türen AG,riwag.ch,Wood & Biomass Recyclers,wrong_segment,türen
+S+F Holzbau,sfholzbau.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+S. Müller Holzbau AG,smue.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+Sarna WINDOWS,ms.pl,Wood & Biomass Recyclers,wrong_segment,window
+Sauna by Desavu,desavu.fi,Wood & Biomass Recyclers,wrong_segment,sauna
+schaerholzbau ag,schaerholzbau.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+Scheucher Parkett,scheucherparkett.at,Wood & Biomass Recyclers,wrong_segment,parkett
+"Schmidiger AG, Fenster Türen Innenausbau",schmidiger-fenster.ch,Wood & Biomass Recyclers,wrong_segment,türen
+Schwarz Holzbau AG,schwarzholzbau.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+Sehlmann Fensterbau GmbH,sehlmann.de,Wood & Biomass Recyclers,wrong_segment,fenster
+SG Windows & Doors,sgwindows.net,Wood & Biomass Recyclers,wrong_segment,doors
+smartwindows AG,smartwindows.ch,Wood & Biomass Recyclers,wrong_segment,window
+Sohm HolzBautechnik,sohm-holzbau.at,Wood & Biomass Recyclers,wrong_segment,holzbau
+Sorpetaler Fensterbau,sorpetaler.de,Wood & Biomass Recyclers,wrong_segment,fenster
+Steimle Fenster AG,steimlefenster.ch,Wood & Biomass Recyclers,wrong_segment,fenster
+STURM GmbH,funktionstueren.eu,Wood & Biomass Recyclers,wrong_segment,tueren
+Stöckl Parkett,stoeckl.com,Wood & Biomass Recyclers,wrong_segment,parkett
+Szach-Mat Window Factory Poland,szach-mat.eu,Wood & Biomass Recyclers,wrong_segment,window
+TARMEKO furniture,tarmeko.ee,Wood & Biomass Recyclers,wrong_segment,furniture
+Terrasses du Lys,terrassesdulys.fr,Wood & Biomass Recyclers,wrong_segment,terrasse
+Thermowood Decking,thermowooddecking.com,Wood & Biomass Recyclers,wrong_segment,decking
+Tschopp Holzbau AG Hochdorf,tschopp-holzbau.ch,Wood & Biomass Recyclers,wrong_segment,holzbau
+Türenfabrik Safenwil AG,tuerenfabrik.ch,Wood & Biomass Recyclers,wrong_segment,türen
+Unilin Flooring Polska,lentexflooring.com,Wood & Biomass Recyclers,wrong_segment,flooring
+Viking Window,viking.ee,Wood & Biomass Recyclers,wrong_segment,window
+Vogel Fensterbauer AG,vogel-fensterbauer.ch,Wood & Biomass Recyclers,wrong_segment,fenster
+Vrogum | Windows & Doors,vrogum.dk,Wood & Biomass Recyclers,wrong_segment,doors
+Weitzer Parkett,weitzer-parkett.com,Wood & Biomass Recyclers,wrong_segment,parkett
+WENGER FENSTER AG,wenger-fenster.ch,Wood & Biomass Recyclers,wrong_segment,fenster
+Wennerth Wood Trading ApS,wennerthwood.dk,Wood & Biomass Recyclers,wrong_segment,wood trad
+WESTCOAST WINDOWS AB,westcoastwindows.se,Wood & Biomass Recyclers,wrong_segment,window
+Wigger Fenster + Fassaden GmbH,wigger.de,Wood & Biomass Recyclers,wrong_segment,fenster
+Zimmerei Stark GmbH,stark-inspiration.de,Wood & Biomass Recyclers,wrong_segment,zimmerei
+ZMP Holzbausysteme,massivholzsystem.at,Wood & Biomass Recyclers,wrong_segment,holzbau
+Zurbuchen Fenêtres,zurbuchensa.ch,Wood & Biomass Recyclers,wrong_segment,fenêtre

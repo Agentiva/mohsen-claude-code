@@ -6,6 +6,8 @@ Zwei Dinge pro Playbook:
 
 Inputs in allen Prompts: `{{company_name}}`, `{{domain}}`.
 
+> **In JEDEM Sculptor-Prompt ist eine Pflicht-Doppelprüfung eingebaut:** (a) hat die Firma wirklich Bedarf an Lindners Produkten/Dienstleistungen (Schredder/Zerkleinerung/Aufbereitungsanlagen) und (b) ist sie **kein Wettbewerber** (Maschinenbauer/-händler) und **kein Zulieferer**, der etwas AN Lindner verkaufen will. Trifft (b) zu → immer `fit_tier = C`. Diese Doppelprüfung ist die zweite, intelligente Verifizierungsstufe nach dem deterministischen `verify_screen.py`.
+
 ---
 
 ## Playbook 264 – Private Recyclers & Reprocessors
@@ -22,19 +24,27 @@ ECHTER BEDARF besteht NUR, wenn die Firma:
 
 KEIN Bedarf (Tier C): Hersteller/Händler/Vermieter von Schredder-, Sortier- oder Recyclingmaschinen (Wettbewerber wie UNTHA, Vecoplan, Komptech, Doppstadt, Weima usw.); reine Berater/Ingenieurbüros; Software/IT; reine Transport-/Logistikfirmen ohne eigene Aufbereitung; reine Händler ohne Verarbeitung; Behörden ohne Anlage.
 
+ZUSÄTZLICHE PFLICHTPRÜFUNG (immer durchführen):
+(a) BEDARF BESTÄTIGEN: Belege konkret, dass die Firma Lindners Produkte/Dienstleistungen (Schredder/Zerkleinerung/Aufbereitung) tatsächlich brauchen könnte – nicht nur vage „irgendwas mit Abfall". Kein belegbarer eigener Aufbereitungsprozess → höchstens Tier B, im Zweifel C.
+(b) WETTBEWERBER/ZULIEFERER AUSSCHLIESSEN: Prüfe, ob die Firma (i) ein WETTBEWERBER ist – Hersteller/Händler/Vermieter von Schredder-, Zerkleinerungs-, Sortier- oder Recyclingmaschinen – ODER (ii) ein ZULIEFERER, der etwas AN Lindner verkaufen will (Maschinen-/Anlagenbau, Engineering/Ingenieurbüro, Hydraulik, Antriebe, Fördertechnik, Stahl-/Metallbau, Automatisierung, Verschleiß-/Ersatzteile, Waagen). Trifft (i) ODER (ii) zu → IMMER fit_tier C, egal wie gut der Fit sonst wäre.
+
 VORGEHEN:
 1. Besuche https://{{domain}} (Startseite, „Leistungen"/„Anlagen"/„Standorte", „Über uns").
 2. Bestimme, ob die Firma selbst Material aufbereitet und welche Stoffströme.
 3. Achte auf Bedarfssignale: eigene Aufbereitungs-/Sortieranlage, Nennung von Schreddern/Zerkleinerung, mehrere Standorte/Werkstoffhöfe, Investitionen/Anlagenausbau, Zertifizierung als Entsorgungsfachbetrieb, Durchsatz in t/Jahr.
+4. Prüfe die Doppelprüfung (a)+(b) oben.
 
 GIB GENAU DIESES JSON ZURÜCK (nichts anderes):
 {
   "fit_tier": "A | B | C",
   "has_need": "yes | no | unclear",
   "operates_processing": "yes | no | unclear",
+  "is_competitor": "yes | no | unclear",
+  "sells_to_lindner": "yes | no | unclear",
   "key_signal": "<stärkstes konkretes Bedarfssignal, max 10 Wörter, oder 'none'>",
   "reason": "<1 knapper Satz>"
 }
+Regel: Wenn is_competitor = yes ODER sells_to_lindner = yes, dann fit_tier = C.
 
 Firma: {{company_name}}
 Domain: {{domain}}
@@ -60,21 +70,29 @@ ECHTER BEDARF besteht NUR, wenn die Firma:
 - ein KOMMUNALES/ÖFFENTLICHES Entsorgungsunternehmen, Abfallwirtschaftsbetrieb, Zweckverband, Stadtwerk mit Abfallsparte oder eine öffentliche Versorgungsgesellschaft mit Abfallbehandlung ist, UND
 - Siedlungs-/Sperr-/Bulkabfall selbst behandelt, sortiert oder zerkleinert (nicht nur Verwaltung/Gebühren).
 
-KEIN Bedarf (Tier C): Maschinenhersteller/-händler (Wettbewerber); reine Berater; reine Wasser-/Abwasserbetriebe ohne Abfallsparte; reiner ÖPNV/Personentransport; reine Post/Bahn; reine Verwaltung/Behörde ohne eigene Anlage; Software/IT.
+KEIN Bedarf (Tier C): Maschinenhersteller/-händler (Wettbewerber); reine Berater; reine Wasser-/Abwasserbetriebe ohne Abfallsparte; reiner ÖPNV/Personentransport; reine Post/Bahn; reine Verwaltung/Behörde ohne eigene Anlage; Software/IT; Fach-Zweckverbände ohne Abfallbezug (KiTa, Schule/VHS, Tourismus, Wasser).
+
+ZUSÄTZLICHE PFLICHTPRÜFUNG (immer durchführen):
+(a) BEDARF BESTÄTIGEN: Belege, dass die Firma Siedlungsabfall SELBST behandelt/sortiert/zerkleinert (eigene Anlage, MBA, Umschlag, Sperrmüllaufbereitung) – nicht nur einsammelt oder verwaltet. Kein belegbarer Behandlungsprozess → höchstens Tier B, im Zweifel C.
+(b) WETTBEWERBER/ZULIEFERER AUSSCHLIESSEN: Prüfe, ob die Firma (i) ein WETTBEWERBER ist (Hersteller/Händler von Schredder-/Sortier-/Recyclingmaschinen) ODER (ii) ein ZULIEFERER, der etwas AN Lindner verkaufen will (Maschinen-/Anlagenbau, Engineering/Ingenieurbüro, Hydraulik, Antriebe, Fördertechnik, Stahl-/Metallbau, Automatisierung, Verschleiß-/Ersatzteile). Trifft (i) ODER (ii) zu → IMMER fit_tier C.
 
 VORGEHEN:
 1. Besuche https://{{domain}} (Startseite, „Abfallwirtschaft"/„Entsorgung"/„Anlagen"/„Über uns").
 2. Bestimme, ob die Firma Siedlungsabfall SELBST behandelt (nicht nur einsammelt/verwaltet).
 3. Achte auf Bedarfssignale: eigene MBA/Sortier-/Umladeanlage, Sperrmüllaufbereitung, Nennung von Zerkleinerung/Schredder, Brandvorfälle/Li-Ionen-Thema, Ausschreibungen/Investitionen, kommunaler Entsorgungsauftrag.
+4. Prüfe die Doppelprüfung (a)+(b) oben.
 
 GIB GENAU DIESES JSON ZURÜCK (nichts anderes):
 {
   "fit_tier": "A | B | C",
   "has_need": "yes | no | unclear",
   "operates_treatment": "yes | no | unclear",
+  "is_competitor": "yes | no | unclear",
+  "sells_to_lindner": "yes | no | unclear",
   "key_signal": "<stärkstes konkretes Bedarfssignal, max 10 Wörter, oder 'none'>",
   "reason": "<1 knapper Satz>"
 }
+Regel: Wenn is_competitor = yes ODER sells_to_lindner = yes, dann fit_tier = C.
 
 Firma: {{company_name}}
 Domain: {{domain}}
@@ -99,21 +117,29 @@ PRODUKT LINDNER: Mehrstufige Ersatzbrennstoff-Anlagen (Vor-/Nachzerkleinerung, M
 ECHTER BEDARF besteht NUR, wenn die Firma:
 - Ersatzbrennstoff (RDF/SRF) VERBRENNT oder PRODUZIERT – d.h. Zementwerk, Kalkwerk, Waste-to-Energy-/thermisches Kraftwerk, Heiz(kraft)werk/Fernwärme mit RDF-/Biomasse-Mitverbrennung, ODER dedizierter EBS/SRF-Produzent.
 
-KEIN Bedarf (Tier C): Maschinenhersteller/EPC-Berater ohne eigenes Werk; reine Transportbeton-/Zuschlagstoff-Betriebe ohne Zementofen; reine Solar-/Windentwickler ohne thermische RDF-Nutzung; Software/IT; reiner Öl-/Gashandel.
+KEIN Bedarf (Tier C): Maschinenhersteller/EPC-Berater ohne eigenes Werk; reine Transportbeton-/Zuschlagstoff-Betriebe ohne Zementofen; reine Solar-/Windentwickler ohne thermische RDF-Nutzung; Software/IT; reiner Öl-/Gashandel; reine Vertriebs-/Logistikarme ohne eigenes Werk.
+
+ZUSÄTZLICHE PFLICHTPRÜFUNG (immer durchführen):
+(a) BEDARF BESTÄTIGEN: Belege, dass die Firma tatsächlich einen Zement-/Kalkofen, eine WtE-/Kraftwerksfeuerung oder eine EBS/SRF-Produktion BETREIBT (nicht nur handelt/vertreibt). Kein belegbarer Ofen/Feuerung/EBS-Prozess → höchstens Tier B, im Zweifel C.
+(b) WETTBEWERBER/ZULIEFERER AUSSCHLIESSEN: Prüfe, ob die Firma (i) ein WETTBEWERBER ist (Hersteller/Händler von Schredder-/Aufbereitungsmaschinen) ODER (ii) ein ZULIEFERER, der etwas AN Lindner verkaufen will (Anlagenbau/EPC/Engineering-Ingenieurbüro, Hydraulik, Antriebe, Fördertechnik, Stahlbau, Automatisierung, Ersatzteile). Trifft (i) ODER (ii) zu → IMMER fit_tier C.
 
 VORGEHEN:
 1. Besuche https://{{domain}} (Startseite, „Werke/Standorte", „Alternative Brennstoffe"/„Nachhaltigkeit"/„Produkte").
 2. Bestimme, ob ein Zement-/Kalkofen, eine WtE-/Kraftwerksfeuerung oder eine EBS-Produktion betrieben wird.
 3. Achte auf Bedarfssignale: Nennung alternativer/ Ersatzbrennstoffe, Substitutionsrate, Klinker/Ofenlinie, EBS/SRF-Output, CO2-/Dekarbonisierungsziele, Kessel/Rostfeuerung.
+4. Prüfe die Doppelprüfung (a)+(b) oben.
 
 GIB GENAU DIESES JSON ZURÜCK (nichts anderes):
 {
   "fit_tier": "A | B | C",
   "has_need": "yes | no | unclear",
   "burns_or_makes_rdf": "yes | no | unclear",
+  "is_competitor": "yes | no | unclear",
+  "sells_to_lindner": "yes | no | unclear",
   "key_signal": "<stärkstes konkretes Bedarfssignal, max 10 Wörter, oder 'none'>",
   "reason": "<1 knapper Satz>"
 }
+Regel: Wenn is_competitor = yes ODER sells_to_lindner = yes, dann fit_tier = C.
 
 Firma: {{company_name}}
 Domain: {{domain}}
@@ -138,21 +164,29 @@ PRODUKT LINDNER: Schredder und wechselbare Schneidsysteme für Altholz-Vorzerkle
 ECHTER BEDARF besteht NUR, wenn die Firma:
 - Altholz oder holzartige Biomasse AUFBEREITET/ZERKLEINERT, d.h. Altholzrecycler/-aufbereiter, Spanplatten-/MDF-/Holzwerkstoffhersteller (Recyclingholz als Rohstoff), Biomasse-Heiz(kraft)werk/Bioenergie mit Holzbrennstoff, Pellet-/Hackschnitzelproduzent, Sägewerk/Holzverarbeitung mit Rest-/Altholzzerkleinerung, oder Grün-/Gartenabfall-Holzrecycler.
 
-KEIN Bedarf (Tier C): Hersteller/Händler von Zerkleinerern/Hackern (Wettbewerber); reine Möbel-/Baumarkt-Einzelhändler; reine Forst-/Logging-Betriebe ohne Zerkleinerung; Software/IT; reine Solar-/Windentwickler.
+KEIN Bedarf (Tier C): Hersteller/Händler von Zerkleinerern/Hackern (Wettbewerber); reine Möbel-/Fenster-/Türen-/Parkett-/Bodenbelag-Hersteller und Holzbau/Zimmerei (Fertighaus) – das sind Holz-VERWENDER, keine -Zerkleinerer; reine Holzhändler/-importeure; reine Forst-/Logging-Betriebe ohne Zerkleinerung; Software/IT; reine Solar-/Windentwickler.
+
+ZUSÄTZLICHE PFLICHTPRÜFUNG (immer durchführen):
+(a) BEDARF BESTÄTIGEN: Belege, dass die Firma Holz/Biomasse SELBST zerkleinert/aufbereitet ODER Recyclingholz/Holzbrennstoff im Prozess einsetzt (Altholz, Hackschnitzel, Spanplatte, Biomassekessel). Reiner Holz-Endprodukt-Hersteller (Möbel/Fenster/Türen/Parkett/Fertighaus) oder Holzhändler → Tier C. Kein belegbarer Zerkleinerungs-/Aufbereitungsbezug → höchstens Tier B, im Zweifel C.
+(b) WETTBEWERBER/ZULIEFERER AUSSCHLIESSEN: Prüfe, ob die Firma (i) ein WETTBEWERBER ist (Hersteller/Händler von Schredder-, Hacker-, Zerkleinerungs- oder Holzbearbeitungsmaschinen – z. B. Ledinek, Springer Maschinenfabrik, Uniforest) ODER (ii) ein ZULIEFERER, der etwas AN Lindner verkaufen will (Maschinen-/Anlagenbau, Engineering/Ingenieurbüro, Krantechnik, Hydraulik, Antriebe, Fördertechnik, Stahlbau, Ersatzteile). Trifft (i) ODER (ii) zu → IMMER fit_tier C.
 
 VORGEHEN:
 1. Besuche https://{{domain}} (Startseite, „Produkte/Leistungen", „Altholz"/„Biomasse"/„Anlagen", „Über uns").
 2. Bestimme, ob die Firma Holz/Biomasse SELBST zerkleinert/aufbereitet oder als Brennstoff/Rohstoff einsetzt.
 3. Achte auf Bedarfssignale: Altholzklassen A1–A4, eigene Zerkleinerung/Schredder, Spanplatten-/Werkstoffproduktion, Biomassekessel/Heizkraftwerk, Pellet-/Hackschnitzeloutput, ENplus, Durchsatz in t/Jahr.
+4. Prüfe die Doppelprüfung (a)+(b) oben.
 
 GIB GENAU DIESES JSON ZURÜCK (nichts anderes):
 {
   "fit_tier": "A | B | C",
   "has_need": "yes | no | unclear",
   "processes_wood_biomass": "yes | no | unclear",
+  "is_competitor": "yes | no | unclear",
+  "sells_to_lindner": "yes | no | unclear",
   "key_signal": "<stärkstes konkretes Bedarfssignal, max 10 Wörter, oder 'none'>",
   "reason": "<1 knapper Satz>"
 }
+Regel: Wenn is_competitor = yes ODER sells_to_lindner = yes, dann fit_tier = C.
 
 Firma: {{company_name}}
 Domain: {{domain}}

@@ -74,7 +74,27 @@ SUPPLIER = [
     "conveyor", "conveying", "screening technology", "separation technology",
     "verschleißtechnik", "hartmetall", "hardfacing", "schneidwerkzeug",
     "antriebe", "elektromotoren", "elektrotechnik", "prozessleittechnik",
-    "waagen", "wägetechnik", "wiegetechnik",
+    "waagen", "wägetechnik", "wiegetechnik", "kühnezug", "kuehnezug", " cranes",
+    "krantechnik", "holzbearbeitungsmaschinen", "woodworking machinery",
+    "sägewerkstechnik", "holzbaumaschinen",
+]
+# --- (d) WRONG-SEGMENT finished-wood-goods / traders (applied ONLY to Wood
+# playbook). A wood USER (doors/flooring/furniture/prefab) or timber trader does
+# not run a shredder. EXEMPT if the row also signals a real wood PROCESSOR.
+WOOD_WRONG = [
+    "türen", "tueren", " doors", "door manufactur", "fenster", "fenetre",
+    "fenêtre", "window", "flooring", "parkett", "parquet", "laminat", "möbel",
+    "moebel", "meble", "nábytek", "nabytek", "furniture", "küche", "kitchen",
+    "treppe", "stair", "fertighaus", "fertighäus", "modulhaus", "blockhaus",
+    "carport", "gartenhaus", "zaun", "fence", "tischlerei", "schreinerei",
+    "joinery", "carpentry", "zimmerei", "holzbau", "sauna", "terrasse",
+    "decking", "holzhandel", "holzimport", "timber trad", "wood trad",
+]
+WOOD_EXEMPT = [
+    "säge", "sagewerk", "sägewerk", "sawmill", "sågverk", "saha", "pellet",
+    "hackschnitzel", "spanplatte", "particle", "mdf", "osb", "holzwerkstoff",
+    "altholz", "biomasse", "biomass", "recycl", "energie", "energy", "brennstoff",
+    "fuel", "woodchip", "brikett", "briquette", "aufbereitung", "chips",
 ]
 # --- (c) NON-OPERATORS (only if NOT operator-exempt)
 NON_OPERATOR = [
@@ -111,7 +131,7 @@ def norm(s):
     return (s or "").lower()
 
 
-def classify(name, domain):
+def classify(name, domain, label=""):
     n, d = norm(name), norm(domain)
     hay = n + " " + d
     # competitor by domain (exact/suffix)
@@ -124,6 +144,11 @@ def classify(name, domain):
     for t in SUPPLIER:
         if t in hay:
             return "supplier_to_lindner", t
+    # Wood-only wrong-segment (finished goods / traders), unless a real processor
+    if "Wood" in label and not any(k in hay for k in WOOD_EXEMPT):
+        for t in WOOD_WRONG:
+            if t in hay:
+                return "wrong_segment", t.strip()
     op_exempt = any(k in hay for k in OPERATOR_POS)
     if not op_exempt:
         for t in NON_OPERATOR:
@@ -155,7 +180,7 @@ def main():
         rows = read_rows(os.path.join(CLEAN, fname))
         keep, cat_counts = [], Counter()
         for name, domain in rows:
-            cat, term = classify(name, domain)
+            cat, term = classify(name, domain, label)
             if cat == "keep":
                 keep.append((name, domain))
             else:
