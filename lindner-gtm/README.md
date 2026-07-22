@@ -29,6 +29,24 @@ Auftrag: pro Playbook Richtung 2.000 bedarfsstarke Firmen aus 27 Ländern (DACH,
 4. **Finaler Ausschlusspass** (`assemble.py`): Wettbewerber (Maschinenbauer wie UNTHA, Vecoplan, Komptech, Doppstadt, Weima …), generische Nicht-Passer (Beratung, Software, Agentur, Versicherung, Immobilien, Recruiting, Mobilität …), Referenz-Exemplare (REMONDIS, Veolia, FCC, Holcim, Heidelberg, Cemex, Saubermacher, LINZ AG …), Dedupe je Playbook.
 5. **Intelligente Pro-Firma-Bedarfsprüfung → Clay** (nicht Claude): mit den Sculptor-Prompts in `clay_assets.md`; danach `fit_tier ∈ {A,B}` filtern und exportieren.
 
+## Verifizierungs-Pass (Konkurrenz / Zulieferer / Nicht-Betreiber entfernt)
+
+Auf ausdrücklichen Wunsch geprüft: Sind die Firmen echte potenzielle **Käufer** – und keine **Wettbewerber** oder Firmen, die **an Lindner verkaufen** wollen? Script: `verify_screen.py`. Ergebnis:
+
+| Playbook | vorher | verifiziert | entfernt |
+|---|---:|---:|---:|
+| Private Recyclers & Reprocessors | 1.995 | **1.973** | 22 |
+| Wood & Biomass Recyclers | 1.997 | **1.963** | 34 |
+| Municipal & Public Waste Operators | 619 | **540** | 79 |
+| Cement, Energy & RDF Off-takers | 219 | **219** | 0 |
+| **Gesamt** | 4.830 | **4.695** | 135 |
+
+Entfernt (alle nachvollziehbar in `review/flagged_suspects.csv`): **36 Zulieferer** (Maschinenbau/Anlagenbau/Engineering/Ingenieurbüros, Hydraulik/Antriebe/Fördertechnik, Stahl-/Metallbau, Waagen – z. B. Ledinek, Springer Maschinenfabrik, Wessel-Hydraulik, Uniforest-Forsttechnik), **96 Nicht-Betreiber** (v. a. Fach-/Zweckverbände ohne Abfallbezug wie KiTa-, ÖPNV-, Wasser-, VHS-, IT-Zweckverbände, dazu Verbände/Institute/Akademien/Verlage/Beratungen) und **3 Wettbewerber**. Fehl-Flags wurden korrigiert (echte Abfall-Zweckverbände wie Müllverwertung Schwandorf, KVA Thurgau blieben drin).
+
+**Verifizierte Hauptdatei:** `lindner_target_companies_verified.csv` · verifizierte Einzellisten unter `verified/`.
+
+> Hinweis: Der Screen entfernt Konkurrenz/Zulieferer/Nicht-Betreiber deterministisch über Name+Domain (kein Website-Besuch, da WebFetch geblockt). Die **positive Pro-Firma-Bedarfsbestätigung** (betreibt die Firma wirklich eine Zerkleinerung / verbrennt RDF / verarbeitet Altholz) ist der Clay-Sculptor-Schritt in `clay_assets.md`. Ein Rest-Long-Tail an Falsch-Segment-Treffern (z. B. Fensterbauer in Wood) bleibt möglich und wird dort final gefiltert.
+
 ## Ehrliche Einordnung / Caveats
 - **WebFetch war umgebungsseitig geblockt (403 auf allen Hosts)** – Verbands-Mitgliederverzeichnisse (Avfall Sverige/Norge, Dansk Affaldsforening, KIVO, Schweizer KVA, österreichische Abfallverbände, EPF, ENplus, bvse) konnten NICHT gescraped werden. Skalierung lief daher überwiegend über Apollo mit landessprachlicher Keyword-Segmentierung; WebSearch nur zur Orientierung.
 - **Municipal (619):** öffentlich/kommunale MSW-Betreiber mit eigener, in Apollo auffindbarer Domain sind ein endlicher Satz (~600–800, Deutschland-dominiert). Über ~620 hinaus hieße mit privaten Fuhrunternehmen/bloßen Gemeinden auffüllen – das vermeidet das Playbook bewusst. **Upside:** der geblockte Verzeichnis-Kanal (Abfallverbände AT ~50–80, KVA CH ~30, KIVO FI ~30, volle Nordic-Mitgliederlisten) könnte in einer nicht geblockten Umgebung einige Hundert ergänzen.
