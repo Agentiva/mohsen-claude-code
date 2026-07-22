@@ -56,8 +56,8 @@ COMPETITOR_DOMAINS = [
 # in the name. Deliberately narrow to avoid false positives.
 NONFIT_TOKENS = [
     "consulting", "consultancy", "beratung", "steuerberat",
-    "software", " gmbh & co. kg it", "informatik", "agentur", "werbe",
-    "versicherung", "insurance", " bank ", "immobilien", "real estate",
+    "software", " gmbh & co. kg it", "informatik", "agentur", "werbeagentur",
+    "werbung", "versicherung", "insurance", " bank ", "immobilien", "real estate",
     "rechtsanwalt", "kanzlei", "notar", "universit", "hochschule", "klinik",
     "krankenhaus", "hospital", "personaldienst", "zeitarbeit", "recruit",
     "e-mobilit", "emobilit", "autohaus", "reisen", "touristik", "hotel ",
@@ -74,7 +74,9 @@ REFERENCE_DOMAINS = {
 
 NAME_KEYS = {"company_name", "company", "name", "unternehmen", "firma", "organization"}
 DOMAIN_KEYS = {"domain", "website", "url", "webseite", "domain_name", "primary_domain"}
-DOMAIN_RE = re.compile(r"^[a-z0-9]([a-z0-9\-]{0,61}[a-z0-9])?(\.[a-z0-9\-]{2,})+$")
+# Permissive: has at least one dot, no whitespace/@/slash. Allows IDN/umlaut TLDs
+# so we don't silently drop valid Nordic/German internationalized domains.
+DOMAIN_RE = re.compile(r"^[^\s@/]+\.[^\s@/]{2,}$")
 
 
 def norm_domain(value: str) -> str:
