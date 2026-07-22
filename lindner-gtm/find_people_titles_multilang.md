@@ -81,16 +81,7 @@ Director General, Administrator, CEO, Proprietar, Asociat, Director de fabrică,
 Управител, Изпълнителен директор, Генерален директор, Собственик, Директор на завод, Ръководител на завод, Мениджър на завода, Технически директор, Технически ръководител, Производствен директор, Ръководител производство, Мениджър операции, Ръководител поддръжка
 ```
 
-## Russisch (Belarus, Russland; auch verbreitet in Moldau)
-```
-Генеральный директор, Управляющий директор, Директор, Владелец, Собственник, Директор завода, Директор предприятия, Руководитель предприятия, Технический директор, Главный инженер, Директор по производству, Начальник производства, Операционный директор, Главный механик, Начальник технического обслуживания
-```
-> Hinweis: **Главный инженер** (Chief Engineer) ist im GUS-Raum der zentrale technische Entscheider – unbedingt drin lassen.
-
-## Ukrainisch (Ukraine)
-```
-Генеральний директор, Директор, Власник, Директор заводу, Керівник підприємства, Технічний директор, Головний інженер, Директор з виробництва, Начальник виробництва, Операційний директор, Головний механік
-```
+> **Russisch & Ukrainisch: auf Wunsch entfernt.** Belarus über Englisch ansprechen; Moldau über Rumänisch (oben) + Englisch.
 
 ## Estnisch (Estland)
 ```
@@ -133,5 +124,5 @@ Direktor, Generalni direktor, Izvršni direktor, Lastnik, Vodja obrata, Direktor
 ### Hinweise zur Nutzung
 - In Clay pro Zielland die **jeweilige Sprachzeile + die English-Master-Zeile** zusammen ins Titelfeld (viele Profile/LinkedIn stehen englisch, viele lokal → beides abdecken).
 - Cyrillische Länder (BG, RU, UA, MK, teils SR/ME): sowohl kyrillische als auch lateinische/englische Variante einsetzen.
-- **Scope-Hinweis:** Russland und Ukraine waren **nicht** Teil der recherchierten Firmenliste (Original-Scope = 27 Länder ohne RU/UA); Belarus enthält nur 3 verifizierte Firmen. Titel sind hier vollständigkeitshalber aufgeführt. Bei Outbound nach RU/BY zusätzlich Sanktions-/Zustellbarkeitslage prüfen.
+- **Scope-Hinweis:** Russisch und Ukrainisch wurden auf Wunsch **entfernt**. Belarus (nur 3 verifizierte Firmen) und Moldau bleiben Zielländer – Ansprache über Englisch bzw. Rumänisch (Moldau). Bei Outbound nach Belarus zusätzlich Sanktions-/Zustellbarkeitslage prüfen.
 ```
