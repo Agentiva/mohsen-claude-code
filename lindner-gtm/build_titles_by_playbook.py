@@ -30,7 +30,7 @@ CORE = {
 }
 
 GROUP_A = ["en","da","no","sv","fi","is"]                 # Nordics + England
-GROUP_B = ["en","bg","ro","pl","sk","cs","hu","et","lv","lt","sq","bcs","mk","sl"]  # Eastern Europe + England (ohne Russisch/Ukrainisch)
+GROUP_B = ["en","ro","pl","sk","cs","hu","et","lv","lt","sq","bcs","sl"]  # Eastern Europe + England (nur Latein + Englisch; ohne Russisch/Ukrainisch und ohne kyrillisch: Bulgarisch/Mazedonisch)
 
 # Playbook-specific specialist titles (English — commonly English-tagged on
 # LinkedIn even in local markets; appended to both groups).
