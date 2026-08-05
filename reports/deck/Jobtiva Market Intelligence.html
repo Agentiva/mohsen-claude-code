@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>amplifa · ErgoPack Market Intelligence Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="deck-stage.js"></script>
+<style>
+  :root {
+    --bg: #f6f5f1;
+    --bg-2: #ffffff;
+    --bg-3: #efece5;
+    --ink: #0a0a0f;
+    --ink-2: #1a1a22;
+    --muted: #6b6b75;
+    --muted-2: #9a9aa3;
+    --line: #e6e4dd;
+    --line-2: #d6d4cb;
+    --accent-yel: #ffb800;
+    --accent-red: #ff3b30;
+    --accent-blu: #2a6ffd;
+    --accent-pur: #7b3aed;
+    --accent-grn: #1f8a5b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #0a0a0f; font-family: 'Inter', -apple-system, sans-serif; }
+
+  deck-stage section {
+    background: var(--bg);
+    color: var(--ink);
+    width: 1920px;
+    height: 1080px;
+    padding: 88px 112px;
+    position: relative;
+    overflow: hidden;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  .chrome {
+    position: absolute;
+    inset: 56px 112px auto 112px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .chrome .mark { display: flex; align-items: center; gap: 12px; }
+  .chrome .mark img { height: 22px; display: block; }
+  .chrome .meta { display: flex; gap: 28px; align-items: center; }
+  .chrome .meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-grn); display: inline-block; margin-right: 8px; vertical-align: middle; }
+  .chrome-pages { font-variant-numeric: tabular-nums; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .eyebrow::before {
+    content: ""; width: 28px; height: 1px; background: var(--ink); display: inline-block;
+  }
+  .eyebrow.warn::before { background: var(--accent-red); }
+
+  h1.display { font-size: 132px; line-height: 0.96; letter-spacing: -0.04em; font-weight: 700; margin: 0; text-wrap: balance; }
+  h2.title { font-size: 96px; line-height: 0.98; letter-spacing: -0.035em; font-weight: 700; margin: 0; text-wrap: balance; }
+  h2.title-md { font-size: 72px; line-height: 1.0; letter-spacing: -0.03em; font-weight: 700; margin: 0; text-wrap: balance; }
+  h3.sub { font-size: 32px; line-height: 1.25; letter-spacing: -0.01em; font-weight: 400; color: var(--muted); margin: 0; text-wrap: pretty; }
+  .mono { font-family: 'JetBrains Mono', monospace; font-feature-settings: "ss01"; }
+
+  .body-text { font-size: 22px; line-height: 1.5; color: var(--ink-2); text-wrap: pretty; }
+  .body-text.muted { color: var(--muted); }
+
+  .pad-top { padding-top: 180px; }
+  .pad-top-lg { padding-top: 220px; }
+
+  /* ============ COVER ============ */
+  .s-title { display: grid; grid-template-rows: auto 1fr auto; }
+  .s-title .hero { align-self: center; }
+  .s-title .kicker { font-family: 'JetBrains Mono', monospace; font-size: 18px; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 28px; }
+  .s-title h1.display { font-size: 132px; }
+  .s-title .underline { margin-top: 56px; display: flex; gap: 6px; height: 14px; max-width: 900px; }
+  .s-title .underline span { flex: 1; height: 100%; }
+  .s-title .underline span:nth-child(1) { background: var(--accent-yel); }
+  .s-title .underline span:nth-child(2) { background: var(--accent-red); }
+  .s-title .underline span:nth-child(3) { background: var(--accent-blu); }
+  .s-title .underline span:nth-child(4) { background: var(--accent-pur); }
+  .s-title .underline span:nth-child(5) { background: var(--ink); }
+  .s-title .footnote { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; font-size: 18px; color: var(--muted); }
+  .s-title .footnote strong { color: var(--ink); font-weight: 600; display: block; font-size: 22px; letter-spacing: -0.01em; margin-bottom: 4px; }
+
+  /* ============ DIVIDER ============ */
+  .s-divider { background: var(--ink); color: #fff; display: grid; grid-template-rows: auto 1fr auto; }
+  .s-divider .chrome { color: rgba(255,255,255,0.5); }
+  .s-divider .core { align-self: center; }
+  .s-divider .num { font-family: 'JetBrains Mono', monospace; font-size: 22px; color: rgba(255,255,255,0.5); margin-bottom: 32px; letter-spacing: 0.04em; }
+  .s-divider h2 { font-size: 168px; line-height: 0.92; letter-spacing: -0.04em; font-weight: 700; margin: 0; }
+  .s-divider .sub { font-size: 30px; color: rgba(255,255,255,0.65); margin-top: 48px; max-width: 1100px; line-height: 1.4; }
+  .s-divider .stripe { display: flex; gap: 6px; height: 10px; max-width: 480px; margin-top: 56px; }
+  .s-divider .stripe span { flex: 1; }
+  .s-divider .stripe span:nth-child(1) { background: var(--accent-yel); }
+  .s-divider .stripe span:nth-child(2) { background: var(--accent-red); }
+  .s-divider .stripe span:nth-child(3) { background: var(--accent-blu); }
+  .s-divider .stripe span:nth-child(4) { background: var(--accent-pur); }
+  .s-divider .foot { display: flex; justify-content: space-between; font-size: 16px; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ============ EXECUTIVE SUMMARY ============ */
+  .insights { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 56px; }
+  .insight {
+    background: var(--bg-2); border: 1px solid var(--line);
+    border-radius: 20px; padding: 32px 28px;
+    display: flex; flex-direction: column; min-height: 360px;
+  }
+  .insight .idx { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+  .insight h4 { font-size: 26px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.15; margin: 18px 0 14px; }
+  .insight p { font-size: 16px; line-height: 1.45; color: var(--muted); margin: 0; }
+  .insight .tag { margin-top: auto; padding-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); letter-spacing: 0.06em; }
+  .insight .bar { display: block; width: 36px; height: 4px; margin-bottom: 18px; }
+  .insight:nth-child(1) .bar { background: var(--accent-grn); }
+  .insight:nth-child(2) .bar { background: var(--accent-blu); }
+  .insight:nth-child(3) .bar { background: var(--accent-yel); }
+  .insight:nth-child(4) .bar { background: var(--accent-pur); }
+  .insight:nth-child(5) .bar { background: var(--accent-red); }
+
+  /* ============ COMPANY SNAPSHOT ============ */
+  .snap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+  .snap {
+    background: var(--bg-2); border: 1px solid var(--line);
+    border-radius: 18px; padding: 32px 28px;
+    display: flex; flex-direction: column; min-height: 200px;
+  }
+  .snap .lbl { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .snap .val { font-size: 56px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.0; margin-top: auto; }
+  .snap .val .unit { font-size: 22px; font-weight: 500; color: var(--muted); margin-left: 6px; letter-spacing: -0.01em; }
+  .snap .note { font-size: 14px; color: var(--muted); margin-top: 10px; line-height: 1.35; }
+  .snap.dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .snap.dark .lbl { color: rgba(255,255,255,0.55); }
+  .snap.dark .note { color: rgba(255,255,255,0.6); }
+  .snap.dark .val .unit { color: rgba(255,255,255,0.5); }
+
+  /* ============ BRAND / TIER ARCHITECTURE ============ */
+  .brand-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
+  .brand-card {
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: 22px;
+    padding: 38px 36px 40px; min-height: 480px;
+    display: flex; flex-direction: column;
+  }
+  .brand-card .lvl { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+  .brand-card h3 { font-size: 44px; font-weight: 700; letter-spacing: -0.03em; margin: 12px 0 6px; line-height: 1.0; }
+  .brand-card .tag { font-size: 15px; font-family: 'JetBrains Mono', monospace; color: var(--ink); letter-spacing: 0.04em; margin-bottom: 24px; }
+  .brand-card .desc { font-size: 18px; color: var(--muted); line-height: 1.5; }
+  .brand-card ul { margin: 24px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .brand-card ul li { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; color: var(--ink-2); display: flex; justify-content: space-between; gap: 16px; }
+  .brand-card ul li span { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 13px; text-align: right; }
+  .brand-card .accent-bar { width: 64px; height: 6px; margin-bottom: 24px; }
+  .brand-card.v-a .accent-bar { background: var(--accent-grn); }
+  .brand-card.v-b .accent-bar { background: var(--accent-blu); }
+  .brand-card.v-c .accent-bar { background: var(--accent-pur); }
+  .brand-card.v-d .accent-bar { background: var(--accent-yel); }
+  .brand-card.v-a { border-color: var(--ink); border-width: 2px; }
+
+  /* ============ MARKET / CRISIS LAYOUT ============ */
+  .crisis { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; padding-top: 180px; }
+  .crisis h2 { margin-top: 28px; }
+  .crisis .lede { font-size: 24px; color: var(--muted); line-height: 1.5; margin-top: 36px; max-width: 640px; }
+  .bars-chart { display: flex; flex-direction: column; gap: 18px; margin-top: 12px; }
+  .bar-line { display: grid; grid-template-columns: 110px 1fr 120px; align-items: center; gap: 20px; }
+  .bar-line .yr { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 600; color: var(--ink); }
+  .bar-line .track { height: 56px; background: var(--bg-3); border-radius: 8px; position: relative; overflow: hidden; }
+  .bar-line .fill { height: 100%; background: var(--ink); border-radius: 8px; display: flex; align-items: center; justify-content: flex-end; padding-right: 18px; color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: 600; }
+  .bar-line.crisis-y .fill { background: var(--accent-red); }
+  .bar-line.future .fill { background: var(--accent-grn); }
+  .bar-line .delta { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 600; color: var(--accent-red); }
+  .bar-line.future .delta { color: var(--accent-grn); }
+  .bar-line .delta.pos { color: var(--accent-grn); }
+
+  /* ============ DRIVERS & INHIBITORS ============ */
+  .di-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .di-col { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 40px 36px; }
+  .di-col.dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .di-col .head { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  .di-col .head .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent-grn); }
+  .di-col.dark .head .dot { background: var(--accent-red); }
+  .di-col .head h4 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+  .di-col ul { margin: 0; padding: 0; list-style: none; }
+  .di-col ul li { padding: 18px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 36px 1fr auto; gap: 18px; align-items: center; }
+  .di-col.dark ul li { border-color: rgba(255,255,255,0.12); }
+  .di-col ul li .ico { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); }
+  .di-col.dark ul li .ico { color: rgba(255,255,255,0.5); }
+  .di-col ul li .txt { font-size: 19px; line-height: 1.35; }
+  .di-col.dark ul li .txt { color: rgba(255,255,255,0.9); }
+  .di-col ul li .val { font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 600; text-align: right; }
+  .di-col.dark ul li .val { color: #fff; }
+  .di-col ul li .val.up, .di-col ul li .val.down { color: var(--accent-red); }
+  .di-col ul li .val.pos { color: var(--accent-grn); }
+
+  /* ============ USP / PLATFORMS ============ */
+  .usp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
+  .usp { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 32px 30px; min-height: 240px; display: flex; flex-direction: column; }
+  .usp .nm { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+  .usp .desc { font-size: 16px; color: var(--muted); line-height: 1.45; margin-top: 12px; }
+  .usp .ico-block { width: 56px; height: 56px; border-radius: 14px; background: var(--bg-3); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 18px; }
+  .usp:nth-child(1) .ico-block { background: var(--accent-grn); color: #fff; }
+  .usp:nth-child(2) .ico-block { background: var(--accent-blu); color: #fff; }
+  .usp:nth-child(3) .ico-block { background: var(--ink); color: #fff; }
+  .usp:nth-child(4) .ico-block { background: var(--accent-pur); color: #fff; }
+  .usp:nth-child(5) .ico-block { background: var(--accent-yel); }
+  .usp:nth-child(6) .ico-block { background: var(--accent-red); color: #fff; }
+
+  /* ============ TAM/SAM/SOM ============ */
+  .funnel { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .fn { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 40px 36px; min-height: 460px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .fn .lbl { font-family: 'JetBrains Mono', monospace; font-size: 14px; letter-spacing: 0.1em; color: var(--muted); }
+  .fn h4 { font-size: 32px; font-weight: 700; letter-spacing: -0.025em; margin: 16px 0 12px; line-height: 1.1; }
+  .fn .desc { font-size: 17px; color: var(--muted); line-height: 1.45; }
+  .fn .bignum { font-size: 80px; font-weight: 700; letter-spacing: -0.04em; line-height: 0.95; margin-top: auto; }
+  .fn .bignum .unit { font-size: 26px; font-weight: 500; color: var(--muted); margin-left: 6px; letter-spacing: -0.01em; }
+  .fn .alt { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--ink-2); line-height: 1.5; }
+  .fn .alt strong { font-weight: 700; color: var(--ink); }
+  .fn.som { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .fn.som .lbl { color: rgba(255,255,255,0.55); }
+  .fn.som .desc { color: rgba(255,255,255,0.65); }
+  .fn.som .bignum .unit { color: rgba(255,255,255,0.5); }
+  .fn.som .alt { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); }
+  .fn.som .alt strong { color: var(--accent-yel); }
+
+  /* ============ PERSONAS ============ */
+  .persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+  .pcard { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 28px 28px; min-height: 300px; display: flex; flex-direction: column; }
+  .pcard .role { font-size: 24px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; }
+  .pcard .role small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 6px; }
+  .pcard .kpis { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; margin-top: 16px; line-height: 1.5; }
+  .pcard .trig { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+  .pcard .trig strong { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 12px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .pcard .channels { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+  .pcard .channels .ch { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--ink-2); letter-spacing: 0.04em; }
+  .pcard .channels .ch.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  /* ============ SIGNALS / TRIGGER ============ */
+  .signals-list { margin-top: 40px; display: flex; flex-direction: column; gap: 0; }
+  .sig { display: grid; grid-template-columns: 80px 1fr 320px 160px; align-items: center; padding: 17px 0; border-top: 1px solid var(--line-2); gap: 32px; }
+  .sig:last-child { border-bottom: 1px solid var(--line-2); }
+  .sig .num { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--ink); }
+  .sig .nm { font-size: 27px; font-weight: 700; letter-spacing: -0.02em; }
+  .sig .nm small { display: block; font-size: 15px; color: var(--muted); font-weight: 400; margin-top: 6px; line-height: 1.35; }
+  .sig .src { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--muted); }
+  .sig .when { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--ink); font-weight: 600; padding: 8px 14px; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 999px; text-align: center; }
+
+  /* ============ HOOK / MESSAGING ============ */
+  .hooks-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 40px; }
+  .hook { background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 26px 30px; display: flex; flex-direction: column; min-height: 206px; }
+  .hook .idx { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.08em; }
+  .hook q { display: block; font-size: 22px; line-height: 1.3; letter-spacing: -0.01em; color: var(--ink); font-weight: 500; margin-top: 14px; quotes: "„" "\201C" "\201A" "\2018"; }
+  .hook q::before { content: open-quote; }
+  .hook q::after { content: close-quote; }
+  .hook .ctx { font-size: 12px; color: var(--muted); margin-top: auto; padding-top: 14px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ============ CHANNEL MATRIX (effective view) ============ */
+  .cmx { margin-top: 44px; }
+  .cmx-row { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.7fr; align-items: center; gap: 28px; padding: 24px 0; border-top: 1px solid var(--line-2); }
+  .cmx-row.head { border-top: none; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 0 0 14px; }
+  .cmx-row:last-child { border-bottom: 1px solid var(--line-2); }
+  .cmx-row .pn { font-size: 23px; font-weight: 700; letter-spacing: -0.015em; }
+  .cmx-row .pn small { display: block; font-size: 14px; color: var(--muted); font-weight: 400; margin-top: 4px; }
+  .lv { display: flex; flex-direction: column; gap: 8px; }
+  .lv .badge { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
+  .lv .meter { height: 8px; border-radius: 999px; background: var(--bg-3); overflow: hidden; }
+  .lv .meter i { display: block; height: 100%; border-radius: 999px; }
+  .lv.primar .badge { color: var(--accent-grn); }
+  .lv.primar .meter i { width: 100%; background: var(--accent-grn); }
+  .lv.sek .badge { color: var(--ink); }
+  .lv.sek .meter i { width: 58%; background: var(--ink); }
+  .lv.consent .badge { color: var(--muted); }
+  .lv.consent .meter i { width: 34%; background: var(--muted-2); }
+  .lv.none .badge { color: var(--muted-2); }
+  .lv.none .meter { background: transparent; }
+  .cmx-row .seq { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1.45; }
+  .cmx-row .seq b { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent-grn); font-weight: 700; margin-right: 6px; }
+  .cmx-legend { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 26px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.03em; }
+  .cmx-legend span { display: inline-flex; align-items: center; gap: 9px; }
+  .cmx-legend i { width: 26px; height: 8px; border-radius: 999px; display: inline-block; }
+
+  /* ============ TARGET / VENDOR TABLE ============ */
+  .trg-table { margin-top: 40px; }
+  .trg-row { display: grid; grid-template-columns: 1.4fr 1.6fr 220px; align-items: center; padding: 20px 0; border-top: 1px solid var(--line-2); gap: 28px; }
+  .trg-row.head { border-top: none; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-bottom: 14px; }
+  .trg-row:last-child { border-bottom: 1px solid var(--line-2); }
+  .trg-row .tname { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .trg-row .tname small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 3px; font-family: 'JetBrains Mono', monospace; }
+  .trg-row .tsrc { font-size: 16px; color: var(--muted); line-height: 1.4; }
+  .trg-row .tw { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; padding: 10px 18px; background: var(--bg-2); border-radius: 999px; border: 1px solid var(--line-2); text-align: center; }
+  .trg-row .tw.urgent { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .trg-row .tw.opp { color: var(--muted); }
+
+  /* ============ REFERENCE WALL ============ */
+  .ref-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+  .ref-col { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 34px 32px 36px; display: flex; flex-direction: column; }
+  .ref-col .accent-bar { width: 56px; height: 6px; margin-bottom: 22px; }
+  .ref-col:nth-child(1) .accent-bar { background: var(--accent-grn); }
+  .ref-col:nth-child(2) .accent-bar { background: var(--accent-blu); }
+  .ref-col:nth-child(3) .accent-bar { background: var(--accent-pur); }
+  .ref-col .rh { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.1em; }
+  .ref-col h3 { font-size: 32px; font-weight: 700; letter-spacing: -0.025em; margin: 10px 0 22px; line-height: 1.05; }
+  .ref-col ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .ref-col ul li { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 17px; color: var(--ink); font-weight: 600; letter-spacing: -0.01em; }
+  .ref-col ul li small { display: block; font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 3px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em; }
+
+  /* ============ RISKS ============ */
+  .risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .risk { background: var(--bg-2); border: 1px solid var(--line); border-left: 4px solid var(--accent-red); border-radius: 14px; padding: 28px 28px; min-height: 230px; display: flex; flex-direction: column; }
+  .risk .nm { font-size: 22px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; }
+  .risk .desc { font-size: 16px; color: var(--muted); line-height: 1.45; margin-top: 12px; }
+  .risk .mit { margin-top: auto; padding-top: 16px; font-size: 14px; font-family: 'JetBrains Mono', monospace; color: var(--accent-grn); letter-spacing: 0.02em; line-height: 1.4; }
+  .risk .mit strong { display: block; font-size: 11px; color: var(--ink); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+
+  /* ============ PHASED APPROACH ============ */
+  .phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; position: relative; }
+  .phases::before { content: ""; position: absolute; top: 38px; left: 38px; right: 38px; height: 2px; background: var(--line-2); z-index: 0; }
+  .phase { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px; padding: 36px 32px; position: relative; z-index: 1; min-height: 480px; display: flex; flex-direction: column; }
+  .phase .nd { width: 76px; height: 76px; border-radius: 50%; background: var(--bg-2); border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 22px; margin: -10px 0 24px; }
+  .phase:nth-child(1) .nd { background: var(--ink); color: #fff; }
+  .phase .wk { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .phase h4 { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 10px 0 24px; line-height: 1.1; }
+  .phase ul { margin: 0; padding: 0; list-style: none; }
+  .phase ul li { padding: 14px 0; border-top: 1px solid var(--line); font-size: 16px; color: var(--ink-2); line-height: 1.4; display: grid; grid-template-columns: 16px 1fr; gap: 12px; align-items: start; }
+  .phase ul li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); margin-top: 8px; }
+  .phase .bench { margin-top: auto; padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent-grn); letter-spacing: 0.04em; }
+
+  /* ============ RECOMMENDATIONS ============ */
+  .recs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 48px; }
+  .rec { background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; padding: 28px 30px; display: flex; gap: 24px; align-items: flex-start; min-height: 140px; }
+  .rec .num { font-family: 'JetBrains Mono', monospace; font-size: 38px; font-weight: 700; color: var(--accent-grn); line-height: 1.0; letter-spacing: -0.02em; min-width: 60px; }
+  .rec h5 { font-size: 22px; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 8px; line-height: 1.2; }
+  .rec p { font-size: 15px; color: var(--muted); line-height: 1.45; margin: 0; }
+
+  /* ============ CAVEATS ============ */
+  .caveats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+  .cv { display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid var(--line-2); }
+  .cv .i { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--accent-red); font-weight: 700; min-width: 30px; }
+  .cv .t { font-size: 16px; color: var(--ink-2); line-height: 1.5; }
+
+  /* ============ PRODUCT CORRECTION (special) ============ */
+  .correction { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; padding-top: 168px; align-items: start; }
+  .correction .lede { font-size: 26px; color: var(--muted); line-height: 1.5; margin-top: 36px; max-width: 680px; }
+  .myth-real { display: flex; flex-direction: column; gap: 20px; }
+  .mr-card { border-radius: 18px; padding: 32px 34px; }
+  .mr-card.myth { background: var(--bg-2); border: 1px solid var(--line); }
+  .mr-card.real { background: var(--ink); color: #fff; }
+  .mr-card .mr-lbl { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+  .mr-card.myth .mr-lbl { color: var(--accent-red); }
+  .mr-card.real .mr-lbl { color: var(--accent-grn); }
+  .mr-card .mr-lbl::before { content: ""; width: 12px; height: 12px; border-radius: 50%; }
+  .mr-card.myth .mr-lbl::before { background: var(--accent-red); }
+  .mr-card.real .mr-lbl::before { background: var(--accent-grn); }
+  .mr-card .mr-head { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin: 18px 0 14px; }
+  .mr-card .mr-body { font-size: 18px; line-height: 1.5; }
+  .mr-card.myth .mr-body { color: var(--muted); }
+  .mr-card.real .mr-body { color: rgba(255,255,255,0.78); }
+  .mr-card .mr-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .mr-card .mr-tags span { font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: 999px; letter-spacing: 0.04em; }
+  .mr-card.myth .mr-tags span { border: 1px solid var(--line-2); color: var(--muted); text-decoration: line-through; }
+  .mr-card.real .mr-tags span { background: rgba(255,255,255,0.1); color: #fff; }
+
+  /* ============ CLOSING ============ */
+  .s-close { background: var(--ink); color: #fff; display: grid; grid-template-rows: auto 1fr auto; }
+  .s-close .chrome { color: rgba(255,255,255,0.5); }
+  .s-close .core { align-self: center; }
+  .s-close .eyebrow { color: rgba(255,255,255,0.55); }
+  .s-close .eyebrow::before { background: rgba(255,255,255,0.6); }
+  .s-close h2 { font-size: 132px; color: #fff; margin-top: 32px; line-height: 0.95; letter-spacing: -0.04em; font-weight: 700; }
+  .s-close .accent { color: var(--accent-grn); }
+  .s-close .sub-cta { font-size: 26px; color: rgba(255,255,255,0.65); max-width: 1080px; margin-top: 40px; line-height: 1.45; }
+  .s-close .actions { display: flex; gap: 24px; margin-top: 56px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 14px; padding: 22px 36px; border-radius: 999px; font-size: 22px; font-weight: 500; letter-spacing: -0.005em; background: #fff; color: var(--ink); text-decoration: none; border: 1px solid #fff; }
+  .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.25); }
+  .btn .arr { width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: #fff; display: inline-flex; align-items: center; justify-content: center; }
+  .btn.ghost .arr { background: rgba(255,255,255,0.12); color: #fff; }
+  .s-close .foot { display: flex; justify-content: space-between; align-items: end; color: rgba(255,255,255,0.5); font-size: 18px; }
+  .s-close .foot strong { color: #fff; display: block; font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .s-close .swatches { display: flex; gap: 8px; margin-top: 48px; }
+  .s-close .swatches span { width: 56px; height: 8px; }
+
+  .pop-red { color: var(--accent-red); }
+  .pop-blu { color: var(--accent-blu); }
+  .pop-yel { color: var(--accent-yel); }
+  .pop-grn { color: var(--accent-grn); }
+</style>
+<style>
+  /* ── Per-Slide-Overrides (Basis-CSS bleibt unangetastet) ───────────── */
+  section[data-screen-label="03 Top 5 Insights"] .insights { margin-top: 44px; }
+  section[data-screen-label="03 Top 5 Insights"] .insight { min-height: 400px; }
+
+  section[data-screen-label="06 Produktlinien"] .pad-top { padding-top: 104px; }
+  section[data-screen-label="06 Produktlinien"] .brand-cols { margin-top: 32px; }
+
+  section[data-screen-label="08 Wettbewerb"] .pad-top { padding-top: 108px; }
+  section[data-screen-label="08 Wettbewerb"] .trg-table { margin-top: 30px; }
+  section[data-screen-label="08 Wettbewerb"] .trg-row { padding: 13px 0; }
+
+  section[data-screen-label="09 USP"] .pad-top { padding-top: 98px; }
+  section[data-screen-label="09 USP"] .usp-grid { margin-top: 36px; }
+  section[data-screen-label="09 USP"] .usp { min-height: 208px; }
+
+  section[data-screen-label="12 Treiber und Hemmnisse"] .pad-top { padding-top: 150px; }
+
+  section[data-screen-label="13 TAM SAM SOM"] .pad-top { padding-top: 98px; }
+  section[data-screen-label="13 TAM SAM SOM"] .funnel { margin-top: 24px; }
+  section[data-screen-label="13 TAM SAM SOM"] .fn { min-height: 376px; }
+
+  section[data-screen-label="14 Account-Universum"] .pad-top { padding-top: 104px; }
+  section[data-screen-label="14 Account-Universum"] .funnel { margin-top: 24px; }
+  section[data-screen-label="14 Account-Universum"] .fn { min-height: 376px; }
+
+  section[data-screen-label="15 Zielvertikalen"] .pad-top { padding-top: 88px; }
+  section[data-screen-label="15 Zielvertikalen"] .brand-cols { margin-top: 32px; }
+
+  section[data-screen-label="16 Buying Committee"] .pad-top { padding-top: 100px; }
+  section[data-screen-label="16 Buying Committee"] .persona-grid { margin-top: 32px; }
+  section[data-screen-label="16 Buying Committee"] .pcard { min-height: 272px; }
+
+  section[data-screen-label="17 Trigger-Events"] .pad-top { padding-top: 112px; }
+  section[data-screen-label="17 Trigger-Events"] .signals-list { margin-top: 28px; }
+
+  section[data-screen-label="19 Hook-Lines"] .pad-top { padding-top: 120px; }
+
+  section[data-screen-label="20 Kanal-Strategie"] .pad-top { padding-top: 112px; }
+  section[data-screen-label="20 Kanal-Strategie"] .cmx { margin-top: 28px; }
+  section[data-screen-label="20 Kanal-Strategie"] .cmx-row { padding: 15px 0; }
+
+  section[data-screen-label="21 Phasenplan"] .pad-top { padding-top: 100px; }
+  section[data-screen-label="21 Phasenplan"] .phases { margin-top: 32px; }
+
+  section[data-screen-label="22 Empfehlungen"] .pad-top { padding-top: 150px; }
+  section[data-screen-label="22 Empfehlungen"] .recs { margin-top: 40px; }
+  section[data-screen-label="22 Empfehlungen"] .rec { min-height: 128px; }
+</style>
+</head>
+<body>
+<deck-stage>
+
+  <!-- ════════ 01 COVER ════════ -->
+  <section data-screen-label="01 Cover" class="s-title">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span><span class="dot"></span>Vertraulich · für Jobtiva</span><span class="chrome-pages">01 / 24</span></div>
+    </div>
+    <div class="hero">
+      <div class="kicker">MARKT-INTELLIGENZ &amp; OUTBOUND-GTM-ANALYSE · DEUTSCHLAND · AUGUST 2026</div>
+      <h1 class="display">Der Markt ist bereit.<br>Die Kategorie ist offen.<br><span class="pop-red">Das Fenster schließt sich.</span></h1>
+      <div class="underline"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="footnote" style="margin-top:96px">
+      <div><strong>Auftraggeber</strong>Jobtiva · Agentiva, Inh. Mohsen Ghulami<br>Wesseling (NRW) · KI-Bewerbungsplattform für den deutschen Markt</div>
+      <div><strong>Gegenstand &amp; Zweck</strong>B2C-Produkt-Led-Growth &amp; institutionelles Outbound<br>Marktlage, Wettbewerb, Zielsegmente, GTM-Empfehlung</div>
+      <div><strong>Stand</strong>05.08.2026<br>v1.0 · DE · amplifa</div>
+    </div>
+  </section>
+
+  <!-- ════════ 02 DIVIDER TEIL 01 ════════ -->
+  <section data-screen-label="02 Divider Executive Summary" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 01</span><span class="chrome-pages">02 / 24</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 01</div>
+      <h2>Executive<br>Summary.</h2>
+      <p class="sub">Die fünf Aussagen, auf denen die gesamte Akquise-Story steht — mit den Zahlen, die sie belegen, und den Punkten, die vor jeder Kampagne zu klären sind.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Jobtiva · Market Intelligence</span><span>Deutschland · August 2026</span></div>
+  </section>
+
+  <!-- ════════ 03 TOP 5 INSIGHTS ════════ -->
+  <section data-screen-label="03 Top 5 Insights">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Executive Summary</span><span class="chrome-pages">03 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Top 5</span>
+      <h2 class="title-md" style="margin-top:24px">Die&nbsp;fünf&nbsp;Insights<br>für die Akquise-Story.</h2>
+      <div class="insights">
+        <div class="insight">
+          <span class="bar"></span><span class="idx">01</span>
+          <h4>Die Qualitätslücke ist das Geschäftsmodell</h4>
+          <p>61 % der Beschäftigten bewerben sich bereits mit KI — 80 % der Recruiter bewerten die eingehenden Unterlagen als höchstens mittelmäßig, 69 % bemängeln fehlende Individualisierung. Die Kategorie muss niemand mehr erklären, nur noch die Qualität.</p>
+          <div class="tag">→ Positionierung · Stepstone 2025</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">02</span>
+          <h4>Zyklischer Rückenwind, nicht Gegenwind</h4>
+          <p>3.007.000 Arbeitslose im Juli 2026 (Quote 6,4 %); im Januar 2026 mit 6,6 % höchster Stand seit fast zehn Jahren. Ausbildungsangebot −4,6 %, 40.000 unversorgte Jugendliche. Mehr Suchende, mehr Absagen, mehr Zahlungsbereitschaft.</p>
+          <div class="tag">→ Timing · BA / BIBB</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">03</span>
+          <h4>Das Zeitfenster schließt sich</h4>
+          <p>Jobstep.io startete im Oktober 2025 und hatte bis Januar 2026 über 2.500 zahlende Kunden — bei €8,95/Monat, ohne Steuerbeleg, Berufscheck, Gehaltcheck oder BA-Anbindung. Wer die Nische besetzt, besetzt sie jetzt.</p>
+          <div class="tag">→ Wettbewerb · ETH SPH</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">04</span>
+          <h4>Der zweite Markt ist der adressierbare</h4>
+          <p>6.000–8.000 institutionelle Accounts in Deutschland — AZAV-Träger, Jobcenter, Agenturen, Career Services, Kommunen. Base Case: ~66 qualifizierte Erstgespräche pro Jahr, 10–13 Verträge, €15.000–58.000 MRR. Und zusätzlich das Trust-Signal für B2C.</p>
+          <div class="tag">→ Outbound · amplifa-Kanal</div>
+        </div>
+        <div class="insight">
+          <span class="bar"></span><span class="idx">05</span>
+          <h4>Drei Widersprüche blockieren den Start</h4>
+          <p>Preismodell, Zielgruppe und Hosting-Story weichen zwischen den Strategiepapieren (März 2026) und dem Live-Produkt (August 2026) voneinander ab. Jede Kampagne, die vorher startet, kommuniziert etwas, das so nicht mehr gilt.</p>
+          <div class="tag">→ Vor Kampagnenstart klären</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 04 DIVIDER TEIL 02 ════════ -->
+  <section data-screen-label="04 Divider Unternehmen" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 02</span><span class="chrome-pages">04 / 24</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 02</div>
+      <h2>Unternehmen<br>&amp; Produkt.</h2>
+      <p class="sub">Was Jobtiva verifizierbar ist, was das Produkt heute wirklich kann, und wo die Außendarstellung dem Ist-Zustand hinterherläuft.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Quelle: Repository Agentiva/Jobtiva, Stand 04.08.2026</span><span>Jobtiva · Market Intelligence</span></div>
+  </section>
+
+  <!-- ════════ 05 SNAPSHOT ════════ -->
+  <section data-screen-label="05 Snapshot">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Account at a glance</span><span class="chrome-pages">05 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Account at a glance</span>
+      <h2 class="title-md" style="margin-top:24px">Jobtiva<br>in Zahlen.</h2>
+      <div class="snap-grid">
+        <div class="snap"><div class="lbl">Rechtsform</div><div class="val" style="font-size:34px">Einzel&shy;unternehmen</div><div class="note">Agentiva, Inh. Mohsen Ghulami · keine GmbH · volle persönliche Haftung</div></div>
+        <div class="snap dark"><div class="lbl">Hauptsitz</div><div class="val" style="font-size:40px">Wesseling</div><div class="note">Kastanienweg 7, 50389 · Nordrhein-Westfalen · USt-IdNr. DE 364578579</div></div>
+        <div class="snap"><div class="lbl">Oberflächensprachen</div><div class="val">20<span class="unit">Sprachen</span></div><div class="note">DE + 19 Zielsprachen inkl. AR, FA, PS, TI, SO, KU, UK · <span class="mono">src/lib/i18n</span></div></div>
+        <div class="snap"><div class="lbl">Abo-Preise (live)</div><div class="val" style="font-size:40px">14,95 / 27,95<span class="unit">€ / Monat</span></div><div class="note">Standard / Premium · 3-Monats-Bündel €37,95 / €69,95 · <span class="mono">stripe.ts</span></div></div>
+        <div class="snap"><div class="lbl">Testphase</div><div class="val">7<span class="unit">Tage</span></div><div class="note">Ohne Kreditkarte, Standard-Umfang · plus 5 Bonus-Kits</div></div>
+        <div class="snap"><div class="lbl">Bewerbungskit-Pakete</div><div class="val" style="font-size:40px">9,99 – 44,99<span class="unit">€</span></div><div class="note">10 / 30 / 50 Kits · Preis abhängig vom Abo-Tier · <span class="mono">addon-kits.ts</span></div></div>
+        <div class="snap"><div class="lbl">Job-Datenquelle</div><div class="val" style="font-size:40px">BA + JSearch</div><div class="note">Bundesagentur für Arbeit zuerst, JSearch ergänzend · Adzuna-Modul vorhanden</div></div>
+        <div class="snap"><div class="lbl">Belegbare Nutzerzahlen</div><div class="val" style="font-size:40px">keine</div><div class="note">Markenvorgabe: keine Nutzerzahlen, keine Bewertungen, keine Erfolgsversprechen</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 06 PRODUKTLINIEN ════════ -->
+  <section data-screen-label="06 Produktlinien">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Produkt &amp; Portfolio</span><span class="chrome-pages">06 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Drei Linien — ein roter Faden</span>
+      <h2 class="title-md" style="margin-top:24px">Erstellung, Entscheidung<br>und Zugang.</h2>
+      <div class="brand-cols">
+        <div class="brand-card v-b">
+          <div class="accent-bar"></div>
+          <div class="lvl">LINIE 01 / ERSTELLUNG</div>
+          <h3>Bewerbungs-Kern</h3>
+          <div class="tag">CV · Anschreiben · Vorlagen · Export</div>
+          <p class="desc">Der Pflichtteil: Lebenslauf-Builder, DIN-5008-Anschreiben, KI-Textvorschläge, Vorlagen und PDF-Export. Was jeder Wettbewerber auch hat — nur eben auf deutsche Konventionen hin gebaut.</p>
+          <ul>
+            <li>Zielgruppe <span>alle Bewerber</span></li>
+            <li>Erlösmodell <span>Abo + Kits</span></li>
+            <li>Hook <span>5 Min statt 3 Std</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-a">
+          <div class="accent-bar"></div>
+          <div class="lvl">LINIE 02 / ENTSCHEIDUNG</div>
+          <h3>Bewerbungs-Intelligenz</h3>
+          <div class="tag">ATS · Enrichment · Interview · Gehalt · Beruf</div>
+          <p class="desc">Die eigentliche Differenzierung: ATS-Score, KI-Unternehmensrecherche mit Bewertungs-Enrichment, Interviewvorbereitung, Gehaltcheck mit Verhandlungsrahmen und der RIASEC-basierte Berufscheck.</p>
+          <ul>
+            <li>Zielgruppe <span>Qualitätsbewusste</span></li>
+            <li>Erlösmodell <span>Standard / Premium</span></li>
+            <li>Hook <span>Antwort auf die Recruiter-Kritik</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-c">
+          <div class="accent-bar"></div>
+          <div class="lvl">LINIE 03 / ZUGANG</div>
+          <h3>Integration &amp; Institution</h3>
+          <div class="tag">20 Sprachen · Steuerbeleg · Extension · White-Label</div>
+          <p class="desc">Die Schicht, die den zweiten Markt öffnet: 20 Sprachen für die Arbeitsmarktintegration, automatischer § 9 EStG-Beleg, Chrome-Extension für Auto-Fill und das geplante White-Label für Träger.</p>
+          <ul>
+            <li>Zielgruppe <span>Migrant:innen · Institutionen</span></li>
+            <li>Erlösmodell <span>Lizenz / Förderung</span></li>
+            <li>Hook <span>kein Wettbewerber hat das</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 07 KLARSTELLUNG ════════ -->
+  <section data-screen-label="07 Klarstellung">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Wichtig fürs Kickoff</span><span class="chrome-pages">07 / 24</span></div>
+    </div>
+    <div class="correction">
+      <div>
+        <span class="eyebrow warn">Wichtig fürs Kickoff</span>
+        <h2 class="title-md" style="margin-top:24px">Das €2,50-Modell<br>gibt es nicht mehr.</h2>
+        <p class="lede">Sämtliche vorhandenen GTM-Materialien bauen auf „kostenlos erstellen — 2,50 € pro Download — steuerlich absetzbar" auf: der Kaffee-Vergleich, die Messaging-Pyramide, die Landing-Page-Architektur, die Content-Formate. Im Live-Produkt existiert dieses Modell nicht. Dort laufen ein dreistufiges Abo, Einmalkauf-Pakete für Bewerbungskits und ein 7-Tage-Trial. Wer die alten Materialien ausspielt, verspricht einen Preis, den es nicht gibt.</p>
+        <div style="margin-top:36px;padding:24px 28px;background:var(--bg-2);border:1px solid var(--line);border-radius:14px;font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--ink-2);line-height:1.6">Beleg: <strong>src/lib/stripe.ts</strong> → PLANS { basic €0 · standard €14,95 · premium €27,95 } · <strong>src/lib/addon-kits.ts</strong> → ADDON_KITS 10/30/50 · Repository-Stand 04.08.2026</div>
+      </div>
+      <div class="myth-real">
+        <div class="mr-card myth">
+          <div class="mr-lbl">Mythos · zu korrigieren</div>
+          <div class="mr-head">„Jobtiva ist das 2,50-Euro-pro-Bewerbung-Tool."</div>
+          <div class="mr-body">Stammt aus dem Business Plan und der B2C-GTM-Strategie von März 2026. Die gesamte Preispsychologie und die Steuer-Story hängen an diesem Betrag.</div>
+          <div class="mr-tags"><span>€2,50 / Download</span><span>€12 / €20 / €35</span><span>14-Tage-Trial</span></div>
+        </div>
+        <div class="mr-card real">
+          <div class="mr-lbl">Verifiziert</div>
+          <div class="mr-head">Live läuft ein Abo- plus Kit-Modell</div>
+          <div class="mr-body">Free / Standard €14,95 / Premium €27,95, dazu 3-Monats-Bündel und Bewerbungskit-Pakete von €9,99 bis €44,99. Der Trial dauert 7 Tage, nicht 14.</div>
+          <div class="mr-tags"><span>€14,95 / €27,95</span><span>Kit-Pakete</span><span>7-Tage-Trial</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 08 WETTBEWERB ════════ -->
+  <section data-screen-label="08 Wettbewerb">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Wettbewerbslandschaft</span><span class="chrome-pages">08 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Jung, fragmentiert — und in Bewegung</span>
+      <h2 class="title-md" style="margin-top:24px">Wer wirklich<br>um dieselbe Person kämpft.</h2>
+      <div class="trg-table">
+        <div class="trg-row head"><div>Wettbewerber</div><div>Eckdaten &amp; Status</div><div style="text-align:center">Bedrohung</div></div>
+        <div class="trg-row"><div class="tname">Jobstep.io<small>Schweiz · ETH-/Stanford-Umfeld</small></div><div class="tsrc">Start Okt. 2025, über 2.500 zahlende Kunden bis Jan. 2026, €8,95/Monat im Quartalsabo. Ohne Steuerbeleg, Berufscheck, Gehaltcheck im Workflow und ohne BA-Anbindung.</div><div class="tw urgent">Kern</div></div>
+        <div class="trg-row"><div class="tname">ChatGPT &amp; Co.<small>Substitut, kein Anbieter</small></div><div class="tsrc">Kostenlos bzw. €20/Monat, „gut genug"-Wahrnehmung. Liefert Text — aber keine Formatierung, kein Unternehmens-Enrichment, keinen Beleg, keine Ablage, keine Interviewvorbereitung.</div><div class="tw urgent">Kern</div></div>
+        <div class="trg-row"><div class="tname">Bewerbung2Go (b2go)<small>Angebot von Jobware</small></div><div class="tsrc">Kostenlos, 520+ Vorlagen, hohe Bekanntheit über die Jobware-Reichweite. Keine echte KI-Tiefe, kein Tracking, keine Recherche oder Interview-Prep.</div><div class="tw">hoch</div></div>
+        <div class="trg-row"><div class="tname">CVMaker.de<small>CV-Builder</small></div><div class="tsrc">Pro-Version €19,99, über 20 ATS-Vorlagen, KI-Textoptimierung, SEO-stark. Kein Bewerbungs-Workflow, keine Jobsuche, keine Gehalts- oder Berufsfunktion.</div><div class="tw">hoch</div></div>
+        <div class="trg-row"><div class="tname">careerboom.ai · Jobloo<small>Auto-Apply-Agenten</small></div><div class="tsrc">2026 in Vergleichsportalen prominent platziert, aggressives Content-Marketing. Erzeugen genau die Massenqualität, die Recruiter ablehnen — angreifbar als Gegenentwurf.</div><div class="tw">mittel</div></div>
+        <div class="trg-row"><div class="tname">LazyApply · JobCopilot · Teal<small>US-Tools</small></div><div class="tsrc">$38–79/Monat bzw. $99–249 einmalig. Null DE-Lokalisierung: kein DIN 5008, kein Anschreiben-Verständnis, kein Foto. LazyApply auf Trustpilot bei 2,1/5.</div><div class="tw opp">gering</div></div>
+        <div class="trg-row"><div class="tname">Bewerbungscoaches<small>Persönliche Dienstleistung</small></div><div class="tsrc">80–200 €/Stunde, im Schnitt 125 €; Komplettpakete 200–1.500 €. Über AVGS teils selbst Jobtivas B2B-Kunde — Partner statt Gegner.</div><div class="tw opp">Partner</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 09 USP ════════ -->
+  <section data-screen-label="09 USP">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Differenzierung</span><span class="chrome-pages">09 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Sechs Dinge, die kein Wettbewerber kombiniert</span>
+      <h2 class="title-md" style="margin-top:24px">Der Graben ist nicht<br>die Technologie.</h2>
+      <div class="usp-grid">
+        <div class="usp"><div class="ico-block">01</div><div class="nm">Steuerbeleg § 9 EStG</div><div class="desc">Automatisch erzeugter, prüffähiger Beleg für Bewerbungskosten. Werbungskostenpauschbetrag €1.230/Jahr — darüber hinaus senkt jeder Euro die Steuerlast direkt. In dieser Produktkategorie einzigartig.</div></div>
+        <div class="usp"><div class="ico-block">02</div><div class="nm">Berufscheck (RIASEC)</div><div class="desc">Quiz-basierte Berufsorientierung mit Job-Empfehlungen und Karrierepfad. Kickresume hat eine rudimentäre Career Map — nichts Vergleichbares im deutschen Markt.</div></div>
+        <div class="usp"><div class="ico-block">03</div><div class="nm">Gehaltcheck im Workflow</div><div class="desc">Gehaltsdaten existieren separat bei StepStone und Glassdoor. Kein Bewerbungstool integriert sie in den Bewerbungsprozess — mit Spanne und Verhandlungsempfehlung an der Stelle, an der sie gebraucht werden.</div></div>
+        <div class="usp"><div class="ico-block">04</div><div class="nm">20 Sprachen</div><div class="desc">Lebenslauf in der Muttersprache eingeben, deutsche Bewerbung erhalten — Arabisch, Persisch/Dari, Paschtu, Tigrinya, Somali, Kurdisch, Ukrainisch und mehr. Der Türöffner in den institutionellen Markt.</div></div>
+        <div class="usp"><div class="ico-block">05</div><div class="nm">BA-Jobsuche zuerst</div><div class="desc">Die Stellensuche läuft primär über die offizielle Schnittstelle der Bundesagentur für Arbeit, JSearch füllt Nischentitel auf. Gegenüber Institutionen ein Argument, das kein internationaler Anbieter führen kann.</div></div>
+        <div class="usp"><div class="ico-block">06</div><div class="nm">Deutsche Bewerbungskonvention</div><div class="desc">DIN 5008, Foto, Anschreiben-Kultur, Unterschrift, Formatierungslogik. Genau der Teil, an dem US-Tools scheitern und an dem deutsche Recruiter Bewerbungen sortieren.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 10 DIVIDER TEIL 03 ════════ -->
+  <section data-screen-label="10 Divider Markt" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 03</span><span class="chrome-pages">10 / 24</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 03</div>
+      <h2>Markt &amp;<br>Zielgruppe.</h2>
+      <p class="sub">Wie groß der Markt wirklich ist, wenn man ihn bottom-up aus amtlichen Zahlen rechnet — und welches der beiden Zielsegmente sich per Outbound überhaupt bearbeiten lässt.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Destatis · Bundesagentur für Arbeit · BIBB · Stepstone</span><span>Jobtiva · Market Intelligence</span></div>
+  </section>
+
+  <!-- ════════ 11 MARKTANALYSE ════════ -->
+  <section data-screen-label="11 Marktanalyse">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Markt-Kontext</span><span class="chrome-pages">11 / 24</span></div>
+    </div>
+    <div class="crisis">
+      <div>
+        <span class="eyebrow">Markt-Kontext</span>
+        <h2 class="title-md">Die Krise<br>ist der Markt.</h2>
+        <p class="lede">Anders als in Industrie-Mandaten wirkt die Konjunkturschwäche hier zugunsten des Produkts: Mehr Arbeitslose, weniger Ausbildungsplätze und härterer Wettbewerb pro Stelle erhöhen unmittelbar die Zahl der Bewerbungen und die Bereitschaft, für Differenzierung zu bezahlen.</p>
+        <div style="margin-top:32px;padding:22px 28px;background:var(--accent-red);color:#fff;border-radius:14px;font-size:17px;line-height:1.5">Januar 2026: 6,6 % Arbeitslosenquote — der höchste Stand seit fast zehn Jahren. Im Juli 2026 stieg die Zahl erneut um 71.000 auf 3.007.000.</div>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px">Arbeitslose in Deutschland · Mio. (Bundesagentur für Arbeit)</div>
+        <div class="bars-chart">
+          <div class="bar-line"><span class="yr">Ø 2024</span><div class="track"><div class="fill" style="width:91%">2,80</div></div><span class="delta pos">Basis</span></div>
+          <div class="bar-line crisis-y"><span class="yr">Jan 2026</span><div class="track"><div class="fill" style="width:100%">3,085</div></div><span class="delta">6,6 %</span></div>
+          <div class="bar-line"><span class="yr">Jun 2026</span><div class="track"><div class="fill" style="width:95%">2,936</div></div><span class="delta pos">6,2 %</span></div>
+          <div class="bar-line crisis-y"><span class="yr">Jul 2026</span><div class="track"><div class="fill" style="width:97%">3,007</div></div><span class="delta">6,4 %</span></div>
+        </div>
+        <div style="margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div style="background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:26px 28px">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)">Studierende WS 2025/26</div>
+            <div style="font-size:52px;font-weight:700;letter-spacing:-0.03em;margin-top:14px;line-height:1">2,87<span style="font-size:20px;font-weight:500;color:var(--muted);margin-left:6px">Mio.</span></div>
+            <div style="font-size:14px;color:var(--muted);margin-top:10px;line-height:1.35">+0,4 % · 491.700 Studienanfänger:innen, 511.600 Abschlüsse pro Jahr (Destatis)</div>
+          </div>
+          <div style="background:var(--ink);color:#fff;border-radius:16px;padding:26px 28px">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55)">Bewerben sich mit KI</div>
+            <div style="font-size:52px;font-weight:700;letter-spacing:-0.03em;margin-top:14px;line-height:1">61<span style="font-size:20px;font-weight:500;color:rgba(255,255,255,0.5);margin-left:6px">%</span></div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:10px;line-height:1.35">der Beschäftigten — während 80 % der Recruiter das Ergebnis als höchstens mittelmäßig bewerten (Stepstone 2025)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 12 TREIBER & HEMMNISSE ════════ -->
+  <section data-screen-label="12 Treiber und Hemmnisse">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Marktdynamik</span><span class="chrome-pages">12 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Was trägt — und was bremst</span>
+      <h2 class="title-md" style="margin-top:24px">Treiber<br>&amp; Hemmnisse.</h2>
+      <div class="di-grid">
+        <div class="di-col">
+          <div class="head"><span class="dot"></span><h4>Treiber</h4></div>
+          <ul>
+            <li><span class="ico">↑</span><span class="txt">Arbeitslosigkeit über 3 Mio. — Juli 2026 erneut gestiegen</span><span class="val pos">+71.000</span></li>
+            <li><span class="ico">↑</span><span class="txt">KI-Bewerbung ist Mainstream — Kategorie muss niemand mehr erklären</span><span class="val pos">61 %</span></li>
+            <li><span class="ico">↑</span><span class="txt">Jährlich neue Kohorte: Studienanfänger:innen (Studienjahr 2025)</span><span class="val pos">491.700</span></li>
+            <li><span class="ico">↓</span><span class="txt">Ausbildungsangebot sinkt → härterer Wettbewerb pro Stelle</span><span class="val pos">−4,6 %</span></li>
+            <li><span class="ico">↑</span><span class="txt">Öffentliche Finanzierung über AVGS (§ 45 SGB III) statt Konsumentenbudget</span><span class="val pos">30–80 €</span></li>
+          </ul>
+        </div>
+        <div class="di-col dark">
+          <div class="head"><span class="dot"></span><h4>Hemmnisse</h4></div>
+          <ul>
+            <li><span class="ico">↓</span><span class="txt">Keine belegbare Traktion, kein Social Proof, keine Referenz</span><span class="val down">0</span></li>
+            <li><span class="ico">↑</span><span class="txt">Kategorie-Wettbewerb wächst schnell — Jobstep in 3 Monaten</span><span class="val down">2.500+</span></li>
+            <li><span class="ico">↓</span><span class="txt">Deutsche B2C-Conversion liegt unter globalen Benchmarks</span><span class="val down">−15–25 %</span></li>
+            <li><span class="ico">↓</span><span class="txt">US-Verarbeiter widersprechen der „Hosting in Deutschland"-Story</span><span class="val down">5</span></li>
+            <li><span class="ico">↓</span><span class="txt">AI Act Art. 50 seit 02.08.2026 anwendbar — Kennzeichnungspflicht</span><span class="val down">Pflicht</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 13 TAM SAM SOM ════════ -->
+  <section data-screen-label="13 TAM SAM SOM">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Linse A · Produktmarkt B2C</span><span class="chrome-pages">13 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Linse A · Produktmarkt (B2C)</span>
+      <h2 class="title-md" style="margin-top:24px">Was der Bewerbermarkt<br>hergibt.</h2>
+      <div class="funnel">
+        <div class="fn">
+          <div class="lbl">TAM · MARKTPOTENZIAL</div>
+          <h4>Ausgabebereitschaft aller aktiven Jobsuchenden</h4>
+          <p class="desc">Alles, was Menschen in Deutschland jährlich für Bewerbungshilfe ausgeben könnten — vom Vorlagen-Tool bis zum Coaching-Paket.</p>
+          <div class="bignum" style="font-size:56px">180–450<span class="unit">Mio. € / Jahr</span></div>
+          <div class="alt">4,5–6,0 Mio. Suchende × <strong>€40–75</strong> Zahlungsbereitschaft · Basis BA / IAB</div>
+        </div>
+        <div class="fn">
+          <div class="lbl">SAM · ERREICHBAR</div>
+          <h4>Digital-affine Kernzielgruppe 18–35</h4>
+          <p class="desc">Personen im Bewerbungsprozess, die ein Abo-Produkt akzeptieren: Absolvent:innen, Ausbildungsplatzbewerber, junge Arbeitslose und Wechsler.</p>
+          <div class="bignum" style="font-size:56px">80–120<span class="unit">Mio. € / Jahr</span></div>
+          <div class="alt">≈2,0–2,6 Mio. Personen/Jahr × <strong>≈€45</strong> LTV je Suchprozess</div>
+        </div>
+        <div class="fn som">
+          <div class="lbl">SOM · 12 MONATE</div>
+          <h4>Über PLG, SEO und Social realistisch erreichbar</h4>
+          <p class="desc">Ohne nennenswertes Paid-Budget und ohne Referenzen ist die Durchdringung im ersten Jahr niedrig — aber die Deckungsbeiträge sind hoch.</p>
+          <div class="bignum" style="font-size:56px">0,3–0,9<span class="unit">Mio. € / Jahr</span></div>
+          <div class="alt">6.000–20.000 zahlende Nutzer · <strong>0,3–0,8 %</strong> SAM-Durchdringung</div>
+        </div>
+      </div>
+      <div style="margin-top:22px;padding:24px 36px;background:var(--ink);color:#fff;border-radius:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-yel);letter-spacing:0.1em;text-transform:uppercase;margin-right:18px">Hinweis</span><span style="font-size:20px;line-height:1.4;color:rgba(255,255,255,0.9)">Bottom-up aus Destatis-, BA- und BIBB-Zahlen hergeleitet — Größenordnungen, keine Marktforschung. Die interne €900-Mio.-Rechnung unterstellt €200 Ausgaben pro Person und ist nicht belastbar.</span></div>
+    </div>
+  </section>
+
+  <!-- ════════ 14 ACCOUNT-UNIVERSUM ════════ -->
+  <section data-screen-label="14 Account-Universum">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Linse B · Account-Universum</span><span class="chrome-pages">14 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Linse B · Institutionelles Account-Universum</span>
+      <h2 class="title-md" style="margin-top:24px">Der Markt, den man<br>anrufen kann.</h2>
+      <div class="funnel">
+        <div class="fn">
+          <div class="lbl">TAM · ALLE ORGANISATIONEN</div>
+          <h4>Wer in Deutschland Bewerbungs&shy;unterstützung für Dritte organisiert</h4>
+          <p class="desc">AZAV-Bildungsträger, Jobcenter, Agenturen für Arbeit, Hochschul-Career-Services, kommunale Integrations- und Wirtschaftsförderungsämter.</p>
+          <div class="bignum" style="font-size:56px">6.000–8.000<span class="unit">Accounts</span></div>
+          <div class="alt">≥2.500 geprüfte Träger · ~400 Jobcenter · ~150 Agenturen · <strong>~420 Hochschulen</strong></div>
+        </div>
+        <div class="fn">
+          <div class="lbl">SAM · ICP-FIT</div>
+          <h4>Mit Bewerbungstraining, AVGS-MAT oder Tool-Budget</h4>
+          <p class="desc">Nur Standorte mit aktivem Coaching- oder Bewerbungstrainings-Angebot, plus alle Career Services und Jobcenter mit Digitalisierungsmandat.</p>
+          <div class="bignum" style="font-size:56px">1.500–2.500<span class="unit">Accounts</span></div>
+          <div class="alt">≈50–60 % der Träger · <strong>alle Career Services</strong> · Pilotregionen</div>
+        </div>
+        <div class="fn som">
+          <div class="lbl">SOM · 12 MONATE</div>
+          <h4>Mit einem FTE Outbound plus Gründer-Selling bearbeitbar</h4>
+          <p class="desc">Start in NRW (Nähe, Pilotstandort Düsseldorf, Landesprogramme), danach Bundesland für Bundesland.</p>
+          <div class="bignum" style="font-size:56px">400–700<span class="unit">Accounts</span></div>
+          <div class="alt">≈35–60 neue Accounts/Monat · <strong>NRW zuerst</strong></div>
+        </div>
+      </div>
+      <div style="margin-top:22px;padding:24px 36px;background:var(--ink);color:#fff;border-radius:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-yel);letter-spacing:0.1em;text-transform:uppercase;margin-right:18px">Base Case</span><span style="font-size:20px;line-height:1.4;color:rgba(255,255,255,0.9)">3.000 kontaktierte Personen × 2,2 % Meeting-Rate = <strong style="color:#fff">~66 qualifizierte Erstgespräche pro Jahr</strong> → bei 15–20 % Abschluss 10–13 Verträge → €15.000–58.000 MRR.</span></div>
+    </div>
+  </section>
+
+  <!-- ════════ 15 ZIELVERTIKALEN ════════ -->
+  <section data-screen-label="15 Zielvertikalen">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Zielsegmente</span><span class="chrome-pages">15 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Drei Vertikalen, drei Logiken</span>
+      <h2 class="title-md" style="margin-top:24px">Wo Outbound<br>tatsächlich greift.</h2>
+      <div class="brand-cols">
+        <div class="brand-card v-a">
+          <div class="accent-bar"></div>
+          <div class="lvl">VERTIKALE 01 / KERN</div>
+          <h3>AZAV-Bildungsträger</h3>
+          <div class="tag">VHS · DAA · WBS · bfz · SBB · GFN · private Träger</div>
+          <p class="desc">Bereits zertifiziert, rechnen über AVGS ab, arbeiten im Bewerbungstraining oft mit Word-Vorlagen. Kein Zertifizierungsprojekt nötig — sofortiger Marktzugang.</p>
+          <ul>
+            <li>Größe <span>3–30 Standorte</span></li>
+            <li>Anlass <span>AVGS-MAT-Kurse</span></li>
+            <li>Deal-Größe <span>€1.500–4.500 MRR</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-b">
+          <div class="accent-bar"></div>
+          <div class="lvl">VERTIKALE 02 / VOLUMEN</div>
+          <h3>Hochschul-Career-Services</h3>
+          <div class="tag">~420 Hochschulen · CSND-Netzwerk</div>
+          <p class="desc">2,87 Mio. Studierende, fast überall ein Karriereservice. Wenig Budget, aber Reichweite, Testimonials und Nutzungsdaten — der schnellste Weg zu Social Proof.</p>
+          <ul>
+            <li>Größe <span>1 Standort je Hochschule</span></li>
+            <li>Anlass <span>Employability-Kennzahlen</span></li>
+            <li>Deal-Größe <span>Reichweite statt Umsatz</span></li>
+          </ul>
+        </div>
+        <div class="brand-card v-c">
+          <div class="accent-bar"></div>
+          <div class="lvl">VERTIKALE 03 / HEBEL</div>
+          <h3>Kommunen, Jobcenter &amp; Agenturen</h3>
+          <div class="tag">~400 Jobcenter · ~150 Agenturen · ~400 Kommunen</div>
+          <p class="desc">1 Berater:in betreut 150–300 Klient:innen. Der größte Hebel und das stärkste Trust-Signal — aber lange Zyklen und Vergaberecht. Erst nach vorzeigbarem Pilotergebnis angehen.</p>
+          <ul>
+            <li>Größe <span>Standort- bis Landesebene</span></li>
+            <li>Anlass <span>Integrationsquote, Verweildauer</span></li>
+            <li>Deal-Größe <span>Standortlizenz + Referenz</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 16 BUYING COMMITTEE ════════ -->
+  <section data-screen-label="16 Buying Committee">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Buying Committee</span><span class="chrome-pages">16 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Wer entscheidet, wer blockiert</span>
+      <h2 class="title-md" style="margin-top:24px">Das Buying Committee<br>im Trägergeschäft.</h2>
+      <div class="persona-grid">
+        <div class="pcard">
+          <div class="role">Fachbereichsleitung Bewerbungstraining<small>Champion · Initiator</small></div>
+          <div class="kpis">FOKUS · Kurszeit · Teilnehmerergebnis · Dozentenauslastung</div>
+          <div class="channels"><span class="ch primary">Telefon*</span><span class="ch">LinkedIn</span><span class="ch">E-Mail</span></div>
+          <div class="trig"><strong>Hebel</strong>Dozent:innen coachen wieder, statt zu formatieren. Spürt den Schmerz täglich — niedrigste Einstiegshürde im gesamten Committee.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Standort- / Niederlassungsleitung<small>Entscheider bei Trägerverträgen</small></div>
+          <div class="kpis">FOKUS · Integrationsquote · Trägerbewertung · Folgeaufträge</div>
+          <div class="channels"><span class="ch primary">Telefon*</span><span class="ch">LinkedIn</span></div>
+          <div class="trig"><strong>Hebel</strong>Differenzierung in der Vergabe. Einwand ist fast immer Budget oder „erkennt die BA das an?" — mit Pilotdaten entkräftbar.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Geschäftsführung Bildungsträger<small>Freigabe bei Multi-Standort</small></div>
+          <div class="kpis">FOKUS · Anbieterrisiko · Vertragsbindung · Skalierung</div>
+          <div class="channels"><span class="ch primary">LinkedIn</span><span class="ch">Telefon*</span></div>
+          <div class="trig"><strong>Hebel</strong>Erst nach vorzeigbarem Pilot ansprechen. Kritischer Punkt: Rechtsform und Bestandssicherheit des Anbieters.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">QM- / AZAV-Beauftragte:r<small>Prüfer · potenzieller Blocker</small></div>
+          <div class="kpis">FOKUS · Zertifizierungssicherheit · AI Act · DSGVO · Nachweisführung</div>
+          <div class="channels"><span class="ch primary">E-Mail</span><span class="ch">über Champion</span></div>
+          <div class="trig"><strong>Hebel</strong>Proaktiv mit fertigem Paket bedienen: AVV-Muster, Verarbeiterverzeichnis, AI-Act-Notiz. Sonst entscheidet diese Rolle am Ende gegen den Deal.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">Career-Service-Leitung Hochschule<small>Entscheider im Uni-Kanal</small></div>
+          <div class="kpis">FOKUS · Employability · Rankings · Angebot ohne Eigenaufwand</div>
+          <div class="channels"><span class="ch primary">LinkedIn</span><span class="ch">E-Mail</span></div>
+          <div class="trig"><strong>Hebel</strong>Kostenloser Studierendenzugang plus Workshop im Karrierezentrum. Kein Budget nötig — Vergaberecht und Werbeverbot damit umgangen.</div>
+        </div>
+        <div class="pcard">
+          <div class="role">BCA / Arbeitgeber-Service Agentur<small>Türöffner in die BA</small></div>
+          <div class="kpis">FOKUS · Integrationsquote · Verweildauer · Aktivierungsquote</div>
+          <div class="channels"><span class="ch primary">Telefon*</span><span class="ch">Anschreiben</span></div>
+          <div class="trig"><strong>Hebel</strong>Lokal einsteigen — Agentur Düsseldorf, nicht die Zentrale in Nürnberg. In ihren Kennzahlen sprechen, nicht in Produktfeatures.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 17 TRIGGER-EVENTS ════════ -->
+  <section data-screen-label="17 Trigger-Events">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Trigger-Events</span><span class="chrome-pages">17 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Beobachtbare Kaufsignale</span>
+      <h2 class="title-md" style="margin-top:24px">Woran man erkennt,<br>dass jetzt der Moment ist.</h2>
+      <div class="signals-list">
+        <div class="sig"><div class="num">01</div><div class="nm">Stellenausschreibung „Dozent:in / Trainer:in Bewerbungstraining"<small>Kapazitätsengpass genau im Zielprozess — der Träger sucht Menschen für eine Aufgabe, die Software übernehmen kann</small></div><div class="src">Träger-Karriereseiten · BA-Jobbörse · Indeed</div><div class="when" style="background:var(--ink);color:#fff;border-color:var(--ink)">Top-Trigger</div></div>
+        <div class="sig"><div class="num">02</div><div class="nm">Neue AVGS-MAT-Maßnahme im Kursportfolio<small>Aktives, gefördertes Angebot, das ein Werkzeug braucht — und ein frisch aufgesetztes Budget</small></div><div class="src">KURSNET · GenauMeinKurs</div><div class="when">sehr hoch</div></div>
+        <div class="sig"><div class="num">03</div><div class="nm">Laufendes ESF+- oder IQ-Netzwerk-Projekt<small>Fördermittel vorhanden, Digitalisierungsauftrag im Projekt verankert, Berichtspflicht erzeugt Handlungsdruck</small></div><div class="src">Förderdatenbanken · Projektseiten · Presse</div><div class="when">sehr hoch</div></div>
+        <div class="sig"><div class="num">04</div><div class="nm">Hoher Anteil Integrations- und Sprachkurse<small>Der 20-Sprachen-USP löst hier kein Komfortproblem, sondern ein akutes Betriebsproblem</small></div><div class="src">BAMF-Trägerlisten · Trägerwebsites</div><div class="when">hoch</div></div>
+        <div class="sig"><div class="num">05</div><div class="nm">Ausschreibung / Vergabe für Bewerbungscoaching<small>Konkreter Beschaffungsanlass mit Frist — Timing ist fremdbestimmt und damit planbar</small></div><div class="src">Vergabeportale (eVergabe, DTVP)</div><div class="when">hoch</div></div>
+        <div class="sig"><div class="num">06</div><div class="nm">Wechsel in der Career-Service-Leitung<small>Neue Leitung will im ersten Jahr eine sichtbare Neuerung vorweisen</small></div><div class="src">LinkedIn · Hochschul-Pressemitteilungen</div><div class="when">mittel</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 18 DIVIDER TEIL 04 ════════ -->
+  <section data-screen-label="18 Divider Go-to-Market" class="s-divider">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Teil 04</span><span class="chrome-pages">18 / 24</span></div></div>
+    <div class="core">
+      <div class="num">— TEIL 04</div>
+      <h2>Go-to-<br>Market.</h2>
+      <p class="sub">Womit angesprochen wird, über welchen Kanal, in welcher Reihenfolge — und was vor dem ersten Kontakt intern geklärt sein muss.</p>
+      <div class="stripe"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="foot"><span>Kampagne „Trainer statt Formatierer"</span><span>Jobtiva · Market Intelligence</span></div>
+  </section>
+
+  <!-- ════════ 19 HOOK-LINES ════════ -->
+  <section data-screen-label="19 Hook-Lines">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Messaging</span><span class="chrome-pages">19 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Ein Aufhänger je Persona</span>
+      <h2 class="title-md" style="margin-top:24px">Was am Telefon<br>gesagt wird.</h2>
+      <div class="hooks-grid">
+        <div class="hook"><span class="idx">01 · Fachbereichsleitung</span><q>Ihre Dozenten verbringen die halbe Kurszeit mit Formatierung. Wir geben ihnen die Zeit fürs Coaching zurück.</q><div class="ctx">Kapazität · Bildungsträger</div></div>
+        <div class="hook"><span class="idx">02 · Standortleitung</span><q>61 Prozent bewerben sich mit KI — und 80 Prozent der Recruiter finden das Ergebnis höchstens mittelmäßig. Genau da setzen wir an.</q><div class="ctx">Qualität · Stepstone 2025</div></div>
+        <div class="hook"><span class="idx">03 · Amtsleitung / Kommune</span><q>Ein Monat ALG I kostet 1.200 bis 1.800 Euro. Verkürzen wir bei zehn Prozent Ihrer Teilnehmenden die Suche um einen Monat, trägt sich das Projekt selbst.</q><div class="ctx">Fiskal · Kommune</div></div>
+        <div class="hook"><span class="idx">04 · Migration &amp; Integration</span><q>Lebenslauf in der Muttersprache rein, deutsche Bewerbung raus — in zwanzig Sprachen, von Arabisch bis Ukrainisch.</q><div class="ctx">Integration · Alleinstellung</div></div>
+        <div class="hook"><span class="idx">05 · Career-Service-Leitung</span><q>Kostenloser Zugang für alle Ihre Studierenden, ein Workshop im Karrierezentrum — ohne Budget und ohne Ausschreibung.</q><div class="ctx">Hochschule · Reichweite</div></div>
+        <div class="hook"><span class="idx">06 · QM &amp; Datenschutz</span><q>AVV-Paket, Verarbeiterverzeichnis und AI-Act-Kennzeichnung liegen auf dem Tisch, bevor Sie danach fragen.</q><div class="ctx">Compliance · Blocker entschärfen</div></div>
+      </div>
+      <div style="margin-top:26px;padding:22px 30px;background:var(--ink);color:#fff;border-radius:14px;display:flex;gap:24px;align-items:center"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-yel);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap">Genereller CTA</span><span style="font-size:19px;line-height:1.4;color:rgba(255,255,255,0.9)">Dreimonatiger Pilot mit 100–200 Teilnehmenden, ein Tag Schulung, monatliches Reporting — die Kosten trägt Jobtiva.</span></div>
+    </div>
+  </section>
+
+  <!-- ════════ 20 KANAL-STRATEGIE ════════ -->
+  <section data-screen-label="20 Kanal-Strategie">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Kanal &amp; Compliance</span><span class="chrome-pages">20 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Kanal-Strategie</span>
+      <h2 class="title-md" style="margin-top:24px">Welcher Kanal<br>bei wem funktioniert.</h2>
+      <div class="cmx">
+        <div class="cmx-row head"><div>Persona</div><div>Telefon*</div><div>LinkedIn</div><div>Empfohlene Sequenz</div></div>
+        <div class="cmx-row">
+          <div class="pn">Fachbereichsleitung<small>Bildungsträger · Champion</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv sek"><span class="badge">Sekundär</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>LinkedIn → <b>2</b>Telefon → <b>3</b>Consent → E-Mail</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">Standortleitung<small>Bildungsträger · Entscheider</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv sek"><span class="badge">Sekundär</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>Telefon → <b>2</b>LinkedIn → <b>3</b>Consent → E-Mail</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">Career-Service-Leitung<small>Hochschule · Entscheider</small></div>
+          <div class="lv sek"><span class="badge">Sekundär</span><span class="meter"><i></i></span></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>LinkedIn → <b>2</b>E-Mail mit Sachbezug → <b>3</b>Workshop-Termin</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">QM- / Datenschutzbeauftragte<small>Prüfer · Blocker</small></div>
+          <div class="lv none"><span class="badge">Kein Direkt-Outbound</span><span class="meter"></span></div>
+          <div class="lv consent"><span class="badge">Nur nach Einführung</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>Über den Champion einführen → <b>2</b>Unterlagenpaket → nie kalt</div>
+        </div>
+        <div class="cmx-row">
+          <div class="pn">Kommune · Jobcenter · Agentur<small>Öffentlicher Sektor</small></div>
+          <div class="lv primar"><span class="badge">Primär</span><span class="meter"><i></i></span></div>
+          <div class="lv consent"><span class="badge">Flankierend</span><span class="meter"><i></i></span></div>
+          <div class="seq"><b>1</b>Lokal anrufen → <b>2</b>Formelles Anschreiben → <b>3</b>Pilot-Konzept</div>
+        </div>
+      </div>
+      <div class="cmx-legend"><span><i style="background:var(--accent-grn)"></i>Primär</span><span><i style="background:var(--ink)"></i>Sekundär</span><span><i style="background:var(--muted-2)"></i>Nur nach Einwilligung</span><span><i style="background:var(--line-2)"></i>Kein Outbound</span></div>
+      <div style="margin-top:28px;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--muted);line-height:1.6">§ 7 UWG / BVerwG 6 C 3.23: Cold-E-Mail &amp; KI-Voice nur NACH dokumentierter Einwilligung; Sachbezug je Account festhalten. — Zusätzlich für dieses Mandat: KI-Voice gegenüber Behörden und Trägern nicht einsetzen (Reputationsrisiko übersteigt den Effizienzgewinn); B2C-Cold-Outreach an Privatpersonen ist ausgeschlossen. Outbound läuft über eine separate Sending-Domain, nicht über jobtiva.ai.</div>
+    </div>
+  </section>
+
+  <!-- ════════ 21 PHASENPLAN ════════ -->
+  <section data-screen-label="21 Phasenplan">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Vorgehen</span><span class="chrome-pages">21 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Drei Phasen bis zum institutionellen Kanal</span>
+      <h2 class="title-md" style="margin-top:24px">Fundament, Beweis,<br>Institutionalisierung.</h2>
+      <div class="phases">
+        <div class="phase">
+          <div class="nd">01</div>
+          <div class="wk">Monat 1–3</div>
+          <h4>Fundament &amp; erster Pilot</h4>
+          <ul>
+            <li><span>Die drei Widersprüche auflösen: Preismodell, Zielgruppe, Hosting-Claim</span></li>
+            <li><span>AI-Act-Kennzeichnung in generierten PDFs verifizieren</span></li>
+            <li><span>Separate Sending-Domain aufsetzen und warmlaufen lassen</span></li>
+            <li><span>250–400 NRW-Trägerstandorte listen und qualifizieren</span></li>
+            <li><span>Pilot-Konzept auf 2–3 Seiten mit klaren KPIs</span></li>
+          </ul>
+          <div class="bench">→ Threshold: 10 Erstgespräche, 1 Pilot unterschrieben</div>
+        </div>
+        <div class="phase">
+          <div class="nd">02</div>
+          <div class="wk">Monat 4–9</div>
+          <h4>Beweis &amp; Skalierung</h4>
+          <ul>
+            <li><span>Pilot durchführen und messen: 1.000+ Bewerbungen, 30 % Einladungsquote, NPS &gt; 50</span></li>
+            <li><span>Career-Service-Kanal parallel: 20–30 NRW-Hochschulen</span></li>
+            <li><span>B2B-Preis über Van-Westendorp-Kurzabfrage kalibrieren</span></li>
+            <li><span>Sequenz auf Basis echter Reply-Daten schärfen</span></li>
+          </ul>
+          <div class="bench">→ Threshold: 3–5 zahlende Träger, belastbare Referenz</div>
+        </div>
+        <div class="phase">
+          <div class="nd">03</div>
+          <div class="wk">Monat 10–18</div>
+          <h4>Institutionalisierung</h4>
+          <ul>
+            <li><span>Bundesweite Ausrollung nach Bundesländern</span></li>
+            <li><span>Gespräch mit Agentur / BA auf Basis der Pilotdaten</span></li>
+            <li><span>Entscheidung: eigene AZAV-Zertifizierung oder dauerhafte Trägerpartnerschaft</span></li>
+            <li><span>ESF+- und IQ-Netzwerk-Anträge stellen</span></li>
+          </ul>
+          <div class="bench">→ Threshold: 10–13 Verträge, €15.000–58.000 MRR</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 22 EMPFEHLUNGEN ════════ -->
+  <section data-screen-label="22 Empfehlungen">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Handlungsempfehlungen</span><span class="chrome-pages">22 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow">Sechs Empfehlungen</span>
+      <h2 class="title-md" style="margin-top:24px">Was zuerst<br>passieren muss.</h2>
+      <div class="recs">
+        <div class="rec"><div class="num">01</div><div><h5>Erst die drei Widersprüche auflösen</h5><p>Preismodell, Zielgruppe und Hosting-Claim. Jede Kampagne, die vorher startet, kommuniziert etwas, das im Produkt nicht mehr stimmt — und beschädigt Vertrauen genau dort, wo es am teuersten ist.</p></div></div>
+        <div class="rec"><div class="num">02</div><div><h5>Institutionelles Outbound vor B2C-Paid</h5><p>B2C skaliert nur über SEO und Social und braucht 6–12 Monate bis zur Wirkung. Der institutionelle Kanal ist endlich, namentlich recherchierbar und über öffentliche Mittel finanziert.</p></div></div>
+        <div class="rec"><div class="num">03</div><div><h5>Der Pilot ist das Produkt</h5><p>Institutionen kaufen keine ungetestete Software — sie kaufen Pilotprojekte. Kosten tragen, drei Monate messen, Ergebnisse dokumentieren, dann verkaufen. Das ist kein Marketing-Aufwand, das ist der Vertriebsprozess.</p></div></div>
+        <div class="rec"><div class="num">04</div><div><h5>Compliance-Paket vor dem ersten Gespräch</h5><p>AVV-Muster, Verarbeiterverzeichnis und AI-Act-Kennzeichnung fertig in der Schublade. Der QM- oder Datenschutz-Blocker entscheidet sonst am Ende gegen den Deal — nach Wochen Arbeit.</p></div></div>
+        <div class="rec"><div class="num">05</div><div><h5>Separate Sending-Domain</h5><p>jobtiva.ai darf keinen Zustellungsschaden nehmen. Outbound läuft über eine eigene Domain mit eigenem SPF/DKIM/DMARC-Setup und eigenem Warm-up.</p></div></div>
+        <div class="rec"><div class="num">06</div><div><h5>Rechtsform vor dem ersten Institutionsvertrag klären</h5><p>Kommunen und die BA verlangen regelmäßig Bonitäts- und Bestandsnachweise. Das Einzelunternehmen ist an dieser Stelle eine offene Flanke — und in Freigabegesprächen ein wiederkehrender Einwand.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 23 VORBEHALTE ════════ -->
+  <section data-screen-label="23 Vorbehalte">
+    <div class="chrome">
+      <div class="mark"><img src="assets/amplifa-logo.png" alt="amplifa"></div>
+      <div class="meta"><span>Datenlage</span><span class="chrome-pages">23 / 24</span></div>
+    </div>
+    <div class="pad-top">
+      <span class="eyebrow warn">Ehrliche Datenlage</span>
+      <h2 class="title-md" style="margin-top:24px">Was in diesem Report<br>unsicher ist.</h2>
+      <div class="caveats">
+        <div class="cv"><div class="i">01</div><div class="t">jobtiva.ai war für diese Analyse nicht abrufbar (HTTP 403 bzw. Netzwerk-Policy). Die live kommunizierte Positionierung, Preisdarstellung und Trust-Elemente konnten nicht gegengeprüft werden — die Produktwahrheit stammt aus dem Repository.</div></div>
+        <div class="cv"><div class="i">02</div><div class="t">Es liegen keine belegbaren Nutzer-, Umsatz- oder Conversion-Daten vor. Sämtliche Umsatzgrößen in diesem Report sind Modellrechnungen, keine Prognosen — und die Markenvorgabe untersagt ohnehin Nutzerzahlen in der Außenkommunikation.</div></div>
+        <div class="cv"><div class="i">03</div><div class="t">TAM, SAM und SOM sind bottom-up aus Destatis-, BA- und BIBB-Zahlen hergeleitet. Für die Bewerberseite existiert keine belastbare kommerzielle Marktstudie — alle HR-Tech-Marktzahlen messen den Arbeitgebermarkt.</div></div>
+        <div class="cv"><div class="i">04</div><div class="t">Der B2B-Preis von €50–150 pro Teilnehmer und Monat ist eine interne Setzung aus der Kooperationsstrategie und wurde nie am Markt getestet. AVGS-Sätze (30–80 € je Einheit) deckeln die Zahlungsbereitschaft.</div></div>
+        <div class="cv"><div class="i">05</div><div class="t">Abschlussquote (15–20 %) und Teilnehmerzahl je Träger (30) im Meeting-Forecast sind Erfahrungswerte aus vergleichbaren institutionellen Mandaten, keine Jobtiva-Daten. Nach den ersten zehn Erstgesprächen neu kalibrieren.</div></div>
+        <div class="cv"><div class="i">06</div><div class="t">Die Zahl AZAV-zertifizierter Träger ist eine Bandbreite: ein zentrales öffentliches Register existiert nicht. Belegt sind über 2.500 geprüfte Träger auf einer Vergleichsplattform; die Standortzahl ist geschätzt.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ 24 CLOSING ════════ -->
+  <section data-screen-label="24 Closing" class="s-close">
+    <div class="chrome"><div class="mark"><img src="assets/amplifa-logo-white.png" alt="amplifa"></div><div class="meta"><span>Empfehlung &amp; nächste Schritte</span><span class="chrome-pages">24 / 24</span></div></div>
+    <div class="core">
+      <span class="eyebrow">Empfehlung</span>
+      <h2>Erst klären,<br>dann <span class="accent">skalieren</span>.</h2>
+      <p class="sub-cta" style="margin-top:32px">Die Kategorie ist offen, das Zeitfenster nicht unbegrenzt. Empfehlung: die drei Widersprüche in Woche 1–2 auflösen, parallel die NRW-Trägerliste aufbauen und mit dem kostenlosen Pilot in den Markt gehen. Der institutionelle Kanal liefert Umsatz und zugleich das Trust-Signal, das B2C allein nicht erzeugen kann.</p>
+      <div class="actions" style="margin-top:40px">
+        <a class="btn" href="#">Pilot-Konzept &amp; NRW-Zielliste starten <span class="arr">↗</span></a>
+        <a class="btn ghost" href="#">Kickoff-Fragenkatalog durchgehen <span class="arr">→</span></a>
+      </div>
+      <div class="swatches" style="margin-top:36px"><span style="background:var(--accent-grn)"></span><span style="background:var(--accent-blu)"></span><span style="background:var(--accent-yel)"></span><span style="background:var(--accent-pur)"></span></div>
+    </div>
+    <div class="foot">
+      <div><strong>amplifa</strong>Outbound-Akquise · Jobtiva</div>
+      <div style="text-align:right"><strong>Report v1.0 · 05.08.2026</strong>für Jobtiva · vertraulich</div>
+    </div>
+  </section>
+
+</deck-stage>
+</body>
+</html>
