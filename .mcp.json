@@ -2,7 +2,7 @@
   "mcpServers": {
     "icemail": {
       "command": "node",
-      "args": ["${CLAUDE_PROJECT_DIR}/icemail-mcp/dist/index.js"],
+      "args": ["${CLAUDE_PROJECT_DIR:-.}/icemail-mcp/dist/index.js"],
       "env": {
         "ICEMAIL_API_KEY": "${ICEMAIL_API_KEY}"
       }

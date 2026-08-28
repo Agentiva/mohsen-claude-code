@@ -26,12 +26,21 @@ Then point your MCP client at `dist/index.js` and pass the API key through `env`
 }
 ```
 
-In Claude Code, the repo's `.mcp.json` already declares the server and reads
-`ICEMAIL_API_KEY` from your shell environment — export it before starting Claude Code:
+In Claude Code the repo's `.mcp.json` already declares the server and reads
+`ICEMAIL_API_KEY` from the environment. Either export it before starting Claude Code:
 
 ```bash
 export ICEMAIL_API_KEY=your-icemail-api-key
 ```
+
+...or put it in `.claude/settings.local.json`, which is gitignored:
+
+```json
+{ "env": { "ICEMAIL_API_KEY": "your-icemail-api-key" } }
+```
+
+`dist/` is not committed, so run `npm install && npm run build` in `icemail-mcp/`
+after cloning — without it the server cannot start and shows as failed to connect.
 
 ## Configuration
 
