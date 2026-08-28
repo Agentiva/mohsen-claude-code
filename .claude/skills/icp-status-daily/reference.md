@@ -23,6 +23,9 @@ FROM "collection://2a78174b-42df-81d2-80e3-000bc6b01cd6"
 ORDER BY "Unternehmensname"
 ```
 
+Die Spalte `Täglichen Report` (Text) in derselben DB nimmt pro Organisation das
+Tagesergebnis auf – siehe SKILL.md Abschnitt 5a.
+
 `url` ist gleichzeitig die `page_id` für `notion-update-page`.
 Stand 2026-08-28: 126 Zeilen, alle mit gesetzter `Onboarding-ID`.
 
@@ -43,10 +46,20 @@ Optimieren
 Kampgane erstellen                  ← Tippfehler, so schreiben
 Deaktiviert
 Neu - keine infos und Materiallien  ← doppeltes l, so schreiben
+Keine Emails raus gesendet          ← am 28.08.2026 ergänzt
 ```
 
 Von der Routine gesetzt werden nur: `Live`, `Optimieren`, `Pausiert`,
-`Leads hinzufügen`, `Kampgane erstellen`, `Neu - keine infos und Materiallien`.
+`Leads hinzufügen`, `Keine Emails raus gesendet`, `Kampgane erstellen`,
+`Neu - keine infos und Materiallien`.
+
+⚠️ **Neue Select-Optionen nie per `ALTER COLUMN "ICP-Status" SET SELECT(...)`
+nachziehen.** Notion vergibt dabei die Options-IDs neu: beim Anlegen von
+„Keine Emails raus gesendet" erbte die neue Option die ID von „Deaktiviert",
+und „Deaktiviert" bekam eine neue. Das ging nur gut, weil keine einzige Zeile
+auf „Deaktiviert" stand – hätte eine draufgestanden, würde sie heute
+fälschlich „Keine Emails raus gesendet" anzeigen. Weitere Optionen deshalb in
+der Notion-Oberfläche anlegen und danach hier eintragen.
 
 ⚠️ Der Sales Hub führt teilweise die Variante `Neu - keine infos und Materialien`
 (einfaches „l"). Beim Schreiben über `onb_update` **immer die Notion-Schreibweise
