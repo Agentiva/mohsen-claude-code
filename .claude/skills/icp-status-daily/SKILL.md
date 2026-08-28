@@ -113,6 +113,10 @@ Amplifa kennt keinen Playbook-Status „active". Mapping:
 
 → „mindestens ein Active" = mindestens ein Playbook mit `status: "approved"`.
 
+**Vom Auftraggeber bestätigt (28.08.2026):** Playbook „Active" ist gleich
+`approved`. Nicht neu interpretieren – `draft` und `archived` zählen nie als
+Active, auch wenn der Agent dazu läuft.
+
 ### (b) Agent-Status
 Direkt aus `agent.status`: `draft` / `ready` / `active` / `paused` / `completed`.
 
