@@ -37,9 +37,8 @@ Routine **nicht** geschrieben.
 
 `url` ist gleichzeitig die `page_id` für `notion-update-page`.
 
-Stand 2026-08-29: **127 Zeilen gesamt**, davon 35 `Gekündigt` → **92 Zeilen** im
-Lauf. 2 Zeilen ohne `Unternehmensname` (leere Platzhalter) → als Fehler zählen
-und überspringen.
+Stand 2026-08-31: **125 Zeilen gesamt**, davon 35 `Gekündigt` → **90 Zeilen** im
+Lauf. Alle Zeilen haben einen `Unternehmensname`.
 
 Hinweis: Der Notion-SQL-Endpunkt kann bei breiten Abfragen in ein 60s-Timeout
 laufen. Dann nur die vier Spalten oben selektieren und ggf. mit
@@ -228,11 +227,17 @@ Die **Routine schreibt diese Spalte nicht** – sie wird separat gepflegt, weil
 sich die Org-ID praktisch nie ändert. Neu angelegte Organisationen bekommen den
 Link beim nächsten manuellen Durchlauf.
 
-Stand 29.08.2026: 101 der 127 Zeilen haben eine zuordenbare Amplifa-Org.
-26 Zeilen ohne Org – überwiegend gekündigte Altkunden plus die Neuzugänge ohne
-Plattform-Anlage: All for One Group SE, CRMFIRST, Dermaceutical GmbH,
-ENWITO GmbH, montratec GmbH, Passmedientechnik GmbH, Peter Pan gmbh,
-QA-Test Formcheck, Vertigis, profine.
+Stand 31.08.2026: **101 der 125 Zeilen** haben den Link. Die verbleibenden 24
+haben keine zuordenbare Amplifa-Organisation:
+
+- **10 aktive** ohne Plattform-Anlage: All for One Group SE, CRMFIRST,
+  Dermaceutical GmbH, ENWITO GmbH, montratec GmbH, Passmedientechnik GmbH,
+  Peter Pan gmbh, QA-Test Formcheck, Vertigis, profine
+- **14 gekündigte** Altkunden: CERTUS, DRSP, EBR, Eloquia, ESD24.eu, Foursource,
+  Hard Skill, HCC Humancapitals, Lernlink, merath, motor Nützel,
+  Performance Heroes, Teleaktiv, Xandor
+
+Wird eine dieser Organisationen in Amplifa angelegt, den Link nachtragen.
 
 ⚠️ `REMIRA Austria GmbH` ist auf die generische Org `Remira` (59) gemappt – es
 gibt keine eigene Austria-Organisation. Vor Verwendung prüfen.

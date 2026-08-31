@@ -307,7 +307,7 @@ Gate-Zweig ausführen – nicht für laufende Kunden.
 
    `ICP-Status` ist ein Multi-Select und kommt als JSON-Array-String zurück
    (`["Live","Optimieren"]`), deshalb `NOT LIKE '%Gekündigt%'` statt `!=`.
-   Stand 29.08.2026: 127 Zeilen gesamt, davon 35 `Gekündigt` → **92 Zeilen**
+   Stand 31.08.2026: 125 Zeilen gesamt, davon 35 `Gekündigt` → **90 Zeilen**
    bleiben in der Routine.
 
    Gekündigte Organisationen sind damit dauerhaft raus: Sie tauchen weder in
