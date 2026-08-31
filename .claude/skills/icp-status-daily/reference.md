@@ -12,7 +12,7 @@
 | Amplifa Admin | https://app.amplifa.ai/admin/organizations/&lt;id&gt; |
 | Onboarding-Formular | https://proposal.amplifa.ai/onboardings/&lt;onboarding_id&gt; |
 
-## Notion-Query: Organisationsliste
+## Notion-Query: Organisationsliste (ohne Gekündigt)
 
 ```sql
 SELECT url,
@@ -20,20 +20,35 @@ SELECT url,
        "ICP-Status",
        "Onboarding-ID"
 FROM "collection://2a78174b-42df-81d2-80e3-000bc6b01cd6"
+WHERE "ICP-Status" IS NULL
+   OR "ICP-Status" NOT LIKE '%Gekündigt%'
 ORDER BY "Unternehmensname"
 ```
 
+`ICP-Status` ist seit 29.08.2026 ein **Multi-Select** und kommt als
+JSON-Array-String zurück: `["Live","Optimieren"]`. Deshalb `NOT LIKE`, nicht
+`!=`. Zum Auswerten in Python/jq das Array parsen, nicht auf Stringgleichheit
+prüfen.
+
 Die Spalte `Täglichen Report` (Text) in derselben DB nimmt pro Organisation das
 Tagesergebnis auf – siehe SKILL.md Abschnitt 5a.
+Die Spalte `Amplifa Plattform` (Text) trägt den Admin-Deeplink und wird von der
+Routine **nicht** geschrieben.
 
 `url` ist gleichzeitig die `page_id` für `notion-update-page`.
-Stand 2026-08-28: 126 Zeilen, alle mit gesetzter `Onboarding-ID`.
+
+Stand 2026-08-29: **127 Zeilen gesamt**, davon 35 `Gekündigt` → **92 Zeilen** im
+Lauf. 2 Zeilen ohne `Unternehmensname` (leere Platzhalter) → als Fehler zählen
+und überspringen.
 
 Hinweis: Der Notion-SQL-Endpunkt kann bei breiten Abfragen in ein 60s-Timeout
 laufen. Dann nur die vier Spalten oben selektieren und ggf. mit
 `LIMIT`/`OFFSET` in Blöcken von 50 Zeilen abfragen.
 
-## ICP-Status – exakte Select-Optionen der Notion-DB
+## ICP-Status – Multi-Select, exakte Optionen der Notion-DB
+
+Seit **29.08.2026** ist `ICP-Status` ein **Multi-Select** (vorher Single-Select).
+Die zehn Optionen, exakt so:
 
 ```
 Alle Informationen und Materialien eingereicht
@@ -44,22 +59,53 @@ Leads hinzufügen
 Emails Approven
 Optimieren
 Kampgane erstellen                  ← Tippfehler, so schreiben
-Deaktiviert
 Neu - keine infos und Materiallien  ← doppeltes l, so schreiben
 Keine Emails raus gesendet          ← am 28.08.2026 ergänzt
 ```
+
+`Deaktiviert` existiert **nicht mehr** – die Option ist beim Options-Umbau am
+28.08.2026 verschwunden (siehe Warnung unten). Keine Zeile stand darauf.
 
 Von der Routine gesetzt werden nur: `Live`, `Optimieren`, `Pausiert`,
 `Leads hinzufügen`, `Keine Emails raus gesendet`, `Kampgane erstellen`,
 `Neu - keine infos und Materiallien`.
 
-⚠️ **Neue Select-Optionen nie per `ALTER COLUMN "ICP-Status" SET SELECT(...)`
+### Schreiben
+
+Immer als Array, auch bei einem einzigen Wert:
+
+```jsonc
+mcp__Notion__notion-update-page {
+  "page_id": "<url der Zeile>",
+  "command": "update_properties",
+  "properties": { "ICP-Status": ["Live", "Optimieren"] }
+}
+```
+
+### Umstellung auf Multi-Select (29.08.2026, erledigt)
+
+```sql
+ALTER COLUMN "ICP-Status" SET MULTI_SELECT(
+  'Alle Informationen und Materialien eingereicht', 'Live', 'Pausiert',
+  'Gekündigt', 'Leads hinzufügen', 'Emails Approven', 'Optimieren',
+  'Kampgane erstellen', 'Neu - keine infos und Materiallien',
+  'Keine Emails raus gesendet')
+```
+
+Vorher/Nachher-Verteilung verglichen – **kein Datenverlust**: 35 Gekündigt,
+32 Live, 19 Pausiert, 14 Keine Emails raus gesendet, 9 Kampgane erstellen,
+5 Optimieren, 5 Leads hinzufügen, 3 Neu, 3 Emails Approven, 2 leer.
+Farben beim `ALTER` weglassen – mit Farbangabe schlägt der Call fehl
+(„Cannot update color of select with name: …").
+
+⚠️ **Optionen nie per `ALTER COLUMN ... SET SELECT/MULTI_SELECT(...)`
 nachziehen.** Notion vergibt dabei die Options-IDs neu: beim Anlegen von
 „Keine Emails raus gesendet" erbte die neue Option die ID von „Deaktiviert",
-und „Deaktiviert" bekam eine neue. Das ging nur gut, weil keine einzige Zeile
+und „Deaktiviert" verschwand. Das ging nur gut, weil keine einzige Zeile
 auf „Deaktiviert" stand – hätte eine draufgestanden, würde sie heute
 fälschlich „Keine Emails raus gesendet" anzeigen. Weitere Optionen deshalb in
-der Notion-Oberfläche anlegen und danach hier eintragen.
+der Notion-Oberfläche anlegen und danach hier eintragen. Vor jedem unvermeidbaren
+Schema-Eingriff die Verteilung sichern und danach vergleichen.
 
 ⚠️ Der Sales Hub führt teilweise die Variante `Neu - keine infos und Materialien`
 (einfaches „l"). Beim Schreiben über `onb_update` **immer die Notion-Schreibweise
@@ -166,19 +212,54 @@ Amplifa „Pamminger Verpackungstechnik"). Vorgehen:
 4. Kein eindeutiger Treffer → Organisation als **Fehler** in den Report,
    Status nicht ändern.
 
-## Verifizierter Schreibpfad (Test am 2026-08-28)
+## Spalte „Amplifa Plattform"
 
-Am Beispiel „AFG Healthcare GmbH" (2 Agenten `paused` → Kaskade Regel 3):
+Textspalte in „Kampagne Überblick", enthält den Deeplink in die Admin-UI:
+
+```
+https://app.amplifa.ai/admin/organizations/<organization_id>
+```
+
+`organization_id` kommt aus `mcp__Amplifa__organization_list`. Die Zuordnung
+Notion-`Unternehmensname` → `organization_id` folgt denselben Regeln wie der
+Namensabgleich weiter unten.
+
+Die **Routine schreibt diese Spalte nicht** – sie wird separat gepflegt, weil
+sich die Org-ID praktisch nie ändert. Neu angelegte Organisationen bekommen den
+Link beim nächsten manuellen Durchlauf.
+
+Stand 29.08.2026: 101 der 127 Zeilen haben eine zuordenbare Amplifa-Org.
+26 Zeilen ohne Org – überwiegend gekündigte Altkunden plus die Neuzugänge ohne
+Plattform-Anlage: All for One Group SE, CRMFIRST, Dermaceutical GmbH,
+ENWITO GmbH, montratec GmbH, Passmedientechnik GmbH, Peter Pan gmbh,
+QA-Test Formcheck, Vertigis, profine.
+
+⚠️ `REMIRA Austria GmbH` ist auf die generische Org `Remira` (59) gemappt – es
+gibt keine eigene Austria-Organisation. Vor Verwendung prüfen.
+
+## Verifizierter Schreibpfad
+
+**Single-Status (Test am 2026-08-28)** – „AFG Healthcare GmbH", 2 Agenten `paused`:
 
 ```
 onb_update  { onboarding_id: "48731671-…", patch: { icp_status: "Pausiert" } }  → ok, icp_status "Pausiert"
 onb_sync_notion { onboarding_id: "48731671-…" }                                 → ok, action "updated"
-Notion-Query                                                                    → ICP-Status "Pausiert"
+Notion-Query                                                                    → ICP-Status ["Pausiert"]
 ```
 
-Ergebnis: Der Sync übernimmt den String 1:1, es entsteht **keine** neue
-Select-Option in Notion. Der Pfad `onb_update` → `onb_sync_notion` ist damit der
-Standardweg; `notion-update-page` bleibt reiner Fallback.
+Der Sync übernimmt den String 1:1 und erzeugt **keine** neue Option in Notion.
+
+**Multi-Status** – zusätzlicher dritter Schritt, zwingend **nach** dem Sync:
+
+```
+onb_update      { patch: { icp_status: "<PRIMÄRSTATUS>" } }
+onb_sync_notion { onboarding_id: … }                       → Notion = ["<PRIMÄRSTATUS>"]
+notion-update-page { properties: { "ICP-Status": ["Live","Optimieren"] } }
+```
+
+`onb_sync_notion` kennt nur das einzelne Sales-Hub-Textfeld und setzt die
+Notion-Zelle auf genau einen Wert. Läuft es nach `notion-update-page`, sind die
+Zusatzstatus wieder weg.
 
 ⚠️ `onb_update` antwortet mit dem kompletten Onboarding-Datensatz (inkl.
 `website_analysis`, `suggested_*`, `selected_*` – mehrere tausend Zeilen).
