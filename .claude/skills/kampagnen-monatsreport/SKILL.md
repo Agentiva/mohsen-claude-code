@@ -5,7 +5,7 @@ description: >
   amplifa-Plattform, schreibt sie wochenweise (Woche 1-4) plus Monatssumme in die
   Notion-Datenbank "Kampagne Überblick – Board" und hinterlegt pro Zeile einen
   Ampel-Report (🔴 ROT / 🟡 GELB / ⚪ WEIß / 🟢 GRÜN) auf Basis des Paket Modells.
-  Läuft als Cloud-Routine 3 Tage vor Monatsende UNBEAUFSICHTIGT – stellt daher
+  Läuft als Cloud-Routine am 07. jedes Monats UNBEAUFSICHTIGT – stellt daher
   KEINE Rückfragen, trifft Best-Effort-Entscheidungen und protokolliert Unklarheiten
   am Ende. Manuell nutzbar mit "mach den Monatsreport für <Monat>".
 ---
@@ -16,24 +16,20 @@ Diese SKILL.md ist der vollständige Routine-Prompt. Sie ist so geschrieben, das
 ohne Vorwissen aus dem Chat läuft. Nichts löschen, nichts an Kunden senden – nur
 Plattform lesen, rechnen, Notion schreiben, am Ende kurz berichten.
 
-## 0. Termin-Guard (nur bei automatischem Lauf)
+## 0. Lauftermin
 
-Die Routine feuert täglich am 25.–28. Prüfe zuerst:
+Die Routine feuert **am 07. jedes Monats**. Kein Guard nötig – den 07. gibt es in
+jedem Monat, die Routine läuft also genau einmal pro Monat.
 
-```
-zieltag = letzter_Tag_des_aktuellen_Monats − 3
-```
-
-Ist **heute ≠ zieltag**, brich sofort ab und melde nur „Kein Lauftag (heute TT.MM.,
-Zieltag TT.MM.)". Keine weiteren Tool-Calls.
-
-Beispiele: August (31 Tage) → 28.08. · September (30) → 27.09. · Februar (28) → 25.02.
-
-Bei manuellem Aufruf entfällt der Guard.
+Der Termin liegt bewusst eine Woche nach Monatswechsel: verspätet klassifizierte
+Antworten aus den letzten Tagen des Berichtsmonats sind dann erfasst.
 
 ## 1. Berichtsmonat bestimmen
 
-Berichtsmonat = **der Monat davor**. Lauf Ende August → Berichtsmonat **Juli**.
+Berichtsmonat = **der Monat davor**. Lauf am 07.08. → Berichtsmonat **Juli**.
+Lauf am 07.01. → Berichtsmonat **Dezember des Vorjahres** (Jahreswechsel beachten:
+`JAHR` ist dann das Vorjahr).
+
 Merke dir `JAHR`, `MONAT_NR`, `MONAT_DE` (Januar … Dezember) und `LETZTER_TAG`.
 
 Achtung Altlast: Die Spalte für Februar heißt in der DB **„Februaur"** (Tippfehler,
@@ -277,3 +273,5 @@ Am Ende in den Chat (kein Notion, keine Mail):
   entspricht dem Admin-Filter und ist so gewollt.
 - Läuft die Routine unbeaufsichtigt, niemals eine Rückfrage stellen – Annahme
   treffen, ausführen, unter „Offene Punkte" dokumentieren.
+- Ein erneuter Lauf für denselben Monat überschreibt die Werte idempotent – ein
+  Nachlauf ist damit gefahrlos möglich.
