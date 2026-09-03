@@ -1,32 +1,34 @@
-# photovest – Bedarfsqualifizierte Zielfirmenliste (DE, 5.000)
+# photovest – Bedarfsqualifizierte Zielfirmenliste (DE) · net-new
 
 Bedarfsliste für **photovest** (steueroptimiertes Photovoltaik-Investment ohne Eigenkapital).
-Playbook: **Photovoltaik-Investment ohne Eigenkapital**.
+Amplifa Org 60 · Playbook 321 „Photovoltaik-Investment ohne Eigenkapital".
 
-## Deliverables
-- `photovest_prospects.csv` – **5.000 Firmen**, Spalten: `company_name, domain, playbook_name`.
-- `clay_sculptor_prompt.md` – Pro-Firma-Bedarfsprüfung (Claygent/Sculptor) in Clay.
-- `find_people_jobtitles.md` – ~25 Tier-1/Tier-2-Jobtitel für "Find People" in Clay.
+## Finale Deliverables
+- `photovest_prospects_final.csv` – **5.000 net-new Firmen**, Spalten:
+  `company_name, company_domain, playbook_name`.
+- Notion: **photovest – Clay Sculptor Prompt & Job Titles (Playbook 321)**
+  (Score 0–10 + Qualified Yes/Maybe/No + reason + source_url) unter „photovest GmbH".
 
-## Bedarfslogik
-photovest verkauft an **einkommensstarke Privatpersonen mit hoher Einkommensteuerlast**
-(ab ~70 T€ Jahreseinkommen, besonders ab >30 T€ Steuer/Jahr), abgebildet über ein Gewerbe.
-Da Zielobjekte **Firmen** sind, ist der Bedarfsträger das inhaber-/gesellschaftergeführte,
-profitable Unternehmen, hinter dem ein/e hoch besteuerte/r Eigentümer:in steht
-(Personas: Unternehmer Michael, Freiberuflerin Sabine, Investor Thomas, Steueroptimierer Andreas).
+## Ausschluss (wichtig)
+Alle Firmen aus den 4 hochgeladenen Kontaktlisten (CEOs Germany SMBs, Manufacturing
+Leadership Germany, Finance & Management Executives Germany, Geschäftsführer –
+zusammen 13.435 unique Domains) wurden **hart entfernt**. Overlap der finalen CSV mit
+diesen Listen = **0**. Zusätzlich sind alle bereits in der ersten 5.000er-Liste
+enthaltenen Domains als „schon vorhanden" behandelt, sodass die Topup-Firmen echt net-new sind.
 
 ## Methode
-1. **Website/Deep Research** zur Validierung der Segmentgrößen (Freiberufler-Universum in DE
-   allein >300.000 Einheiten → 5.000 klar tragbar).
-2. **Apollo.io Organization Search** als Skalier-Engine (Deep-Research-Limit für 5.000 saubere
-   Name+Domain-Paare schnell erreicht), segmentweise nach NAICS × Mitarbeiterband × Deutschland.
-3. **Dedupe** nach normalisierter Domain + **firmographische Vorqualifizierung**
-   (Ausschluss von AG/SE/Streubesitz, öffentlicher Hand, Kliniken/Uni, e.V./gGmbH/Stiftung,
-   Genossenschaften/Banken).
-4. Intelligente Pro-Firma-Prüfung bewusst **an Clay ausgelagert** (siehe Sculptor-Prompt),
-   nicht token-teuer pro Website durch das Modell.
+1. **Website/Deep Research** zur Segmentvalidierung (Freiberufler-Universum DE >300k Einheiten).
+2. **Apollo.io Organization Search** als Skalier-Engine (NAICS × Mitarbeiterband × DE),
+   segmentweise paginiert.
+3. **Dedupe** (normalisierte Domain) + **firmographische Bereinigung** (AG/SE/Streubesitz,
+   öffentliche Hand, Kliniken/Uni, e.V./gGmbH/Stiftung, Genossenschaften/Banken raus).
+4. **Exklusion** der 4 Kundenlisten → 4.005 net-new, danach per Apollo auf 5.000 aufgefüllt.
+5. Intelligente Pro-Firma-Prüfung → Clay Sculptor Prompt (Notion), nicht token-teuer im Modell.
 
-## Segment-Mix (Tier-A-gewichtet, höchste Steuerlast-Wahrscheinlichkeit)
-Rechtsanwalts-Kanzleien, Steuerberater/WP, Architektur-/Ingenieurbüros, Arztpraxen,
-Unternehmensberatung, Maschinenbau/Fertigung, IT-Dienstleister, Bau/Handwerk (Elektro/SHK),
-Zahnarztpraxen, Großhandel, Autohäuser.
+## Bedarfslogik
+photovest-Kunde = einkommensstarke Privatperson mit hoher Einkommensteuerlast
+(ab ~70 T€ Einkommen, >30 T€ Steuer/Jahr), über Gewerbe. Als Firma abgebildet =
+inhaber-/gesellschaftergeführtes, profitables Unternehmen mit hoch besteuertem Eigner.
+
+Hinweis: Die Ausschluss-/Zwischen­dateien (Kunden-Kontaktlisten, kombinierte Exclude-Sets)
+werden bewusst NICHT ins Repo committet (proprietäre Kontaktdaten).
