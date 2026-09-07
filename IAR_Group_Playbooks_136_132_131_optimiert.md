@@ -195,7 +195,7 @@ Pain Points:
 - He struggles to find vendors who have actually solved handling at this part size rather than promising to.
 - He carries the technical risk if the system cannot reach the required detection reliability during validation.
 
-**Regulatory and Validation Lead Rita**
+**Regulatory Lead Regina**
 Director Regulatory Affairs, Validation Engineer, Quality Systems Manager, Leiter Validierung, Responsable de Validación, Responsável de Validação
 
 Pain Points:
@@ -375,7 +375,7 @@ Aus dem Onboarding-Call vom 04.09.2026:
 
 ```
 markets:        US, Germany, Austria, Switzerland, Spain, Portugal
-company_sizes:  51_200, 201_1000, 1001_5000
+company_sizes:  51_200, 201_1000, 1000_plus
 ```
 
 Priorisierung laut Caezar Ilaya: zuerst Portugal und Spanien, dann Schweiz und Deutschland. Österreich als Ergänzung zu Deutschland. Erste Laufzeit ein bis zwei Monate bzw. bis Jahresende, danach Neubewertung vor einer Erweiterung.
