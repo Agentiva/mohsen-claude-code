@@ -2,10 +2,14 @@
 """
 Normalisiert, dedupliziert und validiert Lead-Listen fuer den amplifa-Import.
 
-Erzwingt EXAKT das Spaltenschema des lead_import_template - ohne die
-email-Spalte (amplifa findet die E-Mails selbst):
+Erzwingt EXAKT das Spaltenschema des lead_import_template:
 
-    first_name,last_name,full_name,job_title,company,company_website,linkedin_url,location
+    email,first_name,last_name,full_name,job_title,company,company_website,linkedin_url,location
+
+Die email-SPALTE ist Pflicht, die WERTE bleiben leer - amplifa findet die Adressen
+selbst. Im Test gemessen: `agent_import_leads` bricht ohne gemapptes email-Feld ab
+("column_mapping must map a CSV column to email"), obwohl `lead_import_preview` die
+Datei ohne email noch durchwinkt. Der Preview ist hier also KEIN verlaesslicher Waechter.
 
 Eingabe: eine oder mehrere CSV- oder JSON-Dateien (JSON = Liste von Objekten).
 Ausgabe: eine kanonische CSV auf stdout oder via -o.
@@ -23,6 +27,7 @@ import re
 import sys
 
 COLUMNS = [
+    "email",
     "first_name",
     "last_name",
     "full_name",
@@ -83,6 +88,8 @@ ALIASES = {
     "standort": "location",
 }
 
+# E-Mail-Werte werden bewusst verworfen: amplifa findet die Adressen selbst, eine
+# Clay-/Apollo-Anreicherung kostet hier nur Credits. Die SPALTE bleibt trotzdem stehen.
 DROPPED_KEYS = {"email", "email_address", "e_mail", "mail", "work_email", "personal_email"}
 
 
@@ -242,7 +249,9 @@ def main():
         f"({stats['dubletten']} Dubletten, {stats['unvollstaendig']} unvollstaendig verworfen)",
         file=sys.stderr,
     )
-    print(f"Spalten: {','.join(COLUMNS)}  (keine email-Spalte - amplifa findet die E-Mails)", file=sys.stderr)
+    print(f"Spalten: {','.join(COLUMNS)}", file=sys.stderr)
+    print("email-Spalte vorhanden, Werte leer - amplifa findet die Adressen selbst. "
+          "Ohne diese Spalte weist agent_import_leads den Import ab.", file=sys.stderr)
     return 0
 
 

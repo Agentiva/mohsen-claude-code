@@ -1,0 +1,24 @@
+# Rollen, die die ICP-Keywords faelschlich mitfangen (im Test gemessen)
+Portfolio Management
+Portfoliomanagement
+IT - Finance
+Finanzspezialist
+Trading
+Immobilien
+Estate Management
+Working Student
+Werkstudent
+Trainee
+Praktikant
+Personalleiter
+Human Resources
+Recruiting
+Dozent
+Professor
+Einkäufer
+Einkauf
+Buyer
+Beschaffung
+Assistent
+Assistant
+Vorstandsassistent

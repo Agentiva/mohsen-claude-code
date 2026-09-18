@@ -1,0 +1,48 @@
+# VertiGIS ConnectMaster - ICP-Titel (aus den kundenbestätigten Personas)
+Netzplanung
+Netzbetrieb
+Netzdokumentation
+Netzausbau
+Netzmanagement
+Netzführung
+Netzwirtschaft
+Netzservice
+GIS
+Geoinformation
+Geodaten
+Asset Management
+Instandhaltung
+Dokumentation
+Breitband
+Glasfaser
+FTTH
+FTTX
+Entstörung
+Vermessung
+Kataster
+Network Planning
+Network Operations
+Network Documentation
+Network Inventory
+CTO
+Chief Technology Officer
+Leiter Technik
+Technischer Leiter
+Head of GIS
+# Nachgezogen: Netzbetriebs-Rollen, die der erste Filterlauf faelschlich verworfen hat
+Network Engineer
+Network Design
+Netzdesign
+NOC
+SOC
+Network Deployment
+Netzentwicklung
+Network Development
+Systemführung
+Betriebsführer
+Schalttechniker
+Netzqualität
+Rollout
+Fiber
+Faser
+Trasse

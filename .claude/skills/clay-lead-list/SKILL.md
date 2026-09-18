@@ -1,128 +1,160 @@
 ---
 name: clay-lead-list
-description: Baut über Clay die passende Lead-Liste für einen amplifa-Kunden (Firmenliste ODER Personenliste) und lädt sie eigenständig in die richtige Organisation auf der amplifa-Plattform hoch. IMMER nutzen, wenn der User sinngemäß sagt "such mir eine Liste für den Kunden X", "bau mir eine Lead-Liste über Clay", "Firmenliste/Personenliste für Kunde Y", "zieh die Kontakte für Kunde Z und lad sie hoch" oder "finde mehr" zu einer laufenden Liste. Liefert IMMER eine CSV im exakten amplifa-Importschema (identisch zum lead_import_template, aber OHNE email-Spalte) plus den bestätigten Import in die richtige Kunden-Organisation.
+description: Baut über Clay die passende Lead-Liste für einen amplifa-Kunden (Firmenliste ODER Personenliste) und lädt sie eigenständig in die richtige Organisation auf der amplifa-Plattform hoch. IMMER nutzen, wenn der User sinngemäß sagt "such mir eine Liste für den Kunden X", "bau mir eine Lead-Liste über Clay", "Firmenliste/Personenliste für Kunde Y", "zieh die Kontakte für Kunde Z und lad sie hoch" oder "finde mehr" zu einer laufenden Liste. Liefert IMMER eine CSV im exakten amplifa-Importschema (identisch zum lead_import_template, email-Spalte leer) plus den verifizierten Import in die richtige Kunden-Organisation.
 argument-hint: [kunde + listentyp (firmen|personen) + anzahl + zielmarkt/ICP]
 ---
 
 # Clay Lead-List-Builder → amplifa-Import
 
-Eine Pipeline vom Kundenauftrag bis zur importierten Liste: **Clay findet die Leads → Skript erzwingt das Importschema → amplifa bekommt sie in der richtigen Organisation.**
+Pipeline vom Kundenauftrag bis zur importierten Liste: **Clay findet die Leads → Skript erzwingt das Importschema → amplifa bekommt sie in der richtigen Organisation.**
 
-Zwei Listentypen, ein Schema:
-- **Personenliste** (Default): konkrete Ansprechpartner mit Titel und Firma – das, was eine Sequenz direkt anschreiben kann.
-- **Firmenliste**: nur Unternehmen + Domain, Personenspalten leer. Für Account-first-Kampagnen oder wenn die Kontakte später in amplifa/Clay nachgezogen werden.
+Alle Zahlen und Regeln unten sind an einem echten Durchlauf (VertiGIS ConnectMaster, DACH) gemessen, nicht geschätzt. Die teuren Irrwege stehen in `reference.md` → „Gemessene Werkzeuglage".
+
+## Die fünf Fallen, die den Lauf kosten
+
+Diese zuerst lesen. Jede einzelne hat im Test Zeit oder Qualität gekostet:
+
+1. **Die `email`-Spalte ist Pflicht — auch wenn sie leer bleibt.** `agent_import_leads` bricht ab mit `column_mapping must map a CSV column to email`. **`lead_import_preview` winkt dieselbe Datei ohne email durch** — der Preview ist also *kein* verlässlicher Wächter für den Import.
+2. **Titelfilter am Clay-Batch werden stillschweigend ignoriert.** `run_subroutine_direct` nimmt `Job Title Keywords`/`Seniority` entgegen und liefert exakt dieselben 10 Zufallspersonen. Kein Fehler, kein Hinweis.
+3. **Ein `locations`-Filter in der gefilterten Clay-Suche zerstört die Ausbeute** — im Test 20 → 3 Treffer bei derselben Firma. Land immer *lokal* nachfiltern, nie in der Query.
+4. **Apollo-Personensuche liefert keine importfähigen Zeilen.** Nachnamen sind maskiert (`Eg***i`), LinkedIn und Domain fehlen. Nur für Firmen-Discovery nutzen.
+5. **Kurze Titel-Keywords als Substring sind Gift.** `cto` matcht in „Dire**cto**r", `gis` in „Lo**gis**tik". Das Skript matcht auf Wortgrenzen — Filter nie von Hand nachbauen.
 
 ## Schritt 0 – Auftrag fixieren (kurz, nicht ausfragen)
 
-Nötig sind nur vier Dinge. Was im Prompt steht, wird nicht nachgefragt:
-
 | Punkt | Wenn nicht genannt |
 |---|---|
-| **Kunde / Organisation** | Über `organization_list` auflösen (Schritt 5). Nur bei Mehrdeutigkeit fragen. |
+| **Kunde / Organisation** | Über `organization_list` auflösen. Nur bei Mehrdeutigkeit fragen. |
+| **Ziel-Agent** | `agent_list` prüfen. **Mehrere Agents mit verschiedenen Märkten → fragen**, das entscheidet Zielland und Sprache der ganzen Suche. |
 | **Listentyp** | Personen als Default – außer der User sagt „Firmenliste"/„Unternehmensliste". |
 | **Anzahl** | 200 Kontakte bzw. 300 Firmen als Startbatch, dann nachladen. |
-| **ICP / Zielmarkt** | Aus dem Kundenprodukt herleiten (Schritt 1) – nicht raten, sondern recherchieren. |
+| **ICP / Zielmarkt** | Aus dem Onboarding holen (Schritt 1) – nicht raten. |
 
 ## Schritt 1 – Kundenkontext & ICP (IMMER zuerst)
 
-Nie blind suchen. Bevor Clay angefasst wird:
+Das Onboarding ist die Goldgrube: es enthält **vom Kunden bestätigte** ICPs, Personas und die Blacklist. Nie den ICP selbst erfinden, solange das da ist.
 
-1. **Kunde verstehen:** Website des Kunden + Web-Recherche. Was verkauft er, welches Problem löst er, an wen.
-2. **Vorhandenes Material nutzen, statt es neu zu erfinden:** existiert schon eine Bedarfsliste (`bedarfsliste`), ein Market-Intel-Report (`market-intel-report`) oder ein Onboarding zu dem Kunden in amplifa (`onb_get`, `onb_get_website_analysis`) → das ist der ICP, nicht die eigene Vermutung.
-3. **ICP schriftlich fixieren** und dem User in 5 Zeilen zeigen, *bevor* Credits fließen: Branchen/Sub-Sektoren · Größenband · Region/Land · Bedarfssignale · harte Ausschlüsse.
-4. **Bei Personenlisten zusätzlich das Buying Center:** Tier-1-Titel (Entscheider/Budget) und Tier-2-Titel (Nutzer/operativ), deutsch **und** englisch – Clay matcht über Titel-Strings.
+1. `onb_list(company="<Kunde>")` – findet die Onboardings. Mehrere → das mit `status: submitted` und dem konkreteren `company_website` (oft die Produktseite, z. B. `/connectmaster/`) ist das relevante.
+2. **`onb_get_website_analysis` nutzen, NICHT `onb_get`.** `onb_get` sprengt mit ~140k Zeichen das Kontextlimit; die Analyse liefert kompakt `selected_icps`, `selected_personas`, `selected_product_groups` und `value_propositions`.
+3. **Blacklist holen.** Sie steckt nur in `onb_get`. Dessen Ergebnis wird bei Überlänge automatisch auf Platte geschrieben – die Datei mit einem Skript nach `"blacklist"` → `entries` parsen, statt sie in den Kontext zu laden. Rezept: `reference.md` → „Blacklist".
+4. **ICP in 5 Zeilen festhalten** und zeigen, *bevor* Credits fließen: Branchen · Größenband · Region · Bedarfssignale · harte Ausschlüsse.
+5. **Bei Personenlisten die Titelliste bauen** – aus `selected_personas.example_titles`, deutsch **und** englisch. Diese Liste ist eine Datei (eine Zeile pro Begriff), Eingabe für das Filterskript.
 
-Kurze Bestätigung des Users abwarten, wenn der ICP nennenswert interpretiert wurde. Steht der ICP klar im Prompt: direkt weiter.
+Steht der ICP klar im Prompt: direkt weiter. Wurde er nennenswert interpretiert: kurz bestätigen lassen.
 
 ## Schritt 2 – Clay aufrufen
 
-**Route A (Default): Clay-Connector.** Ist bereits authentifiziert, liefert strukturierte Daten und kostet keine Login-Akrobatik. Läuft im selben Clay-Workspace wie die UI – vorher mit `get-current-workspace` bestätigen, in welchen Workspace gearbeitet wird.
+**Route A (Default): Clay-Connector.** Authentifiziert, strukturierte Daten. Mit `get-current-workspace` bestätigen, in welchem Workspace gearbeitet wird, und das in den Report schreiben.
 
-**Route B: Clay im Browser.** Über Playwright/Chromium (vorinstalliert), wenn Route A nicht reicht – etwa für eine bestehende Clay-Tabelle, einen fertigen Table-Export oder ein Workspace-Enrichment, das nur in der UI existiert. Mechanik und Grenzen: `reference.md` → „Clay im Browser". Kein Login-Zustand vorhanden → das **sagen und auf Route A wechseln**, niemals nach Zugangsdaten fragen oder sie hart eintragen.
+**Route B: Clay im Browser** (Playwright/Chromium, vorinstalliert) nur, wenn Route A die Aufgabe nicht abdeckt – bestehende Clay-Tabelle, UI-only-Enrichment, Table-Export. Kein Login-Zustand → **sagen und auf Route A wechseln**, nie nach Zugangsdaten fragen. Mechanik: `reference.md`.
 
-Regel: Route A versuchen, Route B nur mit Grund. Welcher Weg genommen wurde, gehört in den Abschlussreport.
+## Schritt 3 – Liste bauen: die richtige Route wählen
 
-## Schritt 3 – Liste in Clay bauen
+Gemessen an 25 Firmen und 1.625 Rohpersonen:
 
-**Firmenliste:** Firmen nach ICP-Filtern ziehen (Branche × Größenband × Region als mehrere Teilsuchen, nicht eine Mega-Query). Jeden Batch sofort wegschreiben.
+| Route | Titelfilter | Ausbeute | Präzision | Calls |
+|---|---|---|---|---|
+| `find-and-enrich-contacts-at-company` | ✅ echt | 0–20/Firma | **~75 %** | 1 **pro Firma** |
+| `run_subroutine_direct` „Find People at Company" | ❌ ignoriert | hart 10/Firma | **3 %** | 1 für bis zu 1000 Firmen |
 
-**Personenliste:** erst die Zielfirmen (wie oben oder aus einer vorhandenen `liste.csv`), dann pro Firma über die Tier-1/Tier-2-Titel die Kontakte. Pro Firma das **Buying Center, nicht das Org-Chart** – 2–5 Kontakte sind das sinnvolle Band.
+**Die gefilterte Route ist der Arbeitspferd-Weg.** Der Batch lohnt nur als billiger Breitensweep über viele Firmen, wenn Vollständigkeit wichtiger ist als Präzision.
 
-**Enrichments nur, wenn der User sie ausdrücklich will – sie kosten Credits.** Insbesondere:
+**Firmen-Discovery** (Domains beschaffen): `apollo_mixed_companies_search` mit NAICS + `organization_locations` + `organization_num_employees_ranges`, `per_page: 100`. **1 Credit pro Request** – dem User vorher sagen. Liefert `primary_domain` (Bucket `organizations`) bzw. `domain` (Bucket `accounts`). Alternativ die fertige CSV aus dem `bedarfsliste`-Skill.
 
-> **Niemals E-Mails in Clay anreichern.** Die E-Mail-Spalte ist bewusst nicht Teil des Importschemas – **amplifa findet die Adressen selbst**. Eine Clay-E-Mail-Anreicherung verbrennt hier nur Credits.
+**Kontakte je Firma** – so und nicht anders aufrufen:
 
-Die eigentliche Bedarfsprüfung pro Firma gehört als Claygent-/Sculptor-Prompt nach Clay, nicht in Claudes Tokens (Vorlage: `bedarfsliste/clay_sculptor_prompt.md`).
+```
+find-and-enrich-contacts-at-company(
+  companyIdentifier = "<domain>",
+  contactFilters = { job_title_keywords: [ ...12–14 ICP-Begriffe... ] }   // KEIN locations!
+)
+```
 
-## Schritt 4 – CSV ins Importschema zwingen (nie von Hand)
+Welche Firmen sich lohnen (im Test gemessen):
 
-Rohdaten aus Clay (JSON oder CSV) immer durch das Skript schicken – es normalisiert, dedupliziert und erzwingt das Schema:
+- **Telco- und Glasfaser-Carrier: 15–20 Treffer/Firma** – mit Abstand die beste Ader für Netz-/Inventory-Produkte.
+- **Große Versorger/Netzgesellschaften: 5–12.**
+- **Firmen unter ~200 Mitarbeitenden: 0–2** – überspringen, der Call lohnt nicht.
+- **0 Treffer trotz großer Firma = Domain-Mismatch.** Clay führt die Firma unter einer anderen Domain (`gasag.de` → `gasag-gruppe.de`). Die Antwort nennt unter `companies.<key>.domain` die kanonische Domain – damit erneut suchen.
+
+**Enrichments nur auf ausdrücklichen Wunsch – sie kosten Credits. E-Mails grundsätzlich nie** (amplifa findet sie selbst; die Spalte bleibt leer).
+
+## Schritt 4 – Ergebnisse einsammeln, ohne den Kontext zu sprengen
+
+**Der Batch-Weg ist transkriptionsfrei:** `get-task-context` liefert bei Überlänge automatisch eine Datei statt Kontext. Das ist erwünscht – die Datei direkt ans Skript geben:
 
 ```bash
-python3 ${CLAUDE_SKILL_DIR}/scripts/build_leadlist_csv.py --mode people  clay_batch1.json -o leads.csv
-python3 ${CLAUDE_SKILL_DIR}/scripts/build_leadlist_csv.py --mode company firmen.json     -o leads.csv
+python3 ${CLAUDE_SKILL_DIR}/scripts/clay_task_to_rows.py <task-context-datei>... \
+    --titles titles.txt --exclude exclude.txt \
+    --countries "Germany,Austria,Switzerland,Deutschland,Österreich,Schweiz" \
+    -o hits.json
 ```
 
-Ausgabeschema – **exakt die Spalten des `lead_import_template`, nur ohne `email`**:
+- **`isComplete: false` heißt: Clay war noch nicht fertig.** Im Test fehlten so 66 von 90 Firmen. Das Skript warnt; dann `get-task-context` erneut aufrufen, nicht weiterrechnen.
+- `--exclude` ist Pflicht bei „Asset Management" im ICP – es fängt sonst Finanz-, IT-Portfolio-, Immobilien- und Einkaufsrollen mit. Vorlage: `reference.md`.
+- `--countries` ersetzt den verbotenen `locations`-Query-Filter und wirft Treffer internationaler Konzerne aus Italien/Rumänien/UK raus.
+
+**Der gefilterte Weg landet im Kontext** und muss von Hand in eine JSONL-Datei geschrieben werden (ein Objekt pro Zeile, Felder wie im Schema). Das ist der eigentliche Engpass des Verfahrens – **~8 Leads pro Firma, ~1 Call pro Firma**. Für 500 Leads sind das rund 60 Firmen. Realistisch planen und dem User die Rechnung nennen, statt still bei 150 aufzuhören.
+
+## Schritt 5 – CSV ins Importschema zwingen (nie von Hand)
+
+```bash
+python3 ${CLAUDE_SKILL_DIR}/scripts/build_leadlist_csv.py --mode people  hits.json -o leads.csv
+python3 ${CLAUDE_SKILL_DIR}/scripts/build_leadlist_csv.py --mode company firmen.json -o leads.csv
+```
+
+Ausgabeschema – **byte-identisch mit `lead_import_template`**:
 
 ```
-first_name,last_name,full_name,job_title,company,company_website,linkedin_url,location
+email,first_name,last_name,full_name,job_title,company,company_website,linkedin_url,location
 ```
 
-- **Reihenfolge und Schreibweise sind fix.** Keine Zusatzspalten, keine Umbenennung, keine `email`-Spalte – auch dann nicht, wenn Clay eine mitliefert (das Skript wirft sie raus).
-- **Firmenliste:** identische Kopfzeile, Personenspalten leer. Das Schema bleibt dasselbe, damit der amplifa-Import unverändert greift.
-- Das Skript normalisiert Domains (`https://www.acme.de/x` → `acme.de`) und LinkedIn-URLs, baut `full_name` aus Vor-/Nachname (und umgekehrt) und dedupliziert über LinkedIn-URL bzw. Domain.
-- Es meldet auf stderr, wie viele Zeilen sauber, doppelt oder unvollständig waren – **diese Zahlen in den Report übernehmen**.
+- **`email` ist als Spalte Pflicht, die Werte bleiben leer.** Ohne sie scheitert der Import (Falle 1). Das Skript legt die Spalte an und verwirft mitgelieferte E-Mail-Werte.
+- **Firmenliste:** identische Kopfzeile, Personenspalten leer.
+- Das Skript normalisiert Domains und LinkedIn-URLs, baut `full_name` in beide Richtungen, dedupliziert über LinkedIn-URL bzw. Domain und meldet die Zahlen auf stderr – **diese Zahlen in den Report übernehmen**.
+- **Blacklist zuletzt noch einmal gegen die Firmennamen der Leads prüfen**, nicht nur gegen den Firmenpool: über den Batch-Weg rutschen sonst Bestandskunden rein.
 
-## Schritt 5 – Import in die richtige amplifa-Organisation
+## Schritt 6 – Import in die richtige amplifa-Organisation
 
-Der empfindliche Teil: Leads landen in einer echten Kunden-Organisation. Reihenfolge strikt einhalten.
+1. **Organisation:** `organization_list(search="<Kunde>")`. Genau ein Treffer → eigenständig weiter. Mehrere oder keiner → **fragen, nie raten, nie neu anlegen.**
+2. **Agent:** `agent_list`. Dabei `total_leads_count` ansehen – **hat der Agent schon Leads, ist Dublettengefahr real**; das in den Report schreiben.
+3. **Preview:** `lead_import_preview` mit einer **3-Zeilen-Probe** der fertigen CSV. Prüft Mapping, Umlaute und Quoting billig. Achtung: er prüft **nicht** die email-Pflicht.
+4. **Import:** `agent_import_leads`. Die CSV geht als Base64 in den Call – **in Blöcke von ~100 Zeilen teilen**. Kleinere Payloads senken das Übertragungsrisiko und jeder Block ist einzeln verifizierbar.
+5. **Verifizieren:** `lead_import_status` mit der `lead_import_id` **bis `status` nicht mehr `pending`/`running` ist.** Erst dann `created_count`, `skipped_count`, `blacklisted_count` und `errors_detail` in den Report. Ein frisch angelegter Import steht auf `total_rows: 0` – das ist *kein* Ergebnis.
 
-1. **Organisation auflösen:** `organization_list` mit dem Kundennamen als `search`.
-   - **Genau ein eindeutiger Treffer → eigenständig weiterarbeiten.**
-   - Mehrere Treffer oder kein Treffer → **fragen, nicht raten.** Niemals eine Organisation anlegen, nur weil der Name nicht gefunden wurde.
-2. **Agent wählen:** `agent_list` für die Organisation. Genau ein aktiver/passender Agent → nehmen. Mehrere → den vom User genannten, sonst kurz fragen. Keiner → ohne Agent importieren und das im Report vermerken.
-3. **Trockenlauf:** `lead_import_preview` mit der CSV und dem expliziten `column_mapping` (siehe unten). Prüfen: erkannte Zeilenzahl, Mapping aller acht Spalten, gemeldete Fehler. **Nur bei sauberem Preview weiter.**
-4. **Import:** `agent_import_leads` mit derselben CSV, demselben `column_mapping`, `organization_name` und `agent_name`.
-5. **Verifizieren:** `lead_import_status` mit der zurückgegebenen `lead_import_id`, bis der Import durch ist. Importierte Anzahl, Fehler und Übersprungene festhalten.
-
-Das `column_mapping` ist 1:1 – die CSV-Header heißen schon wie die Zielfelder:
+`column_mapping` ist 1:1, die CSV-Header heißen wie die Zielfelder:
 
 ```json
-{"first_name":"first_name","last_name":"last_name","full_name":"full_name",
+{"email":"email","first_name":"first_name","last_name":"last_name","full_name":"full_name",
  "job_title":"job_title","company":"company","company_website":"company_website",
  "linkedin_url":"linkedin_url","location":"location"}
 ```
 
-Details zum Upload (Data-URI/Base64) und zu Fehlerbildern: `reference.md` → „amplifa-Import".
+## Schritt 7 – Report
 
-## Schritt 6 – Report
-
-Zum Abschluss immer, kurz:
-
-- Kunde/Organisation + Agent, in die importiert wurde
-- Listentyp, Anzahl sauberer Zeilen, Dubletten/Verworfene (Zahlen aus Schritt 4)
-- `lead_import_id` + Endstatus aus `lead_import_status`
-- ICP-Kurzfassung und welche Clay-Route (A oder B) genutzt wurde
-- Pfad zur CSV – **immer mitliefern, auch wenn der Import geklappt hat**
+- Organisation + Agent, in die importiert wurde (und wie viele Leads dort vorher lagen)
+- Listentyp, saubere Zeilen, Dubletten/Verworfene, durch Blacklist entfernt
+- `lead_import_id` + **Endstatus** aus `lead_import_status`
+- ICP-Kurzfassung, genutzte Clay-Route, Clay-Workspace
+- Pfad zur CSV – **immer mitliefern**
+- **Wurde die Zielzahl nicht erreicht: die Zahl nennen und sagen, was fehlt** (z. B. „172 von 500; für den Rest ~40 weitere Firmen à 1 Clay-Call")
 
 ## „Finde mehr"
 
-`leads.csv` ist der Master. Neuen Batch ziehen (bereits gefundene Firmen/Kontakte in Clay ausschließen) und beides gemeinsam durchs Skript schicken – die Reihenfolge bestimmt, welcher Datensatz gewinnt:
+`leads.csv` ist der Master. Neuen Batch ziehen, beides gemeinsam durchs Skript – die erste Datei gewinnt bei Dubletten:
 
 ```bash
 python3 ${CLAUDE_SKILL_DIR}/scripts/build_leadlist_csv.py --mode people leads.csv batch2.json -o leads.csv
 ```
 
-Dann **nur den neuen Teil** importieren, nicht die komplette Masterliste erneut – sonst entstehen Dubletten in amplifa.
+Dann **nur den neuen Teil** importieren, nie die ganze Masterliste erneut.
 
 ## Eiserne Regeln
 
-- **Keine `email`-Spalte.** Nie in der CSV, nie im Mapping, nie in Clay angereichert – amplifa macht das.
+- **`email` als Spalte immer, Werte immer leer.** Nie in Clay/Apollo anreichern.
 - **Spaltenschema exakt wie oben.** Abweichung = kaputter Import.
-- **Nie erfundene Personen, Firmen, Domains oder LinkedIn-URLs.** Unklar → Zeile raus. Das Skript verwirft unvollständige Zeilen automatisch; diese Verwerfung nicht durch Auffüllen umgehen.
-- **Zielzahl nicht mit Schrott auffüllen.** Sind nur 340 passende Firmen im Markt, wird das gemeldet – nicht auf 1000 aufgefüllt.
-- **Immer erst `lead_import_preview`, dann `agent_import_leads`.** Kein Import ohne sauberen Trockenlauf.
-- **Organisation nie raten.** Eindeutig → eigenständig importieren. Mehrdeutig → fragen. Nie neu anlegen.
-- **Enrichments kosten Credits** – nur auf ausdrücklichen Wunsch, E-Mails grundsätzlich nie.
+- **Nie erfundene Personen, Firmen, Domains oder LinkedIn-URLs.** Unklar → Zeile raus.
+- **Zielzahl nicht mit Schrott auffüllen** – lieber weniger und ehrlich melden.
+- **Kein Import ohne Preview und ohne abschließenden `lead_import_status`.**
+- **Organisation nie raten, nie neu anlegen. Bei mehreren Agents fragen.**
 - **CSV immer durch das Skript**, nie von Hand zusammenbauen.
