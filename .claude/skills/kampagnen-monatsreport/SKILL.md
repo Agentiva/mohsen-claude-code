@@ -152,19 +152,60 @@ liefert höchstens 100 Einträge pro Call (nur `organization_id` und
 verlässlichster Anker zuerst: die `organization_id` am Ende der URL in „Amplifa
 Plattform" (`https://app.amplifa.ai/admin/organizations/<id>`).
 
-**3. Lücken schließen – nur leere Felder füllen, nie vorhandene Werte überschreiben:**
+**3. Links prüfen und korrigieren – bei JEDER Zeile mit Betreuer oder Plattform-ID,
+nicht nur bei leeren Feldern.**
+
+Zielformat (genau so, nichts anderes):
+
+| Spalte | Richtig | Beispiel |
+|---|---|---|
+| „Amplifa Plattform" | `https://app.amplifa.ai/admin/organizations/<id>` – ohne Unterseite, ohne `/` am Ende | `https://app.amplifa.ai/admin/organizations/143` |
+| „Website-URL" | `https://<host>` – nur die Startseite: mit `https://`, ohne Pfad, ohne Sprachkürzel, ohne `?…`/`#…`, Host kleingeschrieben, `www.` nur wenn es schon da war | `https://www.colorparts.com` |
+
+Normalisieren (automatisch korrigieren, Wert ist eindeutig):
+- „Amplifa Plattform": alles nach der ID abschneiden (`/playbooks`, `/agents`,
+  `/domains`, `?…`). Die ID muss in der Organisationsliste aus Schritt 1 vorkommen.
+- „Website-URL": `http://` → `https://`; fehlendes Schema ergänzen
+  (`mayr.ch` → `https://mayr.ch`); Pfad, Query und Fragment entfernen
+  (`https://www.ebmpapst.com/de/de/…?utm_…` → `https://www.ebmpapst.com`,
+  `https://cora.tech/nl/health` → `https://cora.tech`); Host kleinschreiben
+  (`Scalenc.com` → `https://scalenc.com`).
+
+Nicht automatisch ändern, sondern unter „Offene Punkte" melden:
+- „Website-URL" ist gar keine Domain (kein Punkt, Leerzeichen, Firmenname statt
+  Link – z. B. „Byload GmbH").
+- „Website-URL" passt nicht zum Unternehmen: weder der Firmenname noch die
+  Plattform-Organisation noch die Sende-Domains der Conversations finden sich in
+  der Domain wieder (z. B. Delkeskamp → `supaso.eu`, CRMFIRST → `procontracts.de`).
+  Kann eine Produktmarke sein – ein Mensch entscheidet.
+- „Amplifa Plattform" zeigt auf eine ID, deren `organization_name` nicht zur Zeile
+  passt, oder auf eine ID, die es nicht gibt.
+
+Lücken schließen – nur leere Felder füllen:
 
 | Befund | Aktion |
 |---|---|
-| Zeile gefunden, „Amplifa Plattform" leer | `https://app.amplifa.ai/admin/organizations/<organization_id>` eintragen |
-| Zeile gefunden, „Amplifa Plattform" zeigt auf eine **andere** ID | nicht ändern → „Offene Punkte" |
-| Zeile gefunden, „Website-URL" leer | Nur eintragen, wenn die Domain eindeutig belegt ist: Sende-Domain aus den Conversations (`mailbox.email` / `from_address`) passt zu „Domains Name", oder die Website steht im Playbook/Agent-Info der Organisation. Sonst leer lassen → „Offene Punkte". **Nie raten.** |
-| Zeile gefunden, „Unternehmensname" leer | `organization_name` eintragen |
+| „Amplifa Plattform" leer, Organisation eindeutig zugeordnet | `https://app.amplifa.ai/admin/organizations/<organization_id>` eintragen |
+| „Website-URL" leer | Nur eintragen, wenn die Domain eindeutig belegt ist: Domain aus Playbook/Agent-Info der Organisation oder eine Sende-Domain, die den Firmennamen enthält. Sonst leer lassen → „Offene Punkte". **Nie raten.** |
+| „Unternehmensname" leer | `organization_name` eintragen |
 | **Keine Zeile gefunden** (nach allen Zuordnungsschritten) | Neue Zeile anlegen (`mcp__Notion__notion-create-pages`, parent = die Data Source) mit „Unternehmensname" = `organization_name` und „Amplifa Plattform" = Admin-URL. Sonst nichts setzen (kein Betreuer, kein Paket, kein ICP-Status – das entscheidet ein Mensch). → „Offene Punkte" |
 
 Vor dem Anlegen einer Zeile doppelt prüfen, dass es wirklich keine gibt
 (Sonderfall-Tabelle in Schritt 7, normalisierter Name, Domain). Ein Duplikat ist
 schlimmer als ein offener Punkt; im Zweifel nicht anlegen, sondern melden.
+
+Prüf-Query für falsch formatierte Links (nach den Korrekturen muss sie leer sein,
+bis auf gemeldete Fälle):
+```sql
+SELECT url, "Unternehmensname", "Website-URL", "Amplifa Plattform"
+FROM "collection://2a78174b-42df-81d2-80e3-000bc6b01cd6"
+WHERE ("Website-URL" IS NOT NULL AND ("Website-URL" NOT LIKE 'https://%'
+        OR instr(substr("Website-URL", 9), '/') > 0
+        OR "Website-URL" LIKE '%?%' OR "Website-URL" NOT LIKE '%.%'))
+   OR ("Amplifa Plattform" IS NOT NULL AND ("Amplifa Plattform" NOT LIKE
+        'https://app.amplifa.ai/admin/organizations/%'
+        OR substr("Amplifa Plattform", 45) GLOB '*[^0-9]*'))
+```
 
 **4. Sichtbarkeit im Board prüfen.** Die Datenbank
 `2a78174b42df81b5be38cdc8240dced2` fetchen und die View „Tabelle"
@@ -408,7 +449,8 @@ Am Ende in den Chat (kein Notion, keine Mail):
 5. **Offene Punkte** – der wichtigste Teil, hier steht, was ein Mensch nachpflegen
    muss:
    - Ergebnis der Vorab-Prüfung (Schritt 5a): neu angelegte Zeilen, automatisch
-     gefüllte Felder, Zeilen mit weiterhin leerer „Website-URL" oder „Amplifa
+     gefüllte oder normalisierte Links (Anzahl + Beispiele), Websites, die nicht
+     zum Unternehmen passen, Zeilen mit weiterhin leerer „Website-URL" oder „Amplifa
      Plattform", abweichende Plattform-IDs,
    - gekündigte Organisationen mit Meetings im Berichtsmonat (Name, Anzahl) – mit
      Hinweis, falls ein View-Filter sie versteckt,
