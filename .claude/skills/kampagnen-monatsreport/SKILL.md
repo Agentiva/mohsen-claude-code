@@ -6,7 +6,7 @@ description: >
   wochenweise (Woche 1-4), als Monatssumme ("<Monat>") und auf 10 gedeckelt
   ("<Monat> richtig"), plus Ampel-Report (🔴 ROT / 🟡 GELB / ⚪ WEIß / 🟢 GRÜN) auf
   Basis des Paket Modells. Was geschrieben wird, hängt vom Betreuer der Zeile ab
-  ("Kampagne betreut von (1)": Mo, Anthony Filipiak oder leer). Prüft vor dem Lauf,
+  ("Kampagne betreut von ...": Mo, Anthony Filipiak oder leer). Prüft vor dem Lauf,
   dass jede Plattform-Organisation im Board steht (Unternehmensname, Website-URL,
   Amplifa Plattform gefüllt) und dass die Ergebnis-Spalten sichtbar sind. Läuft als
   Cloud-Routine am 07. jedes Monats UNBEAUFSICHTIGT – stellt daher KEINE
@@ -127,7 +127,7 @@ Rechnung", „August richtige Rechnung".
 
 Dann alle Zeilen laden (Vormonatsspalte nur mitnehmen, wenn sie existiert):
 ```sql
-SELECT url, "Unternehmensname", "Kampagne betreut von (1)", "ICP-Status",
+SELECT url, "Unternehmensname", "Kampagne betreut von ...", "ICP-Status",
        "Paket Modell", "Domains Name", "Website-URL", "Amplifa Plattform",
        "<VORMONAT_SPALTE>"
 FROM "collection://2a78174b-42df-81d2-80e3-000bc6b01cd6"
@@ -210,7 +210,7 @@ WHERE ("Website-URL" IS NOT NULL AND ("Website-URL" NOT LIKE 'https://%'
 **4. Sichtbarkeit im Board prüfen.** Die Datenbank
 `2a78174b42df81b5be38cdc8240dced2` fetchen und die View „Tabelle"
 (`view://2a78174b-42df-810e-a1c9-000c0503a2f4`) ansehen:
-- `displayProperties` muss enthalten: „Kampagne betreut von (1)",
+- `displayProperties` muss enthalten: „Kampagne betreut von ...",
   „Unternehmensname", „Website-URL", „Amplifa Plattform", „ICP-Status",
   „Paket Modell", „Woche 1"–„Woche 4", `SPALTE_MONAT`, `SPALTE_RICHTIG`, „Report".
   Fehlt eine (neu angelegte Spalten sind oft ausgeblendet), mit
@@ -231,7 +231,11 @@ lässt, kommt in „Offene Punkte", danach geht es normal weiter.
 
 ## 6. Betreuer bestimmt, was geschrieben wird
 
-Spalte **„Kampagne betreut von (1)"** (Personenfeld, Wert wie `["user://<id>"]`).
+Spalte **„Kampagne betreut von ..."** (Personenfeld, Wert wie `["user://<id>"]`).
+Der Spaltenname wurde schon einmal umbenannt (früher „Kampagne betreut von (1)").
+Den aktuellen Namen immer aus dem Schema lesen (Schritt 5); die Spalten
+„<Monat> Kampagne betreut von ..." (z. B. „November Kampagne betreut von ...")
+sind Monats-Schnappschüsse und werden von der Routine nicht verwendet.
 Nach der User-ID entscheiden, nicht nach dem Anzeigenamen:
 
 | Betreuer | User-ID | Woche 1–4 | `SPALTE_MONAT` | `SPALTE_RICHTIG` | Ampel + Report |
