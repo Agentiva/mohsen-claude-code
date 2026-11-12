@@ -6,7 +6,9 @@ description: >
   wochenweise (Woche 1-4), als Monatssumme ("<Monat>") und auf 10 gedeckelt
   ("<Monat> richtig"), plus Ampel-Report (🔴 ROT / 🟡 GELB / ⚪ WEIß / 🟢 GRÜN) auf
   Basis des Paket Modells. Was geschrieben wird, hängt vom Betreuer der Zeile ab
-  ("Kampagne betreut von (1)": Mo, Anthony Filipiak oder leer). Läuft als
+  ("Kampagne betreut von (1)": Mo, Anthony Filipiak oder leer). Prüft vor dem Lauf,
+  dass jede Plattform-Organisation im Board steht (Unternehmensname, Website-URL,
+  Amplifa Plattform gefüllt) und dass die Ergebnis-Spalten sichtbar sind. Läuft als
   Cloud-Routine am 07. jedes Monats UNBEAUFSICHTIGT – stellt daher KEINE
   Rückfragen, trifft Best-Effort-Entscheidungen und protokolliert Unklarheiten am
   Ende. Manuell nutzbar mit "mach den Monatsreport für <Monat>".
@@ -123,9 +125,65 @@ Rechnung", „August richtige Rechnung".
 Dann alle Zeilen laden (Vormonatsspalte nur mitnehmen, wenn sie existiert):
 ```sql
 SELECT url, "Unternehmensname", "Kampagne betreut von (1)", "ICP-Status",
-       "Paket Modell", "Domains Name", "Website-URL", "<VORMONAT_SPALTE>"
+       "Paket Modell", "Domains Name", "Website-URL", "Amplifa Plattform",
+       "<VORMONAT_SPALTE>"
 FROM "collection://2a78174b-42df-81d2-80e3-000bc6b01cd6"
 ```
+
+## 5a. Vorab-Prüfung: Plattform ↔ Board (Pflicht, vor jedem Zählen)
+
+Ziel: **Jede Organisation aus `app.amplifa.ai/admin/organizations` hat eine
+Board-Zeile, in der „Unternehmensname", „Website-URL" und „Amplifa Plattform"
+gefüllt sind.** Erst danach wird gezählt.
+
+**1. Alle Plattform-Organisationen laden.** `mcp__Amplifa__organization_list`
+liefert höchstens 100 Einträge pro Call (nur `organization_id` und
+`organization_name`) und hat keine Pagination. Deshalb:
+- einmal ohne `search` mit `limit=100`,
+- kommen genau 100 zurück, zusätzlich mit `search` = jeder Buchstabe a–z und jede
+  Ziffer 0–9 sweepen (jeweils `limit=100`) und nach `organization_id`
+  deduplizieren. Liefert ein einzelner Buchstabe wieder 100, mit zwei Buchstaben
+  nachfassen.
+
+**2. Jede Organisation einer Board-Zeile zuordnen** – Reihenfolge wie in Schritt 7,
+verlässlichster Anker zuerst: die `organization_id` am Ende der URL in „Amplifa
+Plattform" (`https://app.amplifa.ai/admin/organizations/<id>`).
+
+**3. Lücken schließen – nur leere Felder füllen, nie vorhandene Werte überschreiben:**
+
+| Befund | Aktion |
+|---|---|
+| Zeile gefunden, „Amplifa Plattform" leer | `https://app.amplifa.ai/admin/organizations/<organization_id>` eintragen |
+| Zeile gefunden, „Amplifa Plattform" zeigt auf eine **andere** ID | nicht ändern → „Offene Punkte" |
+| Zeile gefunden, „Website-URL" leer | Nur eintragen, wenn die Domain eindeutig belegt ist: Sende-Domain aus den Conversations (`mailbox.email` / `from_address`) passt zu „Domains Name", oder die Website steht im Playbook/Agent-Info der Organisation. Sonst leer lassen → „Offene Punkte". **Nie raten.** |
+| Zeile gefunden, „Unternehmensname" leer | `organization_name` eintragen |
+| **Keine Zeile gefunden** (nach allen Zuordnungsschritten) | Neue Zeile anlegen (`mcp__Notion__notion-create-pages`, parent = die Data Source) mit „Unternehmensname" = `organization_name` und „Amplifa Plattform" = Admin-URL. Sonst nichts setzen (kein Betreuer, kein Paket, kein ICP-Status – das entscheidet ein Mensch). → „Offene Punkte" |
+
+Vor dem Anlegen einer Zeile doppelt prüfen, dass es wirklich keine gibt
+(Sonderfall-Tabelle in Schritt 7, normalisierter Name, Domain). Ein Duplikat ist
+schlimmer als ein offener Punkt; im Zweifel nicht anlegen, sondern melden.
+
+**4. Sichtbarkeit im Board prüfen.** Die Datenbank
+`2a78174b42df81b5be38cdc8240dced2` fetchen und die View „Tabelle"
+(`view://2a78174b-42df-810e-a1c9-000c0503a2f4`) ansehen:
+- `displayProperties` muss enthalten: „Kampagne betreut von (1)",
+  „Unternehmensname", „Website-URL", „Amplifa Plattform", „ICP-Status",
+  „Paket Modell", „Woche 1"–„Woche 4", `SPALTE_MONAT`, `SPALTE_RICHTIG`, „Report".
+  Fehlt eine (neu angelegte Spalten sind oft ausgeblendet), mit
+  `mcp__Notion__notion-update-view` einblenden (`SHOW "<Spalte>"`, Syntax siehe
+  `notion://docs/view-dsl-spec`). Keine Spalte ausblenden, Reihenfolge und Sortierung
+  nicht ändern.
+- Die gespeicherte View darf **keinen Filter** haben, der Zeilen versteckt (z. B.
+  „ICP-Status enthält nicht Gekündigt"). Hat sie einen, den Filter **nicht
+  eigenmächtig löschen**, sondern unter „Offene Punkte" melden – zusammen mit der
+  Liste der gekündigten Zeilen, die im Berichtsmonat Meetings hatten und dadurch
+  unsichtbar sind.
+- Ein persönlicher, nicht gespeicherter Filter eines Nutzers ist über die API nicht
+  sichtbar und nicht änderbar. Deshalb in der Abschlussmeldung immer die
+  gekündigten Organisationen mit Meetings namentlich aufführen.
+
+Die Vorab-Prüfung blockiert den Lauf nicht: Was sich nicht automatisch schließen
+lässt, kommt in „Offene Punkte", danach geht es normal weiter.
 
 ## 6. Betreuer bestimmt, was geschrieben wird
 
@@ -136,13 +194,17 @@ Nach der User-ID entscheiden, nicht nach dem Anzeigenamen:
 |---|---|---|---|---|---|
 | **Mo** | `27fd872b-594c-813a-ad8d-0002915432bb` | schreiben | `SUMME` | `min(SUMME, 10)` | ja |
 | **Anthony Filipiak** | `128d872b-594c-8195-ac0d-00020b9004a5` | schreiben | **nicht schreiben** | **nicht schreiben** | ja |
-| leer | – | nichts | nichts | nichts | nein → „Offene Punkte" |
-| anderer User | – | nichts | nichts | nichts | nein → „Offene Punkte" |
+| leer / anderer User, **mit** Meetings im Berichtsmonat | – | schreiben | `SUMME` | `min(SUMME, 10)` | ja, plus „Offene Punkte" (Betreuer fehlt) |
+| leer / anderer User, **ohne** Meetings | – | nichts | nichts | nichts | nein |
 
 - Bei Anthony-Zeilen die beiden Monatsspalten **gar nicht in den Update-Call
   aufnehmen** – vorhandene Werte bleiben stehen, es wird auch keine 0 geschrieben.
 - **Gekündigte Zeilen** (ICP-Status enthält „Gekündigt") werden genauso behandelt wie
-  alle anderen: zählen, Ampel, Report. Der Betreuer entscheidet, nicht der ICP-Status.
+  alle anderen: zählen, Ampel, Report. Der ICP-Status schließt nie eine Zeile aus.
+- **Kein Meeting geht verloren:** Kamen im Berichtsmonat Meeting Requests für eine
+  Organisation, wird ihre Zeile immer geschrieben – auch wenn sie gekündigt ist und
+  kein Betreuer eingetragen ist (dann wie eine Mo-Zeile). Den ICP-Status dabei
+  **nicht** ändern.
 - Hat eine Mo- oder Anthony-Zeile keine passende Plattform-Organisation, gelten alle
   Wochenwerte als 0 und die Ampel ist ⚪ WEIß (siehe Schritt 9).
 
@@ -150,7 +212,9 @@ Nach der User-ID entscheiden, nicht nach dem Anzeigenamen:
 
 Plattform-Name und Board-Titel weichen oft ab. Vorgehen je Organisation:
 
-1. Exakter Treffer auf `Unternehmensname` (Groß-/Kleinschreibung ignorieren).
+0. `organization_id` = ID am Ende der URL in „Amplifa Plattform". Das ist der
+   verlässlichste Anker und schlägt alle Namensvergleiche.
+1. Sonst exakter Treffer auf `Unternehmensname` (Groß-/Kleinschreibung ignorieren).
 2. Sonst Normalisierung: Rechtsform (GmbH, AG, & Co. KG), Bindestriche,
    Leerzeichen und Umlaute (ae/oe/ue/ss) entfernen und erneut vergleichen.
 3. Sonst über die **Sende-Domains** verifizieren: `mailbox.email` bzw.
@@ -199,8 +263,8 @@ Verifizierte Sonderfälle (Stand 08/2026) – erst prüfen, ob sie noch gelten:
 | Ergopack | ErgoPack |
 | ProContur | ProContur Individuelle Feinblech- und Kunststoffprodukte GmbH |
 
-Organisationen **ohne** Board-Zeile: nicht raten, keine Zeile anlegen – am Ende
-unter „Offene Punkte" melden.
+Organisationen ohne Board-Zeile gibt es nach Schritt 5a nicht mehr – dort wurde
+die Zeile angelegt oder der Fall als offener Punkt vermerkt.
 
 ## 8. Paket Modell auslesen
 
@@ -238,10 +302,10 @@ Exakt diese Schreibweise verwenden: **🔴 ROT**, **🟡 GELB**, **⚪ WEIß**, 
 
 ## 10. Notion schreiben
 
-Pro Mo- oder Anthony-Zeile ein `mcp__Notion__notion-update-page` mit
-`command: "update_properties"`.
+Pro Zeile, die laut Schritt 6 geschrieben wird, ein
+`mcp__Notion__notion-update-page` mit `command: "update_properties"`.
 
-Mo-Zeile:
+Mo-Zeile (ebenso: Zeile ohne Betreuer mit Meetings im Berichtsmonat):
 ```json
 {
   "Woche 1": <a>, "Woche 2": <b>, "Woche 3": <c>, "Woche 4": <d>,
@@ -262,7 +326,7 @@ Anthony-Zeile:
 Regeln:
 - **Immer 0 schreiben, nie leer lassen** – in allen Feldern, die für die Zeile laut
   Schritt 6 geschrieben werden. Eine leere Zelle liest sich als „nicht erfasst".
-- Zeilen ohne Betreuer nicht anfassen.
+- Zeilen ohne Betreuer **und** ohne Meetings im Berichtsmonat nicht anfassen.
 - Werte anderer Monate nicht überschreiben.
 - Zahlen als JSON-Number, nicht als String.
 - Schlägt ein Update fehl: einmal wiederholen, sonst Zeile unter „Offene Punkte"
@@ -274,8 +338,9 @@ korrigieren:
   `SPALTE_RICHTIG` = min(`SPALTE_MONAT`, 10), nichts ist NULL,
 - keine Zeile hat `SPALTE_RICHTIG` > 10,
 - jede Anthony-Zeile hat Woche 1–4 gefüllt,
-- Summe aller Wochenwerte im Board = Anzahl der zugeordneten Meeting Requests aus
-  Schritt 3.
+- Summe aller Wochenwerte im Board = Anzahl **aller** Meeting Requests des
+  Berichtsmonats aus Schritt 3. Jede Differenz ist ein verlorenes Meeting – Ursache
+  suchen (fehlende Zuordnung, Zeile ohne Betreuer übersehen) und beheben.
 
 ## 11. Reporttext
 
@@ -330,9 +395,12 @@ Am Ende in den Chat (kein Notion, keine Mail):
 4. Veränderungen ggü. Vormonat, die auffallen (Absturz oder Sprung > 50 %).
 5. **Offene Punkte** – der wichtigste Teil, hier steht, was ein Mensch nachpflegen
    muss:
-   - Zeilen ohne Betreuer, deren Organisation im Berichtsmonat Meeting Requests
-     hatte (mit Anzahl),
-   - Organisationen mit Meeting Requests ohne Board-Zeile,
+   - Ergebnis der Vorab-Prüfung (Schritt 5a): neu angelegte Zeilen, automatisch
+     gefüllte Felder, Zeilen mit weiterhin leerer „Website-URL" oder „Amplifa
+     Plattform", abweichende Plattform-IDs,
+   - gekündigte Organisationen mit Meetings im Berichtsmonat (Name, Anzahl) – mit
+     Hinweis, falls ein View-Filter sie versteckt,
+   - Zeilen ohne Betreuer, die wegen Meetings trotzdem geschrieben wurden,
    - Mo-/Anthony-Zeilen ohne Paket Modell,
    - nicht zuordenbare Namen, neu angelegte Spalten, fehlgeschlagene Updates.
 
