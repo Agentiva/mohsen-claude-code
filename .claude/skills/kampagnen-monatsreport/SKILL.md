@@ -70,7 +70,10 @@ Entspricht dem Admin-Filter
 `app.amplifa.ai/admin/replies?status=open&reply_type=meeting_request`.
 
 1. `mcp__Amplifa__conversation_list_by_status` mit `status="meeting_request"`,
-   `per_page=100`, Seite 1 → `pagination.total_pages` lesen.
+   `per_page=50`, Seite 1 → `pagination.total_pages` lesen. **Nicht `per_page=100`**:
+   Seiten mit langen Threads sprengen dann die MCP-Verbindung (Lauf 11/2026).
+   Bricht eine Seite trotzdem ab, mit kleinerem `per_page` dieselben Einträge
+   nachladen (Seite p bei 100 = Seiten 2p-1 und 2p bei 50).
 2. Alle Seiten durchlaufen, bis das Datumsfenster des Berichtsmonats sicher
    überschritten ist. Die Liste ist **absteigend nach letzter Antwort** sortiert –
    du kannst aufhören, sobald eine Seite nur noch Daten **vor** dem 01. des
@@ -223,6 +226,15 @@ Plattform-Name und Board-Titel weichen oft ab. Vorgehen je Organisation:
 4. Bei mehreren Kandidaten die Zeile **mit Betreuer** und echtem `ICP-Status`
    nehmen, **nicht** die leeren Formular-Duplikate mit „Neu - keine infos und
    Materiallien".
+5. **Mehrere Zeilen mit derselben Plattform-ID** (z. B. cora, ScaleNC, U-NIQ,
+   invenio, OPUS, Aluminium Honsel): Meetings nur in **eine** Zeile schreiben –
+   die mit gesetztem Paket Modell, bei Gleichstand die mit ICP-Status „Live". Die
+   übrigen Zeilen nicht anfassen und als Duplikat unter „Offene Punkte" melden.
+   Sonst werden Meetings doppelt gezählt.
+6. **Test- und Demo-Zeilen** (Name beginnt mit „[QA", „QA-Test", „Amplifa Demo")
+   und Test-Organisationen der Plattform („TEST", „Demo Company", „Security Test",
+   „LinkedIn Test", Faker-Namen wie „Moore-Simonis") nicht schreiben und keine
+   Zeile dafür anlegen.
 
 Verifizierte Sonderfälle (Stand 08/2026) – erst prüfen, ob sie noch gelten:
 
